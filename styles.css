@@ -15,8 +15,8 @@
 
 
   --body-font: "DM Sans", sans-serif;
-  --h1-font-size: 1.5rem;
-  --normal-font-size: .938rem;
+  --h1-font-size: clamp(1.5rem, 2vw + 1rem, 2.25rem);
+  --normal-font-size: clamp(0.875rem, 1vw + 0.5rem, 1rem);
   --tiny-font-size: .625rem;
 
   --z-tooltip: 10;
@@ -86,6 +86,9 @@ html {
 .content-section.active-section {
   display: block;
 }
+.section.active {
+  display: block;
+}
 
 /* Aktiver Button */
 .nav__link.active-link {
@@ -127,6 +130,7 @@ img {
 
 .section {
   padding: 4.5rem 0 2rem;
+  display: none;
 }
 
 .section__title {
@@ -156,14 +160,13 @@ img {
   transition: .4s;
 }
 #map {
-  height: 500px; /* Höhe der Karte anpassen */
-  width: 100%; /* Breite der Karte */
+  height: min(70vh, 500px); /* Nie mehr als 500px, aber bei kleineren Screens flexibler */
+  width: 100%;
   z-index: 1;
 }
 
 .content-section {
-  display: none;
-  padding: 6rem;
+  padding: clamp(2rem, 5vw, 4rem);
 }
 
 .content-section.active-section {
@@ -335,11 +338,12 @@ img {
 }
 @media screen and (min-width: 1024px) {
   .container {
-    margin-left: 20%;
-    margin-right: auto;
+    margin: 0 auto;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    max-width: 968px;
   }
 }
-
 /* Personen-Spezifisches Styling */
 .personen-container {
   display: flex;
@@ -369,19 +373,33 @@ img {
 .personen-liste li {
   padding: 12px 15px;
   cursor: pointer;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #7d4c17;
   transition: background-color 0.2s;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
+.show-on-map-btn {
+  background-color: var(--first-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 4px 8px;
+  margin-left: 8px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
 
+.show-on-map-btn:hover {
+  background-color: var(--first-color-alt);
+}
 .personen-liste li:hover {
-  background-color: #f5f5f5;
+  background-color: hsl(var(--hue), 50%, 85%);;
 }
 
 .personen-liste li.active {
-  background-color: #e0e0e0;
+  background-color: hsl(var(--hue), 50%, 85%);;
   font-weight: bold;
 }
 
@@ -393,7 +411,7 @@ img {
 }
 
 .person-images {
-  display: flex;
+  display: flex-end;
   flex-wrap: wrap;
   gap: 15px;
   margin-bottom: 20px;
@@ -404,6 +422,7 @@ img {
   height: auto;
   border-radius: 10px;
   object-fit: cover;
+  float: right;
 }
 
 .content-section {
@@ -419,12 +438,69 @@ img {
   height: 80vh;
   margin-top: 20px;
 }
+/* Gesteins-Detailansicht */
+.gestein-info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+.back-to-item-btn {
+  margin-top: 10px;
+  padding: 5px 10px;
+  background: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
 
+
+.gestein-info-item {
+  display: flex;
+  flex-direction: column;
+  padding: 0.8rem;
+  background-color: var(--container-color);
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.gestein-info-label {
+  font-weight: bold;
+  color: var(--first-color);
+  margin-bottom: 0.3rem;
+  font-size: 0.9rem;
+}
+
+.gestein-info-value {
+  color: var(--text-color);
+  font-size: 1rem;
+}
+
+.gestein-image-container {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.gestein-image {
+  max-width: 100%;
+  height: auto;
+  max-height: 300px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  object-fit: contain;
+}
+
+@media (max-width: 768px) {
+  .gestein-info-grid {
+      grid-template-columns: 1fr;
+  }
+}
 .gestein-liste {
   width: 30%;
   overflow-y: auto; /* Vertikales Scrollen */
   overflow-x: hidden; /* Horizontales Scrollen verhindern */
-  border-right: 1px solid #ccc;
+  /*border-right: 1px solid #ccc; */
   padding-right: 15px;
   
   /* Unsichtbare Scrollbar für Webkit-Browser (Chrome, Safari) */
@@ -447,7 +523,7 @@ img {
 .gestein-liste li {
   padding: 12px 15px;
   cursor: pointer;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #3f2c2c;
   transition: background-color 0.2s;
   white-space: nowrap; /* Verhindert Zeilenumbruch */
   overflow: hidden; /* Versteckt überfließenden Text */
@@ -459,14 +535,14 @@ img {
 }
 
 .gestein-liste li.active {
-  background-color: #e0e0e0;
+  background-color: hsl(var(--hue), 50%, 85%);;
   font-weight: bold;
 }
 
 .gestein-details {
   width: 70%;
   padding: 0 20px;
-  overflow: hidden; /* Kein Scrollen im rechten Bereich */
+   /* Kein Scrollen im rechten Bereich */
 }
 
 .details-content {
