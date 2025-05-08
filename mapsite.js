@@ -337,13 +337,23 @@ let previousState = {
     activeSteinId: null,
     activeSection: null
 };
-
+// Neue Hilfsfunktion (global verfügbar machen)
+window.showOnMapWithId = function(steinId) {
+    const stein = gesteineDaten[steinId];
+    if (!stein || !stein.koordinaten) {
+        alert('Keine Koordinaten verfügbar');
+        return;
+    }
+    
+    // Nimm die erste Koordinate als Standardansicht
+    const firstCoord = stein.koordinaten[0];
+    showOnMap(firstCoord[0], firstCoord[1], stein.name, steinId);
+};
 function showOnMap(lat, lng, name, steinId) {
     // Aktuellen Zustand speichern
-    const activeSection = document.querySelector('.section.active');
     previousState = {
         activeSteinId: steinId,
-        activeSection: activeSection ? activeSection.id : 'gestein' // Fallback
+        activeSection: 'gestein'
     };
     
     // Zur Karte wechseln
@@ -354,25 +364,62 @@ function showOnMap(lat, lng, name, steinId) {
             initializeMap();
             mapInitialized = true;
         }
-        
-        map.setView([lat, lng], 14);
-        
-        if (window.tempMarker) {
-            map.removeLayer(window.tempMarker);
+
+        const stein = gesteineDaten[steinId];
+        if (!stein) {
+            alert('Gesteinsdaten nicht gefunden!');
+            restorePreviousView();
+            return;
         }
+
+        // Koordinaten aus den Gesteinsdaten holen oder übergebene Koordinaten verwenden
+        let koordinaten = stein.koordinaten || [[lat, lng]];
         
-        const backButton = `<button class="back-to-item-btn" 
-                              onclick="restorePreviousView()">
-                           Zurück zu ${name}
-                           </button>`;
+        // Sicherstellen, dass koordinaten ein Array von Arrays ist
+        if (!Array.isArray(koordinaten[0])) {
+            koordinaten = [koordinaten]; // In Array von Arrays umwandeln
+        }
+
+        // Vorherige Marker entfernen
+        if (window.tempMarkers) {
+            window.tempMarkers.forEach(marker => map.removeLayer(marker));
+        }
+        window.tempMarkers = [];
         
-        window.tempMarker = L.marker([lat, lng])
-            .addTo(map)
-            .bindPopup(`<b>Fundort:</b> ${name}<br>${backButton}`)
-            .openPopup();
+        // Marker für jede Koordinate erstellen
+        koordinaten.forEach((coord, index) => {
+            // Sicherstellen, dass die Koordinate gültig ist
+            if (!coord || coord.length !== 2 || isNaN(coord[0]) || isNaN(coord[1])) {
+                console.error('Ungültige Koordinate:', coord);
+                return;
+            }
+            
+            const backButton = `<button class="back-to-item-btn" 
+                                  onclick="restorePreviousView()">
+                               Zurück zu ${name}
+                               </button>`;
+            
+            const marker = L.marker([coord[0], coord[1]])
+                .addTo(map)
+                .bindPopup(`<b>Fundort ${index + 1}:</b> ${name}<br>${backButton}`);
+            
+            window.tempMarkers.push(marker);
+        });
+        
+        // Kartenansicht anpassen
+        if (koordinaten.length === 1) {
+            // Bei nur einer Koordinate: Zentrieren und zoomen
+            map.setView([koordinaten[0][0], koordinaten[0][1]], 12);
+        } else if (koordinaten.length > 1) {
+            // Bei mehreren Koordinaten: Alle sichtbar machen
+            const bounds = L.latLngBounds(koordinaten.map(c => [c[0], c[1]]));
+            map.fitBounds(bounds, {padding: [50, 50]});
+        }
     }, 300);
 }
-
+console.log('Stein ID:', steinId);
+console.log('Gesteine Daten:', gesteineDaten);
+console.log('Aktueller Stein:', gesteineDaten[steinId]);
 function restorePreviousView() {
     // Sicherstellen, dass previousState existiert
     if (!previousState || !previousState.activeSection) {

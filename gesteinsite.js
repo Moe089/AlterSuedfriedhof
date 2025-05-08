@@ -15,9 +15,9 @@ const gesteineDaten = {
         struktur: "brekziös bzw. knollig",
         beschreibung: "Der sogenannte Tegernseer Marmor ist ein polierfähiger, biogener Kalkstein aus dem Oberjura, der in der Umgebung des Tegernsees (Bayern) vorkommt. Petrographisch handelt es sich um einen fein- bis mittelkörnigen Kalkstein mit fossilen Einschlüssen, der durch seine hell- bis blaugraue Farbgebung und hohe Polierfähigkeit geschätzt wird. Im Grabmalbereich findet der Stein seit dem 19. Jahrhundert Anwendung. Er wird für Grabplatten, Stelen und Inschriftentafeln verwendet, da er witterungsbeständig, gut beschriftbar und ästhetisch ansprechend ist."
         },
-    "kehlheimer-kalkstein": {
-        name: "Kehlheimer Kalkstein",
-        fundort: "Neuessing/ Kehlheim, Bayern",
+    "kelheimer-kalkstein": {
+        name: "Kelhheimer Kalkstein",
+        fundort: "Neuessing/ Kelhheim, Bayern",
         fundland: "Deutschland",
         bezeichnung: "Kalkstein",
         alter: "Jura",
@@ -34,7 +34,7 @@ const gesteineDaten = {
         alter: "Tertiär",
         gesteinsgruppe: "Sedimentgesteine",
         struktur: "brekziös bzw. knollig",
-        koordinaten: [47.788089069308334, 12.192795732476736] /*[47.788933846086735, 12.184783826998231]*/,
+        koordinaten: [[47.788089069308334, 12.192795732476736], [47.788933846086735, 12.184783826998231]],
         bild: "./Fotos/gestein/kelheimer_kalkstein.png",
         beschreibung: "Der Rosenheimer Kalkstein ist eine typische Kalkbrekzie des alpinen Molassebeckens. Entstanden durch Umlagerung von Kalkgeröllen in Flusssystemen des jungen Alpenvorlands. Charakteristisch sind die eingebetteten, bis faustgroßen Kalkknollen in einer kalkigen Matrix. Historisch als Mauerstein und für Fundamentbauten genutzt."
     },
@@ -52,7 +52,7 @@ const gesteineDaten = {
                 [47.5144, 10.2814],  // Beispiel: Sonthofen
                 [47.7972, 12.1700]   // Beispiel: Rohrdorf
             ],
-            bild: "./Fotos/gestein/kelheimer_kalkstein.png",
+            bild: "./Fotos/gestein/nummulitenkalk.png",
             beschreibung: "Ein im Alttertiär abgelagerter Fossilschuttkalk mit charakteristischen Nummuliten-Einschlüssen (münzenförmige Foraminiferen-Gehäuse). Wirtschaftlich bedeutendstes Vorkommen war der Enzenauer Marmor bei Bad Heilbrunn. Rohdichte: 2,72 g/cm³, Druckfestigkeit: 45–136 N/mm². Wurde als Dekorationsmarmor und Mauerstein genutzt, Abbau mittlerweile eingestellt."
         
     },
@@ -64,7 +64,7 @@ const gesteineDaten = {
             bezeichnung: "Karren, Rillenkarren (engl. 'rillenkarst' oder 'solution flutes')",
             alter: "Entstehen über geologisch kurze Zeiträume (Jahrhunderte bis Jahrtausende)",
             gesteinsgruppe: "Karbonatgestein (Kalkstein, Dolomit), seltener auch auf Gips oder Salz",
-            struktur: "Parallel verlaufende, rinnenartige Vertiefungen (Rillen) mit scharfen Kanten, typischerweise 1–30 cm tief und breit",
+            struktur: "Parallel verlaufende, rinnenartige Vertiefungen (Rillen) mit scharfen Kanten, typischerweise <br> 1–30 cm tief und breit",
             koordinaten: "Beispiel Fränkische Alb: 49.7° N, 11.4° E (variiert je nach Vorkommen)",
             bild: "Rillenmuster auf freiliegenden Felsflächen, oft in Gruppen angeordnet",
             beschreibung: "Rillenkarren entstehen durch korrosive Verwitterung von Kalkstein durch leicht saures Regenwasser (Kohlensäureverwitterung). Die Rillen folgen oft dem Gefälle und bilden charakteristische lineare Muster. Sie sind ein typisches Merkmal von Karstlandschaften.",
@@ -446,14 +446,15 @@ document.addEventListener('DOMContentLoaded', function() {
             
             if (stein) {
                 document.getElementById('gesteinDetails').innerHTML = `
-                    <div class="details-content">
-                        <h2>${stein.name}</h2>
+                <div class="details-content">
+                    <h2>${stein.name}</h2>
                     <div class="gestein-info-grid">
-                        <!-- bestehende Infos ... -->
                         <div class="gestein-info-item">
                             <span class="gestein-info-label">Fundort:</span>
                             <span class="gestein-info-value">${stein.fundort || 'Nicht verfügbar'}
-                                ${stein.koordinaten ? `<button class="show-on-map-btn" onclick="showOnMap(${stein.koordinaten[0]}, ${stein.koordinaten[1]}, '${stein.name}', '${steinId}')">
+                                ${stein.koordinaten ? `
+                                <button class="show-on-map-btn" 
+                                        onclick="window.showOnMapWithId('${steinId}')">
                                     Auf Karte zeigen
                                 </button>` : ''}
                             </span>
