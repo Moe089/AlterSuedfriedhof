@@ -336,14 +336,35 @@ img {
   background: transparent !important;
   box-shadow: none !important;
 }
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1024px) and (max-width: 1300px) {
   .container {
     margin: 0 auto;
-    padding-left: 2rem;
+    padding-left: 8rem;
     padding-right: 2rem;
     max-width: 968px;
   }
+
+
+.nav__search{
+  padding: 2rem;
+
+
 }
+#map{
+  height: min(150vh, 540px);
+  width: 100%;
+  z-index: 1;
+  margin-top: -5px;
+
+}
+.gestein-liste {
+  width: 30%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 15px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}}
 /* Personen-Spezifisches Styling */
 .personen-container {
   display: flex;
@@ -540,15 +561,17 @@ img {
   }
 }
 .gestein-liste {
+
   width: 30%;
-  overflow-y: auto; /* Vertikales Scrollen */
-  overflow-x: hidden; /* Horizontales Scrollen verhindern */
-  /*border-right: 1px solid #ccc; */
+  height: 170%; /* Nimmt die volle Höhe des Containers ein */
+  overflow-y: auto;
+  overflow-x: hidden;
   padding-right: 15px;
-  
-  /* Unsichtbare Scrollbar für Webkit-Browser (Chrome, Safari) */
-  scrollbar-width: none; /* Für Firefox */
-  -ms-overflow-style: none; /* Für IE und Edge */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  position: sticky; /* Hält die Liste beim Scrollen */
+  top: 0; /* Oberer Rand bleibt oben */
+  align-self: flex-start; /* Verhindert unerwünschtes Stretching */
 }
 
 /* Unsichtbare Scrollbar für Webkit-Browser */
@@ -704,7 +727,7 @@ img {
 }
 
 .timeline-image {
-  flex: 0 0 300px;
+  flex: 0.1 0.1 300px;
   height: 200px;
   overflow: hidden;
   position: relative;
@@ -730,12 +753,12 @@ img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.5s ease, filter 0.5s ease;
+  transition: transform 0.1s ease, filter 0.1s ease;
   filter: brightness(0.95);
 }
 
 .timeline-item:hover .timeline-image img {
-  transform: scale(1.1);
+  transform: scale(1.0);
   filter: brightness(1.05) saturate(1.2); /* Bild gesättigter und heller */
 }
 
@@ -1036,8 +1059,8 @@ img {
     max-width: 400px;
   }
 }
-
-/* Sehr große Geräte (große Laptops/Desktops, ab 969px) */
+/*
+/* Sehr große Geräte (große Laptops/Desktops, ab 969px) 
 @media screen and (min-width: 969px) {
   .container {
     max-width: 700px;

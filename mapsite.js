@@ -138,15 +138,15 @@ createCustomMarker(48.130066, 11.565872,
         createCustomMarker(48.130066, 11.565872, 
             "./Fotos/personen/Ferdinand_von_Miller.png", "Grab Ferdinand von Miller", markers.layer2);
         createCustomMarker(48.12873435697092, 11.564917402621731, 
-            "./Fotos/personen/franz-kobell.png", "Grab Franz Kobell", markers.layer2);
+            "./Fotos/grabstein/kobell.png", "Grab Franz Kobell", markers.layer2);
         createCustomMarker(48.127449022632554, 11.565760706995862, 
-            "./Fotos/personen/hiltensperger.png", "Grab Hiltensperger", markers.layer2);
+            "./Fotos/grabstein/hiltensperger.png", "Grab Hiltensperger", markers.layer2);
         createCustomMarker(48.12743727512269, 11.564098247394769, 
-            "./Fotos/personen/Nussbaum.png", "Grab Nussbaum", markers.layer2);
+            "./Fotos/grabstein/nussbaum.png", "Grab Nussbaum", markers.layer2);
         createCustomMarker(48.12700316519899, 11.566071173222651, 
             "./Fotos/grabstein/ohm_grab.png", "Grab Georg Simon Ohm", markers.layer2);
         createCustomMarker(48.12698081942048, 11.563986286801328, 
-            "./Fotos/personen/reichenbach.png", "Grab Georg von Reichenbach", markers.layer2);
+            "./Fotos/grabstein/reichenbach.png", "Grab Georg von Reichenbach", markers.layer2);
         createCustomMarker(48.12698081942040, 11.563986286801323, 
             "./Fotos/grabstein/fraunhofer_grab.png", "Grab Josef von Fraunhofer", markers.layer2);
         createCustomMarker(48.12672470001926, 11.56502006855112, 
@@ -158,9 +158,9 @@ createCustomMarker(48.130066, 11.565872,
         createCustomMarker(48.12620534820462, 11.564485442813355, 
             "./Fotos/grabstein/schwanthaler_grab.png", "Grab Ludwig Schwanthaler", markers.layer2);
         createCustomMarker(48.1258485668362, 11.565098877674478, 
-            "./Fotos/personen/knorr.png", "Grab Ludwig Knorr", markers.layer2);
+            "./Fotos/grabstein/knorr.png", "Grab Ludwig Knorr", markers.layer2);
         createCustomMarker(48.12565715788182, 11.564285682286432, 
-            "./Fotos/personen/Seydel.png", "Grab Max von Seydel", markers.layer2);
+            "./Fotos/grabstein/seydel.png", "Grab Max von Seydel", markers.layer2);
         createCustomMarker(48.1258026473096, 11.5634057639785, 
             "./Fotos/grabstein/siebold_grab.png", "Grab Philipp Balthasar von Siebold", markers.layer2);
         createCustomMarker(48.12493912256356, 11.563330775765484, 

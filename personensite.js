@@ -65,6 +65,7 @@ const personenDaten = {
         <p style="text-align: justify;"><strong>Gestorben:</strong> 26. Februar 1834 in München</p>
         <br>
         <p style="text-align: justify;">Senefelders Erfindung revolutionierte nicht nur den Druck von Kunstwerken (besonders wichtig für Künstler wie Honoré Daumier oder Toulouse-Lautrec), sondern hatte auch enorme Auswirkungen auf die Verbreitung von Wissen und die Entwicklung der Massenmedien im 19. Jahrhundert. Die Lithografie gilt als Vorläufer moderner Druckverfahren.</p>
+        
     `,
     geburtsdatum: "06.11.1771",
     sterbedatum: "26.02.1834",
