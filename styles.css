@@ -1059,9 +1059,13 @@ img {
     max-width: 400px;
   }
 }
-/*
-/* Sehr große Geräte (große Laptops/Desktops, ab 969px) 
-@media screen and (min-width: 969px) {
+
+ /*Sehr große Geräte (große Laptops/Desktops, ab 969px) */
+@media screen and (min-width: 1369px) {
+
+  main {
+    padding-top: 70px; /* Slightly more space for larger screens */
+  }
   .container {
     max-width: 700px;
     margin-left: auto;
@@ -1102,26 +1106,3 @@ img {
   }
 }
 
-/* Besondere Anpassungen für hochformatige Tablets */
-@media screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
-  .nav__search {
-    margin-left: 15%;
-    width: 50%;
-  }
-
-  .personen-container,
-  .gestein-container {
-    flex-direction: column;
-  }
-
-  .personen-liste,
-  .gestein-liste {
-    width: 100%;
-    margin-bottom: 1rem;
-  }
-
-  .personen-details,
-  .gestein-details {
-    width: 100%;
-  }
-}

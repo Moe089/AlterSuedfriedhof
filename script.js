@@ -39,36 +39,7 @@ function setupTimeline() {
     }, false);
 }
 */
-function showSection(sectionId) {
-    document.querySelectorAll('.content-section').forEach(section => {
-        section.classList.remove('active-section');
-    });
 
-    const activeSection = document.getElementById(sectionId);
-    if (activeSection) {
-        activeSection.classList.add('active-section');
-    }
-
-    if (sectionId === 'karte') {
-        if (!mapInitialized) {
-            initializeMap();
-            mapInitialized = true; 
-        } else {
-            setTimeout(() => {
-                map.invalidateSize();
-            }, 0);
-        }
-    }
-
-    document.querySelectorAll('.nav__link').forEach(link => {
-        link.classList.remove('active-link');
-    });
-
-    const activeLink = document.querySelector(`.nav__link[href="#${sectionId}"]`);
-    if (activeLink) {
-        activeLink.classList.add('active-link');
-    }
-}
 /*
 // Ändere die initializeMap Funktion:
 function initializeMap() {
@@ -1114,3 +1085,182 @@ document.getElementById('searchButton').addEventListener('click', () => {
 });
 
 */
+
+function showSection(sectionId) {
+    // Verstecke alle Sektionen und setze Navigation zurück
+    document.querySelectorAll('.content-section').forEach(section => {
+        section.classList.remove('active-section');
+    });
+
+    const activeSection = document.getElementById(sectionId);
+    if (activeSection) {
+        activeSection.classList.add('active-section');
+    }
+
+    // Spezielle Handhabung für die Karte
+    if (sectionId === 'karte') {
+        if (!mapInitialized) {
+            initializeMap();
+            mapInitialized = true;
+        } else {
+            setTimeout(() => {
+                map.invalidateSize();
+            }, 0);
+        }
+    }
+
+    // Aktiven Link in der Navigation markieren
+    document.querySelectorAll('.nav__link').forEach(link => {
+        link.classList.remove('active-link');
+    });
+
+    const activeLink = document.querySelector(`.nav__link[href="#${sectionId}"]`);
+    if (activeLink) {
+        activeLink.classList.add('active-link');
+    }
+
+    // Zusätzlich: Hash-basierte Detailansicht handhaben
+    handleDetailNavigation();
+}
+function handleDetailNavigation() {
+    const hash = window.location.hash.substring(1);
+    
+    // Direkter Link zu einer Person (#personen/adolf-schlagintweit)
+    if (hash.startsWith('personen/')) {
+        const personId = hash.split('/')[1];
+        setTimeout(() => showPersonDetail(personId), 50);
+    }
+    // Direkter Link zu einem Gestein (#gestein/tegernseer-marmor)
+    else if (hash.startsWith('gestein/')) {
+        const steinId = hash.split('/')[1];
+        setTimeout(() => showGesteinDetail(steinId), 50);
+    }
+}
+function showPersonDetail(personId) {
+    const person = personenDaten[personId];
+    if (!person) return;
+
+    const listItem = document.querySelector(`[data-person="${personId}"]`);
+    if (listItem) {
+        // Aktiviere Listeneintrag
+        document.querySelectorAll('#personenListe li').forEach(li => {
+            li.classList.remove('active');
+        });
+        listItem.classList.add('active');
+        listItem.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+
+        // Zeige Details
+        document.getElementById('personenDetails').innerHTML = `
+            <div class="person-inhalt">
+                <div class="person-bild">
+                    <img src="${person.bild}" alt="${person.name}">
+                </div>
+                <div class="person-text">
+                    <h2>${person.name}</h2>
+                    <p><strong>Lebensdaten:</strong> ${person.geburtsdatum} – ${person.sterbedatum}</p>
+                    <div class="person-beschreibung">${person.beschreibung}</div>
+                </div>
+            </div>
+        `;
+    }
+}
+
+function showGesteinDetail(steinId) {
+    const stein = gesteineDaten[steinId];
+    if (!stein) return;
+
+    const listItem = document.querySelector(`[data-stein="${steinId}"]`);
+    if (listItem) {
+        // Aktiviere Listeneintrag
+        document.querySelectorAll('#gesteinListe li').forEach(li => {
+            li.classList.remove('active');
+        });
+        listItem.classList.add('active');
+        listItem.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+
+        // Zeige vollständige Details (identisch zum Click-Handler)
+        document.getElementById('gesteinDetails').innerHTML = `
+            <div class="details-content">
+                <h2>${stein.name}</h2>
+                <div class="gestein-info-grid">
+                    <div class="gestein-info-item">
+                        <span class="gestein-info-label">Fundort:</span>
+                        <span class="gestein-info-value">${stein.fundort || 'Nicht verfügbar'}
+                            ${stein.koordinaten ? `
+                            <button class="show-on-map-btn" 
+                                    onclick="window.showOnMapWithId('${steinId}')">
+                                Auf Karte zeigen
+                            </button>` : ''}
+                        </span>
+                    </div>
+                    <div class="gestein-info-item">
+                        <span class="gestein-info-label">Fundland:</span>
+                        <span class="gestein-info-value">${stein.fundland || 'Nicht verfügbar'}</span>
+                    </div>
+                    <div class="gestein-info-item">
+                        <span class="gestein-info-label">Bezeichnung:</span>
+                        <span class="gestein-info-value">${stein.bezeichnung || 'Nicht verfügbar'}</span>
+                    </div>
+                    <div class="gestein-info-item">
+                        <span class="gestein-info-label">Alter:</span>
+                        <span class="gestein-info-value">${stein.alter || 'Nicht verfügbar'}</span>
+                    </div>
+                    <div class="gestein-info-item">
+                        <span class="gestein-info-label">Gesteinsgruppe:</span>
+                        <span class="gestein-info-value">${stein.gesteinsgruppe || 'Nicht verfügbar'}</span>
+                    </div>
+                    <div class="gestein-info-item">
+                        <span class="gestein-info-label">Textur:</span>
+                        <span class="gestein-info-value">${stein.struktur || 'Nicht verfügbar'}</span>
+                    </div>
+                </div>
+                ${stein.bild ? `
+                <div class="gestein-image-container">
+                    <img src="${stein.bild}" alt="${stein.name}" class="gestein-image">
+                    <div class="bildunterschrift">${stein.bildunterschrift || 'Gesteinsprobe'}</div>
+                    <br>
+                    <br>
+                    <div class="beschreibung-content">
+                        <h3>Beschreibung</h3>
+                        <p>${stein.beschreibung || 'Keine Beschreibung verfügbar.'}</p>
+                    </div>
+                </div>` : ''}
+            </div>
+        `;
+    }
+}
+
+document.getElementById('searchButton').addEventListener('click', () => {
+    const query = document.getElementById('searchInput').value.toLowerCase().trim();
+    
+    // Durchsuche zuerst Personen
+    for (const [id, person] of Object.entries(personenDaten)) {
+        if (person.name.toLowerCase().includes(query)) {
+            showSection('personen');
+            window.location.hash = `personen/${id}`;
+            return;
+        }
+    }
+    
+    // Dann Gesteine
+    for (const [id, stein] of Object.entries(gesteineDaten)) {
+        if (stein.name.toLowerCase().includes(query)) {
+            showSection('gestein');
+            window.location.hash = `gestein/${id}`;
+            return;
+        }
+    }
+    
+    alert('Kein passender Eintrag gefunden');
+});
+
+// Initial beim Laden
+document.addEventListener('DOMContentLoaded', function() {
+    showSection(window.location.hash.substring(1) || 'home');
+});
+
+// Bei Hash-Änderungen
+window.addEventListener('hashchange', function() {
+    const baseSection = window.location.hash.split('/')[0].substring(1) || 'home';
+    showSection(baseSection);
+});
