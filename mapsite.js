@@ -475,3 +475,41 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
+
+
+// AR starten
+function launchAR(markerId) {
+    const markerMap = {
+        'grab-adolf-schlaginweit': 'schlagintweit',
+        'grab-alois-senefelder': 'senefelder',
+        // ... weitere Zuordnungen
+    };
+    
+    const markerName = markerMap[markerId] || markerId;
+    const arView = document.getElementById('ar-view');
+    const arScene = document.getElementById('ar-scene');
+    
+    // AR-Szene konfigurieren
+    document.getElementById('ar-marker').setAttribute('url', `assets/nft-markers/${markerName}`);
+    document.getElementById('ar-model').setAttribute('gltf-model', './models/grabstein.glb');
+    
+    // AR-Ansicht anzeigen
+    arView.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+    
+    // Vollbild für mobile Geräte
+    if (window.innerWidth <= 768) {
+        arScene.setAttribute('vr-mode-ui', 'enabled: false');
+    }
+}
+
+// AR beenden
+document.getElementById('ar-close-btn').addEventListener('click', function() {
+    document.getElementById('ar-view').style.display = 'none';
+    document.body.style.overflow = 'auto';
+    
+    // Kamera freigeben
+    const arScene = document.getElementById('ar-scene');
+    if (arScene) arScene.components['arjs'].stop();
+});

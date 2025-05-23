@@ -9,8 +9,13 @@
     <link href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.css">
-    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
-    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+
+<!-- Besser kompatibel -->
+<script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js@3.4.2/aframe/build/aframe-ar-nft.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+
 <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css">
 </head>
 <body>
@@ -55,12 +60,13 @@
                 <button id="searchButton" class="search__button">
                     <i class='bx bx-search'></i>
                 </button>
+                <div id="searchSuggestions"></div>
             </div>
             <img src="C:\Users\morit\Desktop\Bachelorarbeit\AlterSuedfriedhof\Frontend\logo_alter_suedfriedhof_2.svg" alt="Logo" class="nav__img">
         </nav>
     </header>
 
-    <main style="padding-top: 70px;">
+    <main style="padding-top: 70px;" >
         <!-- Home Section -->
         <div id="Homepage" class="content-section active-section">
             <h1>Willkommen auf dem Südfriedhof</h1>
@@ -938,7 +944,7 @@
                         <li data-person="arnold-zenetti">Arnold Zenetti</li>
                         <li data-person="ferdinand-von-miller">Ferdinand von Miller</li>
                         <li data-person="franz-kobell">Franz Kobell</li>
-                        <li data-person="franz-josef-albert">Franz Josef Albert</li>
+                        <li data-person="franz-josef-albert">Familie Albert</li>
                         <li data-person="friedrich-gärtner">Friedrich Gärtner</li>
                         <li data-person="georg-brey">Georg Brey</li>
                         <li data-person="georg-simon-ohm">Georg Simon Ohm</li>
@@ -971,6 +977,19 @@
         
     </main>
 
+    <!-- AR-Container (standardmäßig versteckt) -->
+<div id="ar-view" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1000; background: black;">
+    <a-scene id="ar-scene" embedded arjs="sourceType: webcam; debugUIEnabled: false;" vr-mode-ui="enabled: false">
+        <a-nft id="ar-marker" type="nft" smooth="true">
+            <a-entity id="ar-model" gltf-model="" scale="0.5 0.5 0.5"></a-entity>
+        </a-nft>
+        <a-entity camera></a-entity>
+    </a-scene>
+    <button id="ar-close-btn" style="position: absolute; top: 20px; left: 20px; z-index: 1001; padding: 10px; background: white; border: none; border-radius: 5px;">
+        ← Zurück zur Karte
+    </button>
+</div>
+
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
     <script src="script.js"></script>
@@ -978,6 +997,6 @@
     <script src="personensite.js"></script>
     <script src="gesteinsite.js"></script>
     <script src="geschichtesite.js"></script>
-    <script src="ar.js"></script>
+    
 </body>
 </html>

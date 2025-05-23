@@ -1264,3 +1264,146 @@ window.addEventListener('hashchange', function() {
     const baseSection = window.location.hash.split('/')[0].substring(1) || 'home';
     showSection(baseSection);
 });
+
+// Suchvorschläge Funktion
+function showSearchSuggestions(query) {
+    const suggestionsContainer = document.getElementById('searchSuggestions');
+    suggestionsContainer.innerHTML = '';
+    
+    if (!query || query.length < 1) {
+        suggestionsContainer.style.display = 'none';
+        return;
+    }
+
+    const lowerQuery = query.toLowerCase();
+    const suggestions = [];
+
+
+    function startsWithAnyWord(text, search) {
+        const words = text.toLowerCase().split(/\s+/);
+        return words.some(word => word.startsWith(search));
+    }
+
+    // Personen durchsuchen - nach einzelnen Wörtern
+    for (const [id, person] of Object.entries(personenDaten)) {
+        if (startsWithAnyWord(person.name, lowerQuery)) {
+            suggestions.push({
+                type: 'personen',
+                id: id,
+                name: person.name,
+                displayName: person.name
+            });
+        }
+    }
+
+    for (const [id, stein] of Object.entries(gesteineDaten)) {
+        if (startsWithAnyWord(stein.name, lowerQuery)) {
+            suggestions.push({
+                type: 'gestein',
+                id: id,
+                name: stein.name,
+                displayName: stein.name
+            });
+        }
+    }
+
+    // Vorschläge anzeigen
+    if (suggestions.length > 0) {
+        suggestions.forEach(item => {
+            const suggestionElement = document.createElement('div');
+            suggestionElement.className = 'search-suggestion';
+            
+            const iconClass = item.type === 'personen' ? 'bx bx-user' : 'fas fa-mountain';
+            
+            suggestionElement.innerHTML = `
+                <i class="${iconClass}"></i>
+                <span>${item.displayName}</span>
+            `;
+            
+            suggestionElement.addEventListener('click', () => {
+                showSection(item.type);
+                window.location.hash = `${item.type}/${item.id}`;
+                suggestionsContainer.style.display = 'none';
+                document.getElementById('searchInput').value = item.name;
+            });
+            
+            suggestionsContainer.appendChild(suggestionElement);
+        });
+        suggestionsContainer.style.display = 'block';
+    } else {
+        suggestionsContainer.style.display = 'none';
+    }
+}
+// Event-Listener
+document.getElementById('searchInput').addEventListener('input', function(e) {
+    showSearchSuggestions(e.target.value);
+});
+
+// Bei Klick auf Suchbutton (bestehende Funktion)
+document.getElementById('searchButton').addEventListener('click', () => {
+    const query = document.getElementById('searchInput').value.trim();
+    if (query) {
+        // Durchsuche zuerst Personen
+        for (const [id, person] of Object.entries(personenDaten)) {
+            if (person.name.toLowerCase().includes(query.toLowerCase())) {
+                showSection('personen');
+                window.location.hash = `personen/${id}`;
+                return;
+            }
+        }
+        
+        // Dann Gesteine
+        for (const [id, stein] of Object.entries(gesteineDaten)) {
+            if (stein.name.toLowerCase().includes(query.toLowerCase())) {
+                showSection('gestein');
+                window.location.hash = `gestein/${id}`;
+                return;
+            }
+        }
+        
+        alert('Kein passender Eintrag gefunden');
+    }
+});
+
+// Verstecke Vorschläge beim Klicken außerhalb
+document.addEventListener('click', function(e) {
+    const searchContainer = document.querySelector('.nav__search');
+    if (!searchContainer.contains(e.target)) {
+        document.getElementById('searchSuggestions').style.display = 'none';
+    }
+});
+
+// Für Tastaturnavigation (Pfeiltasten/Enter)
+document.getElementById('searchInput').addEventListener('keydown', function(e) {
+    const suggestions = document.querySelectorAll('.search-suggestion');
+    if (!suggestions.length) return;
+
+    const currentFocus = document.querySelector('.search-suggestion.highlight');
+    let index = Array.from(suggestions).indexOf(currentFocus);
+
+    switch(e.key) {
+        case 'ArrowDown':
+            e.preventDefault();
+            if (currentFocus) currentFocus.classList.remove('highlight');
+            index = (index + 1) % suggestions.length;
+            suggestions[index].classList.add('highlight');
+            suggestions[index].scrollIntoView({block: 'nearest'});
+            break;
+        case 'ArrowUp':
+            e.preventDefault();
+            if (currentFocus) currentFocus.classList.remove('highlight');
+            index = (index - 1 + suggestions.length) % suggestions.length;
+            suggestions[index].classList.add('highlight');
+            suggestions[index].scrollIntoView({block: 'nearest'});
+            break;
+        case 'Enter':
+            if (currentFocus) {
+                e.preventDefault();
+                currentFocus.click();
+            }
+            break;
+        case 'Escape':
+            document.getElementById('searchSuggestions').style.display = 'none';
+            break;
+    }
+});
