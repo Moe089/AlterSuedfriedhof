@@ -968,7 +968,7 @@ img {
 
   /* Content adjustments */
   .content-section {
-    padding: 8rem;
+    padding: 1.5rem;
     padding-bottom: 4rem; /* Space for bottom nav */
     margin-top: -70px;
   }
