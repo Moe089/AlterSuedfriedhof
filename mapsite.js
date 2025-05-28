@@ -237,7 +237,6 @@ function showRouteForPerson(personName, option = 'street') {
     }
 }
 
-// Marker-Erstellung mit erweiterten Popups
 function createCustomMarker(lat, lng, imageUrl, popupText, layerGroup) {
     let customIcon;
 
@@ -269,7 +268,19 @@ function createCustomMarker(lat, lng, imageUrl, popupText, layerGroup) {
 
     const marker = L.marker([lat, lng], { icon: customIcon });
     
-    if (popupText.includes("Ferdinand von Miller")) {
+    if (popupText.includes("Georg von Reichenbach")) {
+        marker.bindPopup(`
+            <div class="custom-popup">
+                <h3>${popupText}</h3>
+                <button class="ar-btn" onclick="launchAR(
+                    ['reichenbach_links/reichenbach_links', 'reichenbach_mitte/reichenbach_mitte', 'reichenbach_rechts/reichenbach_rechts'],
+                    'fraunhofer'
+                )">AR starten</button>
+            </div>
+        `);
+    }
+    // Spezielles Popup für Ferdinand von Miller
+    else if (popupText.includes("Ferdinand von Miller")) {
         marker.bindPopup(`
             <div class="custom-popup">
                 <h3>${popupText}</h3>
@@ -281,8 +292,10 @@ function createCustomMarker(lat, lng, imageUrl, popupText, layerGroup) {
                 </button>
             </div>
         `);
-        currentGraveMarker = marker; // Speichere den Marker für das Grab
-    } else {
+        currentGraveMarker = marker;
+    } 
+    // Standard-Popup für alle anderen
+    else {
         marker.bindPopup(popupText);
     }
     
@@ -300,7 +313,7 @@ style.textContent = `
     .custom-popup h3 {
         margin: 0 0 10px 0;
         font-size: 16px;
-        color: #333;
+        color: #333;    
     }
     .show-street-btn {
         background-color: #4CAF50;
@@ -417,7 +430,7 @@ function showOnMap(lat, lng, name, steinId) {
         }
     }, 300);
 }
-console.log('Stein ID:', steinId);
+console.log('marker ID:', markerId);
 console.log('Gesteine Daten:', gesteineDaten);
 console.log('Aktueller Stein:', gesteineDaten[steinId]);
 function restorePreviousView() {
@@ -476,40 +489,3 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-
-
-// AR starten
-function launchAR(markerId) {
-    const markerMap = {
-        'grab-adolf-schlaginweit': 'schlagintweit',
-        'grab-alois-senefelder': 'senefelder',
-        // ... weitere Zuordnungen
-    };
-    
-    const markerName = markerMap[markerId] || markerId;
-    const arView = document.getElementById('ar-view');
-    const arScene = document.getElementById('ar-scene');
-    
-    // AR-Szene konfigurieren
-    document.getElementById('ar-marker').setAttribute('url', `assets/nft-markers/${markerName}`);
-    document.getElementById('ar-model').setAttribute('gltf-model', './models/grabstein.glb');
-    
-    // AR-Ansicht anzeigen
-    arView.style.display = 'block';
-    document.body.style.overflow = 'hidden';
-    
-    // Vollbild für mobile Geräte
-    if (window.innerWidth <= 768) {
-        arScene.setAttribute('vr-mode-ui', 'enabled: false');
-    }
-}
-
-// AR beenden
-document.getElementById('ar-close-btn').addEventListener('click', function() {
-    document.getElementById('ar-view').style.display = 'none';
-    document.body.style.overflow = 'auto';
-    
-    // Kamera freigeben
-    const arScene = document.getElementById('ar-scene');
-    if (arScene) arScene.components['arjs'].stop();
-});
