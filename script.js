@@ -1085,8 +1085,7 @@ document.getElementById('searchButton').addEventListener('click', () => {
 });
 
 */
-
-function showSection(sectionId) {
+function showSection(sectionId, subId = null) {
     // Verstecke alle Sektionen und setze Navigation zurück
     document.querySelectorAll('.content-section').forEach(section => {
         section.classList.remove('active-section');
@@ -1097,11 +1096,18 @@ function showSection(sectionId) {
         activeSection.classList.add('active-section');
     }
 
+    // Aktualisiere die URL
+    if (subId) {
+        window.location.hash = `${sectionId}/${subId}`;
+    } else {
+        window.location.hash = sectionId;
+    }
+
     // Spezielle Handhabung für die Karte
     if (sectionId === 'karte') {
-        if (!mapInitialized) {
+        if (!window.mapInitialized) {
             initializeMap();
-            mapInitialized = true;
+            window.mapInitialized = true;
         } else {
             setTimeout(() => {
                 map.invalidateSize();
@@ -1118,6 +1124,17 @@ function showSection(sectionId) {
     if (activeLink) {
         activeLink.classList.add('active-link');
     }
+
+    // ✅ Wenn subId vorhanden ist, direkt Detailansicht laden
+    if (subId) {
+        if (sectionId === 'personen') {
+            setTimeout(() => showPersonDetail(subId), 50);
+        } else if (sectionId === 'gestein') {
+            setTimeout(() => showGesteinDetail(subId), 50);
+        }
+    }
+
+
 
     // Zusätzlich: Hash-basierte Detailansicht handhaben
     handleDetailNavigation();
@@ -1254,17 +1271,18 @@ document.getElementById('searchButton').addEventListener('click', () => {
     alert('Kein passender Eintrag gefunden');
 });
 
-// Initial beim Laden
 document.addEventListener('DOMContentLoaded', function() {
-    showSection(window.location.hash.substring(1) || 'home');
+    const hash = window.location.hash.substring(1);
+    const baseSection = hash.split('/')[0] || 'home';
+    const subId = hash.split('/')[1] || null;
+    showSection(baseSection, subId);
 });
-
-// Bei Hash-Änderungen
 window.addEventListener('hashchange', function() {
-    const baseSection = window.location.hash.split('/')[0].substring(1) || 'home';
-    showSection(baseSection);
+    const hash = window.location.hash.substring(1);
+    const baseSection = hash.split('/')[0] || 'home';
+    const subId = hash.split('/')[1] || null;
+    showSection(baseSection, subId);
 });
-
 // Suchvorschläge Funktion
 function showSearchSuggestions(query) {
     const suggestionsContainer = document.getElementById('searchSuggestions');

@@ -131,8 +131,8 @@ const gesteineDaten = {
         bild: "Gelblich bis ockerfarben (durch Limonit-Beimengungen), teils mit Schrägschichtung",
         beschreibung: "Gelber Sandstein entsteht durch klastische Ablagerung in Fluss- oder Küstenbereichen. Die Färbung resultiert aus Eisenoxid-Hydraten (Limonit). Wichtiger historischer Baustein für Denkmäler (z.B. Dresdner Frauenkirche) und Bildhauerei. Varianten zeigen unterschiedliche Verwitterungsbeständigkeit.",
     },
-    "kirchheimer-muschelkalk": {
-        name: "Kirchheimer Muschelkalk",
+    "muschelkalk": {
+        name: "Muschelkalk",
         fundort: "Kirchheim unter Teck (Baden-Württemberg), Schwäbische Alb",
         fundland: "Deutschland",
         bezeichnung: "Feinkörniger Trochitenkalk (Unterer Muschelkalk)",
