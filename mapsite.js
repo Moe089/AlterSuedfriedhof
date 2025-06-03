@@ -5,7 +5,7 @@ let markers = {
         maxClusterRadius: 50 // Erhöhter Radius (Standard: 80)
     }),
     layer2: L.markerClusterGroup({
-        maxClusterRadius: 50
+        maxClusterRadius: 50    
     }),
     layer3: L.markerClusterGroup({
         maxClusterRadius: 50
@@ -14,8 +14,12 @@ let markers = {
 
 
 function initializeMap() {
+
+    if (mapInitialized && map) return;
     // Karte initialisieren
     map = L.map('map').setView([48.128042323092785, 11.565685880884974], 16);
+
+    mapInitialized = true;
 
     // OpenStreetMap-Tiles hinzufügen
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -231,8 +235,7 @@ createCustomMarker(48.130066, 11.565872,
         createCustomMarker(48.12493912256356, 11.563330775765484, 
             "./Fotos/grabstein/liebig_grab.png", "Grab Justus von Liebig", markers.layer2);
 
-            createCustomMarker(48.127449022632554, 11.565760706995862, 
-                "./Fotos/gestein/schwedisch_schwarz.png", "Grab Hiltensperger", markers.layer3);
+
 
 
 
@@ -395,6 +398,80 @@ createCustomMarker(48.130066, 11.565872,
 
 
 
+                createMasterMarker(
+                    48.12493912256356, 11.563330775765484,
+                    "liebig",
+                    markers.layer3
+                );
+                
+                createMaterialMarker(
+                    48.12493912256356, 11.563330775765484,
+                    "./Fotos/gestein/senefelder_sandstein.png",
+                    "Stein - Kelheimer Kalk",
+                    markers.layer3,
+                    "liebig",
+                    "kelheimer-kalk"
+                );
+
+                createMaterialMarker(
+                    48.12493912256356, 11.563330775765484,
+                    "./Fotos/gestein/senefelder_sandstein.png",
+                    "Schriftplatten - Carrara Marmor",
+                    markers.layer3,
+                    "liebig",
+                    "carrara-marmor"
+                );
+
+                createMaterialMarker(
+                    48.12493912256356, 11.563330775765484,
+                    "./Fotos/gestein/senefelder_sandstein.png",
+                    "Büste - Bronze",
+                    markers.layer3,
+                    "liebig",
+                    ""
+                );
+
+                createMaterialMarker(
+                    48.12493912256356, 11.563330775765484,
+                    "./Fotos/gestein/senefelder_sandstein.png",
+                    "Büstensockel - Muschelkalk",
+                    markers.layer3,
+                    "liebig",
+                    "muschelkalk"
+                );
+
+                createMaterialMarker(
+                    48.12493912256356, 11.563330775765484,
+                    "./Fotos/gestein/senefelder_sandstein.png",
+                    "Plakette - Bleilegierung",
+                    markers.layer3,
+                    "liebig",
+                    ""
+                );
+
+
+
+                createMasterMarker(
+                    48.12493912256356, 11.563330775765484,
+                    "brey",
+                    markers.layer3
+                );
+                
+                createMaterialMarker(
+                    48.12493912256356, 11.563330775765484,
+                    "./Fotos/gestein/senefelder_sandstein.png",
+                    "Stein - Plattensandstein (Buntsandstein-Oberbayern)",
+                    markers.layer3,
+                    "brey",
+                    "plattensandstein"
+                );
+
+        
+
+
+
+
+
               
                  createMasterMarker(
                     48.12743727512269, 11.564098247394769,
@@ -439,9 +516,203 @@ createCustomMarker(48.130066, 11.565872,
                 );
 
 
-               
-  
-        
+
+                
+                
+                createMasterMarker(
+                    48.129704045499714, 11.565643056407898,
+                    "knorr",
+                    markers.layer3
+                );
+                
+                createMaterialMarker(
+                    48.129704045499714, 11.565643056407898,
+                    "./Fotos/gestein/senefelder_sandstein.png",
+                    "Stein - evtl. Boisjourdin-Kalk",
+                    markers.layer3,
+                    "knorr",
+                    ""
+                );
+
+                createMaterialMarker(
+                    48.129704045499714, 11.565643056407898,
+                    "./Fotos/gestein/senefelder_sandstein.png",
+                    "Sockelpartien - Adneter Marmor",
+                    markers.layer3,
+                    "knorr",
+                    "adneter-marmor"
+                );
+
+                createMaterialMarker(
+                    48.129704045499714, 11.565643056407898,
+                    "./Fotos/gestein/senefelder_sandstein.png",
+                    "Büstenpodest - Poroto-Kalk",
+                    markers.layer3,
+                    "knorr",
+                    "nero-portoro"
+                );
+
+                createMaterialMarker(
+                    48.129704045499714, 11.565643056407898,
+                    "./Fotos/gestein/senefelder_sandstein.png",
+                    "Büste - Carrara-Marmor",
+                    markers.layer3,
+                    "knorr",
+                    "carrara-marmor"
+                );
+
+                createMaterialMarker(
+                    48.129704045499714, 11.565643056407898,
+                    "./Fotos/gestein/senefelder_sandstein.png",
+                    "Deckenplatte - Treuchtlinger Kalk",
+                    markers.layer3,
+                    "knorr",
+                    "treuchtlinger-kalk"
+                );
+
+                createMaterialMarker(
+                    48.129704045499714, 11.565643056407898,
+                    "./Fotos/gestein/senefelder_sandstein.png",
+                    "Schriftplatte - Treuchtlinger Kalk ",
+                    markers.layer3,
+                    "knorr",
+                    "treuchtlinger-kalk"
+                );
+
+                createMaterialMarker(
+                    48.129704045499714, 11.565643056407898,
+                    "./Fotos/gestein/senefelder_sandstein.png",
+                    "Dachgebälk - Untersberger Kalk",
+                    markers.layer3,
+                    "knorr",
+                    "untersberger-kalk"
+                );
+
+                createMaterialMarker(
+                    48.129704045499714, 11.565643056407898,
+                    "./Fotos/gestein/senefelder_sandstein.png",
+                    "Säulen - Redwitzit",
+                    markers.layer3,
+                    "knorr",
+                    "redwitzit"
+                );
+
+                createMaterialMarker(
+                    48.129704045499714, 11.565643056407898,
+                    "./Fotos/gestein/senefelder_sandstein.png",
+                    "Wandplatten - Serpentinit",
+                    markers.layer3,
+                    "knorr",
+                    "serpentinit"
+                );
+
+                createMaterialMarker(
+                    48.129704045499714, 11.565643056407898,
+                    "./Fotos/gestein/senefelder_sandstein.png",
+                    "Kapitell - Bronze",
+                    markers.layer3,
+                    "knorr",
+                    "bronze"
+                );
+
+
+
+                createMasterMarker(
+                    48.126455075780726, 11.563712640306962,
+                    "klenze",
+                    markers.layer3
+                );
+                
+                createMaterialMarker(
+                    48.126455075780726, 11.563712640306962,
+                    "./Fotos/gestein/senefelder_sandstein.png",
+                    "Stein - Kelheimer Kalk",
+                    markers.layer3,
+                    "klenze",
+                    "kelheimer-kalk"
+                );
+
+                createMaterialMarker(
+                    48.126455075780726, 11.563712640306962,
+                    "./Fotos/gestein/senefelder_sandstein.png",
+                    "Büste - Carrara Marmor",
+                    markers.layer3,
+                    "klenze",
+                    "carrara-marmor"
+                );
+
+                
+
+                createMasterMarker(
+                    48.12634445037332, 11.56402371512982,
+                    "gärtner",
+                    markers.layer3
+                );
+                
+                createMaterialMarker(
+                    48.12634445037332, 11.56402371512982,
+                    "./Fotos/gestein/senefelder_sandstein.png",
+                    "Stein - Rosenheimer Kalk",
+                    markers.layer3,
+                    "gärtner",
+                    "rosenheimer-kalk"
+                );
+
+                createMaterialMarker(
+                    48.12634445037332, 11.56402371512982,
+                    "./Fotos/gestein/senefelder_sandstein.png",
+                    "Figur - Carrara Marmor",
+                    markers.layer3,
+                    "gärtner",
+                    "carrara-marmor"
+                );
+
+                createMaterialMarker(
+                    48.12634445037332, 11.56402371512982,
+                    "./Fotos/gestein/senefelder_sandstein.png",
+                    "Medaillon - Carrara Marmor",
+                    markers.layer3,
+                    "gärtner",
+                    "carrara-marmor"
+                );
+
+
+
+
+
+                createMasterMarker(
+                    48.12620534820462, 11.564485442813355,
+                    "schwanthaler",
+                    markers.layer3
+                );
+                
+                createMaterialMarker(
+                    48.12620534820462, 11.564485442813355,
+                    "./Fotos/gestein/senefelder_sandstein.png",
+                    "Stein - Rosenheimer Kalk",
+                    markers.layer3,
+                    "schwanthaler",
+                    "rosenheimer-kalk"
+                );
+
+                createMaterialMarker(
+                    48.12620534820462, 11.564485442813355,
+                    "./Fotos/gestein/senefelder_sandstein.png",
+                    "Sockel - gelb-bräunlicher Sandstein (evtl. Rhätsandstein)",
+                    markers.layer3,
+                    "schwanthaler",
+                    "rhätsandstein"
+                );
+
+                createMaterialMarker(
+                    48.12620534820462, 11.564485442813355,
+                    "./Fotos/gestein/senefelder_sandstein.png",
+                    "Büste - Carrara-Marmor",
+                    markers.layer3,
+                    "schwanthaler",
+                    "carrara-marmor"
+                );
+
 
 
 
@@ -491,12 +762,63 @@ createCustomMarker(48.130066, 11.565872,
                     "muschelkalk"
                 );
 
+
+
+                createMasterMarker(
+                    48.12700316519899, 11.566071173222651,
+                    "ohm",
+                    markers.layer3
+                );
+                
+                createMaterialMarker(
+                    48.12700316519899, 11.566071173222651,
+                    "./Fotos/gestein/senefelder_sandstein.png",
+                    "Stein - Muschelkalk",
+                    markers.layer3,
+                    "ohm",
+                    "muschelkalk"
+                );
           
 
 
                 createMasterMarker(
                     48.12672470001926, 11.56502006855112,
                     "ett",
+                    markers.layer3
+                );
+                
+                createMaterialMarker(
+                    48.12672470001926, 11.56502006855112,
+                    "./Fotos/gestein/senefelder_sandstein.png",
+                    "Stein - Kalktuff",
+                    markers.layer3,
+                    "ett",
+                    "kalktuff"
+                );
+
+                createMaterialMarker(
+                    48.12672470001926, 11.56502006855112,
+                    "./Fotos/gestein/senefelder_sandstein.png",
+                    "Relief - Carrara Marmor",
+                    markers.layer3,
+                    "ett",
+                    "carrara-marmor"
+                );
+
+                createMaterialMarker(
+                    48.12672470001926, 11.56502006855112,
+                    "./Fotos/gestein/senefelder_sandstein.png",
+                    "Schriftplatte - Eisen",
+                    markers.layer3,
+                    "ett",
+                    "eisen"
+                );
+
+
+
+                createMasterMarker(
+                    48.12672470001926, 11.56502006855112,
+                    "",
                     markers.layer3
                 );
                 
@@ -575,34 +897,31 @@ function createMasterMarker(lat, lng, personId, layerGroup) {
     return marker;
 }
 
-// Modifizierte Funktion zum Anzeigen von Materialgruppen
 function showMaterialGroup(personId, materialKey) {
     if (!graveMaterials[personId]) return;
     
-    // Alle Popups schließen
     map.closePopup();
     
-    // Alle Marker dieser Gruppe finden und aktualisieren
     markers.layer3.eachLayer(function(marker) {
         if (marker.options.personId === personId) {
             const isActive = marker.getPopup().getContent().includes(materialKey);
             marker.setOpacity(isActive ? 1 : 0.3);
             marker.setZIndexOffset(isActive ? 500 : 0);
             
-            // Popup für das aktive Material öffnen
             if (isActive) marker.openPopup();
         }
     });
 }
 
 function createMaterialMarker(lat, lng, imageUrl, popupText, layerGroup, personId, materialKey) {
+    
     const customIcon = L.divIcon({
         className: "custom-marker-rock",
         html: `<div class="marker-container-rock">
                  <img src="${imageUrl}" class="marker-rock-image">
                </div>`,
-        iconSize: [40, 40],
-        iconAnchor: [20, 40]
+        iconSize: [30, 30],  
+        iconAnchor: [15, 30] 
     });
 
     const marker = L.marker([lat, lng], { 
@@ -641,7 +960,6 @@ function navigateToRockEntry(rockId) {
     }
 }
 
-// In den Event-Listenern für die Navigation:
 document.querySelectorAll('.nav__link').forEach(link => {
     link.addEventListener('click', function(e) {
         e.preventDefault();
@@ -740,8 +1058,124 @@ const graveMaterials = {
           
             
         },
+         
+    },
+
+
+
+    "jolly": {
+        name: "Philipp-von-Jolly",
+        imageUrl: "./Fotos/grabstein/grab_ett.png", 
+        materials: {
+            "Stein": "getigerter Schilfsandstein",
+            "Sockel": "feinkörniger grauer Granit",
+            "Schriftplatte": "Bronze"    
+            
+        },
+    
+        
+    },
+
+    "knorr": {
+        name: "Julius Knorr",
+        imageUrl: "", 
+        materials: {
+            "Stein": "evtl. Boisjourdin-Kalk",
+            "Sockelpartien": "roter Knollenkalk",
+            "Büstenpodest": "Portoro-Kalk",
+            "Büste": "Carrara",
+            "Deckenplatte": "Treuchtlinger Kalk",
+            "Schriftplatte": "Treuchtlinger Kalk",
+            "Dachgebälk": "Untersberger Kalk",
+            "Säulen": "Redwitzit",
+            "Wandplatten": "Serpentingestein",
+            "Kapitell": "Bronze"
+            
+          
+            
+        },
       
-    }
+
+        
+    },
+
+
+    "klenze": {
+        name: "Leo-von-Klenze",
+        imageUrl: "./Fotos/grabstein/grab_klenze.png", 
+        materials: {
+            "Stein": "Kelheimer Kalk",
+            "Büste": "weißer Marmor (Carrara)",
+                     
+        },
+      
+        
+    },
+
+
+
+    "ohm": {
+        name: "Georg-Simon-Ohm",
+        imageUrl: "./Fotos/grabstein/ohm_grab.png", 
+        materials: {
+            "Stein": "Muschelkalk"
+            
+                     
+        },
+      
+        
+    },
+
+
+    "gärtner": {
+        name: "Friedrich-von-Gärtner",
+        imageUrl: "./Fotos/grabstein/gaertner_grab.png", 
+        materials: {
+            "Stein": "Rosenheimer Kalk",
+            "Figur": "weißer Marmor (Carrara)",
+            "Medaillon": "weißer Marmor (Carrara)",
+
+        },
+      
+        
+    },
+
+
+    "schwanthaler": {
+        name: "Ludwig-von-Schwanthaler",
+        imageUrl: "./Fotos/grabstein/schwanthaler_grab.png", 
+        materials: {
+            "Stein": "Rosenheimer Kalk",
+            "Figur": "gelb-bräunlicher Sandstein (evtl. Rhätsandstein)",
+            "Büste": "weißer Marmor (Carrara)",
+
+        },
+      
+        
+    },
+
+
+    "liebig": {
+        name: "Justus-Freiherr-von-Liebig",
+        imageUrl: "./Fotos/grabstein/liebig_grab.png", 
+        materials: {
+            "Stein": "Kelheimer Kalk",
+            "Schriftplatten": "Carrara-Marmor",
+            "Büste": "Bronze",
+            "Büstensockel": "Muschelkalk",
+            "Plakette": "Blei-Legierung?"
+
+        },
+      
+        
+    },
+
+
+
+
+
+
+    
 
 };
 
@@ -1355,19 +1789,24 @@ window.showOnMapWithId = function(steinId) {
     showOnMap(firstCoord[0], firstCoord[1], stein.name, steinId);
 };
 function showOnMap(lat, lng, name, steinId) {
-    // Aktuellen Zustand speichern
     previousState = {
         activeSteinId: steinId,
         activeSection: 'gestein'
     };
     
-    // Zur Karte wechseln
     showSection('karte');
     
     setTimeout(() => {
+        // Initialize map if not already done
         if (!mapInitialized) {
             initializeMap();
             mapInitialized = true;
+        } else if (map) {
+            // If map exists, just remove any existing layers
+            if (window.tempMarkers) {
+                window.tempMarkers.forEach(marker => map.removeLayer(marker));
+            }
+            window.tempMarkers = [];
         }
 
         const stein = gesteineDaten[steinId];

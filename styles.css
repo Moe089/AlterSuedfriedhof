@@ -1347,22 +1347,3 @@ img {
   height: 100%;
   object-fit: cover;
 }
-
-.material-popup-actions {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  margin-top: 10px;
-}
-
-.material-popup-actions button {
-  padding: 8px 12px;
-  background-color: #f0f0f0;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.material-popup-actions button:hover {
-  background-color: #e0e0e0;
-}
