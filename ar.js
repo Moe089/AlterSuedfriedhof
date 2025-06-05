@@ -158,7 +158,7 @@ window.launchAR = function(markerUrls = ['default'], modelName = 'fraunhofer') {
 };
 */
 
-window.launchAR = function(latitude, longitude, altitude = 0, radius = 10, modelName = 'fraunhofer') {
+window.launchAR = function(latitude, longitude, modelName = 'fraunhofer') {
     const arWindow = window.open('', 'AR_Viewer', `
         width=${window.screen.width},
         height=${window.screen.height},
@@ -177,148 +177,120 @@ window.launchAR = function(latitude, longitude, altitude = 0, radius = 10, model
         <meta charset="utf-8">
         <title>AR Viewer</title>
         <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
-        <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
-        <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/aframe-gestures-component@1.1.8/dist/aframe-gestures-component.min.js"></script>
+        <script src="https://raw.githack.com/AR-js-org/AR.js/3.4.2/aframe/build/aframe-ar.js"></script>
         <style>
-            body { 
-                margin: 0; 
-                padding: 0; 
-                overflow: hidden;
-                font-family: Arial;
-            }
-            #ar-container {
+            body { margin: 0; padding: 0; overflow: hidden; }
+            .arjs-loader {
+                height: 100%;
+                width: 100%;
                 position: absolute;
                 top: 0;
                 left: 0;
-                width: 100%;
-                height: 100%;
-            }
-            #ar-ui {
-                position: absolute;
-                top: 10px;
-                left: 10px;
-                z-index: 1000;
+                background-color: rgba(0, 0, 0, 0.8);
+                z-index: 9999;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
                 color: white;
-                background: rgba(0,0,0,0.5);
-                padding: 10px;
-                border-radius: 5px;
             }
-            #close-btn {
-                background: #fff;
-                color: #000;
-                border: none;
-                padding: 8px 15px;
-                border-radius: 4px;
-                cursor: pointer;
-                font-size: 14px;
-            }
-            #distance-info {
-                margin-top: 10px;
-                font-size: 14px;
-            }
-            #controls {
+            #debug-info {
                 position: absolute;
                 bottom: 20px;
-                left: 50%;
-                transform: translateX(-50%);
-                z-index: 1000;
-                display: flex;
-                gap: 10px;
-            }
-            .control-btn {
-                background: rgba(255,255,255,0.7);
-                border: none;
-                border-radius: 50%;
-                width: 50px;
-                height: 50px;
-                font-size: 20px;
-                cursor: pointer;
+                left: 20px;
+                background: rgba(0,0,0,0.7);
+                color: white;
+                padding: 10px;
+                border-radius: 5px;
+                font-family: monospace;
+                max-width: 80%;
             }
         </style>
     </head>
     <body>
-        <div id="ar-container">
-            <a-scene 
-                vr-mode-ui="enabled: false"
-                embedded
-                arjs="sourceType: webcam; debugUIEnabled: false; trackingMethod: best;"
-                renderer="logarithmicDepthBuffer: true; precision: medium;"
-                gestures="maxScale: 3; minScale: 0.2"
-                gps-camera="gpsMinDistance: ${radius}"
-            >
-                <a-assets>
-                    <a-asset-item id="ar-model" src="models/${modelName}.glb"></a-asset-item>
-                </a-assets>
-                
-                <a-entity
-                    id="model"
-                    gltf-model="#ar-model"
-                    scale="0.5 0.5 0.5"
-                    gps-entity-place="latitude: ${latitude}; longitude: ${longitude};"
-                    gestures="pinchScale: true; pinchRotate: true; pinchMove: true; dragEnabled: true"
-                    rotation="0 180 0"
-                ></a-entity>
-                
-                <a-camera gps-camera rotation-reader></a-camera>
-            </a-scene>
+        <div class="arjs-loader">
+            <div>Initialisiere AR...</div>
+            <div id="load-status">Lade Ressourcen</div>
+        </div>
+        
+        <a-scene 
+            vr-mode-ui="enabled: false"
+            embedded
+            arjs="sourceType: webcam; debugUIEnabled: true; trackingMethod: best;"
+            renderer="logarithmicDepthBuffer: true; precision: medium;"
+        >
+            <a-assets>
+                <a-asset-item 
+                    id="model" 
+                    src="models/${modelName}.glb"
+                    crossorigin="anonymous"
+                ></a-asset-item>
+            </a-assets>
             
-            <div id="ar-ui">
-                <button id="close-btn">Zurück</button>
-                <div id="status">Initialisiere AR...</div>
-                <div id="distance-info"></div>
-                <div id="position-info"></div>
-            </div>
+            <a-entity
+                id="ar-model"
+                gltf-model="#model"
+                scale="0.5 0.5 0.5"
+                gps-entity-place="latitude: ${latitude}; longitude: ${longitude};"
+                rotation="0 180 0"
+            ></a-entity>
             
-            <div id="controls">
-                <button class="control-btn" id="rotate-left">↻</button>
-                <button class="control-btn" id="reset-btn">⟲</button>
-                <button class="control-btn" id="rotate-right">↺</button>
-            </div>
+            <a-camera gps-camera rotation-reader></a-camera>
+        </a-scene>
+        
+        <div id="debug-info">
+            <div>Debug Information:</div>
+            <div id="model-status">Modell: Wird geladen...</div>
+            <div id="gps-status">GPS: Initialisierung...</div>
+            <div id="camera-status">Kamera: Wird gestartet...</div>
         </div>
 
         <script>
-            // Status-Element
-            const statusEl = document.getElementById('status');
-            const distanceInfo = document.getElementById('distance-info');
-            const positionInfo = document.getElementById('position-info');
-            const model = document.getElementById('model');
+            // Debug-Elemente
+            const loadStatus = document.getElementById('load-status');
+            const modelStatus = document.getElementById('model-status');
+            const gpsStatus = document.getElementById('gps-status');
+            const cameraStatus = document.getElementById('camera-status');
             
-            // Schließen-Button
-            document.getElementById('close-btn').addEventListener('click', function() {
-                window.close();
-            });
-            
-            // Kontroll-Buttons
-            document.getElementById('rotate-left').addEventListener('click', function() {
-                const rotation = model.getAttribute('rotation') || {x: 0, y: 0, z: 0};
-                model.setAttribute('rotation', {
-                    x: rotation.x,
-                    y: rotation.y + 15,
-                    z: rotation.z
+            // Modell-Lade-Status überwachen
+            document.querySelector('a-scene').addEventListener('loaded', function() {
+                loadStatus.textContent = "Szene geladen";
+                
+                const model = document.getElementById('ar-model');
+                model.addEventListener('model-loaded', function() {
+                    modelStatus.textContent = "Modell erfolgreich geladen";
+                    console.log("Modell geladen:", model.getAttribute('gltf-model'));
+                });
+                
+                model.addEventListener('model-error', function() {
+                    modelStatus.innerHTML = "<span style='color:red'>Fehler beim Laden des Modells</span>";
+                    console.error("Modell konnte nicht geladen werden");
                 });
             });
             
-            document.getElementById('rotate-right').addEventListener('click', function() {
-                const rotation = model.getAttribute('rotation') || {x: 0, y: 0, z: 0};
-                model.setAttribute('rotation', {
-                    x: rotation.x,
-                    y: rotation.y - 15,
-                    z: rotation.z
-                });
-            });
+            // GPS-Status überwachen
+            if (navigator.geolocation) {
+                navigator.geolocation.watchPosition(
+                    function(pos) {
+                        gpsStatus.innerHTML = \`
+                            GPS: Aktiv<br>
+                            Breite: \${pos.coords.latitude.toFixed(6)}<br>
+                            Länge: \${pos.coords.longitude.toFixed(6)}<br>
+                            Genauigkeit: \${Math.round(pos.coords.accuracy)}m
+                        \`;
+                    },
+                    function(err) {
+                        gpsStatus.innerHTML = \`
+                            <span style="color:red">GPS-Fehler: \${err.message}</span>
+                        \`;
+                    },
+                    { enableHighAccuracy: true, timeout: 10000 }
+                );
+            }
             
-            document.getElementById('reset-btn').addEventListener('click', function() {
-                model.setAttribute('rotation', '0 180 0');
-                model.setAttribute('scale', '0.5 0.5 0.5');
-                model.setAttribute('position', '0 0 0');
-            });
-            
-            // Kamera-Initialisierung
+            // Kamera-Status
             async function initCamera() {
                 try {
-                    statusEl.textContent = "Starte Kamera und GPS...";
-                    
                     const stream = await navigator.mediaDevices.getUserMedia({
                         video: {
                             facingMode: 'environment',
@@ -326,119 +298,21 @@ window.launchAR = function(latitude, longitude, altitude = 0, radius = 10, model
                             height: { ideal: 720 }
                         }
                     });
+                    cameraStatus.textContent = "Kamera: Aktiv";
                     
-                    // Stream beenden beim Schließen
-                    window.addEventListener('beforeunload', function() {
-                        stream.getTracks().forEach(track => track.stop());
-                    });
+                    // Ladebildschirm ausblenden wenn alles bereit
+                    setTimeout(() => {
+                        document.querySelector('.arjs-loader').style.display = 'none';
+                    }, 2000);
                     
                 } catch (err) {
-                    statusEl.innerHTML = \`
-                        <div style="color: red;">
-                            Kamera-Fehler: \${err.message}
-                            <div style="font-size: 0.8em;">
-                                Bitte:<br>
-                                - HTTPS verwenden<br>
-                                - Kamera erlauben<br>
-                                - Andere Kamera-Apps schließen
-                            </div>
-                        </div>
+                    cameraStatus.innerHTML = \`
+                        <span style="color:red">Kamera-Fehler: \${err.message}</span>
                     \`;
                 }
             }
             
-            // GPS-Position aktualisieren
-            function updatePosition(position) {
-                const { latitude, longitude, altitude, accuracy } = position.coords;
-                positionInfo.innerHTML = \`
-                    Ihre Position:<br>
-                    Breite: \${latitude.toFixed(6)}°<br>
-                    Länge: \${longitude.toFixed(6)}°<br>
-                    Genauigkeit: ~\${Math.round(accuracy)} Meter
-                \`;
-            }
-            
-            // GPS-Fehler behandeln
-            function handleGpsError(error) {
-                let message = "GPS-Fehler: ";
-                switch(error.code) {
-                    case error.PERMISSION_DENIED:
-                        message += "Zugriff verweigert. Bitte GPS aktivieren.";
-                        break;
-                    case error.POSITION_UNAVAILABLE:
-                        message += "Position nicht verfügbar.";
-                        break;
-                    case error.TIMEOUT:
-                        message += "Timeout beim Abrufen der Position.";
-                        break;
-                    default:
-                        message += "Unbekannter Fehler.";
-                }
-                statusEl.innerHTML = \`<div style="color: red;">\${message}</div>\`;
-            }
-            
-            // Szene geladen
-            document.querySelector('a-scene').addEventListener('loaded', function() {
-                initCamera();
-                
-                // GPS-Position abfragen
-                if (navigator.geolocation) {
-                    navigator.geolocation.watchPosition(
-                        updatePosition,
-                        handleGpsError,
-                        { 
-                            enableHighAccuracy: true,
-                            maximumAge: 30000,
-                            timeout: 27000
-                        }
-                    );
-                } else {
-                    statusEl.innerHTML = '<div style="color: red;">Geolocation wird nicht unterstützt</div>';
-                }
-            });
-            
-            // Entfernung zum Modell berechnen
-            function calculateDistance(lat1, lon1, lat2, lon2) {
-                const R = 6371e3; // Erdradius in Metern
-                const φ1 = lat1 * Math.PI/180;
-                const φ2 = lat2 * Math.PI/180;
-                const Δφ = (lat2-lat1) * Math.PI/180;
-                const Δλ = (lon2-lon1) * Math.PI/180;
-                
-                const a = Math.sin(Δφ/2) * Math.sin(Δφ/2) +
-                          Math.cos(φ1) * Math.cos(φ2) *
-                          Math.sin(Δλ/2) * Math.sin(Δλ/2);
-                const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
-                
-                return R * c;
-            }
-            
-            // Regelmäßig Entfernung aktualisieren
-            setInterval(() => {
-                const camera = document.querySelector('[gps-camera]');
-                if (camera && camera.getAttribute('position')) {
-                    const camPos = camera.getAttribute('position');
-                    if (camPos.latitude && camPos.longitude) {
-                        const distance = calculateDistance(
-                            camPos.latitude, 
-                            camPos.longitude,
-                            ${latitude},
-                            ${longitude}
-                        );
-                        
-                        distanceInfo.innerHTML = \`
-                            Entfernung zum Objekt: ~\${Math.round(distance)} Meter<br>
-                            Richtung: \${distance <= ${radius} ? "Sie sind im Zielbereich" : "Bewegen Sie sich näher"}
-                        \`;
-                        
-                        if (distance <= ${radius}) {
-                            distanceInfo.style.color = 'lightgreen';
-                        } else {
-                            distanceInfo.style.color = 'white';
-                        }
-                    }
-                }
-            }, 1000);
+            initCamera();
         </script>
     </body>
     </html>
