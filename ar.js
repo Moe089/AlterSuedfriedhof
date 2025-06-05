@@ -158,9 +158,7 @@ window.launchAR = function(markerUrls = ['default'], modelName = 'fraunhofer') {
 };
 */
 
-// AR-Starter-Funktion mit ortsbasiertem AR
 window.launchAR = function(latitude, longitude, altitude = 0, radius = 10, modelName = 'fraunhofer') {
-    // Neues Fenster erstellen
     const arWindow = window.open('', 'AR_Viewer', `
         width=${window.screen.width},
         height=${window.screen.height},
@@ -172,7 +170,6 @@ window.launchAR = function(latitude, longitude, altitude = 0, radius = 10, model
         return;
     }
 
-    // HTML für das AR-Fenster
     const arHTML = `
     <!DOCTYPE html>
     <html>
@@ -182,6 +179,7 @@ window.launchAR = function(latitude, longitude, altitude = 0, radius = 10, model
         <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
         <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
         <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/aframe-gestures-component@1.1.8/dist/aframe-gestures-component.min.js"></script>
         <style>
             body { 
                 margin: 0; 
@@ -219,6 +217,24 @@ window.launchAR = function(latitude, longitude, altitude = 0, radius = 10, model
                 margin-top: 10px;
                 font-size: 14px;
             }
+            #controls {
+                position: absolute;
+                bottom: 20px;
+                left: 50%;
+                transform: translateX(-50%);
+                z-index: 1000;
+                display: flex;
+                gap: 10px;
+            }
+            .control-btn {
+                background: rgba(255,255,255,0.7);
+                border: none;
+                border-radius: 50%;
+                width: 50px;
+                height: 50px;
+                font-size: 20px;
+                cursor: pointer;
+            }
         </style>
     </head>
     <body>
@@ -228,6 +244,7 @@ window.launchAR = function(latitude, longitude, altitude = 0, radius = 10, model
                 embedded
                 arjs="sourceType: webcam; debugUIEnabled: false; trackingMethod: best;"
                 renderer="logarithmicDepthBuffer: true; precision: medium;"
+                gestures="maxScale: 3; minScale: 0.2"
                 gps-camera="gpsMinDistance: ${radius}"
             >
                 <a-assets>
@@ -235,10 +252,11 @@ window.launchAR = function(latitude, longitude, altitude = 0, radius = 10, model
                 </a-assets>
                 
                 <a-entity
+                    id="model"
                     gltf-model="#ar-model"
                     scale="0.5 0.5 0.5"
-                    gps-entity-place="latitude: ${latitude}; longitude: ${longitude}; altitude: ${altitude};"
-                    look-at="[gps-camera]"
+                    gps-entity-place="latitude: ${latitude}; longitude: ${longitude};"
+                    gestures="pinchScale: true; pinchRotate: true; pinchMove: true; dragEnabled: true"
                     rotation="0 180 0"
                 ></a-entity>
                 
@@ -251,6 +269,12 @@ window.launchAR = function(latitude, longitude, altitude = 0, radius = 10, model
                 <div id="distance-info"></div>
                 <div id="position-info"></div>
             </div>
+            
+            <div id="controls">
+                <button class="control-btn" id="rotate-left">↻</button>
+                <button class="control-btn" id="reset-btn">⟲</button>
+                <button class="control-btn" id="rotate-right">↺</button>
+            </div>
         </div>
 
         <script>
@@ -258,10 +282,36 @@ window.launchAR = function(latitude, longitude, altitude = 0, radius = 10, model
             const statusEl = document.getElementById('status');
             const distanceInfo = document.getElementById('distance-info');
             const positionInfo = document.getElementById('position-info');
+            const model = document.getElementById('model');
             
             // Schließen-Button
             document.getElementById('close-btn').addEventListener('click', function() {
                 window.close();
+            });
+            
+            // Kontroll-Buttons
+            document.getElementById('rotate-left').addEventListener('click', function() {
+                const rotation = model.getAttribute('rotation') || {x: 0, y: 0, z: 0};
+                model.setAttribute('rotation', {
+                    x: rotation.x,
+                    y: rotation.y + 15,
+                    z: rotation.z
+                });
+            });
+            
+            document.getElementById('rotate-right').addEventListener('click', function() {
+                const rotation = model.getAttribute('rotation') || {x: 0, y: 0, z: 0};
+                model.setAttribute('rotation', {
+                    x: rotation.x,
+                    y: rotation.y - 15,
+                    z: rotation.z
+                });
+            });
+            
+            document.getElementById('reset-btn').addEventListener('click', function() {
+                model.setAttribute('rotation', '0 180 0');
+                model.setAttribute('scale', '0.5 0.5 0.5');
+                model.setAttribute('position', '0 0 0');
             });
             
             // Kamera-Initialisierung
@@ -394,10 +444,7 @@ window.launchAR = function(latitude, longitude, altitude = 0, radius = 10, model
     </html>
     `;
 
-    // HTML in das neue Fenster schreiben
     arWindow.document.write(arHTML);
     arWindow.document.close();
-    
-    // Fokus auf das neue Fenster
     arWindow.focus();
 };
