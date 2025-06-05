@@ -1291,48 +1291,129 @@ img {
 .ar-btn:hover {
   background-color: #0b7dda;
 }
-
+/* Marker Styles */
 .marker-container-rock {
-  width: 50px;
-  height: 50px;
+  width: 45px;
+  height: 45px;
   border-radius: 5px;
   overflow: hidden;
   border: 2px solid white;
   box-shadow: 0 0 8px rgba(0,0,0,0.3);
   background: white;
+  display: flex;          /* Neu */
+  justify-content: center; /* Neu */
+  align-items: center;    /* Neu */
 }
 
 .marker-rock-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center; /* Neu */
 }
-
+/* Material Group Buttons */
 .material-group {
   display: flex;
-  gap: 5px;
-  margin-top: 10px;
+  gap: 8px;
+  margin: 15px 0;
   flex-wrap: wrap;
 }
 
 .material-group button {
-  background: #f0f0f0;
-  border: 1px solid #ddd;
-  padding: 5px 8px;
-  border-radius: 4px;
+  background: #f8f8f8;
+  border: 1px solid #e0e0e0;
+  padding: 8px 12px;
+  border-radius: 6px;
   cursor: pointer;
-  font-size: 12px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #333;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 
 .material-group button.active {
   background: #4CAF50;
   color: white;
-  border-color: #45a049;
+  border-color: #3d8b40;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
 .material-group button:hover {
-  background: #e0e0e0;
+  background: #e8e8e8;
+  transform: translateY(-1px);
 }
+
+/* Master Marker */
+
+
+.master-marker-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Popup Images */
+.popup-grave-image {
+  max-width: 100%;
+  max-height: 180px;
+  display: block;
+  margin: 10px auto;
+  object-fit: contain;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* Popup Actions */
+.material-popup-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 15px;
+}
+
+.material-popup-actions button {
+  background: #4CAF50;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  text-align: center;
+  width: 100%;
+}
+
+.material-popup-actions button:hover {
+  background: #3d8b40;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* Custom Popup */
+.custom-popup {
+  min-width: 220px;
+  padding: 10px;
+}
+
+.custom-popup h3 {
+  margin: 0 0 10px 0;
+  font-size: 16px;
+  color: #333;
+  text-align: center;
+}
+
+.custom-popup p {
+  margin: 10px 0;
+  font-size: 13px;
+  color: #555;
+}
+
+
+
+
 
 .master-marker-container {
   width: 70px;
@@ -1342,8 +1423,26 @@ img {
  
 }
 
-.master-marker-image {
+.material-btn {
+  background: #f0f0f0;
+  border: 1px solid #ddd;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 13px;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  text-align: center;
+}
+
+.material-btn:hover {
+  background: #e0e0e0;
+  transform: translateY(-1px);
+}
+
+.material-btn.active {
+  background: #4CAF50;
+  color: white;
+  border-color: #45a049;
+  font-weight: bold;
 }

@@ -1,8 +1,10 @@
 let map;
 let mapInitialized = false;
+let userLocationMarker = null;
+let watchId = null;
 let markers = {
     layer1: L.markerClusterGroup({
-        maxClusterRadius: 50 // Erhöhter Radius (Standard: 80)
+        maxClusterRadius: 50
     }),
     layer2: L.markerClusterGroup({
         maxClusterRadius: 50    
@@ -12,13 +14,11 @@ let markers = {
     })
 };
 
-
 function initializeMap() {
-
     if (mapInitialized && map) return;
+    
     // Karte initialisieren
     map = L.map('map').setView([48.128042323092785, 11.565685880884974], 16);
-
     mapInitialized = true;
 
     // OpenStreetMap-Tiles hinzufügen
@@ -36,7 +36,7 @@ function initializeMap() {
     // Variable zum Speichern des aktiven Layers
     let activeLayer = null;
 
-    // Funktion zum Umschalten des Layers (immer nur einer sichtbar)
+    // Funktion zum Umschalten des Layers
     function switchLayer(newLayer) {
         if (activeLayer && map.hasLayer(activeLayer)) {
             map.removeLayer(activeLayer);
@@ -51,13 +51,16 @@ function initializeMap() {
     }).addTo(map);
 
     // Standard-Layer setzen
-    map.addLayer(markers.layer2); // sorgt dafür, dass er im Control korrekt als aktiv angezeigt wird
+    map.addLayer(markers.layer2);
     activeLayer = markers.layer2;
 
     // Wenn Layer im Control gewechselt wird
     map.on('baselayerchange', function(e) {
         switchLayer(e.layer);
     });
+
+    // GPS-Funktionen hinzufügen
+    addGeolocationFeatures();
 
     // Styles für Marker und Cluster
     const style = document.createElement("style");
@@ -97,6 +100,30 @@ function initializeMap() {
         .marker-cluster-large div {
             background-color: rgba(241, 128, 23, 0.6);
         }
+        .user-location-marker {
+            background-color: #3388ff;
+            border-radius: 50%;
+            border: 3px solid white;
+            width: 16px;
+            height: 16px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.3);
+        }
+        .user-location-marker::after {
+            content: "";
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: rgba(255,255,255,0.5);
+            border-radius: 50%;
+            top: 3px;
+            left: 3px;
+        }
+        .leaflet-control-locate {
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%233388ff"><path d="M12 8c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm8.94 3c-.46-4.17-3.77-7.48-7.94-7.94V1h-2v2.06C6.83 3.52 3.52 6.83 3.06 11H1v2h2.06c.46 4.17 3.77 7.48 7.94 7.94V23h2v-2.06c4.17-.46 7.48-3.77 7.94-7.94H23v-2h-2.06zM12 19c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z"/></svg>');
+            background-size: 70%;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
     `;
     document.head.appendChild(style);
 
@@ -104,6 +131,155 @@ function initializeMap() {
     createMarkersForAllLayers();
 }
 
+function addGeolocationFeatures() {
+    // Benutzerdefiniertes Control für Standortabfrage
+    const LocateControl = L.Control.extend({
+        options: {
+            position: 'topleft'
+        },
+        onAdd: function(map) {
+            const container = L.DomUtil.create('div', 'leaflet-bar leaflet-control');
+            const button = L.DomUtil.create('a', 'leaflet-control-locate', container);
+            button.href = '#';
+            button.title = 'Meinen Standort anzeigen';
+            button.style.width = '30px';
+            button.style.height = '30px';
+            button.style.lineHeight = '30px';
+            button.style.display = 'block';
+            button.style.textAlign = 'center';
+            
+            L.DomEvent.on(button, 'click', function(e) {
+                L.DomEvent.stop(e);
+                locateUser();
+            });
+            
+            return container;
+        }
+    });
+    
+    map.addControl(new LocateControl());
+
+    function locateUser() {
+        if (!navigator.geolocation) {
+            alert("Geolocation wird von Ihrem Browser nicht unterstützt!");
+            return;
+        }
+    
+        // Alten Marker und Genauigkeitskreis entfernen
+        if (userLocationMarker) {
+            map.removeLayer(userLocationMarker);
+        }
+    
+        const loadingPopup = L.popup()
+            .setLatLng(map.getCenter())
+            .setContent('<div style="text-align:center;">Standort wird ermittelt...</div>')
+            .openOn(map);
+    
+        navigator.geolocation.getCurrentPosition(
+            function(position) {
+                loadingPopup.close();
+                const userLocation = [position.coords.latitude, position.coords.longitude];
+                
+                // Minimierter Marker (nur Punkt ohne Kreis)
+                userLocationMarker = L.circleMarker(userLocation, {
+                    radius: 3,  // Sehr kleiner Radius (3 Pixel)
+                    fillColor: "#3388ff",
+                    color: "#fff",
+                    weight: 1,  // Dünner Rand
+                    opacity: 1,
+                    fillOpacity: 0.9,
+                    className: 'user-location-marker'
+                }).bindPopup("Ihre Position").addTo(map);
+                
+                // Karte auf Standort zentrieren mit höherem Zoom
+                map.setView(userLocation, 19);  // Zoomstufe 19 für maximale Details
+                
+                // Optional: Genauigkeitskreis komplett entfernen oder sehr klein darstellen
+                if (position.coords.accuracy) {
+                    L.circle(userLocation, {
+                        radius: 5,  // Sehr kleiner Genauigkeitsradius
+                        color: "#3388ff",
+                        fillColor: "#3388ff",
+                        fillOpacity: 0.2,
+                        weight: 1
+                    }).addTo(map);
+                }
+                
+                startTracking();
+            
+            },
+            function(error) {
+                loadingPopup.close();
+                let errorMessage;
+                switch(error.code) {
+                    case error.PERMISSION_DENIED:
+                        errorMessage = "Standortfreigabe wurde verweigert. Bitte erlauben Sie den Zugriff in Ihren Browsereinstellungen.";
+                        break;
+                    case error.POSITION_UNAVAILABLE:
+                        errorMessage = "Standortinformationen sind nicht verfügbar.";
+                        break;
+                    case error.TIMEOUT:
+                        errorMessage = "Die Standortabfrage hat zu lange gedauert.";
+                        break;
+                    default:
+                        errorMessage = "Ein unbekannter Fehler ist aufgetreten.";
+                }
+                L.popup()
+                    .setLatLng(map.getCenter())
+                    .setContent('<div style="text-align:center; color:red;">' + errorMessage + '</div>')
+                    .openOn(map);
+            },
+            {
+                enableHighAccuracy: true,
+                timeout: 10000,
+                maximumAge: 0
+            }
+        );
+    }
+
+    // Kontinuierliche Positionsverfolgung starten
+    function startTracking() {
+        if (watchId !== null) return;
+        
+        watchId = navigator.geolocation.watchPosition(
+            function(position) {
+                const newLocation = [position.coords.latitude, position.coords.longitude];
+                
+                if (userLocationMarker) {
+                    userLocationMarker.setLatLng(newLocation);
+                    userLocationMarker.getPopup().setContent(
+                        "Ihre Position (Genauigkeit: ±" + Math.round(position.coords.accuracy) + " Meter)"
+                    );
+                }
+            },
+            function(error) {
+                console.error("Fehler bei Positionsverfolgung:", error);
+            },
+            {
+                enableHighAccuracy: true,
+                maximumAge: 10000,
+                timeout: 5000
+            }
+        );
+    }
+
+    // Tracking beim Schließen der Seite stoppen
+    window.addEventListener('beforeunload', function() {
+        if (watchId !== null) {
+            navigator.geolocation.clearWatch(watchId);
+        }
+    });
+}
+
+function createMarkersForAllLayers() {
+    // Hier kannst du Marker für die verschiedenen Layer erstellen
+    // Beispiel:
+    /*
+    markers.layer1.addLayer(L.marker([48.128, 11.566]).bindPopup("Berühmtheit 1"));
+    markers.layer2.addLayer(L.marker([48.129, 11.567]).bindPopup("Grabstein 1"));
+    markers.layer3.addLayer(L.marker([48.127, 11.565]).bindPopup("Gestein 1"));
+    */
+}
 
 // Die createCustomMarker Funktion bleibt gleich
 
@@ -153,6 +329,10 @@ function createMarkersForAllLayers() {
         "./Fotos/personen/fraunhofer.png", "Grab Josef von Fraunhofer", markers.layer1,
         function() { showRouteForPerson("Fraunhofer", "street"); });
 
+            createCustomMarker(48.126416431123516, 11.563765486149405, 
+        "./Fotos/personen/brey.png", "Grab Goerg Brey", markers.layer1);
+       
+
 
     createCustomMarker(48.12672470001926, 11.56502006855112, 
         "./Fotos/personen/Ett.png", "Grab Kaspar Ett", markers.layer1,
@@ -174,6 +354,10 @@ function createMarkersForAllLayers() {
     createCustomMarker(48.129704045499714, 11.565643056407898, 
         "./Fotos/personen/knorr.png", "Grab Julius Knorr", markers.layer1,
         function() { showRouteForPerson("Knorr", "street"); });
+
+        createCustomMarker(48.12633916846871, 11.563242536255467, 
+            "./Fotos/personen/jolly.png", "Grab Philipp von Jolly", markers.layer1,
+            function() { showRouteForPerson("Jolly", "street"); });
 
 
     createCustomMarker(48.12565715788182, 11.564285682286432, 
@@ -197,15 +381,17 @@ createCustomMarker(48.130066, 11.565872,
         createCustomMarker(48.130472380841496, 11.56624671866165, 
             "./Fotos/grabstein/grab-schlagintweit.png", "Grab Adolf Schlaginweit", markers.layer2);
             createCustomMarker(48.13068516226951, 11.566287799253821, 
-                "./Fotos/grabstein/.png", "Grab Joseph Albert", markers.layer2);
+                "./Fotos/grabstein/albert.png", "Grab Joseph Albert", markers.layer2);
         createCustomMarker(48.12944686673255, 11.566483691300379, 
             "./Fotos/grabstein/grab_senefelder.png", "Grab Alois Senefelder", markers.layer2);
         createCustomMarker(48.1306902208633, 11.566399154097912, 
             "./Fotos/grabstein/straub_grab.png", "Grab Johann Baptist Straub", markers.layer2);
         createCustomMarker(48.13020766844287, 11.566064541718118, 
             "./Fotos/grabstein/zenetti.png", "Grab Arnold Zenetti", markers.layer2);
+            createCustomMarker(48.126416431123516, 11.563765486149405, 
+                "./Fotos/grabstein/brey.png", "Grab Goerg Brey", markers.layer2);
         createCustomMarker(48.130066, 11.565872, 
-            "./Fotos/personen/Ferdinand_von_Miller.png", "Grab Ferdinand von Miller", markers.layer2);
+          "./Fotos/grabstein/miller.png", "Grab Ferdinand von Miller", markers.layer2);
         createCustomMarker(48.12873435697092, 11.564917402621731, 
             "./Fotos/grabstein/kobell.png", "Grab Franz Kobell", markers.layer2);
         createCustomMarker(48.127449022632554, 11.565760706995862, 
@@ -248,7 +434,7 @@ createCustomMarker(48.130066, 11.565872,
                 
                 createMaterialMarker(
                     48.13068516226951, 11.566287799253821,
-                    "./Fotos/gestein/zenetti_bronze_bueste.png",
+                    "./Fotos/gestein/Albert_Stein_carrara.JPG",
                     "Stein - weißer Marmor (Carrara)",
                     markers.layer3,
                     "albert",
@@ -256,7 +442,7 @@ createCustomMarker(48.130066, 11.565872,
                 );
                 createMaterialMarker(
                     48.13068516226951, 11.566287799253821,
-                    "./Fotos/gestein/zenetti_bronze_scheibe.png",
+                    "./Fotos/gestein/Säule_Ochsenkopf.JPG",
                     "Säulen - Ochsenkopf-Proterobas",
                     markers.layer3,
                     "albert",
@@ -264,7 +450,7 @@ createCustomMarker(48.130066, 11.565872,
                 );
                 createMaterialMarker(
                     48.13068516226951, 11.566287799253821,
-                    "./Fotos/gestein/zenetti_nummulitenkalk.png",
+                    "./Fotos/gestein/Albert_Sockel_Muschelkalk.JPG",
                     "Sockel - Muschelkalk",
                     markers.layer3,
                     "albert",
@@ -274,7 +460,7 @@ createCustomMarker(48.130066, 11.565872,
            
                 createMaterialMarker(
                     48.13068516226951, 11.566287799253821,
-                    "./Fotos/gestein/zenetti_nummulitenkalk.png",
+                    "./Fotos/gestein/Albert_Büste_Carrara.JPG",
                     "Büste - weißer Marmor (Carrara)",
                     markers.layer3,
                     "albert",
@@ -283,7 +469,7 @@ createCustomMarker(48.130066, 11.565872,
                 
                 createMaterialMarker(
                     48.13068516226951, 11.566287799253821,
-                    "./Fotos/gestein/zenetti_bronze_scheibe.png",
+                    "./Fotos/gestein/Schale-Donau-Kalke.JPG",
                     "Schalen - Donau-Kalke",
                     markers.layer3,
                     "albert",
@@ -861,11 +1047,11 @@ function createMasterMarker(lat, lng, personId, layerGroup) {
     const masterIcon = L.divIcon({
         className: "master-marker",
         html: `
-            <div class="master-marker-container" title="Materialauswahl öffnen">
+            <div class="master-marker-container" title="Grabstein-Übersicht">
                 <img src="${config.imageUrl}" alt="${config.name}" class="master-marker-image">
             </div>
         `,
-        iconSize: [40, 40],
+        iconSize: [50, 50],
         iconAnchor: [20, 20]
     });
 
@@ -875,27 +1061,28 @@ function createMasterMarker(lat, lng, personId, layerGroup) {
         personId: personId
     });
 
-    const materialButtons = Object.entries(config.materials).map(([key, name]) => 
-        `<button onclick="showMaterialGroup('${personId}', '${key}')" 
-                ${key === config.defaultMaterial ? 'class="active"' : ''}>
-            ${name}
-        </button>`
+    // Materialien als einfache Liste anzeigen
+    const materialList = Object.values(config.materials).map(name => 
+        `<li>${name}</li>`
     ).join('');
 
     marker.bindPopup(`
         <div class="custom-popup">
             <h3>${config.name}</h3>
             <img src="${config.imageUrl}" alt="${config.name}" class="popup-grave-image">
-            <p>Dieser Grabstein enthält mehrere Materialien:</p>
-            <div class="material-group">
-                ${materialButtons}
-            </div>
+            <p>Enthaltene Materialien:</p>
+            <ul class="material-list">
+                ${materialList}
+            </ul>
         </div>
     `);
 
     marker.addTo(layerGroup);
     return marker;
 }
+
+
+
 
 function showMaterialGroup(personId, materialKey) {
     if (!graveMaterials[personId]) return;
@@ -933,10 +1120,9 @@ function createMaterialMarker(lat, lng, imageUrl, popupText, layerGroup, personI
     marker.bindPopup(`
         <div class="custom-popup">
             <h3>${popupText}</h3>
+            <img src="${imageUrl}" alt="${popupText}" class="popup-grave-image">
             <div class="material-popup-actions">
-                <button onclick="showMaterialGroup('${personId}', '${materialKey}')">
-                    Zurück zur Materialauswahl
-                </button>
+
                 <button onclick="navigateToRockEntry('${materialKey}')">
                     Zum Gesteinseintrag
                 </button>
@@ -944,7 +1130,7 @@ function createMaterialMarker(lat, lng, imageUrl, popupText, layerGroup, personI
         </div>
     `);
 
-    marker.setOpacity(0.3);
+    marker.setOpacity(0.9);
     marker.addTo(layerGroup);
     return marker;
 }
@@ -990,7 +1176,7 @@ const graveMaterials = {
     },
       "albert": {
         name: "Joseph Albert Grabstein",
-        imageUrl: "./Fotos/grabstein/grab_senefelder.png", 
+        imageUrl: "./Fotos/grabstein/albert.png", 
         materials: {
             "Stein": "weißer Marmor (Carrara)",
             "Sockel": "Muschelkalk",
@@ -1465,17 +1651,14 @@ function createCustomMarker(lat, lng, imageUrl, popupText, layerGroup, onClick, 
             iconAnchor: [20, 40]
         });
     }
-
+    48.15196988492568, 11.553769878227335
     const marker = L.marker([lat, lng], { icon: customIcon });
 
     if (popupText.includes("Georg von Reichenbach")) {
         marker.bindPopup(`
             <div class="custom-popup">
                 <h3>${popupText}</h3>
-                <button class="ar-btn" onclick="launchAR(
-                    ['reichenbach_links/reichenbach_links', 'reichenbach_mitte/reichenbach_mitte', 'reichenbach_rechts/reichenbach_rechts'],
-                    'fraunhofer'
-                )">AR starten</button>
+                <button class="ar-btn" onclick="launchAR(48.137154, 11.576124, 0, 20, 'fraunhofer');">AR starten</button>
                  <button class="show-street-btn" onclick="showRouteForPerson('Reichenbach', 'street')">
                         Straße anzeigen
                     </button>
