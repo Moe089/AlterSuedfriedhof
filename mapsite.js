@@ -547,11 +547,11 @@ createCustomMarker(48.130066, 11.565872,
 
                 createMaterialMarker(
                     48.12944686673255, 11.566483691300379,
-                    "./Fotos/gestein/senefelder_bronze_relief.png",
+                    "./Fotos/gestein/Senefelder_Platte.JPG",
                     "Schriftplatte: Solnhofener Kalk",
                     markers.layer3,
                     "senefelder",
-                    "bronze_relief"
+                    "solnhofener-kalk"
                 );
 
 
@@ -592,7 +592,7 @@ createCustomMarker(48.130066, 11.565872,
                 
                 createMaterialMarker(
                     48.12493912256356, 11.563330775765484,
-                    "./Fotos/gestein/senefelder_sandstein.png",
+                    "./Fotos/gestein/Stein_Liebig.JPG",
                     "Stein - Kelheimer Kalk",
                     markers.layer3,
                     "liebig",
@@ -601,7 +601,7 @@ createCustomMarker(48.130066, 11.565872,
 
                 createMaterialMarker(
                     48.12493912256356, 11.563330775765484,
-                    "./Fotos/gestein/senefelder_sandstein.png",
+                    "./Fotos/gestein/schriftplatte_liebig.JPG",
                     "Schriftplatten - Carrara Marmor",
                     markers.layer3,
                     "liebig",
@@ -610,7 +610,7 @@ createCustomMarker(48.130066, 11.565872,
 
                 createMaterialMarker(
                     48.12493912256356, 11.563330775765484,
-                    "./Fotos/gestein/senefelder_sandstein.png",
+                    "./Fotos/gestein/Büste_Liebig.JPG",
                     "Büste - Bronze",
                     markers.layer3,
                     "liebig",
@@ -619,32 +619,25 @@ createCustomMarker(48.130066, 11.565872,
 
                 createMaterialMarker(
                     48.12493912256356, 11.563330775765484,
-                    "./Fotos/gestein/senefelder_sandstein.png",
+                    "./Fotos/gestein/Sockel_Liebig.JPG",
                     "Büstensockel - Muschelkalk",
                     markers.layer3,
                     "liebig",
                     "muschelkalk"
                 );
 
-                createMaterialMarker(
-                    48.12493912256356, 11.563330775765484,
-                    "./Fotos/gestein/senefelder_sandstein.png",
-                    "Plakette - Bleilegierung",
-                    markers.layer3,
-                    "liebig",
-                    ""
-                );
+           
 
 
 
                 createMasterMarker(
-                    48.12493912256356, 11.563330775765484,
+                    48.126566660608965, 11.563347172127134,
                     "brey",
                     markers.layer3
                 );
                 
                 createMaterialMarker(
-                    48.12493912256356, 11.563330775765484,
+                    48.126566660608965, 11.563347172127134,
                     "./Fotos/gestein/senefelder_sandstein.png",
                     "Stein - Plattensandstein (Buntsandstein-Oberbayern)",
                     markers.layer3,
@@ -811,7 +804,7 @@ createCustomMarker(48.130066, 11.565872,
                 
                 createMaterialMarker(
                     48.126455075780726, 11.563712640306962,
-                    "./Fotos/gestein/senefelder_sandstein.png",
+                    "./Fotos/gestein/Stein_Klenze.JPG",
                     "Stein - Kelheimer Kalk",
                     markers.layer3,
                     "klenze",
@@ -820,7 +813,7 @@ createCustomMarker(48.130066, 11.565872,
 
                 createMaterialMarker(
                     48.126455075780726, 11.563712640306962,
-                    "./Fotos/gestein/senefelder_sandstein.png",
+                    "./Fotos/gestein/Büste_Klenze.JPG",
                     "Büste - Carrara Marmor",
                     markers.layer3,
                     "klenze",
@@ -958,7 +951,7 @@ createCustomMarker(48.130066, 11.565872,
                 
                 createMaterialMarker(
                     48.12700316519899, 11.566071173222651,
-                    "./Fotos/gestein/senefelder_sandstein.png",
+                    "./Fotos/gestein/Ohm_Stein.jpg",
                     "Stein - Muschelkalk",
                     markers.layer3,
                     "ohm",
@@ -1356,6 +1349,13 @@ const graveMaterials = {
         
     },
 
+    "brey": {
+        name: "Georg-Brey",
+        imageUrl: "./Fotos/grabstein/brey.png",
+        materials: {
+            "Stein": "Plattensandstein" 
+        }
+    }
 
 
 
