@@ -491,7 +491,7 @@ createCustomMarker(48.130066, 11.565872,
                 
                 createMaterialMarker(
                     48.13020766844287, 11.566064541718118,
-                    "./Fotos/gestein/zenetti_bronze_bueste.png",
+                    "./Fotos/gestein/Büste_Zenetti.JPG",
                     "Zenetti Grabstein - Bronzebüste",
                     markers.layer3,
                     "zenetti",
@@ -500,7 +500,7 @@ createCustomMarker(48.130066, 11.565872,
                 
                 createMaterialMarker(
                     48.13020766844287, 11.566064541718118,
-                    "./Fotos/gestein/zenetti_nummulitenkalk.png",
+                    "./Fotos/gestein/Stein_Zenetti.JPG",
                     "Zenetti Grabstein - Enzenauer Nummulitenkalk",
                     markers.layer3,
                     "zenetti",
@@ -509,7 +509,7 @@ createCustomMarker(48.130066, 11.565872,
                 
                 createMaterialMarker(
                     48.13020766844287, 11.566064541718118,
-                    "./Fotos/gestein/zenetti_bronze_scheibe.png",
+                    "./Fotos/gestein/Scheibe_Zenetti.JPG",
                     "Zenetti Grabstein - Bronzestrahlenscheibe",
                     markers.layer3,
                     "zenetti",
@@ -529,7 +529,7 @@ createCustomMarker(48.130066, 11.565872,
                 
                 createMaterialMarker(
                     48.12944686673255, 11.566483691300379,
-                    "./Fotos/gestein/senefelder_sandstein.png",
+                    "./Fotos/gestein/Stein_Senefleder.JPG",
                     "Senefelder Grabstein - Kelheimer Kalk",
                     markers.layer3,
                     "senefelder",
@@ -538,7 +538,7 @@ createCustomMarker(48.130066, 11.565872,
                 
                 createMaterialMarker(
                     48.12944686673255, 11.566483691300379,
-                    "./Fotos/gestein/senefelder_bronze_relief.png",
+                    "./Fotos/gestein/Sockel_Senefelder.JPG",
                     "Sockel - Kalktuff",
                     markers.layer3,
                     "senefelder",
@@ -566,7 +566,7 @@ createCustomMarker(48.130066, 11.565872,
                 
                 createMaterialMarker(
                     48.130066, 11.565872,
-                    "./Fotos/gestein/senefelder_sandstein.png",
+                    "./Fotos/gestein/adneter_marmor_miller.jpg",
                     "Ferdinand von Miller - Adneter Marmor",
                     markers.layer3,
                     "miller",
@@ -575,7 +575,7 @@ createCustomMarker(48.130066, 11.565872,
 
                 createMaterialMarker(
                     48.130066, 11.565872,
-                    "./Fotos/gestein/senefelder_sandstein.png",
+                    "./Fotos/gestein/eisen_miller.jpg",
                     "Ferdinand von Miller - Eisen",
                     markers.layer3,
                     "miller",
@@ -713,7 +713,7 @@ createCustomMarker(48.130066, 11.565872,
                 
                 createMaterialMarker(
                     48.129704045499714, 11.565643056407898,
-                    "./Fotos/gestein/senefelder_sandstein.png",
+                    "./Fotos/gestein/Stein_Knorr.JPG",
                     "Stein - evtl. Boisjourdin-Kalk",
                     markers.layer3,
                     "knorr",
@@ -722,7 +722,7 @@ createCustomMarker(48.130066, 11.565872,
 
                 createMaterialMarker(
                     48.129704045499714, 11.565643056407898,
-                    "./Fotos/gestein/senefelder_sandstein.png",
+                    "./Fotos/gestein/Adneter_marmor_Knorr.JPG",
                     "Sockelpartien - Adneter Marmor",
                     markers.layer3,
                     "knorr",
@@ -731,8 +731,8 @@ createCustomMarker(48.130066, 11.565872,
 
                 createMaterialMarker(
                     48.129704045499714, 11.565643056407898,
-                    "./Fotos/gestein/senefelder_sandstein.png",
-                    "Büstenpodest - Poroto-Kalk",
+                    "./Fotos/gestein/Sockel_Knorr.JPG",
+                    "Büstenpodest - Portoro-Kalk",
                     markers.layer3,
                     "knorr",
                     "nero-portoro"
@@ -740,7 +740,7 @@ createCustomMarker(48.130066, 11.565872,
 
                 createMaterialMarker(
                     48.129704045499714, 11.565643056407898,
-                    "./Fotos/gestein/senefelder_sandstein.png",
+                    "./Fotos/gestein/Büste_Knorr.JPG",
                     "Büste - Carrara-Marmor",
                     markers.layer3,
                     "knorr",
@@ -749,7 +749,7 @@ createCustomMarker(48.130066, 11.565872,
 
                 createMaterialMarker(
                     48.129704045499714, 11.565643056407898,
-                    "./Fotos/gestein/senefelder_sandstein.png",
+                    "./Fotos/gestein/Decke_Knorr.JPG",
                     "Deckenplatte - Treuchtlinger Kalk",
                     markers.layer3,
                     "knorr",
@@ -758,7 +758,7 @@ createCustomMarker(48.130066, 11.565872,
 
                 createMaterialMarker(
                     48.129704045499714, 11.565643056407898,
-                    "./Fotos/gestein/senefelder_sandstein.png",
+                    "./Fotos/gestein/Schriftplatte_Knorr.JPG",
                     "Schriftplatte - Treuchtlinger Kalk ",
                     markers.layer3,
                     "knorr",
@@ -776,7 +776,7 @@ createCustomMarker(48.130066, 11.565872,
 
                 createMaterialMarker(
                     48.129704045499714, 11.565643056407898,
-                    "./Fotos/gestein/senefelder_sandstein.png",
+                    "./Fotos/gestein/Säule_Knorr.JPG",
                     "Säulen - Redwitzit",
                     markers.layer3,
                     "knorr",
@@ -785,7 +785,7 @@ createCustomMarker(48.130066, 11.565872,
 
                 createMaterialMarker(
                     48.129704045499714, 11.565643056407898,
-                    "./Fotos/gestein/senefelder_sandstein.png",
+                    "./Fotos/gestein/Wandplatten_Knorr.JPG",
                     "Wandplatten - Serpentinit",
                     markers.layer3,
                     "knorr",
@@ -794,7 +794,7 @@ createCustomMarker(48.130066, 11.565872,
 
                 createMaterialMarker(
                     48.129704045499714, 11.565643056407898,
-                    "./Fotos/gestein/senefelder_sandstein.png",
+                    "./Fotos/gestein/Kapitell_Knorr.JPG",
                     "Kapitell - Bronze",
                     markers.layer3,
                     "knorr",
@@ -1188,7 +1188,7 @@ const graveMaterials = {
     },
     "miller": {
         name: "Ferdinand-von-Miller",
-        imageUrl: "./Fotos/grabstein/grab_senefelder.png", 
+        imageUrl: "./Fotos/grabstein/miller.png", 
         materials: {
             "Stein": "Adneter-Marmor",
             "Relief": "Bronze",
@@ -1251,7 +1251,7 @@ const graveMaterials = {
 
     "jolly": {
         name: "Philipp-von-Jolly",
-        imageUrl: "./Fotos/grabstein/grab_ett.png", 
+        imageUrl: "./Fotos/grabstein/.png", 
         materials: {
             "Stein": "getigerter Schilfsandstein",
             "Sockel": "feinkörniger grauer Granit",
@@ -1264,7 +1264,7 @@ const graveMaterials = {
 
     "knorr": {
         name: "Julius Knorr",
-        imageUrl: "", 
+        imageUrl: "./Fotos/grabstein/knorr.png", 
         materials: {
             "Stein": "evtl. Boisjourdin-Kalk",
             "Sockelpartien": "roter Knollenkalk",

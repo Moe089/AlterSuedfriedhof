@@ -158,7 +158,9 @@ window.launchAR = function(markerUrls = ['default'], modelName = 'fraunhofer') {
 };
 */
 
-window.launchAR = function(latitude, longitude, modelName = 'fraunhofer') {
+// AR-Starter-Funktion mit ortsbasiertem AR
+window.launchAR = function(latitude, longitude, altitude = 0, radius = 10, modelName = 'fraunhofer') {
+    // Neues Fenster erstellen
     const arWindow = window.open('', 'AR_Viewer', `
         width=${window.screen.width},
         height=${window.screen.height},
@@ -170,6 +172,7 @@ window.launchAR = function(latitude, longitude, modelName = 'fraunhofer') {
         return;
     }
 
+    // HTML für das AR-Fenster
     const arHTML = `
     <!DOCTYPE html>
     <html>
@@ -177,120 +180,95 @@ window.launchAR = function(latitude, longitude, modelName = 'fraunhofer') {
         <meta charset="utf-8">
         <title>AR Viewer</title>
         <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
-        <script src="https://raw.githack.com/AR-js-org/AR.js/3.4.2/aframe/build/aframe-ar.js"></script>
+        <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+        <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
         <style>
-            body { margin: 0; padding: 0; overflow: hidden; }
-            .arjs-loader {
-                height: 100%;
-                width: 100%;
+            body { 
+                margin: 0; 
+                padding: 0; 
+                overflow: hidden;
+                font-family: Arial;
+            }
+            #ar-container {
                 position: absolute;
                 top: 0;
                 left: 0;
-                background-color: rgba(0, 0, 0, 0.8);
-                z-index: 9999;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                flex-direction: column;
-                color: white;
+                width: 100%;
+                height: 100%;
             }
-            #debug-info {
+            #ar-ui {
                 position: absolute;
-                bottom: 20px;
-                left: 20px;
-                background: rgba(0,0,0,0.7);
+                top: 10px;
+                left: 10px;
+                z-index: 1000;
                 color: white;
+                background: rgba(0,0,0,0.5);
                 padding: 10px;
                 border-radius: 5px;
-                font-family: monospace;
-                max-width: 80%;
+            }
+            #close-btn {
+                background: #fff;
+                color: #000;
+                border: none;
+                padding: 8px 15px;
+                border-radius: 4px;
+                cursor: pointer;
+                font-size: 14px;
+            }
+            #distance-info {
+                margin-top: 10px;
+                font-size: 14px;
             }
         </style>
     </head>
     <body>
-        <div class="arjs-loader">
-            <div>Initialisiere AR...</div>
-            <div id="load-status">Lade Ressourcen</div>
-        </div>
-        
-        <a-scene 
-            vr-mode-ui="enabled: false"
-            embedded
-            arjs="sourceType: webcam; debugUIEnabled: true; trackingMethod: best;"
-            renderer="logarithmicDepthBuffer: true; precision: medium;"
-        >
-            <a-assets>
-                <a-asset-item 
-                    id="model" 
-                    src="models/${modelName}.glb"
-                    crossorigin="anonymous"
-                ></a-asset-item>
-            </a-assets>
+        <div id="ar-container">
+            <a-scene 
+                vr-mode-ui="enabled: false"
+                embedded
+                arjs="sourceType: webcam; debugUIEnabled: false; trackingMethod: best;"
+                renderer="logarithmicDepthBuffer: true; precision: medium;"
+                gps-camera="gpsMinDistance: ${radius}"
+            >
+                <a-assets>
+                    <a-asset-item id="ar-model" src="models/${modelName}.glb"></a-asset-item>
+                </a-assets>
+                
+                <a-entity
+                    gltf-model="#ar-model"
+                    scale="0.5 0.5 0.5"
+                    gps-entity-place="latitude: ${latitude}; longitude: ${longitude}; altitude: ${altitude};"
+                    look-at="[gps-camera]"
+                    rotation="0 180 0"
+                ></a-entity>
+                
+                <a-camera gps-camera rotation-reader></a-camera>
+            </a-scene>
             
-            <a-entity
-                id="ar-model"
-                gltf-model="#model"
-                scale="0.5 0.5 0.5"
-                gps-entity-place="latitude: ${latitude}; longitude: ${longitude};"
-                rotation="0 180 0"
-            ></a-entity>
-            
-            <a-camera gps-camera rotation-reader></a-camera>
-        </a-scene>
-        
-        <div id="debug-info">
-            <div>Debug Information:</div>
-            <div id="model-status">Modell: Wird geladen...</div>
-            <div id="gps-status">GPS: Initialisierung...</div>
-            <div id="camera-status">Kamera: Wird gestartet...</div>
+            <div id="ar-ui">
+                <button id="close-btn">Zurück</button>
+                <div id="status">Initialisiere AR...</div>
+                <div id="distance-info"></div>
+                <div id="position-info"></div>
+            </div>
         </div>
 
         <script>
-            // Debug-Elemente
-            const loadStatus = document.getElementById('load-status');
-            const modelStatus = document.getElementById('model-status');
-            const gpsStatus = document.getElementById('gps-status');
-            const cameraStatus = document.getElementById('camera-status');
+            // Status-Element
+            const statusEl = document.getElementById('status');
+            const distanceInfo = document.getElementById('distance-info');
+            const positionInfo = document.getElementById('position-info');
             
-            // Modell-Lade-Status überwachen
-            document.querySelector('a-scene').addEventListener('loaded', function() {
-                loadStatus.textContent = "Szene geladen";
-                
-                const model = document.getElementById('ar-model');
-                model.addEventListener('model-loaded', function() {
-                    modelStatus.textContent = "Modell erfolgreich geladen";
-                    console.log("Modell geladen:", model.getAttribute('gltf-model'));
-                });
-                
-                model.addEventListener('model-error', function() {
-                    modelStatus.innerHTML = "<span style='color:red'>Fehler beim Laden des Modells</span>";
-                    console.error("Modell konnte nicht geladen werden");
-                });
+            // Schließen-Button
+            document.getElementById('close-btn').addEventListener('click', function() {
+                window.close();
             });
             
-            // GPS-Status überwachen
-            if (navigator.geolocation) {
-                navigator.geolocation.watchPosition(
-                    function(pos) {
-                        gpsStatus.innerHTML = \`
-                            GPS: Aktiv<br>
-                            Breite: \${pos.coords.latitude.toFixed(6)}<br>
-                            Länge: \${pos.coords.longitude.toFixed(6)}<br>
-                            Genauigkeit: \${Math.round(pos.coords.accuracy)}m
-                        \`;
-                    },
-                    function(err) {
-                        gpsStatus.innerHTML = \`
-                            <span style="color:red">GPS-Fehler: \${err.message}</span>
-                        \`;
-                    },
-                    { enableHighAccuracy: true, timeout: 10000 }
-                );
-            }
-            
-            // Kamera-Status
+            // Kamera-Initialisierung
             async function initCamera() {
                 try {
+                    statusEl.textContent = "Starte Kamera und GPS...";
+                    
                     const stream = await navigator.mediaDevices.getUserMedia({
                         video: {
                             facingMode: 'environment',
@@ -298,27 +276,128 @@ window.launchAR = function(latitude, longitude, modelName = 'fraunhofer') {
                             height: { ideal: 720 }
                         }
                     });
-                    cameraStatus.textContent = "Kamera: Aktiv";
                     
-                    // Ladebildschirm ausblenden wenn alles bereit
-                    setTimeout(() => {
-                        document.querySelector('.arjs-loader').style.display = 'none';
-                    }, 2000);
+                    // Stream beenden beim Schließen
+                    window.addEventListener('beforeunload', function() {
+                        stream.getTracks().forEach(track => track.stop());
+                    });
                     
                 } catch (err) {
-                    cameraStatus.innerHTML = \`
-                        <span style="color:red">Kamera-Fehler: \${err.message}</span>
+                    statusEl.innerHTML = \`
+                        <div style="color: red;">
+                            Kamera-Fehler: \${err.message}
+                            <div style="font-size: 0.8em;">
+                                Bitte:<br>
+                                - HTTPS verwenden<br>
+                                - Kamera erlauben<br>
+                                - Andere Kamera-Apps schließen
+                            </div>
+                        </div>
                     \`;
                 }
             }
             
-            initCamera();
+            // GPS-Position aktualisieren
+            function updatePosition(position) {
+                const { latitude, longitude, altitude, accuracy } = position.coords;
+                positionInfo.innerHTML = \`
+                    Ihre Position:<br>
+                    Breite: \${latitude.toFixed(6)}°<br>
+                    Länge: \${longitude.toFixed(6)}°<br>
+                    Genauigkeit: ~\${Math.round(accuracy)} Meter
+                \`;
+            }
+            
+            // GPS-Fehler behandeln
+            function handleGpsError(error) {
+                let message = "GPS-Fehler: ";
+                switch(error.code) {
+                    case error.PERMISSION_DENIED:
+                        message += "Zugriff verweigert. Bitte GPS aktivieren.";
+                        break;
+                    case error.POSITION_UNAVAILABLE:
+                        message += "Position nicht verfügbar.";
+                        break;
+                    case error.TIMEOUT:
+                        message += "Timeout beim Abrufen der Position.";
+                        break;
+                    default:
+                        message += "Unbekannter Fehler.";
+                }
+                statusEl.innerHTML = \`<div style="color: red;">\${message}</div>\`;
+            }
+            
+            // Szene geladen
+            document.querySelector('a-scene').addEventListener('loaded', function() {
+                initCamera();
+                
+                // GPS-Position abfragen
+                if (navigator.geolocation) {
+                    navigator.geolocation.watchPosition(
+                        updatePosition,
+                        handleGpsError,
+                        { 
+                            enableHighAccuracy: true,
+                            maximumAge: 30000,
+                            timeout: 27000
+                        }
+                    );
+                } else {
+                    statusEl.innerHTML = '<div style="color: red;">Geolocation wird nicht unterstützt</div>';
+                }
+            });
+            
+            // Entfernung zum Modell berechnen
+            function calculateDistance(lat1, lon1, lat2, lon2) {
+                const R = 6371e3; // Erdradius in Metern
+                const φ1 = lat1 * Math.PI/180;
+                const φ2 = lat2 * Math.PI/180;
+                const Δφ = (lat2-lat1) * Math.PI/180;
+                const Δλ = (lon2-lon1) * Math.PI/180;
+                
+                const a = Math.sin(Δφ/2) * Math.sin(Δφ/2) +
+                          Math.cos(φ1) * Math.cos(φ2) *
+                          Math.sin(Δλ/2) * Math.sin(Δλ/2);
+                const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+                
+                return R * c;
+            }
+            
+            // Regelmäßig Entfernung aktualisieren
+            setInterval(() => {
+                const camera = document.querySelector('[gps-camera]');
+                if (camera && camera.getAttribute('position')) {
+                    const camPos = camera.getAttribute('position');
+                    if (camPos.latitude && camPos.longitude) {
+                        const distance = calculateDistance(
+                            camPos.latitude, 
+                            camPos.longitude,
+                            ${latitude},
+                            ${longitude}
+                        );
+                        
+                        distanceInfo.innerHTML = \`
+                            Entfernung zum Objekt: ~\${Math.round(distance)} Meter<br>
+                            Richtung: \${distance <= ${radius} ? "Sie sind im Zielbereich" : "Bewegen Sie sich näher"}
+                        \`;
+                        
+                        if (distance <= ${radius}) {
+                            distanceInfo.style.color = 'lightgreen';
+                        } else {
+                            distanceInfo.style.color = 'white';
+                        }
+                    }
+                }
+            }, 1000);
         </script>
     </body>
     </html>
     `;
 
+    // HTML in das neue Fenster schreiben
     arWindow.document.write(arHTML);
     arWindow.document.close();
+    
+    // Fokus auf das neue Fenster
     arWindow.focus();
 };
