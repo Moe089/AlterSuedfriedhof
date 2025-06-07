@@ -660,7 +660,7 @@ createCustomMarker(48.130066, 11.565872,
                 
                 createMaterialMarker(
                     48.12743727512269, 11.564098247394769,
-                    "./Fotos/gestein/senefelder_sandstein.png",
+                    "./Fotos/gestein/Pult_Nußbaum.JPG",
                     "Pult - Carrara-Marmor",
                     markers.layer3,
                     "nußbaum",
@@ -669,7 +669,7 @@ createCustomMarker(48.130066, 11.565872,
 
                 createMaterialMarker(
                     48.12743727512269, 11.564098247394769,
-                    "./Fotos/gestein/senefelder_sandstein.png",
+                    "./Fotos/gestein/Schriftplatte_Nußbaum.JPG",
                     "Schriftplatte - Carrara-Marmor",
                     markers.layer3,
                     "nußbaum",
@@ -678,7 +678,7 @@ createCustomMarker(48.130066, 11.565872,
 
                 createMaterialMarker(
                     48.12743727512269, 11.564098247394769,
-                    "./Fotos/gestein/senefelder_sandstein.png",
+                    "./Fotos/gestein/Postament_Nußbaum.JPG",
                     "Postament - roter Knollenkalk (adneter Marmor)",
                     markers.layer3,
                     "nußbaum",
@@ -687,7 +687,7 @@ createCustomMarker(48.130066, 11.565872,
 
                 createMaterialMarker(
                     48.12743727512269, 11.564098247394769,
-                    "./Fotos/gestein/senefelder_sandstein.png",
+                    "./Fotos/gestein/Sockel_Nußbaum.JPG",
                     "Sockel - grauer Granit",
                     markers.layer3,
                     "nußbaum",
@@ -830,7 +830,7 @@ createCustomMarker(48.130066, 11.565872,
                 
                 createMaterialMarker(
                     48.12634445037332, 11.56402371512982,
-                    "./Fotos/gestein/senefelder_sandstein.png",
+                    "./Fotos/gestein/",
                     "Stein - Rosenheimer Kalk",
                     markers.layer3,
                     "gärtner",
@@ -839,7 +839,7 @@ createCustomMarker(48.130066, 11.565872,
 
                 createMaterialMarker(
                     48.12634445037332, 11.56402371512982,
-                    "./Fotos/gestein/senefelder_sandstein.png",
+                    "./Fotos/gestein/Gärtner_Statue.jpg",
                     "Figur - Carrara Marmor",
                     markers.layer3,
                     "gärtner",
@@ -848,7 +848,7 @@ createCustomMarker(48.130066, 11.565872,
 
                 createMaterialMarker(
                     48.12634445037332, 11.56402371512982,
-                    "./Fotos/gestein/senefelder_sandstein.png",
+                    "./Fotos/gestein/Gärtner_Medailllion.jpg",
                     "Medaillon - Carrara Marmor",
                     markers.layer3,
                     "gärtner",
@@ -867,7 +867,7 @@ createCustomMarker(48.130066, 11.565872,
                 
                 createMaterialMarker(
                     48.12620534820462, 11.564485442813355,
-                    "./Fotos/gestein/senefelder_sandstein.png",
+                    "./Fotos/gestein/senefelder_sandstein.png", /*NOCH HOLEN*/
                     "Stein - Rosenheimer Kalk",
                     markers.layer3,
                     "schwanthaler",
@@ -877,7 +877,7 @@ createCustomMarker(48.130066, 11.565872,
                 createMaterialMarker(
                     48.12620534820462, 11.564485442813355,
                     "./Fotos/gestein/senefelder_sandstein.png",
-                    "Sockel - gelb-bräunlicher Sandstein (evtl. Rhätsandstein)",
+                    "Sockel - gelb-bräunlicher Sandstein (evtl. Rhätsandstein)", /*NOCH HOLEN*/
                     markers.layer3,
                     "schwanthaler",
                     "rhätsandstein"
@@ -885,7 +885,7 @@ createCustomMarker(48.130066, 11.565872,
 
                 createMaterialMarker(
                     48.12620534820462, 11.564485442813355,
-                    "./Fotos/gestein/senefelder_sandstein.png",
+                    "./Fotos/gestein/Büste_Schwanthaler.JPG",
                     "Büste - Carrara-Marmor",
                     markers.layer3,
                     "schwanthaler",
@@ -906,7 +906,7 @@ createCustomMarker(48.130066, 11.565872,
                 
                 createMaterialMarker(
                     48.12698081942048, 11.563986286801328,
-                    "./Fotos/gestein/senefelder_sandstein.png",
+                    "./Fotos/gestein/Unterstein_Reichenbach.JPG",
                     "Unterteil - Rosenheimer-Kalk",
                     markers.layer3,
                     "reichenbach",
@@ -915,7 +915,7 @@ createCustomMarker(48.130066, 11.565872,
 
                 createMaterialMarker(
                     48.12698081942048, 11.563986286801328,
-                    "./Fotos/gestein/senefelder_sandstein.png",
+                    "./Fotos/gestein/Reichenbach_Stein.JPG",
                     "Oberteil - eventuell Muschelkalk?",
                     markers.layer3,
                     "reichenbach",
@@ -934,7 +934,7 @@ createCustomMarker(48.130066, 11.565872,
                 
                 createMaterialMarker(
                     48.12662178701753, 11.564084435041343,
-                    "./Fotos/gestein/senefelder_sandstein.png",
+                    "./Fotos/gestein/fraunhofer_stein.png",
                     "Stein - Muschelkalk",
                     markers.layer3,
                     "fraunhofer",
@@ -968,7 +968,7 @@ createCustomMarker(48.130066, 11.565872,
                 
                 createMaterialMarker(
                     48.12672470001926, 11.56502006855112,
-                    "./Fotos/gestein/senefelder_sandstein.png",
+                    "./Fotos/gestein/Stein.ett.JPG",
                     "Stein - Kalktuff",
                     markers.layer3,
                     "ett",
@@ -977,7 +977,7 @@ createCustomMarker(48.130066, 11.565872,
 
                 createMaterialMarker(
                     48.12672470001926, 11.56502006855112,
-                    "./Fotos/gestein/senefelder_sandstein.png",
+                    "./Fotos/gestein/Medaillion_Ett.JPG",
                     "Relief - Carrara Marmor",
                     markers.layer3,
                     "ett",
@@ -986,7 +986,7 @@ createCustomMarker(48.130066, 11.565872,
 
                 createMaterialMarker(
                     48.12672470001926, 11.56502006855112,
-                    "./Fotos/gestein/senefelder_sandstein.png",
+                    "./Fotos/gestein/Ett_Tafel.JPG",
                     "Schriftplatte - Eisen",
                     markers.layer3,
                     "ett",
@@ -994,40 +994,6 @@ createCustomMarker(48.130066, 11.565872,
                 );
 
 
-
-                createMasterMarker(
-                    48.12672470001926, 11.56502006855112,
-                    "",
-                    markers.layer3
-                );
-                
-                createMaterialMarker(
-                    48.12672470001926, 11.56502006855112,
-                    "./Fotos/gestein/senefelder_sandstein.png",
-                    "Stein - Kalktuff",
-                    markers.layer3,
-                    "ett",
-                    "kalktuff"
-                );
-
-                createMaterialMarker(
-                    48.12672470001926, 11.56502006855112,
-                    "./Fotos/gestein/senefelder_sandstein.png",
-                    "Relief - Carrara Marmor",
-                    markers.layer3,
-                    "ett",
-                    "carrara-marmor"
-                );
-
-                createMaterialMarker(
-                    48.12672470001926, 11.56502006855112,
-                    "./Fotos/gestein/senefelder_sandstein.png",
-                    "Schriftplatte - Eisen",
-                    markers.layer3,
-                    "ett",
-                    "eisen"
-                );
-                
                 
             
     
