@@ -206,6 +206,16 @@ const personenDaten = {
         sterbedatum: "16.05.1847",
         bild: "Fotos/personen/Ett.png"
     },
+
+"roman-boos": {
+    "name": "Roman Boos",
+    "beschreibung": `<br><p style="text-align: justify;">Roman Boos war ein deutscher Bildhauer und Zeichner. Er zählt zu den bedeutendsten Vertretern des Klassizismus in Bayern und war vor allem für seine Arbeiten im öffentlichen Raum bekannt.</p> <br> <p style="text-align: justify;">Boos war ein Schüler von Ignaz Günther und setzte dessen Rokoko-Tradition zunächst fort, entwickelte jedoch später einen strengeren klassizistischen Stil. Er arbeitete unter anderem an der Ausgestaltung der Münchner Residenz und war für viele Grabdenkmäler sowie religiöse Plastiken verantwortlich.</p> <br> <p style="text-align: justify;">Ab 1806 war er Mitglied der Bayerischen Akademie der Bildenden Künste. Zu seinen bekanntesten Werken zählen zahlreiche Skulpturen in Kirchen und auf Friedhöfen in München. Seine Arbeiten zeichnen sich durch klare Formen und eine ruhige Ausdruckskraft aus, die den Wandel vom Rokoko zum Klassizismus exemplarisch widerspiegeln.</p> <br> <p style="text-align: justify;"><strong>Beruf:</strong> Bildhauer, Zeichner</p> <br> <p style="text-align: justify;"><strong>Bekannt für:</strong> Klassizistische Skulpturen, Grabmäler, religiöse Kunst</p> <br> <p style="text-align: justify;"><strong>Wirkungsort:</strong> München, Bayerische Akademie der Bildenden Künste</p> <br> <p class="more-info">Mehr Informationen über die Person unter: <br> <a href="https://www.deutsche-biographie.de/sfz5271.html#ndbcontent" target="_blank" rel="noopener noreferrer">www.deutsche-biographie.de</a> </p>`,
+    "geburtsdatum": "04.08.1733",
+    "sterbedatum": "29.03.1810",
+    "bild": "Fotos/personen/roman-boos.png"
+},
+
+
     "franz-kobell": {
         name: "Franz Kobell",
         geburtsdatum: "19.07.1803",

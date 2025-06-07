@@ -1,3 +1,4 @@
+let routingControl = null;
 let map;
 let mapInitialized = false;
 let userLocationMarker = null;
@@ -13,6 +14,7 @@ let markers = {
         maxClusterRadius: 50
     })
 };
+
 
 function initializeMap() {
     if (mapInitialized && map) return;
@@ -298,7 +300,7 @@ function createMarkersForAllLayers() {
         function() { showRouteForPerson("Alois Senefelder", "street"); });
 
     createCustomMarker(48.1306902208633, 11.566399154097912, 
-        "./Fotos/personen/Straub_Johann_Baptist.png", "Grab Johann Baptist Straub", markers.layer1);
+        "./Fotos/personen/roman-boos.png", "Grab Roman Boos", markers.layer1);
 
     createCustomMarker(48.13020766844287, 11.566064541718118, 
         "./Fotos/personen/arnold-zenetti.png", "Grab Arnold Zenetti", markers.layer1,
@@ -385,7 +387,7 @@ createCustomMarker(48.130066, 11.565872,
         createCustomMarker(48.12944686673255, 11.566483691300379, 
             "./Fotos/grabstein/grab_senefelder.png", "Grab Alois Senefelder", markers.layer2);
         createCustomMarker(48.1306902208633, 11.566399154097912, 
-            "./Fotos/grabstein/straub_grab.png", "Grab Johann Baptist Straub", markers.layer2);
+            "./Fotos/grabstein/straub_grab.png", "Grab Roman Boos", markers.layer2);
         createCustomMarker(48.13020766844287, 11.566064541718118, 
             "./Fotos/grabstein/zenetti.png", "Grab Arnold Zenetti", markers.layer2);
             createCustomMarker(48.126416431123516, 11.563765486149405, 
@@ -426,14 +428,14 @@ createCustomMarker(48.130066, 11.565872,
 
 
                 createMasterMarker(
-                    48.13068516226951, 11.566287799253821, 
+                    48.13056412324319, 11.566218995223304, 
                     
                     "albert",
                     markers.layer3
                 );
                 
                 createMaterialMarker(
-                    48.13068516226951, 11.566287799253821,
+                    48.13056412324319, 11.566218995223304,
                     "./Fotos/gestein/Albert_Stein_carrara.JPG",
                     "Stein - weißer Marmor (Carrara)",
                     markers.layer3,
@@ -441,7 +443,7 @@ createCustomMarker(48.130066, 11.565872,
                     "carrara-marmor"
                 );
                 createMaterialMarker(
-                    48.13068516226951, 11.566287799253821,
+                    48.13056412324319, 11.566218995223304,
                     "./Fotos/gestein/Säule_Ochsenkopf.JPG",
                     "Säulen - Ochsenkopf-Proterobas",
                     markers.layer3,
@@ -449,7 +451,7 @@ createCustomMarker(48.130066, 11.565872,
                     "ochsenkopf-proterobas"
                 );
                 createMaterialMarker(
-                    48.13068516226951, 11.566287799253821,
+                    48.13056412324319, 11.566218995223304,
                     "./Fotos/gestein/Albert_Sockel_Muschelkalk.JPG",
                     "Sockel - Muschelkalk",
                     markers.layer3,
@@ -459,7 +461,7 @@ createCustomMarker(48.130066, 11.565872,
                 
            
                 createMaterialMarker(
-                    48.13068516226951, 11.566287799253821,
+                    48.13056412324319, 11.566218995223304,
                     "./Fotos/gestein/Albert_Büste_Carrara.JPG",
                     "Büste - weißer Marmor (Carrara)",
                     markers.layer3,
@@ -468,7 +470,7 @@ createCustomMarker(48.130066, 11.565872,
                 );
                 
                 createMaterialMarker(
-                    48.13068516226951, 11.566287799253821,
+                    48.13056412324319, 11.566218995223304,
                     "./Fotos/gestein/Schale-Donau-Kalke.JPG",
                     "Schalen - Donau-Kalke",
                     markers.layer3,
@@ -645,6 +647,41 @@ createCustomMarker(48.130066, 11.565872,
                     "plattensandstein"
                 );
 
+
+                createMasterMarker(
+                    48.130787405978154, 11.566405614442917,
+                    "boos",
+                    markers.layer3
+                );
+                
+                createMaterialMarker(
+                    48.130787405978154, 11.566405614442917,
+                    "./Fotos/gestein/senefelder_sandstein.png",
+                    "Stein - Tegernseer Marmor",
+                    markers.layer3,
+                    "boos",
+                    "tegernseer-marmor"
+                );
+
+                 createMaterialMarker(
+                    48.130787405978154, 11.566405614442917,
+                    "./Fotos/gestein/senefelder_sandstein.png",
+                    "Urne - Untersberger Kalk",
+                    markers.layer3,
+                    "boos",
+                    "untersberger-marmor"
+                );
+
+                  createMaterialMarker(
+                    48.130787405978154, 11.566405614442917,
+                    "./Fotos/gestein/senefelder_sandstein.png",
+                    "Büste - Bronze",
+                    markers.layer3,
+                    "boos",
+                    ""
+                );
+
+
         
 
 
@@ -764,7 +801,7 @@ createCustomMarker(48.130066, 11.565872,
                     "Dachgebälk - Untersberger Kalk",
                     markers.layer3,
                     "knorr",
-                    "untersberger-kalk"
+                    "untersberger-marmor"
                 );
 
                 createMaterialMarker(
@@ -968,7 +1005,7 @@ createCustomMarker(48.130066, 11.565872,
                 
                 createMaterialMarker(
                     48.12672470001926, 11.56502006855112,
-                    "./Fotos/gestein/Stein.ett.JPG",
+                    "./Fotos/gestein/Stein_ett.JPG",
                     "Stein - Kalktuff",
                     markers.layer3,
                     "ett",
@@ -1199,6 +1236,20 @@ const graveMaterials = {
             "Stein": "Kalktuff",
             "Relief": "Carrara Marmor",
             "Schriftplatte": "Eisen"
+            
+          
+            
+        },
+         
+    },
+
+        "boos": {
+        name: "Roman-Boos",
+        imageUrl: "./Fotos/grabstein/straub_grab.png", 
+        materials: {
+            "Stein": "Tegernseer Marmor",
+            "Büste": "Bronze",
+            "Urne": "Untersberger Marmor"
             
           
             
@@ -1624,7 +1675,7 @@ function createCustomMarker(lat, lng, imageUrl, popupText, layerGroup, onClick, 
         marker.bindPopup(`
             <div class="custom-popup">
                 <h3>${popupText}</h3>
-                <button class="ar-btn" onclick="launchAR(48.137154, 11.576124, 0, 20, 'fraunhofer');">AR starten</button>
+                <button class="ar-btn" onclick="launchAR(48.14295150490743, 11.568750164455357, 0, 20, 'reichenbach7');">AR starten</button>
                  <button class="show-street-btn" onclick="showRouteForPerson('Reichenbach', 'street')">
                         Straße anzeigen
                     </button>
