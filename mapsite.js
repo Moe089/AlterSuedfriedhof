@@ -1675,7 +1675,7 @@ function createCustomMarker(lat, lng, imageUrl, popupText, layerGroup, onClick, 
         marker.bindPopup(`
             <div class="custom-popup">
                 <h3>${popupText}</h3>
-                <button class="ar-btn" onclick="launchAR(48.14295150490743, 11.568750164455357, 0, 20, 'reichenbach7');">AR starten</button>
+                <button class="ar-btn" onclick="launchAR(48.14295150490743, 11.568750164455357, 0, 20, 'reichenbach4');">AR starten</button>
                  <button class="show-street-btn" onclick="showRouteForPerson('Reichenbach', 'street')">
                         Straße anzeigen
                     </button>
