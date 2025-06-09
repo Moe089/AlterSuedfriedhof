@@ -22,7 +22,7 @@ const gesteineDaten = {
         bezeichnung: "Kalkstein",
         alter: "Jura",
         gesteinsgruppe: "Sedimentgestein",
-        bild: "./Fotos/gestein/kelheimer_kalkstein.png",
+        bild: "./Fotos/gestein/Stein_Klenze.jpg",
         struktur: "weitgehend richtungslos",
         koordinaten: [48.92815148446526, 11.83520637865144] ,
     },
@@ -35,7 +35,7 @@ const gesteineDaten = {
         gesteinsgruppe: "Sedimentgesteine",
         struktur: "brekziös bzw. knollig",
         koordinaten: [[47.788089069308334, 12.192795732476736], [47.788933846086735, 12.184783826998231]],
-        bild: "./Fotos/gestein/kelheimer_kalkstein.png",
+        bild: "./Fotos/gestein/Unterstein_Reichenbach.jpg",
         beschreibung: "Der Rosenheimer Kalkstein ist eine typische Kalkbrekzie des alpinen Molassebeckens. Entstanden durch Umlagerung von Kalkgeröllen in Flusssystemen des jungen Alpenvorlands. Charakteristisch sind die eingebetteten, bis faustgroßen Kalkknollen in einer kalkigen Matrix. Historisch als Mauerstein und für Fundamentbauten genutzt."
     },
     
@@ -52,7 +52,7 @@ const gesteineDaten = {
                 [47.5144, 10.2814],  // Beispiel: Sonthofen
                 [47.7972, 12.1700]   // Beispiel: Rohrdorf
             ],
-            bild: "./Fotos/gestein/nummulitenkalk.png",
+            bild: "./Fotos/gestein/Stein_Zenetti.JPG",
             beschreibung: "Ein im Alttertiär abgelagerter Fossilschuttkalk mit charakteristischen Nummuliten-Einschlüssen (münzenförmige Foraminiferen-Gehäuse). Wirtschaftlich bedeutendstes Vorkommen war der Enzenauer Marmor bei Bad Heilbrunn. Rohdichte: 2,72 g/cm³, Druckfestigkeit: 45–136 N/mm². Wurde als Dekorationsmarmor und Mauerstein genutzt, Abbau mittlerweile eingestellt."
         
     },
@@ -70,18 +70,7 @@ const gesteineDaten = {
             beschreibung: "Rillenkarren entstehen durch korrosive Verwitterung von Kalkstein durch leicht saures Regenwasser (Kohlensäureverwitterung). Die Rillen folgen oft dem Gefälle und bilden charakteristische lineare Muster. Sie sind ein typisches Merkmal von Karstlandschaften.",
         
     },
-    "kobellit": {
-        name: "Kobellit",
-        fundort: "Schwarzwald (Deutschland), Schneeberg (Sachsen), Boliden (Schweden), Tasna (Bolivien)",
-        fundland: "Deutschland, Schweden, Bolivien, Kanada",
-        bezeichnung: "Bismut-Sulfosalz-Mineral",
-        alter: "Entstanden in hydrothermalen Gängen (meist mesozonal, Alter variiert je nach Lagerstätte)",
-        gesteinsgruppe: "Sulfosalze (Sulfosalzmineral)",
-        struktur: "Monoklin-prismatische Kristalle, oft nadelig oder faserig, auch massiv",
-        koordinaten: "Beispiel Schneeberg: 50.5947° N, 12.5979° E",
-        bild: "Bleigrau bis stahlgrau, metallischer Glanz, undurchsichtig",
-        beschreibung: "Kobellit (Pb₆CuBi₄S₁₂) ist ein seltenes Mineral der Sulfosalzgruppe, das in Bismut-reichen hydrothermalen Erzgängen vorkommt. Typische Begleitminerale sind Galenit, Tetraedrit und andere Sulfide. Benannt nach dem deutschen Mineralogen Franz von Kobell (1803–1882).",
-    },
+
     "molassesandstein": {
         name: "Molassesandstein",
         fundort: "Alpenvorland (Deutschland, Schweiz, Österreich), Molassebecken",
@@ -91,11 +80,11 @@ const gesteineDaten = {
         gesteinsgruppe: "Sedimentgestein (klastisches Gestein)",
         struktur: "Fein- bis grobkörnig, oft schräggeschichtet, teils fossilführend",
         koordinaten: "Variabel, z. B. Molassebecken bei München: ~48.1374° N, 11.5755° E",
-        bild: "Typisch hellgrau bis gelblich, je nach Eisenoxid-Anteil auch rötlich",
+        bild: "./Fotos/gestein/molasse_sandstein_scherer.JPG",
         beschreibung: "Der Molassesandstein entstand durch Ablagerung von Sedimenten aus den aufsteigenden Alpen im Vorlandbecken. Er besteht überwiegend aus Quarzkörnern, oft mit Glimmer- oder Feldspatanteilen. Wichtige Baustein-Ressource (z. B. für historische Gebäude).",
     },
     "getigerter-schilfsandstein": {
-        name: "Getigerter Schilfsandstein",
+        name: "roter getigerter Schilfsandstein",
         fundort: "Stuttgart (Deutschland), speziell im Stuttgarter Raum (z.B. Bad Cannstatt), Keuperbergland",
         fundland: "Deutschland (Baden-Württemberg)",
         bezeichnung: "Feinkörniger Sandstein mit tigerartiger Bänderung (Wechsellagerung von hellen und dunklen Schichten)",
@@ -103,7 +92,7 @@ const gesteineDaten = {
         gesteinsgruppe: "Sedimentgestein (Sandstein)",
         struktur: "Dünnbankig, wechselnd tonig-sandige Lagen, typische Wechselschichtung („Tigerung“)",
         koordinaten: "Beispiel Stuttgart-Bad Cannstatt: 48.8039° N, 9.2107° E",
-        bild: "Hell- bis dunkelgraue, gelbliche oder rötliche Bänderung, oft mit deutlicher Streifung",
+        bild: "./Fotos/gestein/jolly_stein.JPG",
         beschreibung: "Der Getigerte Schilfsandstein ist ein charakteristischer Sandstein des Keupers, der durch rhythmische Ablagerung in flachen Meeres- oder Delta-Bereichen entstand. Die „Tigerung“ entsteht durch Wechsellagerung von tonigen und sandigen Lagen. Wichtiger historischer Baustein (z.B. in Stuttgarter Altbauten).",
     },
    
@@ -116,11 +105,11 @@ const gesteineDaten = {
         gesteinsgruppe: "Sedimentgestein (Sandstein)",
         struktur: "Dünnbankig, wechselnd tonig-sandige Lagen, typische Wechselschichtung („Tigerung“)",
         koordinaten: "Beispiel Stuttgart-Bad Cannstatt: 48.8039° N, 9.2107° E",
-        bild: "Hell- bis dunkelgraue, gelbliche oder rötliche Bänderung, oft mit deutlicher Streifung",
+        bild: "./Fotos/gestein/Albert_Stein_carrara.JPG",
         beschreibung: "Der Getigerte Schilfsandstein ist ein charakteristischer Sandstein des Keupers, der durch rhythmische Ablagerung in flachen Meeres- oder Delta-Bereichen entstand. Die „Tigerung“ entsteht durch Wechsellagerung von tonigen und sandigen Lagen. Wichtiger historischer Baustein (z.B. in Stuttgarter Altbauten).",
     },
     "gelber-sandstein": {
-        name: "Gelber Sandstein",
+        name: "gelb-bräunlicher Sandstein",
         fundort: "Elbsandsteingebirge (Deutschland/Tschechien), Pfälzerwald, Thüringen, Frankreich (Vosges)",
         fundland: "Deutschland, Tschechien, Frankreich, USA (Colorado)",
         bezeichnung: "Eisenoxid-reicher Sandstein (häufig als 'Postaer Sandstein' oder 'Naturgelb' bezeichnet)",
@@ -140,7 +129,7 @@ const gesteineDaten = {
         gesteinsgruppe: "Sedimentgestein (Karbonatgestein)",
         struktur: "Dicht bis feinkörnig, reich an Trochiten (Encrinus liliiformis-Fossilien), teils bankig",
         koordinaten: "Kirchheim unter Teck: 48.6489° N, 9.4518° E",
-        bild: "Hellgrau bis beige, oft mit deutlichen Fossilabdrücken (Seelilienstielglieder)",
+        bild: "./Fotos/gestein/Ohm_Stein.JPG",
         beschreibung: "Der Kirchheimer Muschelkalk ist ein fossilreicher Kalkstein der Unteren Muschelkalk-Formation. Charakteristisch sind massenhafte Vorkommen von Trochiten (Crinoideen-Stielglieder). Wichtiger historischer Baustein für regionale Architektur (z.B. Kirchheimer Altstadt).",
     },
     "kösseine-granit":
@@ -166,7 +155,7 @@ const gesteineDaten = {
         gesteinsgruppe: "Magmatisches Gestein (Subvulkanit)",
         struktur: "Dicht bis feinkörnig, teilweise porphyrisch mit Olivin-Einsprenglingen",
         koordinaten: "Ochsenkopf-Gipfel: 50.0319° N, 11.8086° E",
-        bild: "Dunkelgrau bis schwarz mit grünlichen Olivin-Einsprenglingen, frisch bläulicher Schimmer",
+         bild: "./Fotos/gestein/ochsenkopf.JPG",
         beschreibung: "Der Ochsenkopf-Proterobas ist ein alkalireicher Basalt, der als Gangfüllung im Fichtelgebirgsgranit auftritt. Charakteristisch ist sein Reichtum an Nephelin und Olivin. Wichtiges geologisches Archiv für die tertiäre Vulkanaktivität in Nordbayern. Verwendung als Schottermaterial und lokaler Naturwerkstein.",
     },
     "diabas":
@@ -186,12 +175,14 @@ const gesteineDaten = {
         name: "Untersberger Marmor",
         fundort: "Fürstenbrunn / Salzburg Grödig Fürstenbrunn Veitlbruch (seit 1919 nicht mehr betrieben) Hofbruch Neu- und Mittelbruch Mayr-Melnhof-Bruch",
         fundland: "Deutschland",
-        bezeichnung: ""
+        bezeichnung: "",
+        bild: "./Fotos/gestein/schlagintweit.JPG",
+
 
     },
     "schwarz-schwedisch-basalt":{
         name: "schwarz-schwedisch Basalt",
-        bild: "./Fotos/gestein/schwedisch_schwarz.png",
+        bild: "./Fotos/gestein/schwarz_basalt_robl.JPG",
         fundort: "Saganäs/ Älmhult"
     },
     "serpentinit":
@@ -204,7 +195,7 @@ const gesteineDaten = {
         gesteinsgruppe: "Metamorphes Gestein",
         struktur: "Dicht, faserig bis schuppig (Antigorit/Chrysotil-Texturen), oft mit Magnetitadern",
         koordinaten: "Zöblitz-Steinbruch: 50.6581° N, 13.2294° E",
-        bild: "Grünlich-schwarz, oft mit seidigem Glanz und netzartigen Adern",
+                bild: "./Fotos/gestein/Wandplatten_Knorr.JPG",
         beschreibung: "Serpentinite entstehen durch Metamorphose von ultramafischen Gesteinen (Peridotit, Dunite) unter hydratisierenden Bedingungen. Hauptminerale: Antigorit, Chrysotil, Lizardit ± Magnetit. Historisch als Zöblitzer Serpentin für Kunstgegenstände genutzt. Heute als Dämmstoff und Dekorstein relevant.",
     },
     "kalktuff":
@@ -217,10 +208,10 @@ const gesteineDaten = {
         gesteinsgruppe: "Sedimentgestein (chemisch-biogenes Karbonat)",
         struktur: "Hochporös (30-60% Hohlräume), schaumig bis blasig, oft mit Pflanzenabdrücken",
         koordinaten: "Beispiel Blaubeuren (Schwäbische Alb): 48.4125° N, 9.7853° E",
-        bild: "Cremeweiß bis beige, schwammartige Textur mit sichtbaren Pflanzenstrukturen",
+                bild: "./Fotos/gestein/Stein_ett.JPG",
         beschreibung: "Kalktuff entsteht durch chemische Ausfällung von Kalk (CaCO₃) aus kalkgesättigtem Quellwasser, oft begünstigt durch Moose/Algen. Charakteristisch sind eingeschlossene Pflanzenreste und hohe Porosität. Wichtiger historischer Baustein (z.B. Kloster Maulbronn) und Ökosystem für Spezialisten.",
     },
-    "riffkalk":
+   /* "riffkalk":
     {
         name: "Riffkalk",
         fundort: "Alpen (Wettersteinkalk), Schwäbische Alb (Massenkalk), Dolomiten (Italien), Devon-Riffe (Eifel)",
@@ -232,7 +223,7 @@ const gesteineDaten = {
         koordinaten: "Beispiel Allgäuer Alpen: 47.4167° N, 10.2667° E",
         bild: "Hellgrau bis beige, oft mit deutlich sichtbaren Fossilien und Riffstrukturen",
         beschreibung: "Riffkalke entstanden durch die Akkumulation von Riffbildnern (Korallen, Schwämme, Algen) in flachen, tropischen Meeren. Charakteristisch sind eingeschaltete Riffschuttlagen und z.T. dolomitisierte Zonen. Wichtiger Rohstoff für Zementindustrie und als Naturwerkstein (z.B. 'Adneter Marmor').",
-    },
+    },*/
     "redwezit":
     {
         name: "Redwitzit",
@@ -243,10 +234,10 @@ const gesteineDaten = {
         gesteinsgruppe: "Magmatisches Gestein (Ganggestein)",
         struktur: "Porphyrisch mit Einsprenglingen in feinkörniger Grundmasse",
         koordinaten: "Typuslokalität Redwitz: 50.1667° N, 11.2000° E",
-        bild: "Dunkelgrau bis schwarzgrün, frisch bläulicher Schimmer",
+        bild: "Knorr Säule Foto",
         beschreibung: "Redwitzit ist ein intermediäres Ganggestein mit mineralogischer Ähnlichkeit zu Lamprophyren. Charakteristische Zusammensetzung: Plagioklas, Hornblende, Biotit ± Quarz. Benannt nach der Ortschaft Redwitz. Wissenschaftlich bedeutend als Zeiger für spätorogene Magmen im Varistikum.",
     },
-    "lechbrucker-molassesandstein":
+  /*  "lechbrucker-molassesandstein":
     {
         name: "Lechbrucker Molassesandstein",
         fundort: "Lechbruck am See (Oberbayern), Alpenvorland",
@@ -258,7 +249,7 @@ const gesteineDaten = {
         koordinaten: "Lechbruck am See: 47.7000° N, 10.8000° E",
         bild: "Hellgrau bis gelblich, teils mit rostfarbenen Eisenoxid-Flecken",
         beschreibung: "Der Lechbrucker Molassesandstein entstand durch Ablagerung von Flusssedimenten im alpinen Vorlandbecken. Charakteristisch ist seine kalkige Bindung und hohe Wetterbeständigkeit. Historisch wichtiger Baustein für Kirchen und Denkmäler im Allgäu. Oft mit fossilen Pflanzenabdrücken (Blattabdrücke) erhalten.",
-    },
+    },*/
     "jurakalk-grau":
     {
         name: "Grauer Jurakalk (Braunjura)",
@@ -272,7 +263,7 @@ const gesteineDaten = {
         bild: "Graubraun bis bläulich-grau, verwittert gelblich, typische Eisenoxid-Flecken",
         beschreibung: "Der Graue Jurakalk entstand in flachen Meeresbereichen des Jurameers. Charakteristisch ist sein Wechsel zwischen Kalk- und Mergellagen mit hohem Fossilgehalt. Wirtschaftlich wichtig als Naturwerkstein und Zementrohstoff. Besondere Varietäten enthalten Eisenoolithe („Eisenstein“).",
     },
-    "lithothammnienkalk":
+  /*  "lithothammnienkalk":
         {
             name: "Lithothamnienkalk",
             fundort: "Mittelmeerregion (z.B. Sizilien, Malta), Atlantikküste (Bretagne), Nordsee (Doggerbank)",
@@ -331,7 +322,7 @@ const gesteineDaten = {
         koordinaten: "Typuslokalität Bad Liebenzell: 48.7742° N, 8.7319° E",
         bild: "Hellgelber bis rötlicher Grundton mit dunkelbraunen, forellenartigen Flecken",
         beschreibung: "Der Forellensandstein erhielt seinen Namen durch die charakteristischen, an Fischhaut erinnernden Flecken (Mangan- und Eisenoxid-Ausscheidungen). Entstand in fluviatilen bis äolischen Ablagerungsmilieus. Wichtiger historischer Baustein für Sakralbauten und repräsentative Gebäude in Baden-Württemberg."
-    },
+    },*/
     "plattensandstein":
     {
         name: "Plattensandstein",
@@ -342,10 +333,10 @@ const gesteineDaten = {
         gesteinsgruppe: "Sedimentgestein (klastischer Sandstein)",
         struktur: "Fein- bis mittelkörnig, ausgeprägte plattige Bankung (2–10 cm Schichtdicke)",
         koordinaten: "Beispiel Hassberge (Unterfranken): 50.1500° N, 10.5000° E",
-        bild: "Gelblich bis graubraun, deutlich sichtbare Schichtung, oft mit Wellenrippeln",
+                bild: "./Fotos/gestein/Stein_Brey.JPG",
         beschreibung: "Plattensandsteine entstanden in flachen Meeres- oder Delta-Bereichen mit rhythmischer Sedimentation. Charakteristisch ist die lechte Spaltbarkeit entgelagerten Schichtflächen. Wichtiger historischer Baustein für Dacheindeckungen und Bodenbeläge in Süddeutschland."
     },
-    "larvikit":
+   /* "larvikit":
     {
         name: "Larvikit",
         fundort: "Larvik (Vestfold, Norwegen), Oslo-Graben",
@@ -357,7 +348,7 @@ const gesteineDaten = {
         koordinaten: "Typuslokalität Larvik: 59.0500° N, 10.0333° E",
         bild: "Dunkelblau-grau mit charakteristischem bläulichem Schimmer ('Blue Pearl'-Effekt)",
         beschreibung: "Larvikit ist ein alkalireiches Ganggestein des Oslo-Grabens, charakterisiert durch seinen hohen Anteil an Anorthoklas-Feldspat (60–70%) und Augit (20–30%). Bekannt für seinen irisierenden Schimmer (Labradoreszenz), der durch Lichtbrechung in den Feldspäten entsteht. Weltweit geschätzter Naturwerkstein für Architektur und Design."
-    },
+    },*/
     "zoeblitzer-serpentinit":
     {
         name: "Zöblitzer Serpentinit",
@@ -368,7 +359,8 @@ const gesteineDaten = {
         gesteinsgruppe: "Metamorphes Gestein (Ultramafitit)",
         struktur: "Dicht bis faserig, grün-schwarze Maserung, typische Magnetitadern",
         koordinaten: "Zöblitz: 50.6581° N, 13.2294° E",
-        bild: "Dunkelgrün bis schwarzgrün mit seidigem Glanz, typische Netzzeichnung",
+                        bild: "./Fotos/gestein/Wandplatten_Knorr.JPG",
+
         beschreibung: "Der Zöblitzer Serpentinit entstand durch Metamorphose von Olivin-reichem Mantelgestein. Charakteristisch sind faserige Antigorit- und Chrysotil-Ausbildungen. Historisch berühmt als 'Grüner Stein von Zöblitz' für Kunstgegenstände (Dresdner Grünes Gewölbe). Enthält oft Chromit-Einschlüsse und Magnetitadern."
     },
     "ruhpoldinger-marmor":

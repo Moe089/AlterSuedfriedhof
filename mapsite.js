@@ -357,10 +357,6 @@ function createMarkersForAllLayers() {
         "./Fotos/personen/knorr.png", "Grab Julius Knorr", markers.layer1,
         function() { showRouteForPerson("Knorr", "street"); });
 
-        createCustomMarker(48.12633916846871, 11.563242536255467, 
-            "./Fotos/personen/jolly.png", "Grab Philipp von Jolly", markers.layer1,
-            function() { showRouteForPerson("Jolly", "street"); });
-
 
     createCustomMarker(48.12565715788182, 11.564285682286432, 
         "./Fotos/personen/Seydel.png", "Grab Max von Seydel", markers.layer1);
@@ -372,6 +368,15 @@ function createMarkersForAllLayers() {
     createCustomMarker(48.12493912256356, 11.563330775765484, 
         "./Fotos/personen/Liebig.png", "Grab Justus von Liebig", markers.layer1,
         function() { showRouteForPerson("Liebig", "street"); });
+
+                createCustomMarker(48.126402694826844, 11.563275021702747, 
+            "./Fotos/personen/jolly.png", "Grab Philipp Jolly", markers.layer1,
+        function() { showRouteForPerson("jolly", "street"); });
+        
+
+        createCustomMarker(48.12505213857038, 11.5629501735568, 
+        "./Fotos/personen/robl.png", "Grab Thaddäus Robl", markers.layer1);
+
 
 createCustomMarker(48.130066, 11.565872, 
     "./Fotos/personen/Ferdinand_von_Miller.png", 
@@ -415,13 +420,17 @@ createCustomMarker(48.130066, 11.565872,
         createCustomMarker(48.12620534820462, 11.564485442813355, 
             "./Fotos/grabstein/schwanthaler_grab.png", "Grab Ludwig Schwanthaler", markers.layer2);
         createCustomMarker(48.129704045499714, 11.565643056407898, 
-            "./Fotos/grabstein/knorr.png", "Grab Julius Knorr", markers.layer2);
+            "./Fotos/grabstein/knorr_grab.png", "Grab Julius Knorr", markers.layer2);
         createCustomMarker(48.12565715788182, 11.564285682286432, 
             "./Fotos/grabstein/seydel.png", "Grab Max von Seydel", markers.layer2);
         createCustomMarker(48.1258026473096, 11.5634057639785, 
             "./Fotos/grabstein/siebold_grab.png", "Grab Philipp Balthasar von Siebold", markers.layer2);
         createCustomMarker(48.12493912256356, 11.563330775765484, 
             "./Fotos/grabstein/liebig_grab.png", "Grab Justus von Liebig", markers.layer2);
+        createCustomMarker(48.126402694826844, 11.563275021702747, 
+            "./Fotos/grabstein/jolly.png", "Grab Philipp Jolly", markers.layer2);
+        createCustomMarker(48.12505213857038, 11.5629501735568, 
+            "./Fotos/grabstein/robl_grab.png", "Grab Thaddäus Robl", markers.layer2);
 
 
 
@@ -585,6 +594,32 @@ createCustomMarker(48.130066, 11.565872,
                 );
 
 
+                
+                createMasterMarker(
+                    48.12505213857038, 11.5629501735568,
+                    "robl",
+                    markers.layer3
+                );
+                
+                createMaterialMarker(
+                    48.12505213857038, 11.5629501735568,
+                    "./Fotos/gestein/schwarz_basalt_robl.jpg",
+                    "Stein - Schwarz-Schwedisch Basalt",
+                    markers.layer3,
+                    "robl",
+                    "schwarz-schwedisch-basalt"
+                );
+
+                createMaterialMarker(
+                    48.12505213857038, 11.5629501735568,
+                    "./Fotos/gestein/kreuz_basalt_robl.jpg",
+                    "Kreuz - Schwarz-Schwedisch Basalt",
+                    markers.layer3,
+                    "robl",
+                    "schwarz-schwedisch-basalt"
+                );
+
+
 
                 createMasterMarker(
                     48.12493912256356, 11.563330775765484,
@@ -640,11 +675,27 @@ createCustomMarker(48.130066, 11.565872,
                 
                 createMaterialMarker(
                     48.126566660608965, 11.563347172127134,
-                    "./Fotos/gestein/senefelder_sandstein.png",
+                    "./Fotos/gestein/Stein_Brey.jpg",
                     "Stein - Plattensandstein (Buntsandstein-Oberbayern)",
                     markers.layer3,
                     "brey",
                     "plattensandstein"
+                );
+
+
+                                createMasterMarker(
+                    48.128084132951955, 11.564608529999322,
+                    "scherer",
+                    markers.layer3
+                );
+                
+                createMaterialMarker(
+                    48.128084132951955, 11.564608529999322,
+                    "./Fotos/gestein/molasse_sandstein_scherer.jpg",
+                    "Stein - Molassesandstein",
+                    markers.layer3,
+                    "scherer",
+                    "molassesandstein"
                 );
 
 
@@ -656,7 +707,7 @@ createCustomMarker(48.130066, 11.565872,
                 
                 createMaterialMarker(
                     48.130787405978154, 11.566405614442917,
-                    "./Fotos/gestein/senefelder_sandstein.png",
+                    "./Fotos/gestein/Tegernseer_Marmor.png",
                     "Stein - Tegernseer Marmor",
                     markers.layer3,
                     "boos",
@@ -665,7 +716,7 @@ createCustomMarker(48.130066, 11.565872,
 
                  createMaterialMarker(
                     48.130787405978154, 11.566405614442917,
-                    "./Fotos/gestein/senefelder_sandstein.png",
+                    "./Fotos/gestein/urne_boos.JPG",
                     "Urne - Untersberger Kalk",
                     markers.layer3,
                     "boos",
@@ -674,7 +725,7 @@ createCustomMarker(48.130066, 11.565872,
 
                   createMaterialMarker(
                     48.130787405978154, 11.566405614442917,
-                    "./Fotos/gestein/senefelder_sandstein.png",
+                    "./Fotos/gestein/Büste_Boos.JPG",
                     "Büste - Bronze",
                     markers.layer3,
                     "boos",
@@ -795,14 +846,6 @@ createCustomMarker(48.130066, 11.565872,
                     "treuchtlinger-kalk"
                 );
 
-                createMaterialMarker(
-                    48.129704045499714, 11.565643056407898,
-                    "./Fotos/gestein/senefelder_sandstein.png",
-                    "Dachgebälk - Untersberger Kalk",
-                    markers.layer3,
-                    "knorr",
-                    "untersberger-marmor"
-                );
 
                 createMaterialMarker(
                     48.129704045499714, 11.565643056407898,
@@ -957,6 +1000,32 @@ createCustomMarker(48.130066, 11.565872,
                     markers.layer3,
                     "reichenbach",
                     "alpiner-muschelkalk"
+                );
+
+
+
+                createMasterMarker(
+                    48.12623750194903, 11.56311966009462,
+                    "jolly",
+                    markers.layer3
+                );
+                
+                createMaterialMarker(
+                    48.12623750194903, 11.56311966009462,
+                    "./Fotos/gestein/jolly_stein.jpg",
+                    "Stein - roter getigerter Schilfsandstein",
+                    markers.layer3,
+                    "jolly",
+                    "getigerter-schilfsandstein"
+                );
+
+                createMaterialMarker(
+                    48.12623750194903, 11.56311966009462,
+                    "./Fotos/gestein/Sockelgrab_Jolly.JPG",
+                    "Sockel - grauer Granit",
+                    markers.layer3,
+                    "jolly",
+                    "grauer-granit"
                 );
 
 
@@ -1217,6 +1286,18 @@ const graveMaterials = {
       
     },
 
+        "jolly": {
+        name: "Philipp von Jolly",
+        imageUrl: "./Fotos/grabstein/jolly.png", 
+        materials: {
+            "Stein": "roter getigerter Schilfsandstein",
+            "Sockel": "grauer Granit",
+          
+            
+        },
+      
+    },
+
     "fraunhofer": {
         name: "Josef-von-Fraunhofer",
         imageUrl: "./Fotos/grabstein/fraunhofer_grab.png", 
@@ -1245,7 +1326,7 @@ const graveMaterials = {
 
         "boos": {
         name: "Roman-Boos",
-        imageUrl: "./Fotos/grabstein/straub_grab.png", 
+        imageUrl: "./Fotos/grabstein/boos_grab.png", 
         materials: {
             "Stein": "Tegernseer Marmor",
             "Büste": "Bronze",
@@ -1257,24 +1338,24 @@ const graveMaterials = {
          
     },
 
-
-
-    "jolly": {
-        name: "Philipp-von-Jolly",
-        imageUrl: "./Fotos/grabstein/.png", 
+            "robl": {
+        name: "Thaddäus Robl",
+        imageUrl: "./Fotos/grabstein/robl_grab.png", 
         materials: {
-            "Stein": "getigerter Schilfsandstein",
-            "Sockel": "feinkörniger grauer Granit",
-            "Schriftplatte": "Bronze"    
+            "Stein": "Schwarz-Schwedisch Basalt",
+            "Kreuz": "Schwarz-Schwedisch Basalt"
+            
+            
+          
             
         },
-    
-        
+         
     },
+
 
     "knorr": {
         name: "Julius Knorr",
-        imageUrl: "./Fotos/grabstein/knorr.png", 
+        imageUrl: "./Fotos/grabstein/knorr_grab.png", 
         materials: {
             "Stein": "evtl. Boisjourdin-Kalk",
             "Sockelpartien": "roter Knollenkalk",
@@ -1372,6 +1453,14 @@ const graveMaterials = {
         materials: {
             "Stein": "Plattensandstein" 
         }
+    },
+    
+        "scherer": {
+        name: "Scherer",
+        imageUrl: "./Fotos/grabstein/scherer.png",
+        materials: {
+            "Stein": "Molassesandstein" 
+        }
     }
 
 
@@ -1428,6 +1517,14 @@ function showRouteForPerson(personName, option = 'street') {
             streetCoordinates = [
                 [48.1392264594373, 11.56021592414931], 
                 [48.13743630839093, 11.560030921409288]
+                
+            ];
+        }
+
+                else if (personName === "jolly") {
+            streetCoordinates = [
+                [48.08738899248681, 11.563270374551529], 
+                [48.08583454178625, 11.564582219173124]
                 
             ];
         }
@@ -1779,6 +1876,18 @@ function createCustomMarker(lat, lng, imageUrl, popupText, layerGroup, onClick, 
 
         currentGraveMarker = marker;
     }
+
+else if (popupText.includes("Jolly") || popupText.includes("jolly")) {
+    marker.bindPopup(`
+        <div class="custom-popup">
+            <h3>${popupText}</h3>
+            <button class="show-street-btn" onclick="showRouteForPerson('jolly', 'street')">
+                Straße anzeigen
+            </button>              
+        </div>
+    `);
+    currentGraveMarker = marker;
+}
 
     else if (popupText.includes("Ett")) {
         marker.bindPopup(`
