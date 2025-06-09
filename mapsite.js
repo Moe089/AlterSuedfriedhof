@@ -1725,7 +1725,10 @@ function createCustomMarker(lat, lng, imageUrl, popupText, layerGroup, onClick, 
         marker.bindPopup(`
             <div class="custom-popup">
                 <h3>${popupText}</h3>
+                
+                <button class="ar-btn" onclick="launchAR(48.12883728190237, 11.566360086683234, 0, 20, 'fraunhofer.glb');">AR starten</button>
                 <button class="show-street-btn" onclick="showRouteForPerson('Alois Senefelder', 'street')">
+
                     Straße anzeigen
                 </button>
               
