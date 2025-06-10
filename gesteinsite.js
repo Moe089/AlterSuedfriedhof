@@ -56,7 +56,7 @@ const gesteineDaten = {
             beschreibung: "Ein im Alttertiär abgelagerter Fossilschuttkalk mit charakteristischen Nummuliten-Einschlüssen (münzenförmige Foraminiferen-Gehäuse). Wirtschaftlich bedeutendstes Vorkommen war der Enzenauer Marmor bei Bad Heilbrunn. Rohdichte: 2,72 g/cm³, Druckfestigkeit: 45–136 N/mm². Wurde als Dekorationsmarmor und Mauerstein genutzt, Abbau mittlerweile eingestellt."
         
     },
-    "rillenkarren": {
+    /*"rillenkarren": {
         
             name: "Rillenkarren",
             fundort: "Häufig in Kalksteinregionen (z. B. Alpen, Fränkische Alb, Karstgebiete weltweit)",
@@ -69,7 +69,7 @@ const gesteineDaten = {
             bild: "Rillenmuster auf freiliegenden Felsflächen, oft in Gruppen angeordnet",
             beschreibung: "Rillenkarren entstehen durch korrosive Verwitterung von Kalkstein durch leicht saures Regenwasser (Kohlensäureverwitterung). Die Rillen folgen oft dem Gefälle und bilden charakteristische lineare Muster. Sie sind ein typisches Merkmal von Karstlandschaften.",
         
-    },
+    },*/
 
     "molassesandstein": {
         name: "Molassesandstein",
@@ -108,8 +108,8 @@ const gesteineDaten = {
         bild: "./Fotos/gestein/Albert_Stein_carrara.JPG",
         beschreibung: "Der Getigerte Schilfsandstein ist ein charakteristischer Sandstein des Keupers, der durch rhythmische Ablagerung in flachen Meeres- oder Delta-Bereichen entstand. Die „Tigerung“ entsteht durch Wechsellagerung von tonigen und sandigen Lagen. Wichtiger historischer Baustein (z.B. in Stuttgarter Altbauten).",
     },
-    "gelber-sandstein": {
-        name: "gelb-bräunlicher Sandstein",
+    
+    /*name: "gelb-bräunlicher Sandstein",
         fundort: "Elbsandsteingebirge (Deutschland/Tschechien), Pfälzerwald, Thüringen, Frankreich (Vosges)",
         fundland: "Deutschland, Tschechien, Frankreich, USA (Colorado)",
         bezeichnung: "Eisenoxid-reicher Sandstein (häufig als 'Postaer Sandstein' oder 'Naturgelb' bezeichnet)",
@@ -119,7 +119,7 @@ const gesteineDaten = {
         koordinaten: "Elbsandstein-Beispiel: 50.9236° N, 14.0714° E (Posta, Sächsische Schweiz)",
         bild: "Gelblich bis ockerfarben (durch Limonit-Beimengungen), teils mit Schrägschichtung",
         beschreibung: "Gelber Sandstein entsteht durch klastische Ablagerung in Fluss- oder Küstenbereichen. Die Färbung resultiert aus Eisenoxid-Hydraten (Limonit). Wichtiger historischer Baustein für Denkmäler (z.B. Dresdner Frauenkirche) und Bildhauerei. Varianten zeigen unterschiedliche Verwitterungsbeständigkeit.",
-    },
+    },*/
     "muschelkalk": {
         name: "Muschelkalk",
         fundort: "Kirchheim unter Teck (Baden-Württemberg), Schwäbische Alb",
@@ -132,8 +132,7 @@ const gesteineDaten = {
         bild: "./Fotos/gestein/Ohm_Stein.JPG",
         beschreibung: "Der Kirchheimer Muschelkalk ist ein fossilreicher Kalkstein der Unteren Muschelkalk-Formation. Charakteristisch sind massenhafte Vorkommen von Trochiten (Crinoideen-Stielglieder). Wichtiger historischer Baustein für regionale Architektur (z.B. Kirchheimer Altstadt).",
     },
-    "kösseine-granit":
-    {
+/*    {
         name: "Kösseine-Granit",
         fundort: "Kösseine-Massiv, Fichtelgebirge (Oberfranken, Bayern)",
         fundland: "Deutschland",
@@ -144,7 +143,7 @@ const gesteineDaten = {
         koordinaten: "Kösseine-Gipfel: 50.0167° N, 11.9833° E",
         bild: "Hellgrau mit rosa Feldspat-Einsprenglingen, schwarzen Biotitflittern und bläulichem Quarz",
         beschreibung: "Der Kösseine-Granit ist ein typischer Vertreter der Fichtelgebirgsgranite. Charakteristisch sind seine großkörnigen, idiomorphen Kalifeldspäte (bis 5 cm). Wichtiger Naturwerkstein, der seit dem Mittelalter abgebaut wird. Verwendung als Baumaterial (z.B. für Denkmäler) und in der Steinbildhauerei.",
-    },
+    },*/
     "ochsenkopf-proterobas":
     {
         name: "Ochsenkopf-Proterobas",
@@ -234,7 +233,7 @@ const gesteineDaten = {
         gesteinsgruppe: "Magmatisches Gestein (Ganggestein)",
         struktur: "Porphyrisch mit Einsprenglingen in feinkörniger Grundmasse",
         koordinaten: "Typuslokalität Redwitz: 50.1667° N, 11.2000° E",
-        bild: "Knorr Säule Foto",
+        bild: "./Fotos/gestein/redwitzit.JPG",
         beschreibung: "Redwitzit ist ein intermediäres Ganggestein mit mineralogischer Ähnlichkeit zu Lamprophyren. Charakteristische Zusammensetzung: Plagioklas, Hornblende, Biotit ± Quarz. Benannt nach der Ortschaft Redwitz. Wissenschaftlich bedeutend als Zeiger für spätorogene Magmen im Varistikum.",
     },
   /*  "lechbrucker-molassesandstein":
@@ -260,10 +259,10 @@ const gesteineDaten = {
         gesteinsgruppe: "Sedimentgestein (Karbonatgestein)",
         struktur: "Bankig bis plattig, oft mit Eisenoolith-Lagen und Fossilien (Ammoniten, Belemniten)",
         koordinaten: "Beispiel Blumberg: 47.8406° N, 8.5336° E",
-        bild: "Graubraun bis bläulich-grau, verwittert gelblich, typische Eisenoxid-Flecken",
+        bild: "./Fotos/gestein/jurastein_grau.JPG",
         beschreibung: "Der Graue Jurakalk entstand in flachen Meeresbereichen des Jurameers. Charakteristisch ist sein Wechsel zwischen Kalk- und Mergellagen mit hohem Fossilgehalt. Wirtschaftlich wichtig als Naturwerkstein und Zementrohstoff. Besondere Varietäten enthalten Eisenoolithe („Eisenstein“).",
     },
-  /*  "lithothammnienkalk":
+    "lithothammnienkalk":
         {
             name: "Lithothamnienkalk",
             fundort: "Mittelmeerregion (z.B. Sizilien, Malta), Atlantikküste (Bretagne), Nordsee (Doggerbank)",
@@ -273,7 +272,7 @@ const gesteineDaten = {
             gesteinsgruppe: "Sedimentgestein (biogenes Karbonat)",
             struktur: "Feinkörnig, porös bis dicht, oft schaumig mit Algenstrukturen",
             koordinaten: "Beispiel Malta: 35.9042° N, 14.5189° E",
-            bild: "Weißlich bis korallenrot, typische stängelige Mikrostruktur",
+            bild: "./Fotos/gestein/litho_kalk.JPG",
             beschreibung: "Lithothamnienkalk besteht überwiegend aus den Kalkskeletten krustenbildender Rotalgen (Lithothamnium spp.). Entsteht in flachen Subtidalzonen durch Algenrasen. Wichtiger Rohstoff für Düngemittel (Algenkalk) und als pH-Regulator in der Landwirtschaft. Kommerziell in der Aquaristik verwendet.",
         },
     "hohenschwangauer-kalk":{
@@ -285,7 +284,7 @@ const gesteineDaten = {
         gesteinsgruppe: "Sedimentgestein (Karbonatgestein)",
         struktur: "Bankig bis massig, fein- bis mittelkörnig, teilweise mergelig",
         koordinaten: "Typusgebiet: 47.5578° N, 10.7372° E (Hohenschwangau)",
-        bild: "Hellgrau bis bläulich-grau, verwittert gelblich, teils mit Fossilresten",
+        bild: "./Fotos/gestein/hohenschwangauer_kalk.JPG",
         beschreibung: "Der Hohenschwangauer Kalk gehört zur Allgäu-Formation der helvetischen Decken. Charakteristisch sind Wechsellagerungen von reinen Kalkbänken und mergeligen Zwischenlagen. Lokal mit Einschaltungen von Flysch-Sedimenten. Wichtiger historischer Baustein für Schlösser (Neuschwanstein) und Kirchenbauten im Allgäu."
     },
     "diorit":{
@@ -297,7 +296,7 @@ const gesteineDaten = {
         gesteinsgruppe: "Magmatisches Gestein (Plutonit)",
         struktur: "Gleichkörnig bis porphyrisch, mittel- bis grobkörnig",
         koordinaten: "Beispiel Finkenbach/Odenwald: 49.6833° N, 8.9167° E",
-        bild: "Grau bis graugrün, salz-pfeffer-ähnliches Erscheinungsbild",
+        bild: "./Fotos/gestein/diorit.JPG",
         beschreibung: "Diorit ist ein quarzarmes Plutonitgestein mit typischer Zusammensetzung aus Plagioklas (50–70%), Hornblende/Biotit (20–40%) und <5% Quarz. Entsteht durch Differentiation basaltischer Magmen. Wichtiger Naturwerkstein seit der Antike (z.B. ägyptische Statuen). Moderne Nutzung als Schotter und Dekorstein."
     },
     "högler-sandstein":{
@@ -308,10 +307,10 @@ const gesteineDaten = {
         bezeichnung: "Sandstein",
         alter: "Tertiär",
         gesteinsgruppe: "Sedimentgesteine",
-        bild: "./Fotos/gestein/kelheimer_kalkstein.png",
+        bild: "./Fotos/gestein/högler_sandstein.JPG",
         beschreibung: "Vom 17. bis ins frühe 20. Jahrhundert wurde der wertvolle Högler Sandstein am Högl (unter anderem im Gemeindegebiet von Piding) abgebaut. Dieser widerstandsfähige Naturstein fand nicht nur bei bedeutenden Salzburger Bauwerken wie der St.-Erhard-Kirche und der Residenz Verwendung, sondern prägte auch das Stadtbild Münchens.\n\nBesonders bemerkenswert:\n• Der Alte Südliche Friedhof in München (gegründet 1563) zeigt an zahlreichen historischen Grabmalen die charakteristische Struktur des Högler Sandsteins\n• Viele der kunstvollen Epitaphe und Denkmäler aus dem 18. und 19. Jahrhundert wurden aus diesem Material gefertigt\n• Der Stein eignete sich ideal für aufwändige Steinmetzarbeiten und widerstand den Witterungseinflüssen\n\nDie wichtigsten Abbaugebiete bei Piding:\n✓ Gschwendtner Bruch (bis 1960er aktiv) - lieferte u.a. Material für die Pidinger Friedhofsmauer\n✓ Schneidergrube (bis 1860 Wetzsteinproduktion)\n✓ Meisterbruch und Dopplerbruch in Nachbargemeinden\n\nSeit 2004 macht die Gemeinde Piding mit dem erschlossenen Gschwendtner Bruch und einer Infotafel diese bedeutende Handwerkstradition erlebbar. Die Spuren des Högler Sandsteins reichen damit von lokalen Bauwerken bis in die Münchner Stadtgeschichte."
     },
-    "forellen-sandstein":{
+   /* "forellen-sandstein":{
         name: "Forellensandstein",
         fundort: "Nördlicher Schwarzwald (z.B. Bad Liebenzell, Pforzheim), Kraichgau",
         fundland: "Deutschland (Baden-Württemberg)",
@@ -359,7 +358,7 @@ const gesteineDaten = {
         gesteinsgruppe: "Metamorphes Gestein (Ultramafitit)",
         struktur: "Dicht bis faserig, grün-schwarze Maserung, typische Magnetitadern",
         koordinaten: "Zöblitz: 50.6581° N, 13.2294° E",
-                        bild: "./Fotos/gestein/Wandplatten_Knorr.JPG",
+                        bild: "./Fotos/gestein/zöblitzer.JPG",
 
         beschreibung: "Der Zöblitzer Serpentinit entstand durch Metamorphose von Olivin-reichem Mantelgestein. Charakteristisch sind faserige Antigorit- und Chrysotil-Ausbildungen. Historisch berühmt als 'Grüner Stein von Zöblitz' für Kunstgegenstände (Dresdner Grünes Gewölbe). Enthält oft Chromit-Einschlüsse und Magnetitadern."
     },
@@ -373,11 +372,12 @@ const gesteineDaten = {
         gesteinsgruppe: "Metamorphes Gestein (Marmor)",
         struktur: "Gleichkörnig, mittel- bis grobkristallin (Calcitkristalle 1–5 mm)",
         koordinaten: "Zinnkopf-Steinbruch: 47.7500° N, 12.6500° E",
-        bild: "Weiß bis hellgrau mit charakteristischen grauen Adern (Graphit-Einschlüsse)",
+        bild: "./Fotos/gestein/ruhpoldinger_marmor.JPG",
         beschreibung: "Der Ruhpoldinger Marmor entstand durch Metamorphose von Kalksteinen der Nördlichen Kalkalpen. Charakteristisch sind seine gleichmäßige Textur und gute Polierfähigkeit. Historisch wichtiger Baustein für Kirchen und Denkmäler in Süddeutschland (z.B. Münchener Residenz). Enthält typischerweise Graphitfahnen als Relikte organischen Materials."
     },
     "untersberger-ruhpoldinger":{
-        name: "Untersberger Ruhpoldinger"
+        name: "Untersberger Ruhpoldinger",
+        bild: "./Fotos/untersberger.JPG",
     },
     "nero-portoro":
     {
@@ -389,7 +389,7 @@ const gesteineDaten = {
         gesteinsgruppe: "Metamorphes Gestein (Marmor)",
         struktur: "Kompatte schwarze Grundmasse mit goldgelben Calcitadern",
         koordinaten: "Historische Steinbrüche: 44.0500° N, 9.8333° E",
-        bild: "Tiefschwarzer Hintergrund mit dramatischen goldgelben Aderungen",
+        bild: "./Fotos/gestein/portoro.JPG",
         beschreibung: "Der Nero Portoro entstand durch Metamorphose kalkiger Sedimente mit bituminösen Einlagerungen. Seine charakteristischen Goldadern bestehen aus Calcit mit Eisenoxid-Beimengungen. Seit der Römerzeit begehrter Luxusstein für repräsentative Bauten (Pantheon, Versailles). Heute nur noch limitiert aus wenigen, schwer zugänglichen Küstensteinbrüchen gewinnbar."
     },
     "adneter-marmor":
@@ -402,12 +402,10 @@ const gesteineDaten = {
         gesteinsgruppe: "Sedimentgestein (biogenes Karbonat)",
         struktur: "Dicht bis feinkörnig, hochfossilführend (Ammoniten, Belemniten)",
         koordinaten: "Hauptsteinbruch: 47.7167° N, 13.1333° E",
-        bild: "Tiefrot bis rosa mit weißen Fossilabdrücken und Adern",
+        bild: "./Fotos/gestein/adneter_marmor.JPG",
         beschreibung: "Der Adneter Marmor ist ein fossilreicher Kalkstein, der durch Eisenoxide rot gefärbt wurde. Berühmt für seine spektakulären Ammoniten-Einschlüsse. Seit dem Mittelalter wichtiger Sakralstein (Salzburger Dom, Wiener Stephansdom). Die typische Rotfärbung entstand durch diagenetische Umwandlung von Pyrit zu Hämatit."
     },
-    "hierlatzkalk-crinoiden-Schuttkalk-mit-seelilien-stielgliedern":{
-        name: "Hierlatzkalk",
-        fundort: "Hierlatz (Dachsteingebirge, Österreich), Nördliche Kalkalpen",
+/*        fundort: "Hierlatz (Dachsteingebirge, Österreich), Nördliche Kalkalpen",
         fundland: "Österreich (Oberösterreich, Steiermark), Deutschland (Bayern)",
         bezeichnung: "Crinoiden-Schuttkalk mit Seelilien-Stielgliedern",
         alter: "Obertrias (Norium, ca. 220–210 Mio. Jahre)",
@@ -417,9 +415,7 @@ const gesteineDaten = {
         bild: "Hellgrau bis beige, mit deutlich sichtbaren runden Stielgliedern (Trochiten) in verschiedenen Größen",
         beschreibung: "Der Hierlatzkalk entstand in flachen Schelfmeeren durch Akkumulation von Crinoiden-Schutt. Charakteristisch sind massenhafte, millimeter- bis zentimetergroße Stielglieder (Trochiten) der Seelilie _Encrinus carnalli_. Wichtiger stratigraphischer Leithorizont in den Nördlichen Kalkalpen. Lokal als Naturwerkstein genutzt."
     }
-
-
-
+*/
 };
 
 
