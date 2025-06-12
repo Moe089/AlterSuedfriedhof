@@ -1,4 +1,3 @@
-let routingControl = null;
 let map;
 let mapInitialized = false;
 let userLocationMarker = null;
