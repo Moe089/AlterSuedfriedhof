@@ -1885,7 +1885,7 @@ function createCustomMarker(lat, lng, imageUrl, popupText, layerGroup, onClick, 
         marker.bindPopup(`
             <div class="custom-popup">
                 <h3>${popupText}</h3>
-                <button class="ar-btn" onclick="launchAR(48.15195461099043, 11.5537386185308, 0, 20, 'reichenbach8');">AR starten</button>
+                <button class="ar-btn" onclick="launchAR(48.12698081942048, 11.563986286801328, 0, 20, 'reichenbach8');">AR starten</button>
                  <button class="show-street-btn" onclick="showRouteForPerson('Reichenbach', 'street')">
                         Straße anzeigen
                     </button>
@@ -1936,7 +1936,7 @@ function createCustomMarker(lat, lng, imageUrl, popupText, layerGroup, onClick, 
             <div class="custom-popup">
                 <h3>${popupText}</h3>
                 
-                <button class="ar-btn" onclick="launchAR(48.12883728190237, 11.566360086683234, 0, 20, 'fraunhofer');">AR starten</button>
+                <button class="ar-btn" onclick="launchAR(48.12944686673255, 11.566483691300379, 0, 20, 'fraunhofer');">AR starten</button>
                 <button class="show-street-btn" onclick="showRouteForPerson('Alois Senefelder', 'street')">
 
                     Straße anzeigen
