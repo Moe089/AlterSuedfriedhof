@@ -317,6 +317,11 @@ function createMarkersForAllLayers() {
         "./Fotos/personen/Nussbaum.png", "Grab Nußbaum", markers.layer1,
         function() { showRouteForPerson("Nußbaum", "street"); });
 
+
+
+        createCustomMarker(48.12657260475662, 11.563375700931863, 
+        "./Fotos/personen/ainmiller.png", "Grab Ainmiller", markers.layer1),
+   
         
     createCustomMarker(48.12700316519899, 11.566071173222651, 
         "./Fotos/personen/Ohm.png", "Grab Georg Simon Ohm", markers.layer1,
@@ -434,7 +439,8 @@ createCustomMarker(48.130066, 11.565872,
         createCustomMarker(48.127194,11.565333, 
             "./Fotos/grabstein/schwind_grab.png", "Grab Moritz Schwind", markers.layer2);
 
-
+        createCustomMarker(48.12657260475662, 11.563375700931863, 
+        "./Fotos/grabstein/ainmiller_grab.png", "Grab Ainmiller", markers.layer2),
 
 
 
@@ -618,6 +624,21 @@ createCustomMarker(48.130066, 11.565872,
                     markers.layer3,
                     "Schwind",
                     "diabas"
+                );
+
+                  createMasterMarker(
+                    48.12657260475662, 11.563375700931863,
+                    "ainmiller",
+                    markers.layer3
+                );
+                
+                createMaterialMarker(
+                    48.127194,11.565333,
+                    "./Fotos/gestein/högler_sandstein.JPG",
+                    "Ainmiller Grabstein - Högler Sandstein",
+                    markers.layer3,
+                    "ainmiller",
+                    "hoegler-sandstein"
                 );
                 
  
@@ -1380,6 +1401,19 @@ const graveMaterials = {
          
     },
 
+        "ainmiller": {
+        name: "Max Ainmiller",
+        imageUrl: "./Fotos/grabstein/ainmiller_grab.png", 
+        materials: {
+            "Stein": "Högler-Sandstein"
+          
+            
+          
+            
+        },
+         
+    },
+
         "boos": {
         name: "Roman-Boos",
         imageUrl: "./Fotos/grabstein/boos_grab.png", 
@@ -1845,7 +1879,7 @@ function createCustomMarker(lat, lng, imageUrl, popupText, layerGroup, onClick, 
             iconAnchor: [20, 40]
         });
     }
-    48.15196988492568, 11.553769878227335
+
     const marker = L.marker([lat, lng], { icon: customIcon });
 
     if (popupText.includes("Georg von Reichenbach")) {

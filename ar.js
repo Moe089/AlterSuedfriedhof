@@ -305,18 +305,21 @@ window.launchAR = async function(latitude, longitude, altitude = 0, radius = 10,
                         look-at="[gps-camera]"
                         rotation="0 180 0"
                         visible="false"
+                        position="0 0 -5"
+                        animation="property: position; to: 0 0 -5; dur: 1000; easing: easeInOutQuad"
                     ></a-entity>
                     
-                    <a-camera 
-                        gps-camera="
-                            gpsMinDistance: ${radius};
-                            positionMinAccuracy: 10;
-                            minDistance: ${radius * 0.5};
-                            maxDistance: ${radius * 2};
-                        " 
-                        rotation-reader
-                        look-controls="enabled: false"
-                    ></a-camera>
+                                    <a-camera 
+                            gps-camera="
+                                gpsMinDistance: ${radius};
+                                positionMinAccuracy: 10;
+                                minDistance: ${radius * 0.5};
+                                maxDistance: ${radius * 2};
+                            " 
+                            rotation-reader
+                            look-controls="enabled: true"
+                            position="0 0 0"
+                        ></a-camera>
                 </a-scene>
                 
                 <div id="ar-ui">
@@ -338,6 +341,8 @@ window.launchAR = async function(latitude, longitude, altitude = 0, radius = 10,
                 // Check if mobile
                 var isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
                 if (isMobile) {
+                     document.querySelector('[gps-camera]').setAttribute('simulate-position', 'false');
+                     document.querySelector('[gltf-model]').setAttribute('position', '0 0 -2');
                     document.getElementById('mobile-hint').style.display = 'block';
                 }
                 
@@ -357,6 +362,8 @@ window.launchAR = async function(latitude, longitude, altitude = 0, radius = 10,
                 
                 // Scene loaded handler
                 document.querySelector('a-scene').addEventListener('loaded', function() {
+                    const model = document.querySelector('[gltf-model]');
+                    model.setAttribute('position', '0 0 -5');
                     initCamera();
                     initGPS();
                     
