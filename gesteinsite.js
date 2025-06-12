@@ -241,7 +241,7 @@ beschreibung: "<br><p style='text-align: justify;'><strong>Petrographie & Entste
 
     
 "kalktuff": {
-  name: "Münchner Kalktuff",
+  name: "Kalktuff",
   fundort: "Maxlmühle , Münchner Schotterebene, Würmtal (z.B. Gauting, Gräfelfing), Haarschweige",
   fundland: "Deutschland (Bayern/Oberbayern)",
   bezeichnung: "Süßwasserkalk (poröser Kalkstein)",
@@ -437,7 +437,7 @@ beschreibung: "<br><p style='text-align: justify;'><strong>Petrographie & Entste
 },
 
 "nero-portoro": {
-  "name": "Nero Portoro (Mischio giallo e nero)",
+  "name": "Nero Portoro",
   "fundort": "La Spezia-Provinz (Ligurien, Italien) - verschiedene Abbauorte",
   "fundland": "Italien",
   "bezeichnung": "Dekorativer Kalkstein mit charakteristischer Aderung",

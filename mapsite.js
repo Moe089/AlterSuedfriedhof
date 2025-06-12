@@ -1879,7 +1879,6 @@ function createCustomMarker(lat, lng, imageUrl, popupText, layerGroup, onClick, 
             iconAnchor: [20, 40]
         });
     }
-
     const marker = L.marker([lat, lng], { icon: customIcon });
 
     if (popupText.includes("Georg von Reichenbach")) {
