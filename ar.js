@@ -165,17 +165,6 @@ function preloadModel(modelName) {
     });
 }
 
-// Before launching AR:
-async function launchAR() {
-    try {
-        await preloadModel(modelName);
-        // Proceed with AR launch
-    } catch (error) {
-        alert("Failed to load 3D model: " + error.message);
-    }
-}
-
-
 window.launchAR = async function(latitude, longitude, altitude = 0, radius = 10, modelName = 'fraunhofer') {
     try {
         // Preload the model first
@@ -289,37 +278,41 @@ window.launchAR = async function(latitude, longitude, altitude = 0, radius = 10,
                         simulateAltitude: ${altitude};
                     "
                 >
-                    <a-assets timeout="10000">
+                    <a-assets timeout="100000">
                         <a-asset-item id="ar-model" src="models/${modelName}.glb"></a-asset-item>
                     </a-assets>
                     
+                    <!-- Lichtquellen hinzufügen -->
+                    <a-entity light="type: ambient; color: #FFF; intensity: 0.8"></a-entity>
+                    <a-entity light="type: directional; color: #FFF; intensity: 0.5" position="-1 1 1"></a-entity>
+                    
                     <a-entity
+                        id="model-entity"
                         gltf-model="#ar-model"
-                        scale="0.5 0.5 0.5"
+                        scale="1 1 1"
                         gps-entity-place="
                             latitude: ${latitude};
                             longitude: ${longitude};
                             altitude: ${altitude};
                         "
-                        position-updater="minDistance: ${radius};"
                         look-at="[gps-camera]"
                         rotation="0 180 0"
-                        visible="false"
+                        visible="true"
                         position="0 0 -5"
                         animation="property: position; to: 0 0 -5; dur: 1000; easing: easeInOutQuad"
                     ></a-entity>
                     
-                                    <a-camera 
-                            gps-camera="
-                                gpsMinDistance: ${radius};
-                                positionMinAccuracy: 10;
-                                minDistance: ${radius * 0.5};
-                                maxDistance: ${radius * 2};
-                            " 
-                            rotation-reader
-                            look-controls="enabled: true"
-                            position="0 0 0"
-                        ></a-camera>
+                    <a-camera 
+                        gps-camera="
+                            gpsMinDistance: ${radius};
+                            positionMinAccuracy: 10;
+                            minDistance: ${radius * 0.5};
+                            maxDistance: ${radius * 2};
+                        " 
+                        rotation-reader
+                        look-controls="enabled: true"
+                        position="0 1.6 0"
+                    ></a-camera>
                 </a-scene>
                 
                 <div id="ar-ui">
@@ -341,8 +334,8 @@ window.launchAR = async function(latitude, longitude, altitude = 0, radius = 10,
                 // Check if mobile
                 var isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
                 if (isMobile) {
-                     document.querySelector('[gps-camera]').setAttribute('simulate-position', 'false');
-                     document.querySelector('[gltf-model]').setAttribute('position', '0 0 -2');
+                    document.querySelector('[gps-camera]').setAttribute('simulate-position', 'false');
+                    document.getElementById('model-entity').setAttribute('position', '0 0 -2');
                     document.getElementById('mobile-hint').style.display = 'block';
                 }
                 
@@ -362,19 +355,29 @@ window.launchAR = async function(latitude, longitude, altitude = 0, radius = 10,
                 
                 // Scene loaded handler
                 document.querySelector('a-scene').addEventListener('loaded', function() {
-                    const model = document.querySelector('[gltf-model]');
-                    model.setAttribute('position', '0 0 -5');
+                    const model = document.getElementById('model-entity');
+                    
+                    // Event für erfolgreiches Modell-Laden
+                    model.addEventListener('model-loaded', function() {
+                        console.log('3D-Modell erfolgreich geladen');
+                        document.getElementById('status').textContent = "AR bereit!";
+                        model.setAttribute('visible', 'true');
+                        
+                        // Debug: Modellposition ausgeben
+                        console.log('Model position:', model.getAttribute('position'));
+                    });
+                    
+                    // Event für Modell-Fehler
+                    model.addEventListener('error', function() {
+                        showError("Fehler beim Laden des 3D-Modells");
+                    });
+                    
                     initCamera();
                     initGPS();
                     
                     if (isMobile) {
                         initMobileAR();
                     }
-                    
-                    // Model loaded handler
-                    this.addEventListener('model-loaded', function() {
-                        document.getElementById('status').textContent = "AR bereit!";
-                    });
                 });
                 
                 // Scene error handler
@@ -505,6 +508,7 @@ window.launchAR = async function(latitude, longitude, altitude = 0, radius = 10,
                 function updateDistance(lat1, lon1) {
                     const distance = calculateDistance(lat1, lon1, ${latitude}, ${longitude});
                     const distanceInfo = document.getElementById('distance-info');
+                    const model = document.getElementById('model-entity');
                     
                     distanceInfo.innerHTML = \`
                         Entfernung: ~\${Math.round(distance)} Meter<br>
@@ -515,11 +519,10 @@ window.launchAR = async function(latitude, longitude, altitude = 0, radius = 10,
                     
                     if (distance <= ${radius}) {
                         distanceInfo.style.color = 'lightgreen';
-                        // Make model visible when in range
-                        document.querySelector('[gltf-model]').setAttribute('visible', 'true');
+                        model.setAttribute('visible', 'true');
                     } else {
                         distanceInfo.style.color = 'white';
-                        document.querySelector('[gltf-model]').setAttribute('visible', 'false');
+                        model.setAttribute('visible', 'false');
                     }
                 }
                 
@@ -546,19 +549,6 @@ window.launchAR = async function(latitude, longitude, altitude = 0, radius = 10,
         console.error("AR initialization error:", error);
     }
 };
-
-// Helper function to preload models
-async function preloadModel(modelName) {
-    return new Promise((resolve, reject) => {
-        const loader = new THREE.GLTFLoader();
-        loader.load(
-            `models/${modelName}.glb`,
-            resolve,
-            null,
-            () => reject(new Error(`Model ${modelName}.glb konnte nicht geladen werden`))
-        );
-    });
-}
 
 // Initialize isMobile variable
 if (typeof isMobile === 'undefined') {
