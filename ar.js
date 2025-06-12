@@ -157,6 +157,7 @@ window.launchAR = function(markerUrls = ['default'], modelName = 'fraunhofer') {
     arWindow.focus();
 };
 */
+
 function preloadModel(modelName) {
     return new Promise((resolve, reject) => {
         const loader = new THREE.GLTFLoader();
@@ -166,8 +167,10 @@ function preloadModel(modelName) {
 
 window.launchAR = async function(latitude, longitude, altitude = 0, radius = 10, modelName = 'fraunhofer') {
     try {
+        // Preload the model first
         await preloadModel(modelName);
         
+        // Open AR window
         const arWindow = window.open('', 'AR_Viewer', `
             width=${window.screen.width},
             height=${window.screen.height},
@@ -189,82 +192,304 @@ window.launchAR = async function(latitude, longitude, altitude = 0, radius = 10,
             <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js@master/aframe/build/aframe-ar.min.js"></script>
             <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
             <style>
-                body { margin: 0; padding: 0; overflow: hidden; font-family: Arial; }
-                #ar-ui { position: absolute; top: 10px; left: 10px; z-index: 1000; color: white; background: rgba(0,0,0,0.5); padding: 10px; border-radius: 5px; }
-                #close-btn { background: #fff; color: #000; border: none; padding: 8px 15px; border-radius: 4px; cursor: pointer; }
+                body { 
+                    margin: 0; 
+                    padding: 0; 
+                    overflow: hidden;
+                    font-family: Arial;
+                    -webkit-touch-callout: none;
+                    -webkit-user-select: none;
+                    user-select: none;
+                }
+                #ar-container {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                }
+                #ar-ui {
+                    position: absolute;
+                    top: 10px;
+                    left: 10px;
+                    z-index: 1000;
+                    color: white;
+                    background: rgba(0,0,0,0.5);
+                    padding: 10px;
+                    border-radius: 5px;
+                    max-width: 90%;
+                }
+                #close-btn {
+                    background: #fff;
+                    color: #000;
+                    border: none;
+                    padding: 8px 15px;
+                    border-radius: 4px;
+                    cursor: pointer;
+                    font-size: 14px;
+                }
+                #distance-info {
+                    margin-top: 10px;
+                    font-size: 14px;
+                }
+                #mobile-hint {
+                    position: absolute;
+                    bottom: 20px;
+                    left: 0;
+                    right: 0;
+                    text-align: center;
+                    color: white;
+                    background: rgba(0,0,0,0.7);
+                    padding: 10px;
+                    display: none;
+                }
+                .error-message {
+                    color: red;
+                    padding: 20px;
+                    background: rgba(0,0,0,0.7);
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    text-align: center;
+                    max-width: 80%;
+                }
             </style>
         </head>
         <body>
-            <a-scene 
-                vr-mode-ui="enabled: false"
-                embedded
-                arjs="
-                    sourceType: webcam;
-                    debugUIEnabled: false;
-                    trackingMethod: best;
-                    cameraParametersUrl: https://jeromeetienne.github.io/AR.js/data/data/camera_para.dat;
-                "
-                renderer="logarithmicDepthBuffer: true; precision: high;"
-                gps-camera="
-                    gpsMinDistance: ${radius};
-                    simulateLatitude: ${latitude};
-                    simulateLongitude: ${longitude};
-                    simulateAltitude: ${altitude};
-                "
-            >
-                <a-assets>
-                    <a-asset-item id="ar-model" src="models/${modelName}.glb"></a-asset-item>
-                </a-assets>
-                
-                <a-entity
-                    id="model-entity"
-                    gltf-model="#ar-model"
-                    scale="1 1 1"
-                    gps-entity-place="
-                        latitude: ${latitude};
-                        longitude: ${longitude};
-                        altitude: ${altitude};
+            <div id="ar-container">
+                <a-scene 
+                    vr-mode-ui="enabled: false"
+                    embedded
+                    arjs="
+                        sourceType: webcam;
+                        debugUIEnabled: false;
+                        detectionMode: mono_and_matrix;
+                        matrixCodeType: 3x3;
+                        trackingMethod: best;
+                        maxDetectionRate: 30;
+                        cameraParametersUrl: https://jeromeetienne.github.io/AR.js/data/data/camera_para.dat;
                     "
-                    look-at="[gps-camera]"
-                    rotation="0 180 0"
-                    visible="true"
-                ></a-entity>
+                    renderer="logarithmicDepthBuffer: true; precision: high; antialias: true;"
+                    gps-camera="
+                        gpsMinDistance: ${radius};
+                        simulateLatitude: ${isMobile ? 0 : latitude};
+                        simulateLongitude: ${isMobile ? 0 : longitude};
+                        simulateAltitude: ${altitude};
+                    "
+                >
+                    <a-assets timeout="100000">
+                        <a-asset-item id="ar-model" src="models/${modelName}.glb"></a-asset-item>
+                    </a-assets>
+                    
+                    <!-- Lichtquellen hinzufügen -->
+                    <a-entity light="type: ambient; color: #FFF; intensity: 0.8"></a-entity>
+                    <a-entity light="type: directional; color: #FFF; intensity: 0.5" position="-1 1 1"></a-entity>
+                    
+                    <a-entity
+                        id="model-entity"
+                        gltf-model="#ar-model"
+                        scale="1 1 1"
+                        gps-entity-place="
+                            latitude: ${latitude};
+                            longitude: ${longitude};
+                            altitude: ${altitude};
+                        "
+                        look-at="[gps-camera]"
+                        rotation="0 180 0"
+                        visible="true"
+                        position="0 0 -5"
+                        animation="property: position; to: 0 0 -5; dur: 1000; easing: easeInOutQuad"
+                    ></a-entity>
+                    
+                    <a-camera 
+                        gps-camera="
+                            gpsMinDistance: ${radius};
+                            positionMinAccuracy: 10;
+                            minDistance: ${radius * 0.5};
+                            maxDistance: ${radius * 2};
+                        " 
+                        rotation-reader
+                        look-controls="enabled: true"
+                        position="0 1.6 0"
+                    ></a-camera>
+                </a-scene>
                 
-                <a-camera gps-camera position="0 1.6 0"></a-camera>
-            </a-scene>
-            
-            <div id="ar-ui">
-                <button id="close-btn">Zurück</button>
-                <div id="status">Initialisiere AR...</div>
-                <div id="distance-info"></div>
+                <div id="ar-ui">
+                    <button id="close-btn">Zurück</button>
+                    <div id="status">Initialisiere AR...</div>
+                    <div id="distance-info"></div>
+                    <div id="position-info"></div>
+                </div>
+                
+                <div id="mobile-hint">
+                    <p>Bewegen Sie Ihr Gerät langsam im Kreis, um das Objekt zu finden</p>
+                    <div id="tracking-status">Suche nach Oberflächen...</div>
+                </div>
+                
+                <div id="error-container" class="error-message" style="display: none;"></div>
             </div>
 
             <script>
-                // Mobile detection
-                const isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+                // Check if mobile
+                var isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+                if (isMobile) {
+                    document.querySelector('[gps-camera]').setAttribute('simulate-position', 'false');
+                    document.getElementById('model-entity').setAttribute('position', '0 0 -2');
+                    document.getElementById('mobile-hint').style.display = 'block';
+                }
                 
                 // Close button
                 document.getElementById('close-btn').addEventListener('click', function() {
                     window.close();
                 });
                 
-                // Force GPS positioning on mobile
-                if (isMobile) {
-                    const scene = document.querySelector('a-scene');
-                    scene.addEventListener('loaded', function() {
-                        const camera = document.querySelector('[gps-camera]');
-                        camera.setAttribute('gps-camera', 'simulatePosition: false');
-                        
-                        // Override AR.js default behavior
-                        const arSystem = scene.systems.arjs || scene.systems['arjs'];
-                        if (arSystem) {
-                            arSystem.context._orientationControls.freeze = true;
-                            arSystem.context._positionControls.freeze = true;
-                        }
-                    });
+                // Error handling
+                function showError(message) {
+                    const errorContainer = document.getElementById('error-container');
+                    errorContainer.innerHTML = message;
+                    errorContainer.style.display = 'block';
+                    document.getElementById('status').style.display = 'none';
+                    console.error(message);
                 }
                 
-                // Distance calculation
+                // Scene loaded handler
+                document.querySelector('a-scene').addEventListener('loaded', function() {
+                    const model = document.getElementById('model-entity');
+                    
+                    // Event für erfolgreiches Modell-Laden
+                    model.addEventListener('model-loaded', function() {
+                        console.log('3D-Modell erfolgreich geladen');
+                        document.getElementById('status').textContent = "AR bereit!";
+                        model.setAttribute('visible', 'true');
+                        
+                        // Debug: Modellposition ausgeben
+                        console.log('Model position:', model.getAttribute('position'));
+                    });
+                    
+                    // Event für Modell-Fehler
+                    model.addEventListener('error', function() {
+                        showError("Fehler beim Laden des 3D-Modells");
+                    });
+                    
+                    initCamera();
+                    initGPS();
+                    
+                    if (isMobile) {
+                        initMobileAR();
+                    }
+                });
+                
+                // Scene error handler
+                document.querySelector('a-scene').addEventListener('error', function(event) {
+                    showError("AR-Szene Fehler: " + event.detail);
+                });
+                
+                // Asset error handler
+                document.querySelector('a-assets').addEventListener('error', function(event) {
+                    showError("Fehler beim Laden des 3D-Modells. Bitte versuchen Sie es später erneut.");
+                });
+                
+                // Camera initialization
+                async function initCamera() {
+                    try {
+                        const constraints = {
+                            video: {
+                                facingMode: 'environment',
+                                width: { ideal: 1280 },
+                                height: { ideal: 720 }
+                            }
+                        };
+                        
+                        if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+                            constraints.video = {
+                                facingMode: 'environment',
+                                width: { exact: 1280 },
+                                height: { exact: 720 }
+                            };
+                        }
+                        
+                        const stream = await navigator.mediaDevices.getUserMedia(constraints);
+                        window.addEventListener('beforeunload', function() {
+                            stream.getTracks().forEach(track => track.stop());
+                        });
+                    } catch (err) {
+                        showError("Kamera-Fehler: " + err.message + 
+                                "<br><br>Bitte:<br>- HTTPS verwenden<br>- Kamera erlauben<br>- Andere Kamera-Apps schließen");
+                    }
+                }
+                
+                // GPS initialization
+                function initGPS() {
+                    if (navigator.geolocation) {
+                        navigator.geolocation.watchPosition(
+                            updatePosition,
+                            handleGpsError,
+                            { 
+                                enableHighAccuracy: true,
+                                maximumAge: 5000,
+                                timeout: 10000
+                            }
+                        );
+                    } else {
+                        showError("Geolocation wird nicht unterstützt");
+                    }
+                }
+                
+                // Mobile AR specific initialization
+                function initMobileAR() {
+                    const scene = document.querySelector('a-scene');
+                    const arSystem = scene.systems.arjs;
+                    
+                    scene.addEventListener('markerFound', () => {
+                        document.getElementById('tracking-status').textContent = "Objekt gefunden!";
+                        document.getElementById('tracking-status').style.color = "lightgreen";
+                    });
+                    
+                    scene.addEventListener('markerLost', () => {
+                        document.getElementById('tracking-status').textContent = "Bewegen Sie das Gerät langsamer";
+                        document.getElementById('tracking-status').style.color = "orange";
+                    });
+                    
+                    if (arSystem) {
+                        arSystem.context.parameters.trackingParameters.stabilizationRatio = 0.5;
+                        arSystem.context._continuousMonitoring = true;
+                    }
+                }
+                
+                // Position updates
+                function updatePosition(position) {
+                    const { latitude, longitude, accuracy } = position.coords;
+                    document.getElementById('position-info').innerHTML = \`
+                        Ihre Position:<br>
+                        Breite: \${latitude.toFixed(6)}°<br>
+                        Länge: \${longitude.toFixed(6)}°<br>
+                        Genauigkeit: ~\${Math.round(accuracy)} Meter
+                    \`;
+                    
+                    updateDistance(latitude, longitude);
+                }
+                
+                // GPS error handler
+                function handleGpsError(error) {
+                    let message = "GPS-Fehler: ";
+                    switch(error.code) {
+                        case error.PERMISSION_DENIED:
+                            message += "Zugriff verweigert. Bitte GPS aktivieren.";
+                            break;
+                        case error.POSITION_UNAVAILABLE:
+                            message += "Position nicht verfügbar.";
+                            break;
+                        case error.TIMEOUT:
+                            message += "Timeout beim Abrufen der Position.";
+                            break;
+                        default:
+                            message += "Unbekannter Fehler.";
+                    }
+                    showError(message);
+                }
+                
+                // Distance calculation and updates
                 function calculateDistance(lat1, lon1, lat2, lon2) {
                     const R = 6371e3;
                     const φ1 = lat1 * Math.PI/180;
@@ -280,36 +505,37 @@ window.launchAR = async function(latitude, longitude, altitude = 0, radius = 10,
                     return R * c;
                 }
                 
-                // GPS tracking
-                if (navigator.geolocation) {
-                    navigator.geolocation.watchPosition(
-                        function(position) {
-                            const distance = calculateDistance(
-                                position.coords.latitude, 
-                                position.coords.longitude,
-                                ${latitude},
-                                ${longitude}
-                            );
-                            
-                            document.getElementById('distance-info').innerHTML = \`
-                                Entfernung: \${Math.round(distance)}m
-                                \${distance <= ${radius} ? '' : '<br>Bewegen Sie sich näher'}
-                            \`;
-                        },
-                        function(error) {
-                            console.error('GPS Error:', error);
-                        },
-                        { enableHighAccuracy: true, maximumAge: 3000, timeout: 5000 }
-                    );
+                function updateDistance(lat1, lon1) {
+                    const distance = calculateDistance(lat1, lon1, ${latitude}, ${longitude});
+                    const distanceInfo = document.getElementById('distance-info');
+                    const model = document.getElementById('model-entity');
+                    
+                    distanceInfo.innerHTML = \`
+                        Entfernung: ~\${Math.round(distance)} Meter<br>
+                        \${distance <= ${radius} ? 
+                            "Sie sind im Zielbereich" : 
+                            "Bewegen Sie sich näher"}
+                    \`;
+                    
+                    if (distance <= ${radius}) {
+                        distanceInfo.style.color = 'lightgreen';
+                        model.setAttribute('visible', 'true');
+                    } else {
+                        distanceInfo.style.color = 'white';
+                        model.setAttribute('visible', 'false');
+                    }
                 }
                 
-                // Model loaded handler
-                document.querySelector('a-scene').addEventListener('loaded', function() {
-                    document.getElementById('status').textContent = "AR bereit!";
-                    document.getElementById('model-entity').addEventListener('model-loaded', function() {
-                        console.log('Modell erfolgreich geladen');
-                    });
-                });
+                // Regular updates
+                setInterval(() => {
+                    const camera = document.querySelector('[gps-camera]');
+                    if (camera && camera.getAttribute('position')) {
+                        const camPos = camera.getAttribute('position');
+                        if (camPos.latitude && camPos.longitude) {
+                            updateDistance(camPos.latitude, camPos.longitude);
+                        }
+                    }
+                }, 1000);
             </script>
         </body>
         </html>`;
@@ -323,3 +549,8 @@ window.launchAR = async function(latitude, longitude, altitude = 0, radius = 10,
         console.error("AR initialization error:", error);
     }
 };
+
+// Initialize isMobile variable
+if (typeof isMobile === 'undefined') {
+    var isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+}
