@@ -377,7 +377,10 @@ function createMarkersForAllLayers() {
         createCustomMarker(48.12505213857038, 11.5629501735568, 
         "./Fotos/personen/robl.png", "Grab Thaddäus Robl", markers.layer1);
 
+                createCustomMarker(48.127194,11.565333, 
+        "./Fotos/personen/Schwind.png", "Grab Moritz von Schwind", markers.layer1);
 
+48.127194,11.565333
 createCustomMarker(48.130066, 11.565872, 
     "./Fotos/personen/Ferdinand_von_Miller.png", 
     "Grab Ferdinand von Miller", 
@@ -429,8 +432,8 @@ createCustomMarker(48.130066, 11.565872,
             "./Fotos/grabstein/liebig_grab.png", "Grab Justus von Liebig", markers.layer2);
         createCustomMarker(48.126402694826844, 11.563275021702747, 
             "./Fotos/grabstein/jolly.png", "Grab Philipp Jolly", markers.layer2);
-        createCustomMarker(48.12505213857038, 11.5629501735568, 
-            "./Fotos/grabstein/robl_grab.png", "Grab Thaddäus Robl", markers.layer2);
+        createCustomMarker(48.127194,11.565333, 
+            "./Fotos/grabstein/schwind_grab.png", "Grab Moritz Schwind", markers.layer2);
 
 
 
@@ -528,6 +531,41 @@ createCustomMarker(48.130066, 11.565872,
                 );
             
 
+                
+                createMasterMarker(
+                    48.12799117898037, 11.565487878772908, 
+                    
+                    "wohlschläger",
+                    markers.layer3
+                );
+                
+                createMaterialMarker(
+                    48.12799117898037, 11.565487878772908,
+                    "./Fotos/gestein/stein_wohlschläger.jpg",
+                    "Wohlschläger Grabstein - Stein",
+                    markers.layer3,
+                    "wohlschläger",
+                    "carrara-marmor"
+                );
+                
+                createMaterialMarker(
+                    48.12799117898037, 11.565487878772908,
+                    "./Fotos/gestein/säule_wohlschläger.JPG",
+                   "Wohlschläger Grabstein - Säule",
+                    markers.layer3,
+                    "wohlschläger",
+                    "zoeblitzer-serpentinit"
+                );
+                
+                createMaterialMarker(
+                    48.12799117898037, 11.565487878772908,
+                    "./Fotos/gestein/schriftplatte_wohlschläger.JPG",
+                    "Wohlschläger Grabstein - Schriftplatte",
+                    markers.layer3,
+                    "wohlschläger",
+                    "schwarz_schwedisch_basalt"
+                );
+
 
 
 
@@ -556,6 +594,8 @@ createCustomMarker(48.130066, 11.565872,
                     "kalktuff"
                 );
 
+                
+
                 createMaterialMarker(
                     48.12944686673255, 11.566483691300379,
                     "./Fotos/gestein/Senefelder_Platte.JPG",
@@ -565,6 +605,23 @@ createCustomMarker(48.130066, 11.565872,
                     "solnhofener-kalk"
                 );
 
+
+                            createMasterMarker(
+                    48.127194,11.565333,
+                    "schwind",
+                    markers.layer3
+                );
+                
+                createMaterialMarker(
+                    48.127194,11.565333,
+                    "./Fotos/gestein/diabas_stein_schwind.JPG",
+                    "Schwind Grabstein - Lausitzer Diabas",
+                    markers.layer3,
+                    "Schwind",
+                    "diabas"
+                );
+                
+ 
 
 
                 
@@ -1403,6 +1460,18 @@ const graveMaterials = {
         
     },
 
+        "schwind": {
+        name: "Moritz von Schwind",
+        imageUrl: "./Fotos/grabstein/schwind_grab.png", 
+        materials: {
+            "Stein": "Diabas"
+            
+                     
+        },
+      
+        
+    },
+
 
     "gärtner": {
         name: "Friedrich-von-Gärtner",
@@ -1431,6 +1500,18 @@ const graveMaterials = {
         
     },
 
+        "wohlschläger": {
+        name: "Familie Wohlschläger",
+        imageUrl: "./Fotos/grabstein/wohlschläger_grab.png", 
+        materials: {
+            "Stein": "Carrara-Marmor",
+            "Säule":  "Zöblitzer Serpentinit",
+            "Schriftplatte": "SChwarz-Schwedisch Basalt",
+
+        },
+      
+        
+    },
 
     "liebig": {
         name: "Justus-Freiherr-von-Liebig",
@@ -1772,7 +1853,7 @@ function createCustomMarker(lat, lng, imageUrl, popupText, layerGroup, onClick, 
         marker.bindPopup(`
             <div class="custom-popup">
                 <h3>${popupText}</h3>
-                <button class="ar-btn" onclick="launchAR(48.14295150490743, 11.568750164455357, 0, 20, 'reichenbach8');">AR starten</button>
+                <button class="ar-btn" onclick="launchAR(48.15195461099043, 11.5537386185308, 0, 20, 'reichenbach8');">AR starten</button>
                  <button class="show-street-btn" onclick="showRouteForPerson('Reichenbach', 'street')">
                         Straße anzeigen
                     </button>
@@ -1823,7 +1904,7 @@ function createCustomMarker(lat, lng, imageUrl, popupText, layerGroup, onClick, 
             <div class="custom-popup">
                 <h3>${popupText}</h3>
                 
-                <button class="ar-btn" onclick="launchAR(48.12883728190237, 11.566360086683234, 0, 20, 'fraunhofer.glb');">AR starten</button>
+                <button class="ar-btn" onclick="launchAR(48.12883728190237, 11.566360086683234, 0, 20, 'fraunhofer');">AR starten</button>
                 <button class="show-street-btn" onclick="showRouteForPerson('Alois Senefelder', 'street')">
 
                     Straße anzeigen

@@ -232,6 +232,14 @@ const personenDaten = {
         beschreibung: `<br> <p style="text-align: justify;">Franz von Kobell war ein deutscher Mineraloge, Schriftsteller und Dichter. Er war Professor für Mineralogie an der Universität München und Mitbegründer der Bayerischen Akademie der Wissenschaften. In der Mineralogie machte er sich durch die Einführung neuer Methoden und Begriffe einen Namen.</p> <br> <p style="text-align: justify;">Er studierte Naturwissenschaften in Landshut und München und wurde 1826 an der Universität München promoviert. Ab 1857 war er ordentliches Mitglied der Bayerischen Akademie der Wissenschaften, ab 1872 deren Sekretär. Kobell verfasste zahlreiche Fachpublikationen zur Kristallographie und Mineralogie, darunter Lehrbücher und Terminologien.</p> <br> <p style="text-align: justify;">Neben seiner wissenschaftlichen Arbeit war er literarisch tätig und schrieb vor allem Gedichte und Erzählungen in bayerischer Mundart. Sein bekanntestes Werk ist die Mundart-Ballade <strong><br>„’s Müller-Martl“</strong>, die bis heute zum bayerischen Kulturgut zählt.</p> <br> <p style="text-align: justify;"> <br> <p style="text-align: justify;"><strong>Beruf:</strong> Mineraloge, Kristallograph, Schriftsteller</p> <br> <p style="text-align: justify;"><strong>Funktion:</strong> Professor für Mineralogie an der Universität München, Mitglied und Sekretär der Bayerischen Akademie der Wissenschaften</p> <br> <p style="text-align: justify;"><strong>Wissenschaftliche Beiträge:</strong> Arbeiten zur Kristallographie, Begriffsprägungen in der Mineralogie, Lehrwerke</p> <br> <p style="text-align: justify;"><strong>Literarische Werke:</strong> Gedichte und Balladen in bayerischer Mundart, insbesondere  „’s Müller-Martl“</p> <br> <p style="text-align: justify;"><strong>Auszeichnungen:</strong> Zahlreiche Ehrungen im akademischen Bereich, Namensgeber des Minerals Kobellit</p> <br> <p class="more-info">Mehr Informationen über die Person unter: <br> <a href="https://www.deutsche-biographie.de/sfz57368.html#ndbcontent" target="_blank" rel="noopener noreferrer">www.deutsche-biographie.de</a> </p>`
 
     },
+    "thaddeus-robl": {
+    name: "Thaddäus Robl",
+    geburtsdatum: "13.10.1877",
+    sterbedatum: "18.10.1910",
+        beschreibung: `<br><p style="text-align: justify;">Thaddäus Robl war ein deutscher Radrennfahrer und einer der prominentesten Steher der Radsportgeschichte. Er wurde besonders bekannt durch seine spektakulären Rennen auf Bahnen im In- und Ausland zur Blütezeit des Steherrennsports um die Jahrhundertwende.</p> <br> <p style="text-align: justify;">Robl begann seine Karriere als Amateur 1893 und wurde schnell zum Profi. Sein größter Erfolg war der Gewinn der Weltmeisterschaft im Steherrennen 1904 in London. Er war bekannt für seine Ausdauer, Taktik und die Fähigkeit, sich hinter seinem Schrittmacher perfekt in Position zu bringen.</p> <br> <p style="text-align: justify;">Neben seiner aktiven Karriere war Robl später auch als Schrittmacher und Funktionär im Radsport tätig. Sein Name ist bis heute mit dem traditionsreichen Münchner Radstadion an der Grünwalder Straße verbunden, wo alljährlich das "Gedenkrennen an Thaddäus Robl" ausgetragen wird.</p> <br> <p style="text-align: justify;"><strong>Beruf:</strong> Profi-Radsportler (Steher), Schrittmacher, Sportfunktionär</p> <br> <p style="text-align: justify;"><strong>Bekannt für:</strong> Weltmeister im Steherrennen 1904, Pionier des Bahnradsports</p> <br> <p style="text-align: justify;"><strong>Wirkungsorte:</strong> München, internationale Radrennbahnen</p> <br> <p class="more-info">Mehr Informationen über die Person unter: <br> <a href="https://de.wikipedia.org/wiki/Thadd%C3%A4us_Robl" target="_blank" rel="noopener noreferrer">Wikipedia</a> </p>`,
+
+    bild: "Fotos/personen/robl.png"
+},
     "franz-josef-albert": {
         name: "Familie Albert",
         beschreibung:`<br><p style="text-align: justify;">Die Familie Albert war im 19. und frühen 20. Jahrhundert in München sowohl im Bereich der Fotografie als auch im sozialen und kommunalen Engagement bedeutend. Mitglieder der Familie, darunter <strong>Joseph Albert</strong>, <strong>Eugen Albert</strong> und <strong>Franz Joseph Albert</strong>, sind auf dem Alten Südlichen Friedhof in München bestattet.</p> <br> <p style="text-align: justify;"><strong>Joseph Albert</strong> (1825–1886) war königlich bayerischer Hoffotograf und ein Pionier der fotografischen Drucktechnik. Er entwickelte den Lichtdruck entscheidend weiter und erfand den Farblichtdruck. Seine Arbeit ermöglichte die massenhafte und qualitativ hochwertige Reproduktion von Fotografien und Kunstwerken.</p> <br> <p style="text-align: justify;"><strong>Eugen Albert</strong> (1856–1929), sein Sohn, war Chemiker und Fototechniker. Er verbesserte die isochromatische Fotografie, entwickelte eine farbenempfindliche Kollodiumemulsion und führte die Heliogravüre in die industrielle Reproduktion ein. Seine Innovationen trugen zur Weiterentwicklung der Farbfotografie bei.</p> <br> <p style="text-align: justify;"><strong>Franz Joseph Albert</strong> war Weingastgeber und Mitglied des Äußeren Rates von München. Er engagierte sich vielfältig für gemeinnützige Projekte. Dazu zählte die Mitgründung der Mildtätigen Gesellschaft sowie des Armenhauses in Allach. Er setzte sich für den Bau einer deutschen Schule außerhalb der Stadt ein, unterstützte die Fortbildungsschule durch finanzielle Zuwendungen und trug zur Kultivierung des nordwestlich der Stadt gelegenen Ödwegs vor dem Karlstor bei.</p>  <p style="text-align: justify;"> <p style="text-align: justify;"></p> <br> <p class="more-info">Mehr Informationen über einzelne Familienmitglieder unter: <br> <a href="https://www.deutsche-biographie.de/sfz286.html#index" target="_blank" rel="noopener noreferrer">Joseph Albert – www.deutsche-biographie.de</a><br> <a href="https://www.deutsche-biographie.de/sfz281.html#ndbcontent" target="_blank" rel="noopener noreferrer">Eugen Albert – www.deutsche-biographie.de</a><br> <a href="https://www.deutsche-biographie.de/sfz002_00302_1.html" target="_blank" rel="noopener noreferrer">Franz Joseph Albert – www.deutsche-biographie.de</a>  </p>`,
@@ -240,7 +248,8 @@ const personenDaten = {
         bild: ""
     
         
-    }
+    },
+
 };
 
 // Optional: Erstes Element automatisch auswählen
@@ -290,3 +299,12 @@ document.getElementById('personenListe').addEventListener('click', function(even
 });
 
 
+document.getElementById('personenDropdown').addEventListener('change', function () {
+  const personId = this.value;
+  if (personId) {
+    const item = document.querySelector(`.personen-liste li[data-person="${personId}"]`);
+    if (item) {
+      item.click(); // Entsprechendes Element auswählen
+    }
+  }
+});

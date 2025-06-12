@@ -843,6 +843,34 @@ img {
   box-shadow: 0 0 0 6px rgba(231, 76, 60, 0.3);
 }
 
+/* Standard: Dropdowns ausgeblendet */
+.gestein-dropdown,
+.personen-dropdown {
+  max-height: 250px; /* ca. 5–6 Einträge */
+  overflow-y: auto;
+  display: none;
+  margin-bottom: 1.5rem;
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  background: var(--container-color);
+  border: 1px solid #eee;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Mobile: Listen ausblenden, Dropdowns zeigen */
+@media screen and (max-width: 767px) {
+  .gestein-liste,
+  .personen-liste {
+    display: none;
+  }
+
+  .gestein-dropdown,
+  .personen-dropdown {
+    display: block;
+  }
+}
 
 /*=============== RESPONSIVE STYLES ===============*/
 @media screen and (max-width: 767px) {
@@ -894,8 +922,9 @@ img {
 }
 
 .timeline-date {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     width: 60px;
+    font-weight: 1000;
 }
 
 .timeline-item:before {
@@ -909,6 +938,20 @@ img {
 .timeline-image {
     flex: 0 0 200px;
     width: 100%;
+}
+
+.timeline-text h3 {
+  font-size: 1.0rem;       /* etwas kleiner für kleine Displays */
+    /* lange Wörter umbrechen */
+  overflow-wrap: break-word;
+  hyphens: auto;           /* Silbentrennung (wenn unterstützt) */
+  margin-bottom: 0.5rem;
+}
+
+.timeline-text p {
+      /* Blocksatz */
+  font-size: 0.95rem;      /* optional: etwas kleiner auf Mobile */
+  line-height: 1.5;
 }
 
 /* Anpassungen für Mobile Hover-Effekte */
