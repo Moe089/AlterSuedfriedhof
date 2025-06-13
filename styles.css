@@ -1490,3 +1490,65 @@ img {
   font-weight: bold;
 }
 
+.marker-highlight {
+    transition: all 0.2s ease-out !important;
+    z-index: 1000 !important;
+    transform: scale(1.5);
+    animation: none !important;
+}
+
+/* Für Personen-Marker */
+.marker-highlight.custom-marker .marker-container {
+    border: 1px solid #FFD700 !important;
+    box-shadow: 0 0 15px #FFD700 !important;
+}
+
+/* Für Grabstein-Marker */
+.marker-highlight.custom-marker-grave img {
+    outline: 1px solid #FFD700 !important;
+    outline-offset: 2px;
+    box-shadow: 0 0 15px #FFD700 !important;
+}
+
+/* Für Gesteins-Marker */
+.marker-highlight.custom-marker-rock .marker-container-rock {
+    border: 1px solid #FFD700 !important;
+    box-shadow: 0 0 15px #FFD700 !important;
+}
+
+.show-grave-btn{
+    background-color: var(--first-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 4px 8px;
+  margin-left: 8px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+
+.show-street-btn{
+     background-color: var(--first-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 4px 8px;
+  margin-left: 8px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.show-person-btn{
+      background-color: var(--first-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 4px 8px;
+  margin-left: 8px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  margin-bottom: 4px;
+  transition: background-color 0.3s;
+}

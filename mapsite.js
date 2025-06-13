@@ -272,17 +272,7 @@ function addGeolocationFeatures() {
     });
 }
 
-function createMarkersForAllLayers() {
-    // Hier kannst du Marker für die verschiedenen Layer erstellen
-    // Beispiel:
-    /*
-    markers.layer1.addLayer(L.marker([48.128, 11.566]).bindPopup("Berühmtheit 1"));
-    markers.layer2.addLayer(L.marker([48.129, 11.567]).bindPopup("Grabstein 1"));
-    markers.layer3.addLayer(L.marker([48.127, 11.565]).bindPopup("Gestein 1"));
-    */
-}
 
-// Die createCustomMarker Funktion bleibt gleich
 
 function createMarkersForAllLayers() {
     // Standard-Layer (aktuelle Fotos)
@@ -438,6 +428,8 @@ createCustomMarker(48.130066, 11.565872,
             "./Fotos/grabstein/jolly.png", "Grab Philipp Jolly", markers.layer2);
         createCustomMarker(48.127194,11.565333, 
             "./Fotos/grabstein/schwind_grab.png", "Grab Moritz Schwind", markers.layer2);
+                  createCustomMarker(48.12505213857038, 11.5629501735568, 
+        "./Fotos/grabstein/robl_grab.png", "Grab Thaddäus Robl", markers.layer2);
 
         createCustomMarker(48.12657260475662, 11.563375700931863, 
         "./Fotos/grabstein/ainmiller_grab.png", "Grab Ainmiller", markers.layer2),
@@ -1885,10 +1877,18 @@ function createCustomMarker(lat, lng, imageUrl, popupText, layerGroup, onClick, 
         marker.bindPopup(`
             <div class="custom-popup">
                 <h3>${popupText}</h3>
+                                       <div class="grave-image-container">
+                <img src="Fotos/grabstein/reichenbach.png" alt="Grab von Georg von Reichenbach" style="max-width:60%; max-height:80%; margin:10px 55px;">
+            </div>
+                <button class="show-person-btn" onclick="navigateToPersonEntry('georg-von-reichenbach')">
+            Zum Personeneintrag
+        </button>
                 <button class="ar-btn" onclick="launchAR(48.12698081942048, 11.563986286801328, 0, 20, 'reichenbach8');">AR starten</button>
                  <button class="show-street-btn" onclick="showRouteForPerson('Reichenbach', 'street')">
                         Straße anzeigen
                     </button>
+                        
+        
             </div>
         `);
     }
@@ -1896,6 +1896,12 @@ function createCustomMarker(lat, lng, imageUrl, popupText, layerGroup, onClick, 
         marker.bindPopup(`
             <div class="custom-popup">
                 <h3>${popupText}</h3>
+                          <div class="grave-image-container">
+                <img src="Fotos/grabstein/miller.png" alt="Grab von Ferdinand von Miller" style="max-width:60%; max-height:80%; margin:10px 55px;">
+            </div>
+                <button class="show-person-btn" onclick="navigateToPersonEntry('ferdinand-von-miller')">
+            Zum Personeneintrag
+        </button>
                 <button class="show-street-btn" onclick="showRouteForPerson('Ferdinand von Miller', 'street')">
                     Straße anzeigen
                 </button>
@@ -1907,35 +1913,51 @@ function createCustomMarker(lat, lng, imageUrl, popupText, layerGroup, onClick, 
         currentGraveMarker = marker;
     } 
     else if (popupText.includes("Adolf Schlaginweit")) {
-        marker.bindPopup(`
-            <div class="custom-popup">
-                <h3>${popupText}</h3>
-                <button class="show-street-btn" onclick="showRouteForPerson('Adolf Schlagintweit', 'street')">
-                    Straße anzeigen
-                </button>
-              
+   marker.bindPopup(`
+    <div class="custom-popup">
+        <h3>${popupText}</h3>
+             <div class="grave-image-container">
+                <img src="Fotos/grabstein/schlagintweit.png" alt="Grab von Adolf Schlagintweit" style="max-width:60%; max-height:80%; margin:10px 55px;">
             </div>
-        `);
+                <button class="show-person-btn" onclick="navigateToPersonEntry('adolf-schlagintweit')">
+            Zum Personeneintrag
+        </button>
+        <button class="show-street-btn" onclick="showRouteForPerson('Adolf Schlagintweit', 'street')">
+            Straße anzeigen
+        </button>
+     
+    </div>
+`);
         currentGraveMarker = marker;
     }
-    else if (popupText.includes("Arnold Zenetti")) {
-        marker.bindPopup(`
-            <div class="custom-popup">
-                <h3>${popupText}</h3>
-                <button class="show-street-btn" onclick="showRouteForPerson('Arnold Zenetti', 'street')">
-                    Straße anzeigen
-                </button>
-              
+else if (popupText.includes("Arnold Zenetti")) {
+    marker.bindPopup(`
+        <div class="custom-popup">
+            <h3>${popupText}</h3>
+            <div class="grave-image-container">
+                <img src="Fotos/grabstein/zenetti.png" alt="Grab von Arnold Zenetti" style="max-width:60%; max-height:80%; margin:10px 55px;">
             </div>
-        `);
-        currentGraveMarker = marker;
-    }
+                        <button class="show-person-btn" onclick="navigateToPersonEntry('arnold-zenetti')">
+            Zum Personeneintrag
+        </button>
+            <button class="show-street-btn" onclick="showRouteForPerson('Arnold Zenetti', 'street')">
+                Straße anzeigen
+            </button>
+        </div>
+    `);
+    currentGraveMarker = marker;
+}
 
     else if (popupText.includes("Alois Senefelder")) {
         marker.bindPopup(`
             <div class="custom-popup">
                 <h3>${popupText}</h3>
-                
+                <div class="grave-image-container">
+                <img src="Fotos/grabstein/grab_senefelder.png" alt="Grab von Alois Senefelder" style="max-width:60%; max-height:80%; margin:10px 55px;">
+            </div>
+                <button class="show-person-btn" onclick="navigateToPersonEntry('alois-senefelder')">
+            Zum Personeneintrag
+        </button>
                 <button class="ar-btn" onclick="launchAR(48.12944686673255, 11.566483691300379, 0, 20, 'fraunhofer');">AR starten</button>
                 <button class="show-street-btn" onclick="showRouteForPerson('Alois Senefelder', 'street')">
 
@@ -1952,6 +1974,12 @@ function createCustomMarker(lat, lng, imageUrl, popupText, layerGroup, onClick, 
         marker.bindPopup(`
             <div class="custom-popup">
                 <h3>${popupText}</h3>
+                <div class="grave-image-container">
+                <img src="Fotos/grabstein/kobell.png" alt="Grab von Franz Kobell" style="max-width:60%; max-height:80%; margin:10px 55px;">
+            </div>
+                <button class="show-person-btn" onclick="navigateToPersonEntry('franz-kobell')">
+            Zum Personeneintrag
+        </button>
                 <button class="show-street-btn" onclick="showRouteForPerson('Franz Kobell', 'street')">
                     Straße anzeigen
                 </button>
@@ -1966,6 +1994,12 @@ function createCustomMarker(lat, lng, imageUrl, popupText, layerGroup, onClick, 
         marker.bindPopup(`
             <div class="custom-popup">
                 <h3>${popupText}</h3>
+                <div class="grave-image-container">
+                <img src="Fotos/grabstein/hiltensperger.png" alt="Grab von Johann Georg von Hiltensperger" style="max-width:60%; max-height:80%; margin:10px 55px;">
+            </div>
+                <button class="show-person-btn" onclick="navigateToPersonEntry('johann-georg-hiltensperger')">
+            Zum Personeneintrag
+        </button>
                 <button class="show-street-btn" onclick="showRouteForPerson('Hiltensperger', 'street')">
                     Straße anzeigen
                 </button>
@@ -1980,6 +2014,12 @@ function createCustomMarker(lat, lng, imageUrl, popupText, layerGroup, onClick, 
         marker.bindPopup(`
             <div class="custom-popup">
                 <h3>${popupText}</h3>
+                <div class="grave-image-container">
+                <img src="Fotos/grabstein/ohm_grab.png" alt="Grab von Georg Simon Ohm" style="max-width:60%; max-height:80%; margin:10px 55px;">
+            </div>
+                <button class="show-person-btn" onclick="navigateToPersonEntry('georg-simon-ohm')">
+            Zum Personeneintrag
+        </button>
                 <button class="show-street-btn" onclick="showRouteForPerson('Ohm', 'street')">
                     Straße anzeigen
                 </button>
@@ -1994,6 +2034,12 @@ else if (popupText.includes("Jolly") || popupText.includes("jolly")) {
     marker.bindPopup(`
         <div class="custom-popup">
             <h3>${popupText}</h3>
+            <div class="grave-image-container">
+                <img src="Fotos/grabstein/jolly.png" alt="Grab von Philipp von Jolly" style="max-width:60%; max-height:80%; margin:10px 55px;">
+            </div>
+                <button class="show-person-btn" onclick="navigateToPersonEntry('philipp-jolly')">
+            Zum Personeneintrag
+        </button>
             <button class="show-street-btn" onclick="showRouteForPerson('jolly', 'street')">
                 Straße anzeigen
             </button>              
@@ -2006,6 +2052,12 @@ else if (popupText.includes("Jolly") || popupText.includes("jolly")) {
         marker.bindPopup(`
             <div class="custom-popup">
                 <h3>${popupText}</h3>
+                <div class="grave-image-container">
+                <img src="Fotos/grabstein/grab_ett.png" alt="Grab von Kaspar Ett" style="max-width:60%; max-height:80%; margin:10px 55px;">
+            </div>
+                <button class="show-person-btn" onclick="navigateToPersonEntry('kaspar-ett')">
+            Zum Personeneintrag
+        </button>
                 <button class="show-street-btn" onclick="showRouteForPerson('Ett', 'street')">
                     Straße anzeigen
                 </button>
@@ -2020,6 +2072,12 @@ else if (popupText.includes("Jolly") || popupText.includes("jolly")) {
         marker.bindPopup(`
             <div class="custom-popup">
                 <h3>${popupText}</h3>
+                <div class="grave-image-container">
+                <img src="Fotos/grabstein/nussbaum.png" alt="Grab von Nussbaum" style="max-width:60%; max-height:80%; margin:10px 55px;">
+            </div>
+                <button class="show-person-btn" onclick="navigateToPersonEntry('johannes-nepomuk-nußbaum')">
+            Zum Personeneintrag
+        </button>
                 <button class="show-street-btn" onclick="showRouteForPerson('Nußbaum', 'street')">
                     Straße anzeigen
                 </button>
@@ -2034,6 +2092,12 @@ else if (popupText.includes("Jolly") || popupText.includes("jolly")) {
         marker.bindPopup(`
             <div class="custom-popup">
                 <h3>${popupText}</h3>
+                             <div class="grave-image-container">
+                <img src="Fotos/grabstein/reichenbach.png" alt="Grab von Reichenbach" style="max-width:60%; max-height:80%; margin:10px 55px;">
+            </div>
+                <button class="show-person-btn" onclick="navigateToPersonEntry('georg-von-reichenbach')">
+            Zum Personeneintrag
+        </button>
                 <button class="show-street-btn" onclick="showRouteForPerson('Reichenbach', 'street')">
                     Straße anzeigen
                 </button>
@@ -2049,6 +2113,12 @@ else if (popupText.includes("Jolly") || popupText.includes("jolly")) {
         marker.bindPopup(`
             <div class="custom-popup">
                 <h3>${popupText}</h3>
+                <div class="grave-image-container">
+                <img src="Fotos/grabstein/gaertner_grab.png" alt="Grab von Gärtner" style="max-width:60%; max-height:80%; margin:10px 55px;">
+            </div>
+                <button class="show-person-btn" onclick="navigateToPersonEntry('friedrich-gärtner')">
+            Zum Personeneintrag
+        </button>
                 <button class="show-street-btn" onclick="showRouteForPerson('Gärtner', 'street')">
                     Platz anzeigen
                 </button>
@@ -2063,6 +2133,12 @@ else if (popupText.includes("Jolly") || popupText.includes("jolly")) {
         marker.bindPopup(`
             <div class="custom-popup">
                 <h3>${popupText}</h3>
+                <div class="grave-image-container">
+                <img src="Fotos/grabstein/grab_klenze.png" alt="Grab von Klenze" style="max-width:60%; max-height:80%; margin:10px 55px;">
+            </div>
+                <button class="show-person-btn" onclick="navigateToPersonEntry('leo-von-klenze')">
+            Zum Personeneintrag
+        </button>
                 <button class="show-street-btn" onclick="showRouteForPerson('Klenze', 'street')">
                     Straße anzeigen
                 </button>
@@ -2077,6 +2153,12 @@ else if (popupText.includes("Jolly") || popupText.includes("jolly")) {
         marker.bindPopup(`
             <div class="custom-popup">
                 <h3>${popupText}</h3>
+            <div class="grave-image-container">
+                <img src="Fotos/grabstein/schwanthaler_grab.png" alt="Grab von Schwanthaler" style="max-width:60%; max-height:80%; margin:10px 55px;">
+            </div>
+                <button class="show-person-btn" onclick="navigateToPersonEntry('ludwig-schwanthaler')">
+            Zum Personeneintrag
+        </button>
                 <button class="show-street-btn" onclick="showRouteForPerson('Schwanthaler', 'street')">
                     Straße anzeigen
                 </button>
@@ -2091,6 +2173,12 @@ else if (popupText.includes("Jolly") || popupText.includes("jolly")) {
         marker.bindPopup(`
             <div class="custom-popup">
                 <h3>${popupText}</h3>
+                        <div class="grave-image-container">
+                <img src="Fotos/grabstein/siebold_grab.png" alt="Grab von Siebold" style="max-width:60%; max-height:80%; margin:10px 55px;">
+            </div>
+                <button class="show-person-btn" onclick="navigateToPersonEntry('philipp-balthasar-von-siebold')">
+            Zum Personeneintrag
+        </button>
                 <button class="show-street-btn" onclick="showRouteForPerson('Siebold', 'street')">
                     Straße anzeigen
                 </button>
@@ -2105,6 +2193,12 @@ else if (popupText.includes("Jolly") || popupText.includes("jolly")) {
         marker.bindPopup(`
             <div class="custom-popup">
                 <h3>${popupText}</h3>
+            <div class="grave-image-container">
+                <img src="Fotos/grabstein/liebig_grab.png" alt="Grab von Liebig" style="max-width:60%; max-height:80%; margin:10px 55px;">
+            </div>
+                <button class="show-person-btn" onclick="navigateToPersonEntry('justus-von-liebig')">
+            Zum Personeneintrag
+        </button>
                 <button class="show-street-btn" onclick="showRouteForPerson('Liebig', 'street')">
                     Straße anzeigen
                 </button>
@@ -2119,6 +2213,12 @@ else if (popupText.includes("Jolly") || popupText.includes("jolly")) {
         marker.bindPopup(`
             <div class="custom-popup">
                 <h3>${popupText}</h3>
+                      <div class="grave-image-container">
+                <img src="Fotos/grabstein/knorr_grab.png" alt="Grab von Knorr" style="max-width:60%; max-height:80%; margin:10px 55px;">
+            </div>
+                <button class="show-person-btn" onclick="navigateToPersonEntry('julius-knorr')">
+            Zum Personeneintrag
+        </button>
                 <button class="show-street-btn" onclick="showRouteForPerson('Knorr', 'street')">
                     Straße anzeigen
                 </button>
@@ -2130,10 +2230,139 @@ else if (popupText.includes("Jolly") || popupText.includes("jolly")) {
     }
 
 
+        else if (popupText.includes("Albert")) {
+        marker.bindPopup(`
+            <div class="custom-popup">
+                <h3>${popupText}</h3>
+                      <div class="grave-image-container">
+                <img src="Fotos/grabstein/albert.png" alt="Grab von Albert" style="max-width:60%; max-height:80%; margin:10px 55px;">
+            </div>
+                <button class="show-person-btn" onclick="navigateToPersonEntry('franz-josef-albert')">
+            Zum Personeneintrag
+        </button>
+            
+            </div>
+        `);
+
+        currentGraveMarker = marker;
+    }
+
+
+            else if (popupText.includes("Boos")) {
+        marker.bindPopup(`
+            <div class="custom-popup">
+                <h3>${popupText}</h3>
+                      <div class="grave-image-container">
+                <img src="Fotos/grabstein/boos.png" alt="Grab von Boos" style="max-width:60%; max-height:80%; margin:10px 55px;">
+            </div>
+                <button class="show-person-btn" onclick="navigateToPersonEntry('roman-boos')">
+            Zum Personeneintrag
+        </button>
+            
+            </div>
+        `);
+
+        currentGraveMarker = marker;
+    }
+
+                else if (popupText.includes("Schwind")) {
+        marker.bindPopup(`
+            <div class="custom-popup">
+                <h3>${popupText}</h3>
+                      <div class="grave-image-container">
+                <img src="Fotos/grabstein/schwind_grab.png" alt="Grab von Schwind" style="max-width:60%; max-height:80%; margin:10px 55px;">
+            </div>
+                <button class="show-person-btn" onclick="navigateToPersonEntry('moritz-von-schwind')">
+            Zum Personeneintrag
+        </button>
+            
+            </div>
+        `);
+
+        currentGraveMarker = marker;
+    }
+
+                    else if (popupText.includes("Ainmiller")) {
+        marker.bindPopup(`
+            <div class="custom-popup">
+                <h3>${popupText}</h3>
+                      <div class="grave-image-container">
+                <img src="Fotos/grabstein/ainmiller_grab.png" alt="Grab von Ainmiller" style="max-width:60%; max-height:80%; margin:10px 55px;">
+            </div>
+                <button class="show-person-btn" onclick="navigateToPersonEntry('max-ainmiller')">
+            Zum Personeneintrag
+        </button>
+            
+            </div>
+        `);
+
+        currentGraveMarker = marker;
+    }
+
+
+                    else if (popupText.includes("Brey")) {
+        marker.bindPopup(`
+            <div class="custom-popup">
+                <h3>${popupText}</h3>
+                      <div class="grave-image-container">
+                <img src="Fotos/grabstein/brey.png" alt="Grab von Brey" style="max-width:60%; max-height:80%; margin:10px 55px;">
+            </div>
+                <button class="show-person-btn" onclick="navigateToPersonEntry('georg-brey')">
+            Zum Personeneintrag
+        </button>
+            
+            </div>
+        `);
+
+        currentGraveMarker = marker;
+    }
+
+    
+                    else if (popupText.includes("Seydel")) {
+        marker.bindPopup(`
+            <div class="custom-popup">
+                <h3>${popupText}</h3>
+                      <div class="grave-image-container">
+                <img src="Fotos/grabstein/seydel.png" alt="Grab von Brey" style="max-width:60%; max-height:80%; margin:10px 55px;">
+            </div>
+                <button class="show-person-btn" onclick="navigateToPersonEntry('max-von-seydel')">
+            Zum Personeneintrag
+        </button>
+            
+            </div>
+        `);
+
+        currentGraveMarker = marker;
+    }
+
+
+                        else if (popupText.includes("Robl")) {
+        marker.bindPopup(`
+            <div class="custom-popup">
+                <h3>${popupText}</h3>
+                      <div class="grave-image-container">
+                <img src="Fotos/grabstein/robl_grab.png" alt="Grab von Brey" style="max-width:60%; max-height:80%; margin:10px 55px;">
+            </div>
+                <button class="show-person-btn" onclick="navigateToPersonEntry('thaddeus-robl')">
+            Zum Personeneintrag
+        </button>
+            
+            </div>
+        `);
+
+        currentGraveMarker = marker;
+    }
+
     else if (popupText.includes("Fraunhofer")) {
         marker.bindPopup(`
             <div class="custom-popup">
                 <h3>${popupText}</h3>
+                                      <div class="grave-image-container">
+                <img src="Fotos/grabstein/fraunhofer_grab.png" alt="Grab von Fraunhofer" style="max-width:60%; max-height:80%; margin:10px 55px;">
+            </div>
+                <button class="show-person-btn" onclick="navigateToPersonEntry('josef-von-fraunhofer')">
+            Zum Personeneintrag
+        </button>
                 <button class="show-street-btn" onclick="showRouteForPerson('Fraunhofer', 'street')">
                     Straße anzeigen
                 </button>
@@ -2154,37 +2383,6 @@ else if (popupText.includes("Jolly") || popupText.includes("jolly")) {
     
 }
 
-// CSS für Popup-Buttons
-const style = document.createElement('style');
-style.textContent = `
-    .custom-popup {
-        text-align: center;
-        padding: 10px;
-    }
-    .custom-popup h3 {
-        margin: 0 0 10px 0;
-        font-size: 16px;
-        color: #333;    
-    }
-    .show-street-btn {
-        background-color: #4CAF50;
-        border: none;
-        color: white;
-        padding: 8px 12px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 14px;
-        margin: 4px 2px;
-        cursor: pointer;
-        border-radius: 4px;
-        transition: background-color 0.3s;
-    }
-    .show-street-btn:hover {
-        background-color: #45a049;
-    }
-`;
-document.head.appendChild(style);
 
 
 // Event Listener für Navigation
@@ -2350,3 +2548,22 @@ document.addEventListener('DOMContentLoaded', function() {
         showSection('Homepage');
     }
 });
+
+/**
+ * Navigiert zum Personeneintrag in der Personenliste
+ * @param {string} personName - Name der Person (muss exakt mit data-person übereinstimmen)
+ */
+function navigateToPersonEntry(personId) {
+    // Karte schließen und Personen-Sektion anzeigen
+    if (map) map.closePopup();
+    showSection('personen');
+
+    // Person in der Liste finden und auswählen
+    setTimeout(() => {
+        const personItem = document.querySelector(`#personenListe li[data-person="${personId}"]`);
+        if (personItem) {
+            personItem.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            personItem.click(); // Simuliert Klick auf das Listenelement
+        }
+    }, 100);
+}

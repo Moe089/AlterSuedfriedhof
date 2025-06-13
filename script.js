@@ -1175,6 +1175,11 @@ function showPersonDetail(personId) {
                 <div class="person-text">
                     <h2>${person.name}</h2>
                     <p><strong>Lebensdaten:</strong> ${person.geburtsdatum} – ${person.sterbedatum}</p>
+                       ${person.grabKoordinaten ? 
+                            `<button class="show-grave-btn" onclick="focusOnGraveMarker('${personId}')">
+                                Grab auf Karte anzeigen
+                            </button>` : 
+                            ''}
                     <div class="person-beschreibung">${person.beschreibung}</div>
                 </div>
             </div>
@@ -1197,53 +1202,65 @@ function showGesteinDetail(steinId) {
 
         // Zeige vollständige Details (identisch zum Click-Handler)
         document.getElementById('gesteinDetails').innerHTML = `
-            <div class="details-content">
-                <h2>${stein.name}</h2>
-                <div class="gestein-info-grid">
-                    <div class="gestein-info-item">
-                        <span class="gestein-info-label">Fundort:</span>
-                        <span class="gestein-info-value">${stein.fundort || 'Nicht verfügbar'}
-                            ${stein.koordinaten ? `
-                            <button class="show-on-map-btn" 
-                                    onclick="window.showOnMapWithId('${steinId}')">
-                                Auf Karte zeigen
-                            </button>` : ''}
-                        </span>
+              <div class="details-content">
+                    <h2>${stein.name}</h2>
+                    <div class="gestein-info-grid">
+                        <div class="gestein-info-item">
+                            <span class="gestein-info-label">Fundort:</span>
+                            <span class="gestein-info-value">${stein.fundort || 'Nicht verfügbar'}
+                                ${stein.koordinaten ? `
+                                <button class="show-on-map-btn" 
+                                        onclick="window.showOnMapWithId('${steinId}')">
+                                    Auf Karte zeigen
+                                </button>` : ''}
+                            </span>
+                        </div>
+                            <div class="gestein-info-item">
+                                <span class="gestein-info-label">Fundland:</span>
+                                <span class="gestein-info-value">${stein.fundland || 'Nicht verfügbar'}</span>
+                            </div>
+                            <div class="gestein-info-item">
+                                <span class="gestein-info-label">Bezeichnung:</span>
+                                <span class="gestein-info-value">${stein.bezeichnung || 'Nicht verfügbar'}</span>
+                            </div>
+                            <div class="gestein-info-item">
+                                <span class="gestein-info-label">Alter:</span>
+                                <span class="gestein-info-value">${stein.alter || 'Nicht verfügbar'}</span>
+                            </div>
+                            <div class="gestein-info-item">
+                                <span class="gestein-info-label">Gesteinsgruppe:</span>
+                                <span class="gestein-info-value">${stein.gesteinsgruppe || 'Nicht verfügbar'}</span>
+                            </div>
+                    
+                               <div class="gestein-info-item">
+                                <span class="gestein-info-label">Textur:</span>
+                                <span class="gestein-info-value">${stein.struktur || 'Nicht verfügbar'}</span>
+                            </div>
+                        </div>
+
+                                              ${stein.bild ? `
+                        <div class="gestein-image-container">
+                            <img src="${stein.bild}" alt="${stein.name}" class="gestein-image">
+                            <div class="bildunterschrift">${stein.bildunterschrift || 'Gesteinsbild'}</div>
+                               <br>
+                               <br>
+                        <div class="beschreibung-content">
+                            <h3>Beschreibung</h3>
+                            <p>${stein.beschreibung || 'Keine Beschreibung verfügbar.'}</p>
+                            
+                        </div>
+                                <br>
+                                <br>
+                          <div class="hinweis-content">
+                            <h3>Hinweis</h3>
+                            
+                            <p>${stein.hinweis || ''}</p>
+                        </div>
+
+
+                        ` : ''}
                     </div>
-                    <div class="gestein-info-item">
-                        <span class="gestein-info-label">Fundland:</span>
-                        <span class="gestein-info-value">${stein.fundland || 'Nicht verfügbar'}</span>
-                    </div>
-                    <div class="gestein-info-item">
-                        <span class="gestein-info-label">Bezeichnung:</span>
-                        <span class="gestein-info-value">${stein.bezeichnung || 'Nicht verfügbar'}</span>
-                    </div>
-                    <div class="gestein-info-item">
-                        <span class="gestein-info-label">Alter:</span>
-                        <span class="gestein-info-value">${stein.alter || 'Nicht verfügbar'}</span>
-                    </div>
-                    <div class="gestein-info-item">
-                        <span class="gestein-info-label">Gesteinsgruppe:</span>
-                        <span class="gestein-info-value">${stein.gesteinsgruppe || 'Nicht verfügbar'}</span>
-                    </div>
-                    <div class="gestein-info-item">
-                        <span class="gestein-info-label">Textur:</span>
-                        <span class="gestein-info-value">${stein.struktur || 'Nicht verfügbar'}</span>
-                    </div>
-                </div>
-                ${stein.bild ? `
-                <div class="gestein-image-container">
-                    <img src="${stein.bild}" alt="${stein.name}" class="gestein-image">
-                    <div class="bildunterschrift">${stein.bildunterschrift || 'Gesteinsprobe'}</div>
-                    <br>
-                    <br>
-                    <div class="beschreibung-content">
-                        <h3>Beschreibung</h3>
-                        <p>${stein.beschreibung || 'Keine Beschreibung verfügbar.'}</p>
-                    </div>
-                </div>` : ''}
-            </div>
-        `;
+                `;
     }
 }
 
