@@ -547,13 +547,17 @@ img {
   margin: 1.5rem 0;
 }
 .back-to-item-btn {
-  margin-top: 10px;
-  padding: 5px 10px;
-  background: #4CAF50;
+
+  background-color: var(--first-color);
   color: white;
   border: none;
   border-radius: 4px;
+  padding: 4px 8px 2px 2px;
+  margin-left: 8px;
+  font-size: 0.8rem;
   cursor: pointer;
+  margin-bottom: 4px;
+  transition: background-color 0.3s;
 }
 
 
@@ -1551,4 +1555,85 @@ img {
   cursor: pointer;
   margin-bottom: 4px;
   transition: background-color 0.3s;
+}
+
+.back-to-cemetery-btn{
+        background-color: var(--first-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 4px 8px 2px 2px;
+  margin-left: 8px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  margin-bottom: 4px;
+  transition: background-color 0.3s;
+}
+
+.rock-marker-highlight {
+    filter: drop-shadow(0 0 8px gold) drop-shadow(0 0 4px gold);
+    transition: all 0.3s ease;
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px rgba(255, 215, 0, 0.7);
+}
+
+/* Optional: Für eine pulsierende Animation */
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.7); }
+    70% { box-shadow: 0 0 0 10px rgba(255, 215, 0, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(255, 215, 0, 0); }
+}
+
+.rock-marker-highlight {
+    animation: pulse 2s infinite;
+}
+
+.show-rock-markers-btn {
+
+          background-color: var(--first-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 4px 8px 2px 2px;
+  margin-left: 8px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  margin-bottom: 4px;
+  transition: background-color 0.3s;
+}
+
+
+.century-marker {
+    position: relative;
+    text-align: center;
+    margin: 30px 0;
+    width: 100%;
+}
+
+.century-marker span {
+    display: inline-block;
+    padding: 0 12px;
+    font-weight: 600;
+    color: #555;
+    font-size: 1em;
+    letter-spacing: 0.5px;
+    position: relative;
+}
+
+.century-marker span::before,
+.century-marker span::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 20px;
+    height: 0.5px;
+    background-color: #e0e0e0;
+}
+
+.century-marker span::before {
+    right: 100%;
+}
+
+.century-marker span::after {
+    left: 100%;
 }

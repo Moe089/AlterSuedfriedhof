@@ -93,7 +93,11 @@
                    
                     <div class="timeline-vertical-line"></div>
                     
-                   
+                   <div class="century-marker">
+                    <div class="century-line"></div>
+                    <div class="century-label">16. Jahrhundert</div>
+                    <div class="century-line"></div>
+                   </div>
                     <div class="timeline-item">
                         <div class="timeline-date">1563</div>
                         <div class="timeline-content">
@@ -824,34 +828,6 @@
 
 
 
-
-
-
-                    
-                    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                 </div>
             </div>
         </div>
@@ -910,10 +886,10 @@
                         <li data-stein="serpentinit">Serpentinit</li>
                         <li data-stein="kalktuff">Kalktuff</li>
                         <!-- <li data-stein="riffkalk">Riffkalk</li> -->
-                        <li data-stein="redwezit">Redwezit</li>
+                        <li data-stein="redwezit">Redwitzit</li>
                         <li data-stein="lechbrucker-molassesandstein">Lechbrucker Molassesandstein</li> 
                         <li data-stein="jurakalk-grau">Jurakalk Grau</li>
-                        <li data-stein="lithothammnienkalk">Lithothammnienkalk</li>
+                        <li data-stein="lithothamnienkalk">Lithothammnienkalk</li>
                         <li data-stein="hohenschwangauer-kalk">Hohenschwangauer Kalk</li>
                         <li data-stein="diorit">Diorit</li>
                         <li data-stein="hoegler-sandstein">Högler Sandstein</li>
@@ -945,61 +921,66 @@
             <h1>Persönlichkeiten auf dem Südfriedhof</h1>
                        <select id="personenDropdown" class="personen-dropdown">
                         <option value="">– Persönlichkeit auswählen –</option>
-                        <option value="adolf-schlagintweit">Adolf Schlaginweit</option>
-                        <option value="alois-senefelder">Alois Senefelder</option>
-                        <option value="arnold-zenetti">Arnold Zenetti</option>
-                        <option value="ferdinand-von-miller">Ferdinand von Miller</option>
-                        <option value="franz-kobell">Franz Kobell</option>
-                        <option value="franz-josef-albert">Familie Albert</option>
-                        <option value="friedrich-gärtner">Friedrich Gärtner</option>
-                        <option value="georg-brey">Georg Brey</option>
-                        <option value="georg-simon-ohm">Georg Simon Ohm</option>
-                        <option value="georg-von-reichenbach">Georg von Reichenbach</option>
-                        <option value="johannes-nepomuk-nußbaum">Johannes Nepomuk Nußbaum</option>
-                        <option value="josef-von-fraunhofer">Josef von Fraunhofer</option>
-                        <option value="justus-von-liebig">Justus von Liebig</option>
-                        <option value="kaspar-ett">Kaspar Ett</option>
-                        <option value="leo-von-klenze">Leo von Klenze</option>
-                        <option value="julius-knorr">Julius Knorr</option>
-                        <option value="ludwig-schwanthaler">Ludwig Schwanthaler</option>
-                        <option value="max-ainmiller">Max Ainmiller</option>
-                        <option value="max-von-seydel">Max von Seydel</option>
-                        <option value="philipp-balthasar-von-siebold">Philipp Balthasar von Siebold</option>
-                        <option value="philipp-jolly">Philipp Jolly</option>
-                        <option value="roman-boos">Roman Boos</option>
-                        <option value="thaddeus-robl">Thaddäus Robl</option>
-                        <option value="johann-georg-hiltensperger">Johann Georg Hiltensperger</option>
-                        <option value="moritz-von-schwind">Moritz von Schwind</option>
+        
+
+                <option value="max-ainmiller">Ainmiller, Max</option>
+                <option value="franz-josef-albert">Albert Familie</option>
+                <option value="roman-boos">Boos, Roman</option>
+                <option value="georg-brey">Brey, Georg</option>
+                <option value="kaspar-ett">Ett, Kaspar</option>
+                <option value="friedrich-gärtner">Gärtner, Friedrich</option>
+                <option value="johann-georg-hiltensperger">Hiltensperger, Johann Georg</option>
+                <option value="philipp-jolly">Jolly, Philipp</option>
+                <option value="julius-knorr">Knorr, Julius</option>
+                <option value="franz-kobell">Kobell, Franz</option>
+                <option value="johannes-nepomuk-nußbaum">Nußbaum, Johannes Nepomuk</option>
+                <option value="thaddeus-robl">Robl, Thaddäus</option>
+                <option value="ludwig-schwanthaler">Schwanthaler, Ludwig</option>
+                <option value="adolf-schlagintweit">Schlagintweit, Adolf</option>
+                <option value="alois-senefelder">Senefelder, Alois</option>
+                <option value="georg-simon-ohm">Ohm, Georg Simon</option>
+                <option value="josef-von-fraunhofer">von Fraunhofer, Josef</option>
+                <option value="leo-von-klenze">von Klenze, Leo</option>
+                <option value="justus-von-liebig">von Liebig, Justus</option>
+                <option value="ferdinand-von-miller">von Miller, Ferdinand </option>
+                 <option value="georg-von-reichenbach">von Reichenbach, Georg</option>
+                <option value="moritz-von-schwind">von Schwind, Moritz</option>
+                <option value="max-von-seydel">von Seydel, Max</option>
+                <option value="philipp-balthasar-von-siebold">von Siebold, Philipp Balthasar</option>
+                <option value="arnold-zenetti">Arnold Zenetti</option>
+
                         </select>
             <div class="personen-container">
                 <div class="personen-liste">
                     <ul id="personenListe">
-                        <li data-person="adolf-schlagintweit">Adolf Schlaginweit</li>
-                        <li data-person="alois-senefelder">Alois Senefelder</li>
-                        <li data-person="arnold-zenetti">Arnold Zenetti</li>
-                        <li data-person="ferdinand-von-miller">Ferdinand von Miller</li>
-                        <li data-person="franz-kobell">Franz Kobell</li>
-                        <li data-person="franz-josef-albert">Familie Albert</li>
-                        <li data-person="friedrich-gärtner">Friedrich Gärtner</li>
-                        <li data-person="georg-brey">Georg Brey</li>
-                        <li data-person="georg-simon-ohm">Georg Simon Ohm</li>
-                        <li data-person="georg-von-reichenbach">Georg von Reichenbach</li>
-                        <li data-person="johannes-nepomuk-nußbaum">Johannes Nepomuk Nußbaum</li>
-                        <li data-person="josef-von-fraunhofer">Josef von Fraunhofer</li>
-                        <li data-person="justus-von-liebig">Justus von Liebig</li>
-                        <li data-person="kaspar-ett">Kaspar Ett</li>
-                        <li data-person="leo-von-klenze">Leo von Klenze</li>
-                        <li data-person="julius-knorr"> Julius Knorr</li>
-                        <li data-person="ludwig-schwanthaler">Ludwig Schwanthaler</li>
-                        <li data-person="max-ainmiller">Max Ainmiller</li>
-                        <li data-person="max-von-seydel">Max von Seydel</li>
-                        <li data-person="johann-georg-hiltensperger">Johann Georg Hiltensperger</li>
-                        <li data-person="philipp-balthasar-von-siebold">Philipp Balthasar von Siebold</li>
-                        <li data-person="philipp-jolly">Philipp Jolly</li>
-     
-                        <li data-person="roman-boos">Roman Boos</li>
-                        <li data-person="thaddeus-robl">Thaddäus Robl</li>
-                        <li data-person="moritz-von-schwind">Moritz von Schwind</li>
+                        
+                <li data-person="max-ainmiller">Ainmiller, Max</li>
+                <li data-person="franz-josef-albert">Albert Familie</li>
+                <li data-person="roman-boos">Boos, Roman</li>
+                <li data-person="georg-brey">Brey, Georg</li>
+                <li data-person="kaspar-ett">Ett, Kaspar</li>
+                <li data-person="friedrich-gärtner">Gärtner, Friedrich</li>
+                <li data-person="johann-georg-hiltensperger">Hiltensperger, Johann Georg</li>
+                <li data-person="philipp-jolly">Jolly, Philipp</li>
+                <li data-person="julius-knorr">Knorr, Julius</li>
+                <li data-person="franz-kobell">Kobell, Franz</li>
+                <li data-person="johannes-nepomuk-nußbaum">Nußbaum, Johannes Nepomuk</li>
+                <li data-person="thaddeus-robl">Robl, Thaddäus</li>
+                <li data-person="ludwig-schwanthaler">Schwanthaler, Ludwig</li>
+                <li data-person="adolf-schlagintweit">Schlagintweit, Adolf</li>
+                <li data-person="alois-senefelder">Senefelder, Alois</li>
+                <li data-person="georg-simon-ohm">Ohm, Georg Simon</li>
+                <li data-person="josef-von-fraunhofer">von Fraunhofer, Josef</li>
+                <li data-person="leo-von-klenze">von Klenze, Leo</li>
+                <li data-person="justus-von-liebig">von Liebig, Justus</li>
+                <li data-person="ferdinand-von-miller">von Miller, Ferdinand </li>
+                 <li data-person="georg-von-reichenbach">von Reichenbach, Georg</li>
+                <li data-person="moritz-von-schwind">von Schwind, Moritz</li>
+                <li data-person="max-von-seydel">von Seydel, Max</li>
+                <li data-person="philipp-balthasar-von-siebold">von Siebold, Philipp Balthasar</li>
+                <li data-person="arnold-zenetti">Arnold Zenetti</li>
+            
+
 
                       
 

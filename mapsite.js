@@ -1277,9 +1277,108 @@ function navigateToRockEntry(rockId) {
     if (rockItem) {
         rockItem.click();
         rockItem.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        
+        // Highlight alle Marker mit diesem Gestein
+        highlightRockMarkers(rockId);
     }
 }
 
+function highlightRockMarkers(rockId) {
+    // Setze alle Marker zurück
+    markers.layer3.eachLayer(marker => {
+        if (marker.options.materialKey) {
+            marker.setOpacity(0.3);
+            marker.setZIndexOffset(0);
+        }
+    });
+    
+    // Highlight Marker mit diesem Gestein
+    markers.layer3.eachLayer(marker => {
+        if (marker.options.materialKey === rockId) {
+            marker.setOpacity(1);
+            marker.setZIndexOffset(500);
+            marker.openPopup();
+        }
+    });
+    
+    // Zentriere die Karte auf den ersten gefundenen Marker
+    const firstMarker = [...markers.layer3.getLayers()].find(m => 
+        m.options.materialKey === rockId
+    );
+    if (firstMarker) {
+        map.setView(firstMarker.getLatLng(), 19);
+    }
+}
+
+function highlightAllRockMarkers(rockId) {
+    // Zur Karte wechseln und Layer 3 aktivieren
+    showSection('karte');
+    if (typeof markers !== 'undefined' && markers.layer3) {
+        markers.layer3.addTo(map); // Layer 3 zur Karte hinzufügen
+    }
+    
+    // Alle Marker zurücksetzen
+    markers.layer3.eachLayer(marker => {
+        if (marker.options.materialKey) {
+            marker.setOpacity(0.9);
+            marker.setZIndexOffset(0);
+            if (marker._originalIcon) {
+                marker.setIcon(marker._originalIcon);
+            }
+        }
+    });
+    
+    // Marker mit diesem Gestein finden
+    const rockMarkers = [];
+    markers.layer3.eachLayer(marker => {
+        if (marker.options.materialKey === rockId) {
+            rockMarkers.push(marker);
+        }
+    });
+    
+    // Wenn Marker gefunden wurden
+    if (rockMarkers.length > 0) {
+        // Highlight-Stil für alle Marker
+        rockMarkers.forEach((marker, index) => {
+            const originalIcon = marker.getIcon();
+            if (!marker._originalIcon) {
+                marker._originalIcon = originalIcon;
+            }
+            
+            // Erstelle Highlight-Icon mit Rand
+            const highlightIcon = L.divIcon({
+                ...originalIcon.options,
+                className: originalIcon.options.className + ' rock-marker-highlight',
+                iconSize: [originalIcon.options.iconSize[0] * 1.5, 
+                          originalIcon.options.iconSize[1] * 1.5]
+            });
+            
+            // Wende Highlight mit Verzögerung an
+            setTimeout(() => {
+                marker.setIcon(highlightIcon);
+                marker.setOpacity(1);
+                marker.setZIndexOffset(1000 - index * 10); // Leicht gestaffelte Z-Indexe
+                
+                // Für den ersten Marker: Popup öffnen und Karte zentrieren
+                if (index === 0) {
+                    marker.openPopup();
+                    map.setView(marker.getLatLng(), 19);
+                }
+            }, 100 * index);
+        });
+        
+        // Nach 20 Sekunden zurücksetzen
+        setTimeout(() => {
+            rockMarkers.forEach(marker => {
+                if (marker._originalIcon) {
+                    marker.setIcon(marker._originalIcon);
+                }
+                marker.setOpacity(0.9);
+                marker.setZIndexOffset(0);
+            });
+        }, 20000);
+    }
+}
 document.querySelectorAll('.nav__link').forEach(link => {
     link.addEventListener('click', function(e) {
         e.preventDefault();
@@ -2343,7 +2442,7 @@ else if (popupText.includes("Jolly") || popupText.includes("jolly")) {
                       <div class="grave-image-container">
                 <img src="Fotos/grabstein/robl_grab.png" alt="Grab von Brey" style="max-width:60%; max-height:80%; margin:10px 55px;">
             </div>
-                <button class="show-person-btn" onclick="navigateToPersonEntry('thaddeus-robl')">
+                <button class="show-person-btn" onclick="navigateToPersonEntry('thaddus-robl')">
             Zum Personeneintrag
         </button>
             
@@ -2411,6 +2510,7 @@ window.showOnMapWithId = function(steinId) {
     const firstCoord = stein.koordinaten[0];
     showOnMap(firstCoord[0], firstCoord[1], stein.name, steinId);
 };
+
 function showOnMap(lat, lng, name, steinId) {
     previousState = {
         activeSteinId: steinId,
@@ -2461,14 +2561,27 @@ function showOnMap(lat, lng, name, steinId) {
                 return;
             }
             
-            const backButton = `<button class="back-to-item-btn" 
-                                  onclick="restorePreviousView()">
-                               Zurück zu ${name}
-                               </button>`;
+            const backButton = `
+                <div class="map-button-group">
+                    <button class="back-to-item-btn" 
+                            onclick="restorePreviousView()">
+                        Zurück zu ${name}
+                    </button>
+                    <button class="back-to-cemetery-btn"
+                            onclick="resetToCemeteryView()">
+                        Zurück zum Friedhof
+                    </button>
+                </div>
+            `;
             
             const marker = L.marker([coord[0], coord[1]])
                 .addTo(map)
-                .bindPopup(`<b>Fundort ${index + 1}:</b> ${name}<br>${backButton}`);
+                .bindPopup(`
+                    <div class="map-popup-content">
+                        <b>Fundort ${index + 1}:</b> ${name}
+                        ${backButton}
+                    </div>
+                `);
             
             window.tempMarkers.push(marker);
         });
@@ -2484,6 +2597,24 @@ function showOnMap(lat, lng, name, steinId) {
         }
     }, 300);
 }
+
+// Neue Funktion für die Friedhofsansicht
+window.resetToCemeteryView = function() {
+    // Friedhofskoordinaten (Beispiel: [48.128042323092785, 11.565685880884974], Zoom 16)
+    const cemeteryCoords = [48.128042323092785, 11.565685880884974];
+    const cemeteryZoom = 16;
+    
+    if (map) {
+        map.setView(cemeteryCoords, cemeteryZoom);
+        
+        // Alle temporären Marker entfernen
+        if (window.tempMarkers) {
+            window.tempMarkers.forEach(marker => map.removeLayer(marker));
+            window.tempMarkers = [];
+        }
+    }
+};
+
 console.log('marker ID:', markerId);
 console.log('Gesteine Daten:', gesteineDaten);
 console.log('Aktueller Stein:', gesteineDaten[steinId]);
