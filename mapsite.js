@@ -427,7 +427,7 @@ createCustomMarker(48.130066, 11.565872,
         createCustomMarker(48.126402694826844, 11.563275021702747, 
             "./Fotos/grabstein/jolly.png", "Grab Philipp Jolly", markers.layer2);
         createCustomMarker(48.127194,11.565333, 
-            "./Fotos/grabstein/schwind_grab.png", "Grab Moritz Schwind", markers.layer2);
+            "./Fotos/grabstein/schwind_g.png", "Grab Moritz Schwind", markers.layer2);
                   createCustomMarker(48.12505213857038, 11.5629501735568, 
         "./Fotos/grabstein/robl_grab.png", "Grab Thaddäus Robl", markers.layer2);
 
@@ -1586,7 +1586,7 @@ const graveMaterials = {
 
         "schwind": {
         name: "Moritz von Schwind",
-        imageUrl: "./Fotos/grabstein/schwind_grab.png", 
+        imageUrl: "./Fotos/grabstein/schwind_g.png", 
         materials: {
             "Stein": "Diabas"
             
@@ -1626,7 +1626,7 @@ const graveMaterials = {
 
         "wohlschläger": {
         name: "Familie Wohlschläger",
-        imageUrl: "./Fotos/grabstein/wohlschläger_grab.png", 
+        imageUrl: "./Fotos/grabstein/wohl_grab.png", 
         materials: {
             "Stein": "Carrara-Marmor",
             "Säule":  "Zöblitzer Serpentinit",
@@ -2369,7 +2369,7 @@ else if (popupText.includes("Jolly") || popupText.includes("jolly")) {
             <div class="custom-popup">
                 <h3>${popupText}</h3>
                       <div class="grave-image-container">
-                <img src="Fotos/grabstein/schwind_grab.png" alt="Grab von Schwind" style="max-width:60%; max-height:80%; margin:10px 55px;">
+                <img src="Fotos/grabstein/schwind_g.png" alt="Grab von Schwind" style="max-width:60%; max-height:80%; margin:10px 55px;">
             </div>
                 <button class="show-person-btn" onclick="navigateToPersonEntry('moritz-von-schwind')">
             Zum Personeneintrag
