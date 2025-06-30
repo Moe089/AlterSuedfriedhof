@@ -211,7 +211,7 @@ const gesteineDaten = {
   "hinweis": "<p style='text-align: justify;'>Wichtiger Hinweis: Bei diesem Naturstein handelt es sich petrographisch nicht um echten Marmor, sondern um einen Kalkstein. Die Bezeichnung 'Marmor' ist eine traditionelle Handelsbezeichnung.</p>"
 },
 "schwarz-schwedisch-basalt": {
-  name: "Schwarz-Schwedisch Basalt (SS Fein)",
+  name: "Schwarz-Schwedisch Basalt",
   fundort: "Saganäs/Älmhult",
   fundland: "Schweden",
   bezeichnung: "Basalt (präkambrischer Magmatit)",
@@ -221,7 +221,7 @@ const gesteineDaten = {
   koordinaten: [56.55439684024806, 14.089589039035305],  // Älmhult, Schweden
   bild: "./Fotos/gestein/schwarz_basalt_robl.JPG",
   beschreibung: "<br><p style='text-align: justify;'><strong>Petrographie & Entstehung</strong><br>Der Schwarz-Schwedische Basalt (Handelsname 'SS Fein') ist ein präkambrisches Ergussgestein von außergewöhnlicher Homogenität und Dichte. Charakteristisch ist seine tiefschwarze Farbe und feinkörnige, porenfreie Struktur. Mineralogisch dominieren Plagioklas, Pyroxen und Olivin, die dem Gestein seine hervorragenden technischen Eigenschaften verleihen.</p><br><p style='text-align: justify;'><strong>Abbau & Lagerstätten</strong><br>Gewonnen wird der Stein seit dem 19. Jahrhundert in der Region Saganäs/Älmhult in Südschweden. Die Lagerstätte gehört zum baltischen Schild und zeigt besonders reine Basaltvorkommen mit gleichmäßiger Textur, die sich ideal für hochwertige Natursteinprodukte eignen.</p><br><p style='text-align: justify;'><strong>Historische Nutzung</strong><br>In Deutschland ab 1860 zunehmend verwendet, erlebte der schwedische Basalt seine Blütezeit in den 1880er-90er Jahren als beliebter Grabstein. Besonders geschätzt wurde er für polierte Schriftplatten. Nach Friedhofsverordnungen der 1920er Jahre (Verbot hochglanzpolierter schwarzer Steine) ging die Nutzung zurück, obwohl diese Regelung für den Südfriedhof nicht galt.</p><br><p style='text-align: justify;'><strong>Besonderheiten</strong><br>Der SS-Basalt zeichnet sich durch außergewöhnliche Witterungsbeständigkeit und leichte Pflegbarkeit aus. Seine perfekte Polierfähigkeit und der edle, tiefschwarze Glanz machten ihn zum bevorzugten Material für repräsentative Grabmale. Trotz des Rückgangs bleibt er einer der qualitativ hochwertigsten Basalte Europas.</p>",
-  hinweis: "<p style='text-align: justify;'>Achtung: Die Bezeichnung 'SS Fein' ist ein Handelsname ohne politische Konnotation - sie steht einfach für 'Schwarz Schwedisch Fein'. Der Stein wird bis heute in qualitativ gleichbleibender Qualität abgebaut.</p>"
+  
 },
 
   "serpentinit": {

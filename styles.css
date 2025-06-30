@@ -1604,36 +1604,57 @@ img {
 
 
 .century-marker {
-    position: relative;
-    text-align: center;
-    margin: 30px 0;
-    width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;  /* Etwas mehr Abstand für die größere Schrift */
+  margin: 30px 0;  /* Mehr Abstand oben/unten */
+}
+
+.century-line {
+  width: 50px;  /* Länge angepasst für bessere Proportion */
+  height: 2px;
+  background: hsl(35, 20%, 30%);
+  opacity: 0.7;  /* Leichte Transparenz für dezentes Erscheinungsbild */
 }
 
 .century-marker span {
-    display: inline-block;
-    padding: 0 12px;
-    font-weight: 600;
-    color: #555;
-    font-size: 1em;
-    letter-spacing: 0.5px;
-    position: relative;
+  font-size: 1.7rem;  /* Großzügige Schriftgröße */
+  color: hsl(35, 20%, 30%);
+  font-weight: 800;
+  letter-spacing: 0.5px;  /* Leichter Buchstabenabstand für bessere Lesbarkeit */
+  padding: 0 5px;  /* Horizontaler Abstand */
+  transition: all 0.3s ease;
 }
 
-.century-marker span::before,
-.century-marker span::after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    width: 20px;
-    height: 0.5px;
-    background-color: #e0e0e0;
+.intro-text {
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+    color: hsl(35, 20%, 30%);
 }
 
-.century-marker span::before {
-    right: 100%;
+.feature-box {
+    background: rgba(245, 245, 245, 0.7);
+    border-left: 4px solid hsl(35, 20%, 30%);
+    padding: 1.5rem;
+    margin: 2rem 0;
+    border-radius: 0 8px 8px 0;
 }
 
-.century-marker span::after {
-    left: 100%;
+.feature-box h2 {
+    color: hsl(35, 20%, 30%);
+    margin-top: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
+
+.closing {
+    font-style: italic;
+    text-align: center;
+    margin-top: 2rem;}
+
+    h1{
+      text-align: center;
+    }
