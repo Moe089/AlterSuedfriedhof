@@ -499,9 +499,11 @@ document.addEventListener('DOMContentLoaded', function() {
             if (stein) {
                 document.getElementById('gesteinDetails').innerHTML = `
                 <div class="details-content">
-                    <h2>${stein.name}</h2> <button class="show-rock-markers-btn" 
+                    <h2>${stein.name}</h2> <br> <button class="show-rock-markers-btn" 
+                    
                     onclick="highlightAllRockMarkers('${steinId}')">
-                <i class="fas fa-map-marker-alt"></i> Alle Fundstellen anzeigen
+                    
+                <i class="fas fa-map-marker-alt"></i> Alle Benutzungsorte anzeigen
             </button>
                     <div class="gestein-info-grid">
                     

@@ -1309,64 +1309,106 @@ function highlightRockMarkers(rockId) {
         map.setView(firstMarker.getLatLng(), 19);
     }
 }
-
 function highlightAllRockMarkers(rockId) {
     // Zur Karte wechseln und Layer 3 aktivieren
     showSection('karte');
     if (typeof markers !== 'undefined' && markers.layer3) {
-        markers.layer3.addTo(map); // Layer 3 zur Karte hinzufügen
+        markers.layer3.addTo(map);
     }
-    
-    // Alle Marker zurücksetzen
-    markers.layer3.eachLayer(marker => {
-        if (marker.options.materialKey) {
-            marker.setOpacity(0.9);
-            marker.setZIndexOffset(0);
-            if (marker._originalIcon) {
-                marker.setIcon(marker._originalIcon);
+
+    // Alle Marker und Cluster zurücksetzen
+    markers.layer3.eachLayer(layer => {
+        // Für einzelne Marker
+        if (layer.options && layer.options.materialKey) {
+            layer.setOpacity(0.9);
+            layer.setZIndexOffset(0);
+            if (layer._originalIcon) {
+                layer.setIcon(layer._originalIcon);
+            }
+        }
+        // Für Cluster
+        else if (layer.getChildCount) {
+            layer.setIcon(layer._originalClusterIcon || layer.options.icon);
+            layer.setOpacity(1);
+        }
+    });
+
+    // Marker mit diesem Gestein finden und zugehörige Cluster identifizieren
+    const rockMarkers = [];
+    const parentClusters = new Set();
+
+    markers.layer3.eachLayer(layer => {
+        // Einzelne Marker
+        if (layer.options && layer.options.materialKey === rockId) {
+            rockMarkers.push(layer);
+            // Übergeordneten Cluster finden
+            let parent = layer.__parent;
+            while (parent) {
+                parentClusters.add(parent);
+                parent = parent.__parent;
             }
         }
     });
-    
-    // Marker mit diesem Gestein finden
-    const rockMarkers = [];
-    markers.layer3.eachLayer(marker => {
-        if (marker.options.materialKey === rockId) {
-            rockMarkers.push(marker);
-        }
-    });
-    
+
     // Wenn Marker gefunden wurden
     if (rockMarkers.length > 0) {
-        // Highlight-Stil für alle Marker
-        rockMarkers.forEach((marker, index) => {
-            const originalIcon = marker.getIcon();
-            if (!marker._originalIcon) {
-                marker._originalIcon = originalIcon;
+        // Zuerst Cluster hervorheben
+        Array.from(parentClusters).forEach((cluster, index) => {
+            // Original-Icon speichern
+            if (!cluster._originalClusterIcon) {
+                cluster._originalClusterIcon = cluster.options.icon;
             }
-            
-            // Erstelle Highlight-Icon mit Rand
-            const highlightIcon = L.divIcon({
-                ...originalIcon.options,
-                className: originalIcon.options.className + ' rock-marker-highlight',
-                iconSize: [originalIcon.options.iconSize[0] * 1.5, 
-                          originalIcon.options.iconSize[1] * 1.5]
+
+            // Highlight-Cluster-Icon erstellen
+            const highlightClusterIcon = L.divIcon({
+                html: `<div class="marker-cluster-highlight">${cluster.getChildCount()}</div>`,
+                className: 'marker-cluster marker-cluster-highlight',
+                iconSize: L.point(40, 40)
             });
-            
-            // Wende Highlight mit Verzögerung an
+
             setTimeout(() => {
-                marker.setIcon(highlightIcon);
-                marker.setOpacity(1);
-                marker.setZIndexOffset(1000 - index * 10); // Leicht gestaffelte Z-Indexe
+                cluster.setIcon(highlightClusterIcon);
+                cluster.setZIndexOffset(2000);
                 
-                // Für den ersten Marker: Popup öffnen und Karte zentrieren
+                // Zum ersten Cluster zoomen
                 if (index === 0) {
-                    marker.openPopup();
-                    map.setView(marker.getLatLng(), 19);
+                    const bounds = cluster.getBounds();
+                    if (bounds.isValid()) {
+                        map.fitBounds(bounds, { padding: [50, 50], maxZoom: 17 });
+                    }
                 }
             }, 100 * index);
         });
-        
+
+        // Dann einzelne Marker hervorheben
+        rockMarkers.forEach((marker, index) => {
+            setTimeout(() => {
+                const originalIcon = marker.getIcon();
+                if (!marker._originalIcon) {
+                    marker._originalIcon = originalIcon;
+                }
+
+                const highlightIcon = L.divIcon({
+                    ...originalIcon.options,
+                    className: originalIcon.options.className + ' rock-marker-highlight',
+                    iconSize: [originalIcon.options.iconSize[0] * 1.5, 
+                              originalIcon.options.iconSize[1] * 1.5]
+                });
+
+                marker.setIcon(highlightIcon);
+                marker.setOpacity(1);
+                marker.setZIndexOffset(1000 - index * 10);
+
+                // Für den ersten Marker: Popup öffnen
+                if (index === 0) {
+                    setTimeout(() => {
+                        marker.openPopup();
+                        map.setView(marker.getLatLng(), 19);
+                    }, 100 * parentClusters.size + 500);
+                }
+            }, 100 * parentClusters.size + 100 * index);
+        });
+
         // Nach 20 Sekunden zurücksetzen
         setTimeout(() => {
             rockMarkers.forEach(marker => {
@@ -1376,8 +1418,16 @@ function highlightAllRockMarkers(rockId) {
                 marker.setOpacity(0.9);
                 marker.setZIndexOffset(0);
             });
+
+            Array.from(parentClusters).forEach(cluster => {
+                if (cluster._originalClusterIcon) {
+                    cluster.setIcon(cluster._originalClusterIcon);
+                }
+                cluster.setZIndexOffset(0);
+            });
         }, 20000);
     }
+
 }
 document.querySelectorAll('.nav__link').forEach(link => {
     link.addEventListener('click', function(e) {

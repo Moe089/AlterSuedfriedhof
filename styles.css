@@ -1571,7 +1571,7 @@ img {
 }
 
 .rock-marker-highlight {
-    filter: drop-shadow(0 0 8px gold) drop-shadow(0 0 4px gold);
+    filter: drop-shadow(0 0 8px rgba(197, 125, 48, 0.711)) drop-shadow(0 0 4px rgba(157, 71, 42, 0.87));
     transition: all 0.3s ease;
     border-radius: 50%;
     box-shadow: 0 0 0 4px rgba(255, 215, 0, 0.7);
@@ -1579,7 +1579,7 @@ img {
 
 /* Optional: Für eine pulsierende Animation */
 @keyframes pulse {
-    0% { box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.7); }
+    0% { box-shadow: 0 0 0 0 rgba(161, 108, 27, 0.7); }
     70% { box-shadow: 0 0 0 10px rgba(255, 215, 0, 0); }
     100% { box-shadow: 0 0 0 0 rgba(255, 215, 0, 0); }
 }
@@ -1658,3 +1658,11 @@ img {
     h1{
       text-align: center;
     }
+
+    .marker-cluster-highlight {
+    background-color: hsl(35, 20%, 60%, 90%);
+    border: 1px solid hsl(35, 20%, 30%, 60%);
+}
+.marker-cluster-highlight div {
+    background-color: hsl(35, 20%, 60%, 60%);
+}
