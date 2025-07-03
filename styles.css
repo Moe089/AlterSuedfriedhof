@@ -1693,3 +1693,31 @@ img {
 .marker-cluster-highlight div {
     background-color: hsl(35, 20%, 60%, 60%);
 }
+
+.standorte-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.show-rock-location-btn {
+    background-color: #4a6fa5;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 14px;
+}
+
+.show-rock-location-btn:hover {
+    background-color: #3a5a8a;
+}
+
+.show-rock-location-btn i {
+    font-size: 12px;
+}
