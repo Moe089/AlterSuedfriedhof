@@ -878,6 +878,32 @@ img {
 
 /*=============== RESPONSIVE STYLES ===============*/
 @media screen and (max-width: 767px) {
+
+  
+
+.century-marker {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;  /* Etwas mehr Abstand für die größere Schrift */
+  margin: 30px 0;  /* Mehr Abstand oben/unten */
+}
+
+.century-line {
+  width: 50px;  /* Länge angepasst für bessere Proportion */
+  height: 2px;
+  background: hsl(35, 20%, 30%);
+  opacity: 0.7;  /* Leichte Transparenz für dezentes Erscheinungsbild */
+}
+
+.century-marker span {
+  font-size: 1.7rem;  /* Großzügige Schriftgröße */
+  color: hsl(35, 20%, 30%);
+  font-weight: 800;
+  letter-spacing: 0.5px;  /* Leichter Buchstabenabstand für bessere Lesbarkeit */
+  padding: 0 5px;  /* Horizontaler Abstand */
+  transition: all 0.3s ease;
+}
   .header {
     padding: 1.5rem 0;
   } 
@@ -957,6 +983,7 @@ img {
   font-size: 0.95rem;      /* optional: etwas kleiner auf Mobile */
   line-height: 1.5;
 }
+
 
 /* Anpassungen für Mobile Hover-Effekte */
 .timeline-item:hover .timeline-content {
