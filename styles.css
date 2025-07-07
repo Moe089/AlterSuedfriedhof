@@ -239,7 +239,7 @@ img {
 #searchSuggestions {
   display: none;
   position: absolute;
-  top: 100%;
+  top: 80%;
   left: 0;
   right: 0;
   background: white;
@@ -1357,10 +1357,11 @@ img {
   text-decoration: none;
   display: inline-block;
   font-size: 14px;
-  margin: 4px 2px;
   cursor: pointer;
   border-radius: 4px;
   transition: background-color 0.3s;
+  margin: 0 auto 7px auto;
+  display: block; /* Notwendig für margin: auto */;
 }
 .ar-btn:hover {
   background-color: #0b7dda;
@@ -1558,42 +1559,42 @@ img {
   cursor: pointer;
   transition: background-color 0.3s;
 }
-
-
-.show-street-btn{
-     background-color: var(--first-color);
+.show-street-btn {
+  background-color: var(--first-color);
   color: white;
   border: none;
   border-radius: 4px;
   padding: 4px 8px;
-  margin-left: 8px;
   font-size: 0.8rem;
   cursor: pointer;
   transition: background-color 0.3s;
+  margin: 0 auto; /* Zentriert den Button horizontal */
+  display: block; /* Notwendig für margin: auto */
 }
-.show-person-btn{
-      background-color: var(--first-color);
+
+.show-person-btn {
+  background-color: var(--first-color);
   color: white;
   border: none;
   border-radius: 4px;
   padding: 4px 8px;
-  margin-left: 8px;
   font-size: 0.8rem;
   cursor: pointer;
-  margin-bottom: 4px;
+  margin: 4px auto; /* Zentriert und gibt Abstand nach oben/unten */
+  display: block;
   transition: background-color 0.3s;
 }
 
-.back-to-cemetery-btn{
-        background-color: var(--first-color);
+.back-to-cemetery-btn {
+  background-color: var(--first-color);
   color: white;
   border: none;
   border-radius: 4px;
   padding: 4px 8px 2px 2px;
-  margin-left: 8px;
   font-size: 0.8rem;
   cursor: pointer;
-  margin-bottom: 4px;
+  margin: 4px auto;
+  display: block;
   transition: background-color 0.3s;
 }
 

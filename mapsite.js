@@ -2027,7 +2027,7 @@ function createCustomMarker(lat, lng, imageUrl, popupText, layerGroup, onClick, 
             <div class="custom-popup">
                 <h3>${popupText}</h3>
                                        <div class="grave-image-container">
-                <img src="Fotos/grabstein/reichenbach.png" alt="Grab von Georg von Reichenbach" style="max-width:60%; max-height:80%; margin:10px 55px;">
+                <img src="Fotos/grabstein/reichenbach.png" alt="Grab von Georg von Reichenbach" style="max-width:60%; max-height:80%; margin:10px 40px;">
             </div>
                 <button class="show-person-btn" onclick="navigateToPersonEntry('georg-von-reichenbach')">
             Zum Personeneintrag
@@ -2046,7 +2046,7 @@ function createCustomMarker(lat, lng, imageUrl, popupText, layerGroup, onClick, 
             <div class="custom-popup">
                 <h3>${popupText}</h3>
                           <div class="grave-image-container">
-                <img src="Fotos/grabstein/miller.png" alt="Grab von Ferdinand von Miller" style="max-width:60%; max-height:80%; margin:10px 55px;">
+                <img src="Fotos/grabstein/miller.png" alt="Grab von Ferdinand von Miller" style="max-width:60%; max-height:80%; margin:10px 40px;">
             </div>
                 <button class="show-person-btn" onclick="navigateToPersonEntry('ferdinand-von-miller')">
             Zum Personeneintrag
@@ -2066,7 +2066,7 @@ function createCustomMarker(lat, lng, imageUrl, popupText, layerGroup, onClick, 
     <div class="custom-popup">
         <h3>${popupText}</h3>
              <div class="grave-image-container">
-                <img src="Fotos/grabstein/schlagintweit.png" alt="Grab von Adolf Schlagintweit" style="max-width:60%; max-height:80%; margin:10px 55px;">
+                <img src="Fotos/grabstein/schlagintweit.png" alt="Grab von Adolf Schlagintweit" style="max-width:60%; max-height:80%; margin:10px 40px;">
             </div>
                 <button class="show-person-btn" onclick="navigateToPersonEntry('adolf-schlagintweit')">
             Zum Personeneintrag
@@ -2084,7 +2084,7 @@ else if (popupText.includes("Arnold Zenetti")) {
         <div class="custom-popup">
             <h3>${popupText}</h3>
             <div class="grave-image-container">
-                <img src="Fotos/grabstein/zenetti.png" alt="Grab von Arnold Zenetti" style="max-width:60%; max-height:80%; margin:10px 55px;">
+                <img src="Fotos/grabstein/zenetti.png" alt="Grab von Arnold Zenetti" style="max-width:60%; max-height:80%; margin:10px 40px;">
             </div>
                         <button class="show-person-btn" onclick="navigateToPersonEntry('arnold-zenetti')">
             Zum Personeneintrag
@@ -2102,7 +2102,7 @@ else if (popupText.includes("Arnold Zenetti")) {
             <div class="custom-popup">
                 <h3>${popupText}</h3>
                 <div class="grave-image-container">
-                <img src="Fotos/grabstein/grab_senefelder.png" alt="Grab von Alois Senefelder" style="max-width:60%; max-height:80%; margin:10px 55px;">
+                <img src="Fotos/grabstein/grab_senefelder.png" alt="Grab von Alois Senefelder" style="max-width:60%; max-height:80%; margin:10px 40px;">
             </div>
                 <button class="show-person-btn" onclick="navigateToPersonEntry('alois-senefelder')">
             Zum Personeneintrag
@@ -2124,7 +2124,7 @@ else if (popupText.includes("Arnold Zenetti")) {
             <div class="custom-popup">
                 <h3>${popupText}</h3>
                 <div class="grave-image-container">
-                <img src="Fotos/grabstein/kobell.png" alt="Grab von Franz Kobell" style="max-width:60%; max-height:80%; margin:10px 55px;">
+                <img src="Fotos/grabstein/kobell.png" alt="Grab von Franz Kobell" style="max-width:60%; max-height:80%; margin:10px 40px;">
             </div>
                 <button class="show-person-btn" onclick="navigateToPersonEntry('franz-kobell')">
             Zum Personeneintrag
@@ -2144,7 +2144,7 @@ else if (popupText.includes("Arnold Zenetti")) {
             <div class="custom-popup">
                 <h3>${popupText}</h3>
                 <div class="grave-image-container">
-                <img src="Fotos/grabstein/hiltensperger.png" alt="Grab von Johann Georg von Hiltensperger" style="max-width:60%; max-height:80%; margin:10px 55px;">
+                <img src="Fotos/grabstein/hiltensperger.png" alt="Grab von Johann Georg von Hiltensperger" style="max-width:60%; max-height:80%; margin:10px 40px;">
             </div>
                 <button class="show-person-btn" onclick="navigateToPersonEntry('johann-georg-hiltensperger')">
             Zum Personeneintrag
@@ -2164,7 +2164,7 @@ else if (popupText.includes("Arnold Zenetti")) {
             <div class="custom-popup">
                 <h3>${popupText}</h3>
                 <div class="grave-image-container">
-                <img src="Fotos/grabstein/ohm_grab.png" alt="Grab von Georg Simon Ohm" style="max-width:60%; max-height:80%; margin:10px 55px;">
+                <img src="Fotos/grabstein/ohm_grab.png" alt="Grab von Georg Simon Ohm" style="max-width:60%; max-height:80%; margin:10px 40px;">
             </div>
                 <button class="show-person-btn" onclick="navigateToPersonEntry('georg-simon-ohm')">
             Zum Personeneintrag
@@ -2184,7 +2184,7 @@ else if (popupText.includes("Jolly") || popupText.includes("jolly")) {
         <div class="custom-popup">
             <h3>${popupText}</h3>
             <div class="grave-image-container">
-                <img src="Fotos/grabstein/jolly.png" alt="Grab von Philipp von Jolly" style="max-width:60%; max-height:80%; margin:10px 55px;">
+                <img src="Fotos/grabstein/jolly.png" alt="Grab von Philipp von Jolly" style="max-width:60%; max-height:80%; margin:10px 40px;">
             </div>
                 <button class="show-person-btn" onclick="navigateToPersonEntry('philipp-jolly')">
             Zum Personeneintrag
@@ -2202,7 +2202,7 @@ else if (popupText.includes("Jolly") || popupText.includes("jolly")) {
             <div class="custom-popup">
                 <h3>${popupText}</h3>
                 <div class="grave-image-container">
-                <img src="Fotos/grabstein/grab_ett.png" alt="Grab von Kaspar Ett" style="max-width:60%; max-height:80%; margin:10px 55px;">
+                <img src="Fotos/grabstein/grab_ett.png" alt="Grab von Kaspar Ett" style="max-width:60%; max-height:80%; margin:10px 40px;">
             </div>
                 <button class="show-person-btn" onclick="navigateToPersonEntry('kaspar-ett')">
             Zum Personeneintrag
@@ -2222,7 +2222,7 @@ else if (popupText.includes("Jolly") || popupText.includes("jolly")) {
             <div class="custom-popup">
                 <h3>${popupText}</h3>
                 <div class="grave-image-container">
-                <img src="Fotos/grabstein/nussbaum.png" alt="Grab von Nussbaum" style="max-width:60%; max-height:80%; margin:10px 55px;">
+                <img src="Fotos/grabstein/nussbaum.png" alt="Grab von Nussbaum" style="max-width:60%; max-height:80%; margin:10px 40px;">
             </div>
                 <button class="show-person-btn" onclick="navigateToPersonEntry('johannes-nepomuk-nußbaum')">
             Zum Personeneintrag
@@ -2242,7 +2242,7 @@ else if (popupText.includes("Jolly") || popupText.includes("jolly")) {
             <div class="custom-popup">
                 <h3>${popupText}</h3>
                              <div class="grave-image-container">
-                <img src="Fotos/grabstein/reichenbach.png" alt="Grab von Reichenbach" style="max-width:60%; max-height:80%; margin:10px 55px;">
+                <img src="Fotos/grabstein/reichenbach.png" alt="Grab von Reichenbach" style="max-width:60%; max-height:80%; margin:10px 40px;">
             </div>
                 <button class="show-person-btn" onclick="navigateToPersonEntry('georg-von-reichenbach')">
             Zum Personeneintrag
@@ -2263,7 +2263,7 @@ else if (popupText.includes("Jolly") || popupText.includes("jolly")) {
             <div class="custom-popup">
                 <h3>${popupText}</h3>
                 <div class="grave-image-container">
-                <img src="Fotos/grabstein/gaertner_grab.png" alt="Grab von Gärtner" style="max-width:60%; max-height:80%; margin:10px 55px;">
+                <img src="Fotos/grabstein/gaertner_grab.png" alt="Grab von Gärtner" style="max-width:60%; max-height:80%; margin:10px 40px;">
             </div>
                 <button class="show-person-btn" onclick="navigateToPersonEntry('friedrich-gärtner')">
             Zum Personeneintrag
@@ -2283,7 +2283,7 @@ else if (popupText.includes("Jolly") || popupText.includes("jolly")) {
             <div class="custom-popup">
                 <h3>${popupText}</h3>
                 <div class="grave-image-container">
-                <img src="Fotos/grabstein/grab_klenze.png" alt="Grab von Klenze" style="max-width:60%; max-height:80%; margin:10px 55px;">
+                <img src="Fotos/grabstein/grab_klenze.png" alt="Grab von Klenze" style="max-width:60%; max-height:80%; margin:10px 40px;">
             </div>
                 <button class="show-person-btn" onclick="navigateToPersonEntry('leo-von-klenze')">
             Zum Personeneintrag
@@ -2303,7 +2303,7 @@ else if (popupText.includes("Jolly") || popupText.includes("jolly")) {
             <div class="custom-popup">
                 <h3>${popupText}</h3>
             <div class="grave-image-container">
-                <img src="Fotos/grabstein/schwanthaler_grab.png" alt="Grab von Schwanthaler" style="max-width:60%; max-height:80%; margin:10px 55px;">
+                <img src="Fotos/grabstein/schwanthaler_grab.png" alt="Grab von Schwanthaler" style="max-width:60%; max-height:80%; margin:10px 40px;">
             </div>
                 <button class="show-person-btn" onclick="navigateToPersonEntry('ludwig-schwanthaler')">
             Zum Personeneintrag
@@ -2323,7 +2323,7 @@ else if (popupText.includes("Jolly") || popupText.includes("jolly")) {
             <div class="custom-popup">
                 <h3>${popupText}</h3>
                         <div class="grave-image-container">
-                <img src="Fotos/grabstein/siebold_grab.png" alt="Grab von Siebold" style="max-width:60%; max-height:80%; margin:10px 55px;">
+                <img src="Fotos/grabstein/siebold_grab.png" alt="Grab von Siebold" style="max-width:60%; max-height:80%; margin:10px 40px;">
             </div>
                 <button class="show-person-btn" onclick="navigateToPersonEntry('philipp-balthasar-von-siebold')">
             Zum Personeneintrag
@@ -2343,7 +2343,7 @@ else if (popupText.includes("Jolly") || popupText.includes("jolly")) {
             <div class="custom-popup">
                 <h3>${popupText}</h3>
             <div class="grave-image-container">
-                <img src="Fotos/grabstein/liebig_grab.png" alt="Grab von Liebig" style="max-width:60%; max-height:80%; margin:10px 55px;">
+                <img src="Fotos/grabstein/liebig_grab.png" alt="Grab von Liebig" style="max-width:60%; max-height:80%; margin:10px 40px;">
             </div>
                 <button class="show-person-btn" onclick="navigateToPersonEntry('justus-von-liebig')">
             Zum Personeneintrag
@@ -2363,7 +2363,7 @@ else if (popupText.includes("Jolly") || popupText.includes("jolly")) {
             <div class="custom-popup">
                 <h3>${popupText}</h3>
                       <div class="grave-image-container">
-                <img src="Fotos/grabstein/knorr_grab.png" alt="Grab von Knorr" style="max-width:60%; max-height:80%; margin:10px 55px;">
+                <img src="Fotos/grabstein/knorr_grab.png" alt="Grab von Knorr" style="max-width:60%; max-height:80%; margin:10px 40px;">
             </div>
                 <button class="show-person-btn" onclick="navigateToPersonEntry('julius-knorr')">
             Zum Personeneintrag
@@ -2384,7 +2384,7 @@ else if (popupText.includes("Jolly") || popupText.includes("jolly")) {
             <div class="custom-popup">
                 <h3>${popupText}</h3>
                       <div class="grave-image-container">
-                <img src="Fotos/grabstein/albert.png" alt="Grab von Albert" style="max-width:60%; max-height:80%; margin:10px 55px;">
+                <img src="Fotos/grabstein/albert.png" alt="Grab von Albert" style="max-width:60%; max-height:80%; margin:10px 40px;">
             </div>
                 <button class="show-person-btn" onclick="navigateToPersonEntry('franz-josef-albert')">
             Zum Personeneintrag
@@ -2402,7 +2402,7 @@ else if (popupText.includes("Jolly") || popupText.includes("jolly")) {
             <div class="custom-popup">
                 <h3>${popupText}</h3>
                       <div class="grave-image-container">
-                <img src="Fotos/grabstein/boos.png" alt="Grab von Boos" style="max-width:60%; max-height:80%; margin:10px 55px;">
+                <img src="Fotos/grabstein/boos.png" alt="Grab von Boos" style="max-width:60%; max-height:80%; margin:10px 40px;">
             </div>
                 <button class="show-person-btn" onclick="navigateToPersonEntry('roman-boos')">
             Zum Personeneintrag
@@ -2419,7 +2419,7 @@ else if (popupText.includes("Jolly") || popupText.includes("jolly")) {
             <div class="custom-popup">
                 <h3>${popupText}</h3>
                       <div class="grave-image-container">
-                <img src="Fotos/grabstein/schwind_g.png" alt="Grab von Schwind" style="max-width:60%; max-height:80%; margin:10px 55px;">
+                <img src="Fotos/grabstein/schwind_g.png" alt="Grab von Schwind" style="max-width:60%; max-height:80%; margin:10px 40px;">
             </div>
                 <button class="show-person-btn" onclick="navigateToPersonEntry('moritz-von-schwind')">
             Zum Personeneintrag
@@ -2436,7 +2436,7 @@ else if (popupText.includes("Jolly") || popupText.includes("jolly")) {
             <div class="custom-popup">
                 <h3>${popupText}</h3>
                       <div class="grave-image-container">
-                <img src="Fotos/grabstein/ainmiller_grab.png" alt="Grab von Ainmiller" style="max-width:60%; max-height:80%; margin:10px 55px;">
+                <img src="Fotos/grabstein/ainmiller_grab.png" alt="Grab von Ainmiller" style="max-width:60%; max-height:80%; margin:10px 40px;">
             </div>
                 <button class="show-person-btn" onclick="navigateToPersonEntry('max-ainmiller')">
             Zum Personeneintrag
@@ -2454,7 +2454,7 @@ else if (popupText.includes("Jolly") || popupText.includes("jolly")) {
             <div class="custom-popup">
                 <h3>${popupText}</h3>
                       <div class="grave-image-container">
-                <img src="Fotos/grabstein/brey.png" alt="Grab von Brey" style="max-width:60%; max-height:80%; margin:10px 55px;">
+                <img src="Fotos/grabstein/brey.png" alt="Grab von Brey" style="max-width:60%; max-height:80%; margin:10px 40px;">
             </div>
                 <button class="show-person-btn" onclick="navigateToPersonEntry('georg-brey')">
             Zum Personeneintrag
@@ -2472,7 +2472,7 @@ else if (popupText.includes("Jolly") || popupText.includes("jolly")) {
             <div class="custom-popup">
                 <h3>${popupText}</h3>
                       <div class="grave-image-container">
-                <img src="Fotos/grabstein/seydel.png" alt="Grab von Brey" style="max-width:60%; max-height:80%; margin:10px 55px;">
+                <img src="Fotos/grabstein/seydel.png" alt="Grab von Brey" style="max-width:60%; max-height:80%; margin:10px 40px;">
             </div>
                 <button class="show-person-btn" onclick="navigateToPersonEntry('max-von-seydel')">
             Zum Personeneintrag
@@ -2490,7 +2490,7 @@ else if (popupText.includes("Jolly") || popupText.includes("jolly")) {
             <div class="custom-popup">
                 <h3>${popupText}</h3>
                       <div class="grave-image-container">
-                <img src="Fotos/grabstein/robl_grab.png" alt="Grab von Brey" style="max-width:60%; max-height:80%; margin:10px 55px;">
+                <img src="Fotos/grabstein/robl_grab.png" alt="Grab von Brey" style="max-width:60%; max-height:80%; margin:10px 40px;">
             </div>
                 <button class="show-person-btn" onclick="navigateToPersonEntry('thaddus-robl')">
             Zum Personeneintrag
@@ -2507,7 +2507,7 @@ else if (popupText.includes("Jolly") || popupText.includes("jolly")) {
             <div class="custom-popup">
                 <h3>${popupText}</h3>
                                       <div class="grave-image-container">
-                <img src="Fotos/grabstein/fraunhofer_grab.png" alt="Grab von Fraunhofer" style="max-width:60%; max-height:80%; margin:10px 55px;">
+                <img src="Fotos/grabstein/fraunhofer_grab.png" alt="Grab von Fraunhofer" style="max-width:60%; max-height:80%; margin:10px 40px;">
             </div>
                 <button class="show-person-btn" onclick="navigateToPersonEntry('josef-von-fraunhofer')">
             Zum Personeneintrag
