@@ -225,7 +225,7 @@ const gesteineDaten = {
 },
 
   "serpentinit": {
-    name: "Serpentinit (mögliche Verde Balthemy-Varietät)",
+    name: "Serpentinit (mögliche Verde Barthelmy-Varietät)",
     fundort: "Aosta (Italien), Hohe Tauern (Österreich)",
     fundland: "Italien, Österreich",
     bezeichnung: "Metamorphes Ultramafitit (Serpentinit)",
@@ -347,7 +347,7 @@ beschreibung: "<br><p style='text-align: justify;'><strong>Petrographie & Entste
    
   ],
   bild: "./Fotos/gestein/hohenschwangauer_kalk.JPG",
-  beschreibung: "<br><p style='text-align: justify;'><strong>Petrographie & Entstehung</strong><br>Der Hohenschwangauer Kalk entstand in der Oberkreide in einem flachen Schelfmeer. Charakteristisch sind zahlreiche Fossilreste von Rudisten (ausgestorbene Muscheln) und Korallen, die dem Gestein seine typische Struktur verleihen. Die helle, beige-graue Färbung entsteht durch den hohen Kalkgehalt.</p><br><p style='text-align: justify;'><strong>Abbau & Lagerstätten</strong><br>Traditionelle Abbaugebiete befinden sich im Dreieck Hohenschwangau-Füssen-Pfronten. Die Kalkbänke erreichen Mächtigkeiten bis 15 Meter und wurden seit dem Mittelalter in kleinen Steinbrüchen gewonnen. Heute findet nur noch vereinzelt Abbau statt.</p><br><p style='text-align: justify;'><strong>Historische Nutzung</strong><br>Bereits für das Schloss Hohenschwangau (1832-1836) verwendet. Später beliebt für lokale Sakralbauten und Denkmäler im Allgäu. Seine gute Bearbeitbarkeit und Wetterbeständigkeit machten ihn zum bevorzugten Baumaterial der Region.</p><br><p style='text-align: justify;'><strong>Besonderheiten</strong><br>Als Zeugnis der Kreidezeit dokumentiert der Hohenschwangauer Kalk die tropischen Meeresbedingungen im Alpenvorland. Die charakteristischen Rudisten-Fossilien sind Leitfossilien für diese geologische Epoche. Das Gestein zeigt häufig schöne natürliche Musterungen.</p>",
+  beschreibung: "<br><p style='text-align: justify;'><strong>Petrographie & Entstehung</strong><br>Der Hohenschwangauer Kalk entstand in der Oberkreide in einem flachen Schelfmeer. Charakteristisch sind zahlreiche Fossilreste von Rudisten (ausgestorbene Muscheln) und Korallen, die dem Gestein seine typische Struktur verleihen. Die helle, beige-graue Färbung entsteht durch den hohen Kalkgehalt.</p><br><p style='text-align: justify;'><strong>Abbau & Lagerstätten</strong><br>Traditionelle Abbaugebiete befinden sich im Dreieck Hohenschwangau-Füssen-Pfronten. Die Kalkbänke erreichen Mächtigkeiten bis 15 Meter und wurden seit dem Mittelalter in kleinen Steinbrüchen gewonnen. Heute findet nur noch vereinzelt Abbau statt.</p><br><p style='text-align: justify;'><strong>Historische Nutzung</strong><br>Wahrscheinlich bereits für das Schloss Hohenschwangau (1832-1836) verwendet. Später beliebt für lokale Sakralbauten und Denkmäler im Allgäu. Seine gute Bearbeitbarkeit und Wetterbeständigkeit machten ihn zum bevorzugten Baumaterial der Region.</p><br><p style='text-align: justify;'><strong>Besonderheiten</strong><br>Als Zeugnis der Kreidezeit dokumentiert der Hohenschwangauer Kalk die tropischen Meeresbedingungen im Alpenvorland. Die charakteristischen Rudisten-Fossilien sind Leitfossilien für diese geologische Epoche. Das Gestein zeigt häufig schöne natürliche Musterungen.</p>",
   hinweis: "<p style='text-align: justify;'>Hinweis: Der Hohenschwangauer Kalk ist nicht zu verwechseln mit dem jüngeren Jura-Kalkstein der Fränkischen Alb. Für Restaurierungen wird ausschließlich Material aus den historischen Brüchen verwendet.</p>"
 },
 "diorit": {
@@ -483,6 +483,7 @@ beschreibung: "<br><p style='text-align: justify;'><strong>Petrographie & Entste
 }; 
 
 
+
 document.addEventListener('DOMContentLoaded', function() {
     const items = document.querySelectorAll('#gesteinListe li');
     
@@ -503,7 +504,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     
                     onclick="highlightAllRockMarkers('${steinId}')">
                     
-                <i class="fas fa-map-marker-alt"></i> Alle Benutzungsorte anzeigen
+                <i class="fas fa-map-marker-alt"></i> Alle Benutzungsorte (in braun) anzeigen
             </button>
                     <div class="gestein-info-grid">
                     
@@ -560,7 +561,12 @@ document.addEventListener('DOMContentLoaded', function() {
                             <p>${stein.hinweis || ''}</p>
                         </div>
 
-
+                          <br>
+                          <br>
+                          <div class=hinweis-content">
+                          <h3>Danksagung</h3>
+                          <p>Die Erstellung der Gesteinsdatenbank und die wissenschaftliche Bestimmung der Grabsteinmaterialien wären ohne die freundliche Unterstützung von Herrn Klaus Poschlod nicht möglich gewesen.
+ Durch seine Vorarbeit konnten die Gesteine bereits im Vorfeld exakt bestimmt und katalogisiert werden, was die Grundlage für den Gesteinsbereich bildete.<p>
                         ` : ''}
                     </div>
                 `;
@@ -603,3 +609,4 @@ document.getElementById('gesteinDropdown').addEventListener('change', function (
     }
   }
 });
+

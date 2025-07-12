@@ -1115,6 +1115,7 @@ function showSection(sectionId, subId = null) {
         }
     }
 
+    
     // Aktiven Link in der Navigation markieren
     document.querySelectorAll('.nav__link').forEach(link => {
         link.classList.remove('active-link');
@@ -1188,6 +1189,14 @@ function showPersonDetail(personId) {
 }
 
 function showGesteinDetail(steinId) {
+        if (!steinId) {
+        document.getElementById('gesteinDetails').innerHTML = `
+            <div class="details-content">
+                <p>Wählen Sie ein Gestein aus der Liste aus, um Details anzuzeigen.</p>
+            </div>
+        `;
+        return;
+    }
     const stein = gesteineDaten[steinId];
     if (!stein) return;
 

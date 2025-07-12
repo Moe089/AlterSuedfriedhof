@@ -341,6 +341,7 @@ const personId = event.target.getAttribute('data-person');
                         <br>
                              ${person.grabKoordinaten ? 
                             `<button class="show-grave-btn" onclick="focusOnGraveMarker('${personId}')">
+                            
                                 Grab auf Karte anzeigen
                             </button>` : 
                             ''}
@@ -362,12 +363,36 @@ document.getElementById('personenDropdown').addEventListener('change', function 
     }
   }
 });
+
 function focusOnGraveMarker(personId) {
     const person = personenDaten[personId];
     if (!person || !person.grabKoordinaten) return;
 
+    // Zur Karte wechseln
     showSection('karte');
     
+    // Layer-Verwaltung: Immer zu Layer 2 wechseln, falls ein anderer Layer aktiv ist
+    if (map) {
+        // Aktuellen aktiven Layer ermitteln
+        let currentActiveLayer = null;
+        if (map.hasLayer(markers.layer1)) currentActiveLayer = markers.layer1;
+        if (map.hasLayer(markers.layer2)) currentActiveLayer = markers.layer2;
+        if (map.hasLayer(markers.layer3)) currentActiveLayer = markers.layer3;
+        
+        // Nur wenn nicht bereits Layer 2 aktiv ist, wechseln
+        if (currentActiveLayer !== markers.layer2) {
+            // Alle Layer entfernen
+            map.eachLayer(layer => {
+                if (layer === markers.layer1 || layer === markers.layer2 || layer === markers.layer3) {
+                    map.removeLayer(layer);
+                }
+            });
+            
+            // Layer 2 hinzufügen
+            markers.layer2.addTo(map);
+        }
+    }
+
     if (!mapInitialized) {
         initializeMap();
     }
@@ -376,16 +401,14 @@ function focusOnGraveMarker(personId) {
         // Karte zentrieren
         map.setView(person.grabKoordinaten, 19);
         
-        // Alle Marker durchsuchen
+        // Marker durchsuchen und hervorheben
         Object.values(markers).forEach(layerGroup => {
             layerGroup.eachLayer(function(layer) {
-                // Cluster behandeln
                 if (layer instanceof L.MarkerCluster) {
                     layer.getAllChildMarkers().forEach(marker => {
                         checkAndHighlightMarker(marker);
                     });
                 } 
-                // Direkte Marker
                 else if (layer instanceof L.Marker) {
                     checkAndHighlightMarker(layer);
                 }
@@ -396,10 +419,8 @@ function focusOnGraveMarker(personId) {
             const markerLatLng = marker.getLatLng();
             const distance = map.distance(markerLatLng, person.grabKoordinaten);
             
-            if (distance < 5) { // Weniger als 5 Meter Abstand
+            if (distance < 5) {
                 highlightMarker(marker);
-                
-                // Popup öffnen falls vorhanden
                 if (marker.getPopup()) {
                     marker.openPopup();
                 }
@@ -407,6 +428,7 @@ function focusOnGraveMarker(personId) {
         }
     }, 300);
 }
+
 function highlightMarker(marker) {
     // Original-Icon speichern falls noch nicht geschehen
     if (!marker._originalIcon) {

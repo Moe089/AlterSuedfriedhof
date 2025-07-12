@@ -372,6 +372,37 @@ img {
   background: transparent !important;
   box-shadow: none !important;
 }
+
+@media screen and (min-width: 809px) and (max-width: 1081px) {
+  .container {
+    margin: 0 auto;
+    padding-left: 8rem;
+    padding-right: 2rem;
+    max-width: 968px;
+  }
+
+
+.nav__search{
+  padding: 1.4rem;
+
+
+}
+#map{
+  height: min(150vh, 540px);
+  width: 100%;
+  z-index: 1;
+  margin-top: -5px;
+
+}
+.gestein-liste {
+  width: 30%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 15px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}}
+
 @media screen and (min-width: 1024px) and (max-width: 1300px) {
   .container {
     margin: 0 auto;
@@ -382,7 +413,7 @@ img {
 
 
 .nav__search{
-  padding: 2rem;
+  padding: 1.4rem;
 
 
 }
@@ -1180,10 +1211,60 @@ img {
 }
 
 /* Mittlere Geräte (Tablets, 577px bis 767px) */
-@media screen and (min-width: 577px) and (max-width: 767px) {
+@media screen and (min-width: 577px) and (max-width: 967px) {
   .nav__img {
     height: 70px;
     left: 15px;
+  }
+
+  .nav__menu {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto !important;
+    width: 100%;
+    max-width: 400px;
+    height: 3.5rem;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    background-color: var(--container-color);
+    box-shadow: 0 -1px 12px hsla(var(--hue), var(--sat), 15%, 0.15);
+    border-radius: 1.25rem 1.25rem 0 0;
+    z-index: var(--z-fixed);
+  }
+
+  .nav__list {
+    width: 100%;
+    justify-content: space-around;
+    padding:  0.5rem;
+  }
+
+  .nav__item {
+    flex: 1;
+    text-align: center;
+  }
+
+  .nav__link {
+    padding: 0.5rem 0;
+    font-size: 0.8rem;
+  }
+
+  .nav__icon {
+    font-size: 1.2rem;
+  }
+
+  .nav__name {
+    font-size: 0.6rem;
+    display: block;
+  }
+
+  /* Content adjustments */
+  .content-section {
+    padding: 1.5rem;
+    padding-bottom: 4rem; /* Space for bottom nav */
+    margin-top: -70px;
   }
 
   .nav__search {
@@ -1722,3 +1803,42 @@ img {
 .show-rock-location-btn i {
     font-size: 12px;
 }
+
+
+.sources {
+  max-width: 800px;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+.sources h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.sources h3 {
+  margin-top: 2rem;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.sources ul {
+  list-style-type: disc;
+  padding-left: 2rem;
+}
+
+.sources li {
+  margin-bottom: 0.5rem;
+}
+
+.sources a {
+  color: #0645ad;  /* klassisches Link-Blau */
+  text-decoration: underline;  /* unterstreichen */
+}
+
+.sources a:hover {
+  color: #0b0080;
+  text-decoration: underline;
+}
+
