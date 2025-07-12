@@ -32,7 +32,7 @@ const personenDaten = {
             grabKoordinaten: [48.130472380841496, 11.56624671866165] 
   }
 ,
-"friedrich-gärtner": {
+"friedrich-gaertner": {
     name: "Friedrich Gärtner",
     beschreibung: `
         <br><p style="text-align: justify;">Friedrich von Gärtner war ein bedeutender deutscher Architekt des 19. Jahrhunderts und einer der wichtigsten Vertreter des Spätklassizismus. Als Sohn des Malers Andreas Gärtner erhielt er eine künstlerische Ausbildung und prägte später mit seinen Entwürfen das Stadtbild Münchens und anderer europäischer Städte.</p>
