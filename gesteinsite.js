@@ -574,14 +574,11 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    if (items.length > 0) {
-        items[0].click();
-        showSection('gesteine'); // Standardmäßig Gesteine anzeigen
-    } else {
-        showSection('home'); // Fallback
-    }
+    // Standardmäßig Homepage anzeigen und nicht Gesteine
+    showSection('Homepage');
 });
 
+// Rest des Codes bleibt gleich...
 document.getElementById('gesteinDropdown').addEventListener('change', function () {
   const steinId = this.value;
   if (steinId) {

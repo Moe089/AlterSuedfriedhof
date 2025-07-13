@@ -1085,6 +1085,8 @@ document.getElementById('searchButton').addEventListener('click', () => {
 });
 
 */
+
+
 function showSection(sectionId, subId = null) {
     // Verstecke alle Sektionen und setze Navigation zurück
     document.querySelectorAll('.content-section').forEach(section => {
@@ -1096,11 +1098,20 @@ function showSection(sectionId, subId = null) {
         activeSection.classList.add('active-section');
     }
 
-    // Aktualisiere die URL
-    if (subId) {
-        window.location.hash = `${sectionId}/${subId}`;
-    } else {
-        window.location.hash = sectionId;
+    // Aktiven Link in der Navigation markieren
+    document.querySelectorAll('.nav__link').forEach(link => {
+        link.classList.remove('active-link');
+    });
+
+    const activeLink = document.querySelector(`.nav__link[href="#${sectionId}"]`);
+    if (activeLink) {
+        activeLink.classList.add('active-link');
+    }
+
+    // Nur Hash aktualisieren, wenn er sich ändert
+    const newHash = subId ? `${sectionId}/${subId}` : sectionId;
+    if (window.location.hash.substring(1) !== newHash) {
+        window.location.hash = newHash;
     }
 
     // Spezielle Handhabung für die Karte
@@ -1116,17 +1127,6 @@ function showSection(sectionId, subId = null) {
     }
 
     
-    // Aktiven Link in der Navigation markieren
-    document.querySelectorAll('.nav__link').forEach(link => {
-        link.classList.remove('active-link');
-    });
-
-    const activeLink = document.querySelector(`.nav__link[href="#${sectionId}"]`);
-    if (activeLink) {
-        activeLink.classList.add('active-link');
-    }
-
-    // ✅ Wenn subId vorhanden ist, direkt Detailansicht laden
     if (subId) {
         if (sectionId === 'personen') {
             setTimeout(() => showPersonDetail(subId), 50);
@@ -1136,10 +1136,50 @@ function showSection(sectionId, subId = null) {
     }
 
 
-
-    // Zusätzlich: Hash-basierte Detailansicht handhaben
     handleDetailNavigation();
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+    const hash = window.location.hash.substring(1);
+    
+
+    if (!hash) {
+        document.querySelectorAll('.content-section').forEach(section => {
+            section.classList.remove('active-section');
+        });
+        document.getElementById('Homepage').classList.add('active-section');
+        
+        document.querySelectorAll('.nav__link').forEach(link => {
+            link.classList.remove('active-link');
+        });
+        document.querySelector('.nav__link[href="#Homepage"]').classList.add('active-link');
+    } else {
+        const baseSection = hash.split('/')[0] || 'Homepage';
+        const subId = hash.split('/')[1] || null;
+        showSection(baseSection, subId);
+    }
+});
+
+window.addEventListener('hashchange', function() {
+    const hash = window.location.hash.substring(1);
+    
+    if (!hash) {
+
+        document.querySelectorAll('.content-section').forEach(section => {
+            section.classList.remove('active-section');
+        });
+        document.getElementById('Homepage').classList.add('active-section');
+        
+        document.querySelectorAll('.nav__link').forEach(link => {
+            link.classList.remove('active-link');
+        });
+        document.querySelector('.nav__link[href="#Homepage"]').classList.add('active-link');
+    } else {
+        const baseSection = hash.split('/')[0] || 'Homepage';
+        const subId = hash.split('/')[1] || null;
+        showSection(baseSection, subId);
+    }
+});
 function handleDetailNavigation() {
     const hash = window.location.hash.substring(1);
     
@@ -1299,15 +1339,28 @@ document.getElementById('searchButton').addEventListener('click', () => {
 
 document.addEventListener('DOMContentLoaded', function() {
     const hash = window.location.hash.substring(1);
-    const baseSection = hash.split('/')[0] || 'home';
-    const subId = hash.split('/')[1] || null;
-    showSection(baseSection, subId);
+    
+    // Wenn kein Hash vorhanden ist oder Hash 'home' ist, zeige Home-Section
+    if (!hash || hash === 'home' || hash === 'Homepage') {
+        showSection('Homepage');
+    } else {
+        const baseSection = hash.split('/')[0] || 'Homepage';
+        const subId = hash.split('/')[1] || null;
+        showSection(baseSection, subId);
+    }
 });
+
 window.addEventListener('hashchange', function() {
     const hash = window.location.hash.substring(1);
-    const baseSection = hash.split('/')[0] || 'home';
-    const subId = hash.split('/')[1] || null;
-    showSection(baseSection, subId);
+    
+    // Wenn Hash leer ist (z.B. nach Entfernen des Hashes), zeige Home-Section
+    if (!hash) {
+        showSection('Homepage');
+    } else {
+        const baseSection = hash.split('/')[0] || 'Homepage';
+        const subId = hash.split('/')[1] || null;
+        showSection(baseSection, subId);
+    }
 });
 // Suchvorschläge Funktion
 function showSearchSuggestions(query) {

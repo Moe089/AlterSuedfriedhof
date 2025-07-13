@@ -389,7 +389,7 @@ createCustomMarker(48.130066, 11.565872,
         createCustomMarker(48.12944686673255, 11.566483691300379, 
             "./Fotos/grabstein/grab_senefelder.png", "Grab Alois Senefelder", markers.layer2);
         createCustomMarker(48.1306902208633, 11.566399154097912, 
-            "./Fotos/grabstein/straub_grab.png", "Grab Roman Boos", markers.layer2);
+            "./Fotos/grabstein/boos.png", "Grab Roman Boos", markers.layer2);
         createCustomMarker(48.13020766844287, 11.566064541718118, 
             "./Fotos/grabstein/zenetti.png", "Grab Arnold Zenetti", markers.layer2);
             createCustomMarker(48.126416431123516, 11.563765486149405, 
