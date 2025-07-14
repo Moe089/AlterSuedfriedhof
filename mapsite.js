@@ -1126,7 +1126,7 @@ createCustomMarker(48.130066, 11.565872,
                 
                 createMaterialMarker(
                     48.12700316519899, 11.566071173222651,
-                    "./Fotos/gestein/Ohm_Stein.jpg",
+                    "./Fotos/gestein/Ohm_Stein.JPG",
                     "Stein - Muschelkalk",
                     markers.layer3,
                     "ohm",
@@ -1712,7 +1712,7 @@ const graveMaterials = {
     
         "scherer": {
         name: "Scherer",
-        imageUrl: "./Fotos/grabstein/scherer.png",
+        imageUrl: "./Fotos/grabstein/Scherer.png",
         materials: {
             "Stein": "Molassesandstein" 
         }

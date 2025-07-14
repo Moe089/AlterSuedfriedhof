@@ -1821,24 +1821,29 @@ img {
   margin-top: 2rem;
   font-size: 1.5rem;
   color: #333;
+  font-size: smaller;
 }
 
 .sources ul {
   list-style-type: disc;
   padding-left: 2rem;
+  font-size: smaller;
 }
 
 .sources li {
   margin-bottom: 0.5rem;
+  font-size: smaller;
 }
 
 .sources a {
   color: #0645ad;  /* klassisches Link-Blau */
   text-decoration: underline;  /* unterstreichen */
+  font-size: smaller;
 }
 
 .sources a:hover {
   color: #0b0080;
   text-decoration: underline;
 }
+
 
