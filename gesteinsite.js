@@ -44,7 +44,7 @@ const gesteineDaten = {
 },
 "nummulitenkalk": {
   name: "Nummulitenkalk (Enzenauer Marmor)",
-  fundort: "Bad Heilbrunn (Enzenau), Sonthofen, Rohrdorf",
+  fundort: "Bad Heilbrunn (Enzenau), Sonthofen, Rohrdorf, Bad Adelholzen",
   fundland: "Deutschland <br> (Alpennordrand, Helvetikum-Zone)",
   bezeichnung: "Fossilschuttkalk <br> (handelsüblich als 'Enzenauer Marmor' bezeichnet)",
   alter: "Alttertiär (Paläogen)",
@@ -53,7 +53,8 @@ const gesteineDaten = {
   koordinaten: [
     [47.7512, 11.4347],  // Bad Heilbrunn
     [47.5144, 10.2814],  // Sonthofen
-    [47.7972, 12.1700]   // Rohrdorf
+    [47.7972, 12.1700],   // Rohrdorf
+    [47.809335, 12.613912]
   ],
   bild: "./Fotos/gestein/Stein_Zenetti.JPG",
   beschreibung: "<br><p style='text-align: justify;'><strong>Petrographie & Entstehung</strong><br>Der Nummulitenkalk ist ein charakteristischer Fossilschuttkalk der Helvetikum-Zone, abgelagert im flachmarinen Schelfbereich des Alttertiärs. Sein Markenzeichen sind eingeschlossene Nummuliten - münzenförmige Gehäuse großer Foraminiferen (Einzeller). Das Gestein zeigt eine steilstehende Bankschichtung (2-20 m Mächtigkeit) und enthält neben den dominierenden Nummuliten auch dickschalige Mollusken, Seeigelreste und Kalkalgen. Die Rohdichte beträgt 2,72 g/cm³ bei stark variierender Druckfestigkeit (45-136 N/mm²). Quarzdetritus ist nur in Spuren vorhanden, lokal geht das Gestein in Nummulitensandstein über.</p><br><p style='text-align: justify;'><strong>Lagerstätten</strong><br>Mehrere kleinere Vorkommen am Alpennordrand (Sonthofen, Rohrdorf, Reichenhall), wobei nur der 'Enzenauer Marmor' bei Bad Heilbrunn wirtschaftliche Bedeutung erlangte. Die Bezeichnung als 'Marmor' ist handelsüblich - petrographisch handelt es sich um nicht metamorphen Sedimentkalk.</p><br><p style='text-align: justify;'><strong>Historische Nutzung</strong><br>Der Abbau konzentrierte sich auf das Bad Heilbrunner Vorkommen, wo der Stein als begehrter Dekorations- und Mauerstein gewonnen wurde. Seine lebhafte Fossilführung machte ihn zu einem besonderen Architekturmaterial. Der Abbau wurde vor Jahrzehnten eingestellt, sodass der Stein heute nur noch in historischen Bauten zu finden ist.</p><br><p style='text-align: justify;'><strong>Besonderheiten</strong><br>Der Nummulitenkalk dokumentiert eindrucksvoll die flachmarinen Bildungsbedingungen des Alpenvorlands im Paläogen. Seine Fossilgesellschaft (insbesondere die namensgebenden Nummuliten) ermöglicht präzise stratigraphische Einstufungen. Als Baustein vereint er ästhetische Fossiloptik mit guten technischen Eigenschaften, was ihn trotz begrenzter Verbreitung zu einem regional bedeutenden Kulturgestein machte.</p>",
@@ -89,7 +90,7 @@ const gesteineDaten = {
 
     "getigerter-schilfsandstein": {
   name: "Roter getigerter Schilfsandstein",
-  fundort: "Spessart, Odenwald, Franken (z. B. Miltenberg, Lohr)",
+  fundort: "wahrscheinlich Spessart, Odenwald, Franken (z. B. Miltenberg, Lohr)",
   fundland: "Deutschland",
   bezeichnung: "Buntsandstein (Schilfsandstein-Varietät)",
   alter: "vsl. Trias (Oberer Buntsandstein)",
@@ -97,7 +98,7 @@ const gesteineDaten = {
   struktur: "Gebändert (tigerartig), wechsellagernd grob- und feinkörnig",
   koordinaten: [49.7039, 9.2645],  // Beispiel: Miltenberg
   bild: "./Fotos/gestein/jolly_stein.JPG",
-  beschreibung: "<br><p style='text-align: justify;'><strong>Petrographie:</strong> Roter, fein- bis mittelkörniger Sandstein mit typischer Tigerung durch Wechsellagerung eisenoxidreicher Schichten. Entstanden in fluviatilen Ablagerungsräumen des Oberen Buntsandsteins.</p><br><p style='text-align: justify;'><strong>Verwendung:</strong> Seit dem Mittelalter als Baumaterial für Burgen, Kirchen und Fachwerk. Heute noch in ausgewählten Brüchen gewonnen, v. a. für Denkmalpflege und Landschaftsbau.</p>",
+  beschreibung: "<br><p style='text-align: justify;'><strong>Petrographie:</strong> Roter, fein- bis mittelkörniger Sandstein mit Tigerung, wahrscheinlich durch Wechsellagerung eisenoxidreicher Schichten. Entstanden in fluviatilen Ablagerungsräumen des Oberen Buntsandsteins.</p><br><p style='text-align: justify;'><strong>Verwendung:</strong> Seit dem Mittelalter als Baumaterial für Burgen, Kirchen und Fachwerk. Heute noch in ausgewählten Brüchen gewonnen, v. a. für Denkmalpflege und Landschaftsbau.</p>",
   hinweis: "Die auffällige Bänderung entsteht durch unterschiedliche Eisenoxid-Verteilung. Nicht zu verwechseln mit ähnlichen Buntsandstein-Varietäten."
 },
 
@@ -139,7 +140,7 @@ const gesteineDaten = {
     [49.642508867488814, 9.786033760912673]    
   ],
   bild: "./Fotos/gestein/Ohm_Stein.JPG",
-  beschreibung: "<br><p style='text-align: justify;'><strong>Petrographie & Entstehung</strong><br>Der Muschelkalk ist ein mariner Kalkstein der Mittleren Trias, abgelagert im flachen Germanischen Becken. Charakteristisch ist seine Fossilführung (v.a. Muscheln, Brachiopoden und Ceratiten - eine Ammonitenart). Es werden drei Hauptschichten unterschieden: Unterer, Mittlerer und Oberer Muschelkalk mit unterschiedlichen sedimentologischen Eigenschaften.</p><br><p style='text-align: justify;'><strong>Abbau & Vorkommen</strong><br>Hauptabbaugebiete liegen in der Maingegend (Unterfranken) und im Crailsheimer Raum (Baden-Württemberg). Der Stein wird seit dem 19. Jahrhundert systematisch gewonnen, wobei verschiedene Varietäten (von feinkörnig bis grobschalig) vorkommen. Die Steinbrüche sind teilweise noch heute in Betrieb.</p><br><p style='text-align: justify;'><strong>Historische Verwendung</strong><br>In München ab 1840 (Einzelstücke) und verstärkt ab 1880 als Grabmalstein genutzt. Besondere Bedeutung erlangte er in den 1950er-60er Jahren als Ersatzmaterial für zerstörte Grabdenkmäler auf dem Südfriedhof. Seine leichte Bearbeitbarkeit und gute Witterungsbeständigkeit machten ihn zu einem geschätzten Material für Denkmäler und Architektur.</p><br><p style='text-align: justify;'><strong>Besonderheiten</strong><br>Der Muschelkalk zeigt regional stark variierende Ausprägungen - von homogenen bis stark fossilreichen Varietäten. Als typisches Leitgestein der Trias ist er von großer stratigraphischer Bedeutung. Seine technischen Eigenschaften (Rohdichte ~2,5 g/cm³, Druckfestigkeit 40-120 N/mm²) machen ihn zu einem vielseitig verwendbaren Naturstein.</p>",
+  beschreibung: "<br><p style='text-align: justify;'><strong>Petrographie & Entstehung</strong><br>Der Muschelkalk ist ein mariner Kalkstein der Mittleren Trias, abgelagert im flachen Germanischen Becken. Charakteristisch ist seine Fossilführung (v.a. Muscheln, Brachiopoden und Ceratiten - eine Ammonitenart). Es werden drei Hauptschichten unterschieden: Unterer, Mittlerer und Oberer Muschelkalk mit unterschiedlichen sedimentologischen Eigenschaften.</p><br><p style='text-align: justify;'><strong>Abbau & Vorkommen</strong><br>Hauptabbaugebiete liegen in der Maingegend (Unterfranken) und im Crailsheimer Raum (Baden-Württemberg). Der Stein wird seit dem 19. Jahrhundert systematisch gewonnen, wobei verschiedene Varietäten (von feinkörnig bis grobschalig) vorkommen. Die Steinbrüche sind teilweise noch heute in Betrieb.</p><br><p style='text-align: justify;'><strong>Historische Verwendung</strong><br>In München ab 1840 (Einzelstücke) und verstärkt ab 1880 als Grabmalstein genutzt. Besondere Bedeutung erlangte er in den 1950er-60er Jahren als Ersatzmaterial für zerstörte Grabdenkmäler auf dem Südfriedhof. Seine leichte Bearbeitbarkeit und gute Witterungsbeständigkeit machten ihn zu einem geschätzten Material für Denkmäler und Architektur.</p><br><p style='text-align: justify;'><strong>Besonderheiten</strong><br>Der Muschelkalk zeigt regional stark variierende Ausprägungen - von homogenen bis stark fossilreichen Varietäten.</p>",
   hinweis: "<p style='text-align: justify;'>Trotz des Namens handelt es sich petrographisch nicht um Muscheln allein, sondern um einen komplexen marinen Kalkstein mit vielfältiger Fossilführung. Die Bezeichnung bezieht sich auf die geologische Formation der Mittleren Trias.</p>"
 },
 
@@ -293,10 +294,10 @@ beschreibung: "<br><p style='text-align: justify;'><strong>Petrographie & Entste
         fundort: "Lechbruck am See (Oberbayern), Alpenvorland",
         fundland: "Deutschland (Bayern)",
         bezeichnung: "Fein- bis mittelkörniger, kalkgebundener Sandstein",
-        alter: "Oligozän bis Miozän (ca. 30–10 Mio. Jahre)",
+        alter: "Tertiär",
         gesteinsgruppe: "Sedimentgestein (Molasse-Becken)",
         struktur: "Gleichkörnig, schwach gebankt, lokal schräggeschichtet",
-        koordinaten: "Lechbruck am See: 47.7000° N, 10.8000° E",
+        koordinaten: [47.69413103867981, 10.799581002701295],
         bild: "./Fotos/gestein/molasse_sandstein_scherer.JPG",
         beschreibung: "Der Lechbrucker Molassesandstein entstand durch Ablagerung von Flusssedimenten im alpinen Vorlandbecken. Charakteristisch ist seine kalkige Bindung und hohe Wetterbeständigkeit. Historisch wichtiger Baustein für Kirchen und Denkmäler im Allgäu. Oft mit fossilen Pflanzenabdrücken (Blattabdrücke) erhalten.",
     },
@@ -350,18 +351,23 @@ beschreibung: "<br><p style='text-align: justify;'><strong>Petrographie & Entste
   beschreibung: "<br><p style='text-align: justify;'><strong>Petrographie & Entstehung</strong><br>Der Hohenschwangauer Kalk entstand in der Oberkreide in einem flachen Schelfmeer. Charakteristisch sind zahlreiche Fossilreste von Rudisten (ausgestorbene Muscheln) und Korallen, die dem Gestein seine typische Struktur verleihen. Die helle, beige-graue Färbung entsteht durch den hohen Kalkgehalt.</p><br><p style='text-align: justify;'><strong>Abbau & Lagerstätten</strong><br>Traditionelle Abbaugebiete befinden sich im Dreieck Hohenschwangau-Füssen-Pfronten. Die Kalkbänke erreichen Mächtigkeiten bis 15 Meter und wurden seit dem Mittelalter in kleinen Steinbrüchen gewonnen. Heute findet nur noch vereinzelt Abbau statt.</p><br><p style='text-align: justify;'><strong>Historische Nutzung</strong><br>Wahrscheinlich bereits für das Schloss Hohenschwangau (1832-1836) verwendet. Später beliebt für lokale Sakralbauten und Denkmäler im Allgäu. Seine gute Bearbeitbarkeit und Wetterbeständigkeit machten ihn zum bevorzugten Baumaterial der Region.</p><br><p style='text-align: justify;'><strong>Besonderheiten</strong><br>Als Zeugnis der Kreidezeit dokumentiert der Hohenschwangauer Kalk die tropischen Meeresbedingungen im Alpenvorland. Die charakteristischen Rudisten-Fossilien sind Leitfossilien für diese geologische Epoche. Das Gestein zeigt häufig schöne natürliche Musterungen.</p>",
   hinweis: "<p style='text-align: justify;'>Hinweis: Der Hohenschwangauer Kalk ist nicht zu verwechseln mit dem jüngeren Jura-Kalkstein der Fränkischen Alb. Für Restaurierungen wird ausschließlich Material aus den historischen Brüchen verwendet.</p>"
 },
-"diorit": {
-  name: "Diorit",
-  fundort: "Herkunft ungeklärt (mögliche Quellen: Bayerischer Wald, Fichtelgebirge, Alpen)",
-  fundland: "Deutschland (Region unbekannt)",
-  bezeichnung: "Magmatisches Tiefengestein (Plutonit)",
-  alter: "Variskisch oder Alpidisch (ca. 300-50 Mio. Jahre)",
-  gesteinsgruppe: "Magmatisches Gestein",
-  struktur: "Mittel- bis grobkörnig, grau-schwarz mit hellen Feldspat-Einsprenglingen",
-  koordinaten: null,
-  bild: "./Fotos/gestein/diorit.JPG",
-  beschreibung: "<br><p style='text-align: justify;'><strong>Petrographie & Entstehung</strong><br>Diorit ist ein intermediäres Tiefengestein, das durch langsames Erstarren von Magma in der Erdkruste entstand. Charakteristisch ist seine salt-and-pepper-Textur durch die Kombination dunkler Minerale (Hornblende, Biotit) mit hellen Plagioklas-Feldspäten. Die genaue petrographische Zusammensetzung der am Südfriedhof verwendeten Varietät ist nicht dokumentiert.</p><br><p style='text-align: justify;'><strong>Historische Verwendung</strong><br>Am Alten Südfriedhof München wurde Diorit in der zweiten Hälfte des 19. Jahrhunderts vereinzelt für Grabsteine und Monumente verwendet. Trotz seiner attraktiven Optik blieb er ein Nischenmaterial, da Bearbeitung und Transport aufwändiger waren als bei lokalen Kalksteinen. Die exakte Herkunft der verbauten Steine ist archivalisch nicht belegt.</p><br><p style='text-align: justify;'><strong>Mögliche Herkunftsregionen</strong><br>Als mögliche Bezugsquellen kommen plutonische Vorkommen aus dem Bayerischen Wald, Fichtelgebirge oder den Zentralalpen in Frage. Eine petrographische Vergleichsstudie mit bekannten Diorit-Lagerstätten Süddeutschlands stünde noch aus.</p><br><p style='text-align: justify;'</p>",
-},
+
+  "diorit": {
+    name: "Diorit",
+    fundort: "Wahrscheinlich Vorspessart (Schweinheim, Gailbach, Dörrmorsbach), Regensburger Wald (Roßbach), Passauer Wald (Fürstenstein-Tittling)",
+    fundland: "Deutschland (Bayern)",
+    bezeichnung: "Magmatisches Tiefengestein (Plutonit)",
+    alter: "Variskisch (ca. 300 Mio. Jahre)",
+    gesteinsgruppe: "Magmatisches Gestein",
+    struktur: "Mittel- bis grobkörnig, grau-schwarz mit bläulichweißen Plagioklasen (3-20 mm) und dunklen Hornblende-Biotit-Aggregaten",
+    koordinaten: null,
+    bild: "./Fotos/gestein/diorit.JPG",
+    beschreibung: "<br><p style='text-align: justify;'><strong>Petrographie & Entstehung</strong><br>Diorit ist ein intermediäres Tiefengestein, das durch langsames Erstarren von Magma in der Erdkruste entstand. Sein charakteristisches gesprenkeltes Erscheinungsbild entsteht durch das Nebeneinander dunkler Minerale wie Hornblende und Biotit mit hellen Plagioklas-Feldspäten. Im Vorspessart zeigt das Gestein metamorphe Umbildungserscheinungen, während es im Regensburger Wald als feinkörniger „Blaugranit“ mit besonders hoher Widerstandsfähigkeit vorkommt.</p><br><p style='text-align: justify;'><strong>Historische Verwendung</strong><br>Am Alten Südfriedhof München wurde Diorit vereinzelt für Grabsteine verwendet. Seine Hauptbedeutung lag jedoch in der Nutzung als Baumaterial – vom klassischen Pflasterstein des „Paradiesdiorits“ aus Fürstenstein bis zu monumentalen Anwendungen wie der Universität Regensburg oder der Schloßterrasse Bad Alexandersbad.</p><br><p style='text-align: justify;'><strong>Herkunftsregionen</strong><br>Die bedeutendsten bayerischen Vorkommen liegen im Vorspessart zwischen Schweinheim und Waldaschaff, im Regensburger Wald um Roßbach sowie im Passauer Wald bei Fürstenstein-Tittling. Besonders die Diorite des Passauer Waldes beeindrucken durch ihre Varietätenvielfalt, darunter Titanitfleckendiorite mit tausenden dunklen Mineralaggregaten pro Quadratmeter. Charakteristisch sind auch die granitischen Gängeinschlüsse im Regensburger Wald und aplitartige Durchdringungen im Vorspessart-Material.</p>"
+    ,
+    hinweis: "Die genaue Herkunft des am Alten Südfriedhof verwendeten Diorits wurde hier nicht belegt. Die genannten bayerischen Vorkommen stellen lediglich mögliche Bezugsquellen dar, die petrographisch in Frage kommen. Eine exakte Provenienzbestimmung wäre nur durch materialwissenschaftliche Analysen möglich."
+}
+
+,
 "hoegler-sandstein": {
   name: "Högler Sandstein",
   fundort: "Dopplerbruch (Ainring), Gschwendtner Bruch, Högler Rundwanderweg (Salzburger Umgebung)",
@@ -391,21 +397,27 @@ beschreibung: "<br><p style='text-align: justify;'><strong>Petrographie & Entste
         beschreibung: "Der Forellensandstein erhielt seinen Namen durch die charakteristischen, an Fischhaut erinnernden Flecken (Mangan- und Eisenoxid-Ausscheidungen). Entstand in fluviatilen bis äolischen Ablagerungsmilieus. Wichtiger historischer Baustein für Sakralbauten und repräsentative Gebäude in Baden-Württemberg."
     },*/
 "plattensandstein": {
+
   name: "Plattensandstein",
-  fundort: "Süddeutschland (Fränkische Alb, Schwäbische Alb, Odenwald, Spessart, Pfalz, Saargebiet), Thüringen, Sachsen",
-  fundland: "Deutschland (Bayern, Baden-Württemberg, Hessen, Rheinland-Pfalz, Saarland, Thüringen, Sachsen)",
-  bezeichnung: "Dünnbankiger Sandstein mit plattiger Absonderung",
+  fundort: "Franken (Rhön bis Amorbach), südlich des Mains bei Ebenheid, Dietenhan (Baden-Württemberg) sowie Holzkirchen, Wüstenzell und Remlingen (Bayern)",
+  fundland: "Deutschland (Bayern, Baden-Württemberg)",
+  bezeichnung: "Mittel- bis dickbankiger Sandstein des Oberen Buntsandsteins",
   alter: "Meist Unterer Keuper oder Oberer Buntsandstein (Trias, 250–200 Mio. Jahre)",
   gesteinsgruppe: "Sedimentgestein (klastischer Sandstein)",
   struktur: "Fein- bis mittelkörnig, ausgeprägte plattige Bankung (2–10 cm Schichtdicke), frostempfindlich",
-  koordinaten: [
-    [49.0000, 8.7500],  // Nordschwarzwald
-    [49.8333, 9.0000],  // Spessart
-    [50.1500, 10.5000]  // Hassberge
-  ],
+  koordinaten: 
+  [
+    [49.7000, 9.3000],
+    [49.8000, 9.7000],
+    [49.9000, 9.6500],
+    [49.9000, 9.6500],
+    [49.8000, 9.2000]
+  ]
+  ,
   bild: "./Fotos/gestein/Stein_Brey.JPG",
-  beschreibung: "<br><p style='text-align: justify;'><strong>Petrographie & Entstehung</strong><br>Plattensandsteine entstanden in flachen Meeres- oder Delta-Bereichen mit rhythmischer Sedimentation. Die charakteristische plattige Absonderung resultiert aus feinen Tonlagen zwischen den Sandsteinbänken. Die Farbe variiert je nach Region von rötlich bis gelblich-grau.</p><br><p style='text-align: justify;'><strong>Abbau & Lagerstätten</strong><br>Historisch wurde der Stein in zahlreichen Brüchen gewonnen, besonders im südlichen Baden-Württemberg, Odenwald, Spessart, Pfalz und Saargebiet. Die plattige Struktur ermöglichte eine einfache Gewinnung von Dünnplatten, führte aber zu hohem Verschnitt.</p><br><p style='text-align: justify;'><strong>Historische Nutzung</strong><br>Am Alten Südfriedhof trat Plattensandstein ab den 1840er Jahren auf, war aber nach 1900 kaum noch zu finden. Hauptsächlich verwendet für Fußbodenplatten, Tröge und architektonische Details. Trotz seiner Harte erwies er sich als frostempfindlich, was seine Nutzung einschränkte.</p><br><p style='text-align: justify;'><strong>Besonderheiten</strong><br>Der Stein zeigt ausgeprägte Reaktionen auf Frost-Tau-Wechsel, was zu vorzeitiger Verwitterung führen kann. Seine plattige Natur machte ihn ideal für bestimmte Anwendungen, begrenzte aber auch die Einsatzmöglichkeiten. Heute nur noch selten in Restaurierungen verwendet.</p>",
-  hinweis: "<p style='text-align: justify;'>Achtung: Trotz seiner an sich robusten Natur ist Plattensandstein für frostexponierte Anwendungen ungeeignet. Bei historischen Grabmalen sind oft typische Schalenbildungen und Absandungen zu beobachten.</p>"
+beschreibung: "<br><p style='text-align: justify;'><strong>Petrographie & Eigenschaften</strong><br>Plattensandstein ist sehr feinkörnig bis mittelkörnig mit Ton- und Eisenbindung, teilweise kieselig gebunden. Farblich variiert er von Grau über blassrot bis satt Braunrot, oft mit Entfärbungshöfen. Er ist frostbeständig, jedoch nicht tausalzbeständig.</p><br><p style='text-align: justify;'><strong>Abbau & Verwendung</strong><br>Wichtige Abbaugebiete liegen heute südlich des Mains bei Miltenberg, Amorbach und Marktheidenfeld. Historisch wurde der Stein für Steinmetzarbeiten, Fassadenverkleidungen, Fenster- und Türgewände genutzt. Auch am Alten Südfriedhof München wurde er vereinzelt verbaut, ist heute aber nur noch selten im Einsatz.</p><br><p style='text-align: justify;'><strong>Besonderheiten</strong><br>Plattensandstein ist leicht zu bearbeiten, jedoch empfindlich gegenüber Tausalz. Zeitweise auftretende Tongallen können die Qualität beeinträchtigen. Im Handel wird er häufig als „Roter Mainsandstein“ oder unter regionalen Bezeichnungen wie „Ebenheid rot“ geführt.</p>"
+,
+hinweis: "<p style='text-align: justify;'>Achtung: Trotz seiner an sich robusten Natur ist Plattensandstein für frostexponierte Anwendungen ungeeignet. Bei historischen Grabmalen sind oft typische Schalenbildungen und Absandungen zu beobachten.</p>"
 },
    /* "larvikit":
     {
@@ -466,8 +478,9 @@ beschreibung: "<br><p style='text-align: justify;'><strong>Petrographie & Entste
     [47.7000, 13.1333]  // Adnet, Austria
   ],
   bild: "./Fotos/gestein/adneter_marmor.JPG",
-  beschreibung: "<br><p style='text-align: justify;'><strong>Petrographie & Entstehung</strong><br>Der Adneter Marmor (Adnet-Formation) ist ein fossilreicher Riff- und Knollenkalk aus dem Unterjura. Charakteristisch sind seine roten bis rosafarbenen Knollen in grauer Matrix, entstanden durch Eisenoxid-Pigmentierung in einem flachen tropischen Meer. Enthält zahlreiche Fossilien von Ammoniten und Belemniten.</p><br><p style='text-align: justify;'><strong>Abbau & Varietäten</strong><br>Gewonnen in den historischen Adneter Marmorbrüchen. Die Formation zeigt verschiedene Faziesausbildungen von massigen Riffkalken bis zu plattigen Knollenkalken. Zusammen mit Ruhpoldinger und Trientiner 'Marmor' bildet er die klassischen roten Knollenkalke Mitteleuropas.</p><br><p style='text-align: justify;'><strong>Historische Nutzung</strong><br>Seit dem 17. Jahrhundert in München nachgewiesen. Berühmte Verwendung in Meisterwerken der Spätgotik (Veit Stoß, Riemenschneider, Gerhaert van Leyden). Besonders geschätzt für Taufsteine, Grabmonumente und Sakralkunst. Seine Politurfähigkeit und Farbbrillanz machten ihn zum bevorzugten Material repräsentativer Kunstwerke.</p><br><p style='text-align: justify;'><strong>Kulturelle Bedeutung</strong><br>Trotz petrographisch korrekter Bezeichnung als Kalkstein hat sich der Begriff 'Adneter Marmor' kunsthistorisch etabliert. Die unverwechselbare Rotfärbung und Fossilführung machen ihn zu einem der bedeutendsten historischen Werksteine des Alpenraums, besonders für sakrale Kunst.</p>",
+  beschreibung: "<br><p style='text-align: justify;'><strong>Petrographie & Entstehung</strong><br>Der Adneter Marmor entstand im Unteren Jura (Lias), als der Meeresboden durch Dehnungsvorgänge stark abgesenkt wurde. Dabei bildete sich ein ruhiges Bodenrelief mit tiefen Becken und erhöhten Schwellen. Auf den Schwellen konnte sich nur wenig Kalkschlamm ablagern. Vom Festland und küstennahen Flachwassergebieten wurden Ton und rotes Eisenoxid eingeschwemmt und im Kalkschlamm angereichert. So entstanden die dünnbankigen, durch tonig-mergelige Zwischenlagen getrennten Rotkalke. Ihre charakteristische knollig-flaserige Struktur entwickelte sich durch Gleitungen im noch nicht verfestigten Zustand, weshalb die roten Adneter Marmore auch als Lias-Knollenkalke bezeichnet werden.</p><br><p style='text-align: justify;'></p><br><p style='text-align: justify;'><strong>Abbau & Historische Nutzung</strong><br>Der Abbau und die Nutzung verschiedener Adneter Marmor-Typen ist bereits seit der Römerzeit belegt. Im Mittelalter entwickelten sich wechselnde Modeströmungen für die künstlerische Verwendung dieser polierfähigen Gesteine, die sich in zahlreichen Sakral- und Profanbauten in Salzburg und vielen mitteleuropäischen Städten nachvollziehen lassen. Zu den bedeutendsten Steinmetzarbeiten gehören die Grabmäler von Kaiser Friedrich III. im Wiener Stephansdom, von Bischof Laurenz von Bibra im Würzburger Dom und jenes von Kaiser Maximilian I. in der Innsbrucker Hofkirche.</p><br><p style='text-align: justify;'><strong>Kulturelle Bedeutung</strong><br>Besonders geschätzt wurde der Adneter Marmor für Taufsteine, Grabmonumente und Sakralkunst. Seine Politurfähigkeit und Farbbrillanz machten ihn zum bevorzugten Material repräsentativer Kunstwerke. Zusammen mit Ruhpoldinger und Trientiner 'Marmor' bildet er die klassischen roten Knollenkalke Mitteleuropas. Die unverwechselbare Rotfärbung und Fossilführung machen ihn zu einem der bedeutendsten historischen Werksteine des Alpenraums.</p>",
   hinweis: "<p style='text-align: justify;'>Wichtig: Es handelt sich petrographisch um Kalkstein, nicht um Marmor. Die Bezeichnung 'Marmor' ist traditionell und bezieht sich auf die Politurfähigkeit. Echte Adneter Varietäten zeigen immer charakteristische Fossilien und Knollenstrukturen.</p>"
+
 },
 /*        fundort: "Hierlatz (Dachsteingebirge, Österreich), Nördliche Kalkalpen",
         fundland: "Österreich (Oberösterreich, Steiermark), Deutschland (Bayern)",
