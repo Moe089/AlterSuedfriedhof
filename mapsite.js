@@ -575,7 +575,7 @@ createCustomMarker(48.130066, 11.565872,
                 
                 createMaterialMarker(
                     48.12944686673255, 11.566483691300379,
-                    "./Fotos/gestein/Stein_Senefleder.JPG",
+                    "./Fotos/gestein/Stein_Klenze_new.JPG",
                     "Senefelder Grabstein - Kelheimer Kalk",
                     markers.layer3,
                     "senefelder",
@@ -1016,7 +1016,7 @@ createCustomMarker(48.130066, 11.565872,
                 
                 createMaterialMarker(
                     48.12620534820462, 11.564485442813355,
-                    "./Fotos/gestein/schwanthaler_stein_new.JPG", /*NOCH HOLEN*/
+                    "./Fotos/gestein/schwanthaler_stein_new.jpg", /*NOCH HOLEN*/
                     "Stein - Rosenheimer Kalk",
                     markers.layer3,
                     "schwanthaler",
@@ -1082,7 +1082,7 @@ createCustomMarker(48.130066, 11.565872,
                 
                 createMaterialMarker(
                     48.12623750194903, 11.56311966009462,
-                    "./Fotos/gestein/jolly_stein_new.jpg",
+                    "./Fotos/gestein/jolly_stein_new.JPG",
                     "Stein - roter getigerter Schilfsandstein",
                     markers.layer3,
                     "jolly",
