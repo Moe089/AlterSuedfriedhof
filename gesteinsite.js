@@ -193,23 +193,34 @@ const gesteineDaten = {
   struktur: "Feinkörniges Konglomerat aus Kalkgeröllen und fossilen Bruchstücken",
   koordinaten: [47.69832493,12.99026012],  
   bild: "./Fotos/gestein/untersberger_kalk.JPG",
-  beschreibung: "<br><p style='text-align: justify;'><strong>Petrographie & Entstehung</strong><br>Beim Untersberger Marmor handelt es sich petrographisch um ein dichtes Kalkstein-Konglomerat, dessen Kalkgerölle und fossile Bruchstücke durch karbonatische Grundmasse verfestigt sind. Mit 98-99% CaCO3-Gehalt und minimalem Porenvolumen (<0,5%) zeigt er ausgezeichnete Materialeigenschaften. Die Farbpalette reicht von homogenem Beige bis zu lebhaften Rosa- und Gelbtönen, verursacht durch unterschiedliche Fossilanteile.</p><br><p style='text-align: justify;'><strong>Abbau & Lagerstätten</strong><br>Seit der Römerzeit genutzt, wird der Stein heute durch die Marmor-Industrie Kiefer im Tagebau bei Fürstenbrunn abgebaut. Moderne Schneidtechnik (Diamantseilsägen) ermöglicht schonende Gewinnung. Zwei aktive Brüche existieren: der Kieferbruch und ein von der Familie Mayr-Melnhof gepachteter Bruch.</p><br><p style='text-align: justify;'><strong>Historische Nutzung</strong><br>Als ältester genutzter Naturstein Mitteleuropas fand er Verwendung seit der Römerzeit. Besondere Blüte unter Ludwig I. von Bayern für Prunkbauten. Als Grabstein seit den 1860er Jahren nachweisbar, im 20. Jahrhundert nur noch vereinzelt verwendet. Wichtiges Baumaterial für Salzburger Sakral- und Repräsentationsbauten.</p><br><p style='text-align: justify;'><strong>Besonderheiten</strong><br>Trotz der handelsüblichen Bezeichnung als Marmor liegt petrographisch nicht metamorpher Kalkstein vor. Seine außergewöhnliche Dichte (2.700 kg/m³) und Frostbeständigkeit bei gleichzeitig guter Bearbeitbarkeit machen ihn zum idealen Naturwerkstein. Die langjährige Abbautradition dokumentiert über 2000 Jahre Steinmetzkultur.</p>",
+  beschreibung: "<br><p style='text-align: justify;'><strong>Petrographie & Entstehung</strong><br>Beim Untersberger Marmor handelt es sich petrographisch um ein dichtes Kalkstein-Konglomerat, dessen Kalkgerölle und fossile Bruchstücke durch karbonatische Grundmasse verfestigt sind. Mit 98-99% CaCO3-Gehalt und minimalem Porenvolumen (<0,5%) zeigt er ausgezeichnete Materialeigenschaften. Die Farbpalette reicht von homogenem Beige bis zu lebhaften Rosa- und Gelbtönen, verursacht durch unterschiedliche Fossilanteile.</p><br><p style='text-align: justify;'><strong>Abbau & Lagerstätten</strong><br>Seit der Römerzeit genutzt, wird der Stein heute durch die Marmor-Industrie Kiefer im Tagebau bei Fürstenbrunn abgebaut. Moderne Schneidtechnik (Diamantseilsägen) ermöglicht schonende Gewinnung. Zwei aktive Brüche existieren: der Kieferbruch und ein von der Familie Mayr-Melnhof gepachteter Bruch.</p><br><p style='text-align: justify;'><strong>Historische Nutzung</strong><br>Als einer der älteststen genutzten Naturstein Mitteleuropas fand er Verwendung seit der Römerzeit. Besondere Blüte unter Ludwig I. von Bayern für Prunkbauten. Als Grabstein seit den 1860er Jahren nachweisbar, im 20. Jahrhundert nur noch vereinzelt verwendet. Wichtiges Baumaterial für Salzburger Sakral- und Repräsentationsbauten.</p><br><p style='text-align: justify;'><strong>Besonderheiten</strong><br>Trotz der handelsüblichen Bezeichnung als Marmor liegt petrographisch nicht metamorpher Kalkstein vor. Seine außergewöhnliche Dichte (2.700 kg/m³) und Frostbeständigkeit bei gleichzeitig guter Bearbeitbarkeit machen ihn zum idealen Naturwerkstein. Die langjährige Abbautradition dokumentiert über 2000 Jahre Steinmetzkultur.</p>",
   hinweis: "<p style='text-align: justify;'>Die Bezeichnung 'Marmor' ist handelsüblich aber petrographisch nicht korrekt - es handelt sich um nicht metamorphen Kalkstein. Der Untersberger Stein gilt als der historisch bedeutendste Naturwerkstein Österreichs.</p>"
 },
 "ruhpoldinger-marmor": {
-  "name": "Ruhpoldinger Marmor (Handelsbezeichnung)",
-  "fundort": "Ruhpolding, Chiemgauer Alpen (Bayern)",
-  "fundland": "Deutschland (Bayern)",
-  "bezeichnung": "Dekorativer Kalkstein (kein echter Marmor)",
-  "alter": "Oberen Jura Malm (ca. 150 Mio. Jahre)",
-  "gesteinsgruppe": "Sedimentgestein (Karbonatgestein)",
-  "struktur": "brekziös bzw. knollig",
-  "koordinaten": [
-    [47.749398574019224, 12.628466587046011]  // Ruhpolding
+  name: "Ruhpoldinger Marmor",
+  fundort: "Ruhpolding, Chiemgauer Alpen (Bayern)",
+  fundland: "Deutschland (Bayern)",
+  bezeichnung: "Knollenflaserkalk (traditionell als Marmor bezeichnet)",
+  alter: "Oberer Jura (Malm, ca. 150 Mio. Jahre)",
+  gesteinsgruppe: "Sedimentgestein (Karbonatgestein)",
+  struktur: "knollig-brekziös mit Flasertextur",
+  koordinaten: [
+    [47.749128, 12.628401]
   ],
-  "bild": "./Fotos/gestein/ruhpoldinger_marmor.JPG",
-  "beschreibung": "<br><p style='text-align: justify;'><strong>Petrographie & Entstehung</strong><br>Bei dem als 'Ruhpoldinger Marmor' vermarkteten Gestein handelt es sich um einen fossilreichen Kalkstein aus der Oberkreide. Die charakteristischen grünen Schlieren stammen von serpentinitischen Beimengungen. Trotz der Handelsbezeichnung liegt kein metamorpher Marmor vor.</p><br><p style='text-align: justify;'><strong>Abbau & Lagerstätten</strong><br>Gewonnen im Raum Ruhpolding in den Chiemgauer Alpen. Die Vorkommen gehören zur Kalkalpinen Decke und zeigen typische Bankdicken von 0.5-2 Metern. Der Abbau erfolgte bis ins 20. Jahrhundert in mehreren kleinen Brüchen.</p><br><p style='text-align: justify;'><strong>Historische Nutzung</strong><br>Wegen seiner dekorativen Optik als Baumaterial für lokale Sakralbauten und repräsentative Profangebäude verwendet. Seine Politurfähigkeit und das ungewöhnliche Farbspiel machten ihn trotz fehlender Metamorphose zu einem geschätzten Werkstein.</p><br><p style='text-align: justify;'><strong>Besonderheiten</strong><br>Die grünen Schlieren entstehen durch Einschwemmungen von Serpentinit-Material. Dieses ungewöhnliche Merkmal unterscheidet den Ruhpoldinger Kalkstein von anderen bayerischen Kalksteinvarietäten und erklärt seine populäre Bezeichnung als 'Marmor'.</p>",
-  "hinweis": "<p style='text-align: justify;'>Wichtiger Hinweis: Bei diesem Naturstein handelt es sich petrographisch nicht um echten Marmor, sondern um einen Kalkstein. Die Bezeichnung 'Marmor' ist eine traditionelle Handelsbezeichnung.</p>"
+  bild: "./Fotos/gestein/ruhpoldinger_marmor.JPG",
+  beschreibung: "<p style='text-align: justify;'><strong>Petrographie & Entstehung</strong><br>"
+  + "Der Ruhpoldinger 'Marmor' ist ein dickbankiger Knollenflaserkalk aus dem Oberen Malm. Charakteristisch sind braunrote, bis wenige Zentimeter große Kalkknollen in einer feinkörnigen Matrix. Im Schichtverband treten drei Varietäten auf: die vorherrschende rote Hauptvarietät mit deutlicher Bankung, eine gelbe, tonärmere Variante und beige Oolithkalke. Die Farbunterschiede entstehen durch Eisenoxid-Reduktion.</p><br>"
+  
+  + "<p style='text-align: justify;'><strong>Abbau & Lagerstätten</strong><br>"
+  + "Gewonnen wurde der Kalkstein seit dem Mittelalter an der Typlokalität Haßlberg und bei Fuchsau südlich von Ruhpolding. Die stillgelegten Brüche lieferten Material für Sakralbauten und repräsentative Profanbauten. Abfallmaterial fand Verwendung für Flussverbauungen und Bruchsteinmauern.</p><br>"
+  
+  + "<p style='text-align: justify;'><strong>Historische Nutzung</strong><br>"
+  + "Zählt neben Adneter und Trientiner Kalk zu den wichtigsten historischen 'Marmoren' Süddeutschlands. Trotz fehlender Metamorphose wurde er dank seiner Politurfähigkeit und des dekorativen Knollenmusters als Werkstein hoch geschätzt.</p><br>"
+  
+  + "<p style='text-align: justify;'><strong>Technische Eigenschaften</strong><br>"
+  + "Rohdichte: 2.68 g/cm³ | Druckfestigkeit: 135 N/mm² (trocken). Besonders witterungsbeständig und polierbar. Die gelbe Varietät ist spröder und weniger belastbar.</p>",
+  
+  hinweis: "<p style='text-align: justify;'>Wichtiger Hinweis: Petrographisch handelt es sich nicht um echten Marmor, sondern um einen sedimentären Knollenkalk. Die Bezeichnung 'Marmor' ist eine traditionelle Handelsbezeichnung. Die charakteristischen Knollen entstehen durch diagenetische Umlagerung von Kalkkomponenten.</p>"
 },
 "schwarz-schwedisch-basalt": {
   name: "Schwarz-Schwedisch Basalt",
@@ -370,19 +381,31 @@ beschreibung: "<br><p style='text-align: justify;'><strong>Petrographie & Entste
 ,
 "hoegler-sandstein": {
   name: "Högler Sandstein",
-  fundort: "Dopplerbruch (Ainring), Gschwendtner Bruch, Högler Rundwanderweg (Salzburger Umgebung)",
-  fundland: "Österreich (Salzburg)",
+  fundort: "Ulrichshögl bei Freilassing (historische Brüche), Dopplerbruch (Ainring), Gschwendtner Bruch",
+  fundland: "Österreich (Salzburger Umgebung)",
   bezeichnung: "Flysch-Sandstein (Altlengbach-Formation)",
-  alter:"Kreidezeit (Rhenodanubischer Flysch, ca. 100-65 Mio. Jahre)",
+  alter: "Oberkreide (Rhenodanubischer Flysch, ca. 100-65 Mio. Jahre)",
   gesteinsgruppe: "Sedimentgestein (klastisch)",
-  struktur: "Fein- bis mittelkörnig, blaugrau bis orange-beige mit welligen Schichtflächen und Rinnenkörpern",
+  struktur: "Fein- bis mittelkörnig, plattig bis dickbankig, blaugrau bis orange-beige",
   koordinaten: [
     [47.805483, 12.934944],  // Dopplerbruch bei Ainring
-    [47.797541, 12.911810]   // Gschwendtner Bruch
+    [47.797541, 12.911810],   // Gschwendtner Bruch
+    [47.840833, 12.981944]    // Ulrichshögl bei Freilassing
   ],
   bild: "./Fotos/gestein/högler_sandstein.JPG",
-  beschreibung: "<br><p style='text-align: justify;'><strong>Petrographie & Entstehung</strong><br>Der Högler Sandstein gehört zur Altlengbach-Formation des Rhenodanubischen Flyschs. Charakteristisch sind seine welligen Schichtflächen und Rinnenkörper, die auf turbiditische Ablagerungen in einem Tiefseebecken hinweisen. Die variable Färbung von blaugrau bis orange-beige entsteht durch unterschiedliche Eisenoxid-Gehalte.</p><br><p style='text-align: justify;'><strong>Abbau & Lagerstätten</strong><br>Historisch wurde der Sandstein vor allem im Dopplerbruch (17.-19. Jh.) und Gschwendtner Bruch (bis ca. 1950) gewonnen. Die Brüche liegen im Salzburger Umland und sind heute als Geotope mit Schautafeln erschlossen. Der letzte Abbau erfolgte um 1950 am Högler Rundwanderweg.</p><br><p style='text-align: justify;'><strong>Historische Nutzung</strong><br>Der Högler Sandstein fand vorwiegend im Salzburger Raum Verwendung für Wetz- und Schleifsteine sowie Tür- und Fensterrahmen. Besondere Bedeutung erlangte er durch seinen Einsatz in der romanischen Basilika auf Herrenchiemsee. Seine gleichmäßige Körnung machte ihn ideal für feine Steinmetzarbeiten.</p><br><p style='text-align: justify;'><strong>Besonderheiten</strong><br>Als typischer Flysch-Sandstein zeigt der Högler ausgeprägte Sedimentstrukturen wie Gradierungsschichtung. Die historischen Steinbrüche sind heute Teil eines geologischen Lehrpfads (Högler Rundwanderweg) und dokumentieren die regionale Handwerkstradition.</p>",
-  hinweis: "<p style='text-align: justify;'>Hinweis: Die historischen Steinbrüche bei Ainring und Gschwendt sind als Industriedenkmal erhalten und über den Högler Rundwanderweg mit informativen Schautafeln zugänglich.</p>"
+  beschreibung: "<p style='text-align: justify;'><strong>Petrographie & Entstehung</strong><br>"
+  + "Der Högler Sandstein gehört zur Altlengbach-Formation des Rhenodanubischen Flyschs. Es handelt sich um einen plattigen bis dickbankigen Sandstein mit wechsellagernden Mergelkalken. Die variable Härte und Färbung (blaugrau bis orange-beige) entsteht durch unterschiedliche Eisenoxid-Gehalte und sedimentäre Strukturen wie wellige Schichtflächen und Rinnenkörper, die auf turbiditische Ablagerungen in einem Tiefseebecken hinweisen.</p><br>"
+  
+  + "<p style='text-align: justify;'><strong>Abbau & Lagerstätten</strong><br>"
+  + "Historisch wurde der Sandstein im 19. Jahrhundert vor allem bei Ulrichshögl südwestlich von Freilassing sowie im Dopplerbruch (17.-19. Jh.) und Gschwendtner Bruch (bis ca. 1950) gewonnen. Die aufgelassenen und heute verwachsenen Steinbrüche sind als Geotope mit Schautafeln erschlossen (Högler Rundwanderweg).</p><br>"
+  
+  + "<p style='text-align: justify;'><strong>Historische Nutzung</strong><br>"
+  + "Wegen seiner unterschiedlichen Härtegrade wurde der Stein vielseitig verwendet: als Gehsteigplatten, Türstöcke, Säulen sowie für Bau- und Werksteinarbeiten. Besondere Bedeutung erlangte er durch seinen Einsatz in der romanischen Basilika auf Herrenchiemsee. Seine gleichmäßige Körnung machte ihn ideal für feine Steinmetzarbeiten.</p><br>"
+  
+  + "<p style='text-align: justify;'><strong>Besonderheiten</strong><br>"
+  + "Als typischer Flysch-Sandstein zeigt ausgeprägte Sedimentstrukturen wie Gradierungsschichtung. Die historischen Steinbrüche dokumentieren die regionale Handwerkstradition und sind Teil eines geologischen Lehrpfads.</p>",
+  
+  "hinweis": "<p style='text-align: justify;'>Die historischen Steinbrüche bei Ulrichshögl, Ainring und Gschwendt sind als Industriedenkmäler erhalten. Der Högler Rundwanderweg mit informativen Schautafeln ermöglicht Einblicke in die historische Abbautechnik.</p>"
 },
    /* "forellen-sandstein":{
         name: "Forellensandstein",

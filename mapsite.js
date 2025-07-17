@@ -625,7 +625,7 @@ createCustomMarker(48.130066, 11.565872,
                 );
                 
                 createMaterialMarker(
-                    48.127194,11.565333,
+                    48.12657260475662, 11.563375700931863,
                     "./Fotos/gestein/högler_sandstein.JPG",
                     "Ainmiller Grabstein - Högler Sandstein",
                     markers.layer3,

@@ -1088,6 +1088,8 @@ document.getElementById('searchButton').addEventListener('click', () => {
 
 
 function showSection(sectionId, subId = null) {
+
+        window.scrollTo(0, 0);
     // Verstecke alle Sektionen und setze Navigation zurück
     document.querySelectorAll('.content-section').forEach(section => {
         section.classList.remove('active-section');
@@ -1109,9 +1111,9 @@ function showSection(sectionId, subId = null) {
     }
 
     // Nur Hash aktualisieren, wenn er sich ändert
-    const newHash = subId ? `${sectionId}/${subId}` : sectionId;
+     const newHash = subId ? `${sectionId}/${subId}` : sectionId;
     if (window.location.hash.substring(1) !== newHash) {
-        window.location.hash = newHash;
+        history.replaceState(null, null, `#${newHash}`);
     }
 
     // Spezielle Handhabung für die Karte
@@ -1417,12 +1419,12 @@ function showSearchSuggestions(query) {
                 <span>${item.displayName}</span>
             `;
             
-            suggestionElement.addEventListener('click', () => {
-                showSection(item.type);
-                window.location.hash = `${item.type}/${item.id}`;
-                suggestionsContainer.style.display = 'none';
-                document.getElementById('searchInput').value = item.name;
-            });
+        suggestionElement.addEventListener('click', () => {
+    showSection(item.type);
+    window.location.hash = `${item.type}/${item.id}`;
+    suggestionsContainer.style.display = 'none';
+    document.getElementById('searchInput').value = ''; // Feld leeren
+});
             
             suggestionsContainer.appendChild(suggestionElement);
         });
@@ -1436,7 +1438,15 @@ document.getElementById('searchInput').addEventListener('input', function(e) {
     showSearchSuggestions(e.target.value);
 });
 
-// Bei Klick auf Suchbutton (bestehende Funktion)
+// In der showSearchSuggestions Funktion (bei Klick auf einen Vorschlag):
+suggestionElement.addEventListener('click', () => {
+    showSection(item.type);
+    window.location.hash = `${item.type}/${item.id}`;
+    suggestionsContainer.style.display = 'none';
+    document.getElementById('searchInput').value = ''; // Feld leeren
+});
+
+// In der Suchbutton-Click-Funktion:
 document.getElementById('searchButton').addEventListener('click', () => {
     const query = document.getElementById('searchInput').value.trim();
     if (query) {
@@ -1445,6 +1455,7 @@ document.getElementById('searchButton').addEventListener('click', () => {
             if (person.name.toLowerCase().includes(query.toLowerCase())) {
                 showSection('personen');
                 window.location.hash = `personen/${id}`;
+                document.getElementById('searchInput').value = ''; // Feld leeren
                 return;
             }
         }
@@ -1454,6 +1465,7 @@ document.getElementById('searchButton').addEventListener('click', () => {
             if (stein.name.toLowerCase().includes(query.toLowerCase())) {
                 showSection('gestein');
                 window.location.hash = `gestein/${id}`;
+                document.getElementById('searchInput').value = ''; // Feld leeren
                 return;
             }
         }
@@ -1461,6 +1473,8 @@ document.getElementById('searchButton').addEventListener('click', () => {
         alert('Kein passender Eintrag gefunden');
     }
 });
+
+
 
 // Verstecke Vorschläge beim Klicken außerhalb
 document.addEventListener('click', function(e) {

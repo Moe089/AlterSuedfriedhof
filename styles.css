@@ -928,7 +928,7 @@ img {
 }
 
 .century-marker span {
-  font-size: 1.7rem;  /* Großzügige Schriftgröße */
+  font-size: 1.3rem;  /* Großzügige Schriftgröße */
   color: hsl(35, 20%, 30%);
   font-weight: 800;
   letter-spacing: 0.5px;  /* Leichter Buchstabenabstand für bessere Lesbarkeit */
@@ -1728,7 +1728,7 @@ img {
 }
 
 .century-marker span {
-  font-size: 1.7rem;  /* Großzügige Schriftgröße */
+  font-size: 1.5rem;  /* Großzügige Schriftgröße */
   color: hsl(35, 20%, 30%);
   font-weight: 800;
   letter-spacing: 0.5px;  /* Leichter Buchstabenabstand für bessere Lesbarkeit */
