@@ -538,7 +538,7 @@ createCustomMarker(48.130066, 11.565872,
                 
                 createMaterialMarker(
                     48.12799117898037, 11.565487878772908,
-                    "./Fotos/gestein/stein_wohlschläger.jpg",
+                    "./Fotos/gestein/stein_wohlschläger_new.jpg",
                     "Wohlschläger Grabstein - Stein",
                     markers.layer3,
                     "wohlschläger",
@@ -744,7 +744,7 @@ createCustomMarker(48.130066, 11.565872,
                 
                 createMaterialMarker(
                     48.126566660608965, 11.563347172127134,
-                    "./Fotos/gestein/Stein_Brey.jpg",
+                    "./Fotos/gestein/Stein_Brey_new.jpg",
                     "Stein - Plattensandstein (Buntsandstein-Oberbayern)",
                     markers.layer3,
                     "brey",
@@ -760,7 +760,7 @@ createCustomMarker(48.130066, 11.565872,
                 
                 createMaterialMarker(
                     48.128084132951955, 11.564608529999322,
-                    "./Fotos/gestein/molasse_sandstein_scherer.jpg",
+                    "./Fotos/gestein/molasse_sandstein_scherer_new.jpg",
                     "Stein - Molassesandstein",
                     markers.layer3,
                     "scherer",
@@ -903,7 +903,7 @@ createCustomMarker(48.130066, 11.565872,
                     "Deckenplatte - Treuchtlinger Kalk",
                     markers.layer3,
                     "knorr",
-                    "treuchtlinger-kalk"
+                    "jura-marmor"
                 );
 
                 createMaterialMarker(
@@ -912,7 +912,7 @@ createCustomMarker(48.130066, 11.565872,
                     "Schriftplatte - Treuchtlinger Kalk ",
                     markers.layer3,
                     "knorr",
-                    "treuchtlinger-kalk"
+                    "jura-marmor"
                 );
 
 
@@ -953,7 +953,7 @@ createCustomMarker(48.130066, 11.565872,
                 
                 createMaterialMarker(
                     48.126455075780726, 11.563712640306962,
-                    "./Fotos/gestein/Stein_Klenze.JPG",
+                    "./Fotos/gestein/Stein_Klenze_new.JPG",
                     "Stein - Kelheimer Kalk",
                     markers.layer3,
                     "klenze",
@@ -979,7 +979,7 @@ createCustomMarker(48.130066, 11.565872,
                 
                 createMaterialMarker(
                     48.12634445037332, 11.56402371512982,
-                    "./Fotos/gestein/",
+                    "./Fotos/gestein/schwanthaler_stein_new.jpg",
                     "Stein - Rosenheimer Kalk",
                     markers.layer3,
                     "gärtner",
@@ -988,7 +988,7 @@ createCustomMarker(48.130066, 11.565872,
 
                 createMaterialMarker(
                     48.12634445037332, 11.56402371512982,
-                    "./Fotos/gestein/Gärtner_Statue.jpg",
+                    "./Fotos/gestein/Gärtner_Statue_new.jpg",
                     "Figur - Carrara Marmor",
                     markers.layer3,
                     "gärtner",
@@ -997,7 +997,7 @@ createCustomMarker(48.130066, 11.565872,
 
                 createMaterialMarker(
                     48.12634445037332, 11.56402371512982,
-                    "./Fotos/gestein/Gärtner_Medailllion.jpg",
+                    "./Fotos/gestein/Gärtner_Medailllion_new.jpg",
                     "Medaillon - Carrara Marmor",
                     markers.layer3,
                     "gärtner",
@@ -1023,14 +1023,15 @@ createCustomMarker(48.130066, 11.565872,
                     "rosenheimer-kalk"
                 );
 
-                createMaterialMarker(
+               /* createMaterialMarker(
                     48.12620534820462, 11.564485442813355,
                     "./Fotos/gestein/senefelder_sandstein.png",
-                    "Sockel - gelb-bräunlicher Sandstein (evtl. Rhätsandstein)", /*NOCH HOLEN*/
+                    "Sockel - gelb-bräunlicher Sandstein (evtl. Rhätsandstein)", /*NOCH HOLEN
                     markers.layer3,
                     "schwanthaler",
                     "rhätsandstein"
-                );
+            );
+*/
 
                 createMaterialMarker(
                     48.12620534820462, 11.564485442813355,
@@ -1081,7 +1082,7 @@ createCustomMarker(48.130066, 11.565872,
                 
                 createMaterialMarker(
                     48.12623750194903, 11.56311966009462,
-                    "./Fotos/gestein/jolly_stein.jpg",
+                    "./Fotos/gestein/jolly_stein_new.jpg",
                     "Stein - roter getigerter Schilfsandstein",
                     markers.layer3,
                     "jolly",
@@ -1557,7 +1558,7 @@ const graveMaterials = {
 
         "boos": {
         name: "Roman-Boos",
-        imageUrl: "./Fotos/grabstein/boos_grab.png", 
+        imageUrl: "./Fotos/grabstein/boos.png", 
         materials: {
             "Stein": "Tegernseer Marmor",
             "Büste": "Bronze",

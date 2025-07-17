@@ -24,7 +24,7 @@ const gesteineDaten = {
   bezeichnung: "Kalkstein",
   alter: "Oberer Jura (Malm) ca. 145-150 Mio. Jahre",
   gesteinsgruppe: "Sedimentgestein (karbonatisch)",
-  bild: "./Fotos/gestein/Stein_Klenze.jpg",
+  bild: "./Fotos/gestein/Stein_Klenze_new.jpg",
   struktur: "Weitgehend richtungslos, homogen",
   beschreibung: "<br><p style='text-align: justify;'><strong>Petrographie (Gesteinskunde)</strong><br>Der Kelheimer Kalkstein ist ein heller, homogen wirkender Sedimentkalk von gleichmäßiger Textur. Charakteristisch ist seine feinkörnige, kompakte Struktur und seine helle, cremefarbene bis leicht gelbliche Tönung. Als typischer Jura-Kalk zeigt er gelegentlich feine Fossilreste.</p><br><p style='text-align: justify;'><strong>Abbau- und Nutzungsgeschichte</strong><br>Die Nutzung des Kelheimer Kalksteins reicht bis in die Römerzeit zurück, wo er bereits für den Bau der Porta Praetoria in Regensburg Verwendung fand. Der systematische Abbau als Baustein in der Münchner Region begann Mitte des 16. Jahrhunderts. Ab etwa 1850 fand er verstärkt als Grabstein Verwendung und wurde bis ca. 1920 auf dem Südfriedhof als Denkmalstein genutzt.</p><br><p style='text-align: justify;'><strong>Verwendung</strong><br>Der Stein wurde vor allem für lokale Bauprojekte, Sakralarchitektur und Denkmäler eingesetzt. Seine homogene Struktur und gute Bearbeitbarkeit machten ihn besonders für skulpturale Arbeiten und architektonische Details geeignet. Im 19. Jahrhundert erlebte er eine Blütezeit als Material für Grabdenkmäler.</p><br><p style='text-align: justify;'><strong>Besonderheiten</strong><br>Der Kelheimer Kalkstein zeichnet sich durch seine Beständigkeit und gleichmäßige Textur aus. Im Gegensatz zu vielen anderen Jura-Kalken zeigt er kaum sichtbare Schichtung oder Fossilführung, was ihn für bildhauerische Arbeiten besonders attraktiv machte. Seine lange Nutzungstradition von der Antike bis ins 20. Jahrhundert unterstreicht seine Bedeutung als regionaler Kulturbaustein.</p>",
   hinweis: "<p style='text-align: justify;'>Der Kelheimer Kalkstein gehört zu den historisch wichtigsten Bausteinen der bayerischen Juraregion und dokumentiert über 2000 Jahre Steinmetztradition.</p>"
@@ -38,7 +38,7 @@ const gesteineDaten = {
   gesteinsgruppe: "Sedimentgestein (karbonatisch)",
   struktur: "Brekziös-knollig mit Lithothamnien-Detritus",
   koordinaten: [47.788089069308334, 12.192795732476736],
-  bild: "./Fotos/gestein/schwanthaler_stein.jpg",
+  bild: "./Fotos/gestein/schwanthaler_stein_new.jpg",
   beschreibung: "<br><p style='text-align: justify;'><strong>Petrographie (Gesteinskunde)</strong><br>Bei diesem als 'Rosenheimer Granitmarmor' handelsüblichen Gestein handelt es sich petrographisch um einen Lithothamnienkalk - einen durch Kalkrotalgen (Lithothamnium) geprägten Schuttkalk. Charakteristisch sind die bis faustgroßen, rotalgendominierten Kalkknollen in einer kalkigen Matrix, entstanden durch subaquatische Rutschungen im alpinen Molassebecken. Die Bezeichnungen 'Granitmarmor' (optische Ähnlichkeit) und 'Lithothamnienkalk' (wissenschaftlich) beziehen sich auf dasselbe Gestein.</p><br><p style='text-align: justify;'><strong>Entdeckung & Abbau</strong><br>1808 bei Sinning während des Baus der Soleleitung Traunstein-Rosenheim entdeckt, wurde der Stein bis ca. 1870 intensiv genutzt. Der historische Steinbruch (einst 30×40×15 m) bei Thalmann ist heute verwachsen, jedoch wurden 2018 durch Restaurierungsabbau neue Aufschlüsse geschaffen. Die Lagerstätte besteht aus bankigen Lithothamnienkalken in mergeligen Stockletten der Stad-Formation.</p><br><p style='text-align: justify;'><strong>Verwendung</strong><br>Als Modegestein des 19. Jahrhunderts vielseitig eingesetzt für: Sakralbauten (Taufsteine, Grabdenkmäler), repräsentative Architekturelemente (Säulen, Treppen), Denkmäler und sogar Straßenbau. Seine lebhafte Textur und Polierfähigkeit machten ihn trotz sedimentären Ursprungs zu einem beliebten Dekorstein.</p><br><p style='text-align: justify;'><strong>Besonderheiten</strong><br>Geologisch besonders durch seine Entstehung in turbiditähnlichen Ablagerungen des Molassebeckens. Die Fossilführung (Kalkrotalgen) dokumentiert flachmarine Vorgängerablagerungen. Die historische Doppelbezeichnung als 'Granitmarmor' reflektiert die marketingbedingte Namensgebung des 19. Jahrhunderts, die sich auf optische (nicht petrographische) Eigenschaften bezog.</p>",
   hinweis: "<p style='text-align: justify;'>Die Bezeichnungen 'Rosenheimer Kalk', 'Granitmarmor' und 'Lithothamnienkalk' beziehen sich auf dasselbe Gestein - petrographisch korrekt ist letztere. Der Name 'Granit' ist irreführend, da es sich weder um magmatisches Gestein noch um metamorphen Marmor handelt.</p>"
 },
@@ -97,7 +97,7 @@ const gesteineDaten = {
   gesteinsgruppe: "Sedimentgestein (klastisch)",
   struktur: "Gebändert (tigerartig), wechsellagernd grob- und feinkörnig",
   koordinaten: [49.7039, 9.2645],  // Beispiel: Miltenberg
-  bild: "./Fotos/gestein/jolly_stein.JPG",
+  bild: "./Fotos/gestein/jolly_stein_new.JPG",
   beschreibung: "<br><p style='text-align: justify;'><strong>Petrographie:</strong> Roter, fein- bis mittelkörniger Sandstein mit Tigerung, wahrscheinlich durch Wechsellagerung eisenoxidreicher Schichten. Entstanden in fluviatilen Ablagerungsräumen des Oberen Buntsandsteins.</p><br><p style='text-align: justify;'><strong>Verwendung:</strong> Seit dem Mittelalter als Baumaterial für Burgen, Kirchen und Fachwerk. Heute noch in ausgewählten Brüchen gewonnen, v. a. für Denkmalpflege und Landschaftsbau.</p>",
   hinweis: "Die auffällige Bänderung entsteht durch unterschiedliche Eisenoxid-Verteilung. Nicht zu verwechseln mit ähnlichen Buntsandstein-Varietäten."
 },
@@ -309,7 +309,7 @@ beschreibung: "<br><p style='text-align: justify;'><strong>Petrographie & Entste
         gesteinsgruppe: "Sedimentgestein (Molasse-Becken)",
         struktur: "Gleichkörnig, schwach gebankt, lokal schräggeschichtet",
         koordinaten: [47.69413103867981, 10.799581002701295],
-        bild: "./Fotos/gestein/molasse_sandstein_scherer.JPG",
+        bild: "./Fotos/gestein/molasse_sandstein_scherer_new.JPG",
         beschreibung: "Der Lechbrucker Molassesandstein entstand durch Ablagerung von Flusssedimenten im alpinen Vorlandbecken. Charakteristisch ist seine kalkige Bindung und hohe Wetterbeständigkeit. Historisch wichtiger Baustein für Kirchen und Denkmäler im Allgäu. Oft mit fossilen Pflanzenabdrücken (Blattabdrücke) erhalten.",
     },
 "jurakalk-grau": {
@@ -437,7 +437,7 @@ beschreibung: "<br><p style='text-align: justify;'><strong>Petrographie & Entste
     [49.8000, 9.2000]
   ]
   ,
-  bild: "./Fotos/gestein/Stein_Brey.JPG",
+  bild: "./Fotos/gestein/Stein_Brey_new.JPG",
 beschreibung: "<br><p style='text-align: justify;'><strong>Petrographie & Eigenschaften</strong><br>Plattensandstein ist sehr feinkörnig bis mittelkörnig mit Ton- und Eisenbindung, teilweise kieselig gebunden. Farblich variiert er von Grau über blassrot bis satt Braunrot, oft mit Entfärbungshöfen. Er ist frostbeständig, jedoch nicht tausalzbeständig.</p><br><p style='text-align: justify;'><strong>Abbau & Verwendung</strong><br>Wichtige Abbaugebiete liegen heute südlich des Mains bei Miltenberg, Amorbach und Marktheidenfeld. Historisch wurde der Stein für Steinmetzarbeiten, Fassadenverkleidungen, Fenster- und Türgewände genutzt. Auch am Alten Südfriedhof München wurde er vereinzelt verbaut, ist heute aber nur noch selten im Einsatz.</p><br><p style='text-align: justify;'><strong>Besonderheiten</strong><br>Plattensandstein ist leicht zu bearbeiten, jedoch empfindlich gegenüber Tausalz. Zeitweise auftretende Tongallen können die Qualität beeinträchtigen. Im Handel wird er häufig als „Roter Mainsandstein“ oder unter regionalen Bezeichnungen wie „Ebenheid rot“ geführt.</p>"
 ,
 hinweis: "<p style='text-align: justify;'>Achtung: Trotz seiner an sich robusten Natur ist Plattensandstein für frostexponierte Anwendungen ungeeignet. Bei historischen Grabmalen sind oft typische Schalenbildungen und Absandungen zu beobachten.</p>"
