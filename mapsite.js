@@ -1016,7 +1016,7 @@ createCustomMarker(48.130066, 11.565872,
                 
                 createMaterialMarker(
                     48.12620534820462, 11.564485442813355,
-                    "./Fotos/gestein/schwanthaler_stein.JPG", /*NOCH HOLEN*/
+                    "./Fotos/gestein/schwanthaler_stein_new.JPG", /*NOCH HOLEN*/
                     "Stein - Rosenheimer Kalk",
                     markers.layer3,
                     "schwanthaler",
