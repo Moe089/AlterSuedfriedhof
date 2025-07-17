@@ -538,7 +538,7 @@ createCustomMarker(48.130066, 11.565872,
                 
                 createMaterialMarker(
                     48.12799117898037, 11.565487878772908,
-                    "./Fotos/gestein/stein_wohlschläger_new.jpg",
+                    "./Fotos/gestein/stein_wohlschläger_new.JPG",
                     "Wohlschläger Grabstein - Stein",
                     markers.layer3,
                     "wohlschläger",
@@ -744,7 +744,7 @@ createCustomMarker(48.130066, 11.565872,
                 
                 createMaterialMarker(
                     48.126566660608965, 11.563347172127134,
-                    "./Fotos/gestein/Stein_Brey_new.jpg",
+                    "./Fotos/gestein/Stein_Brey_new.JPG",
                     "Stein - Plattensandstein (Buntsandstein-Oberbayern)",
                     markers.layer3,
                     "brey",
@@ -979,7 +979,7 @@ createCustomMarker(48.130066, 11.565872,
                 
                 createMaterialMarker(
                     48.12634445037332, 11.56402371512982,
-                    "./Fotos/gestein/schwanthaler_stein_new.jpg",
+                    "./Fotos/gestein/schwanthaler_stein_new.JPG",
                     "Stein - Rosenheimer Kalk",
                     markers.layer3,
                     "gärtner",
@@ -1016,7 +1016,7 @@ createCustomMarker(48.130066, 11.565872,
                 
                 createMaterialMarker(
                     48.12620534820462, 11.564485442813355,
-                    "./Fotos/gestein/schwanthaler_stein_new.jpg", /*NOCH HOLEN*/
+                    "./Fotos/gestein/schwanthaler_stein_new.JPG", /*NOCH HOLEN*/
                     "Stein - Rosenheimer Kalk",
                     markers.layer3,
                     "schwanthaler",
