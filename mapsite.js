@@ -646,7 +646,7 @@ createCustomMarker(48.130066, 11.565872,
                 
                 createMaterialMarker(
                     48.130066, 11.565872,
-                    "./Fotos/gestein/adneter_marmor_miller.jpg",
+                    "./Fotos/gestein/adneter_marmor_miller.JPG",
                     "Ferdinand von Miller - Adneter Marmor",
                     markers.layer3,
                     "miller",
@@ -655,7 +655,7 @@ createCustomMarker(48.130066, 11.565872,
 
                 createMaterialMarker(
                     48.130066, 11.565872,
-                    "./Fotos/gestein/eisen_miller.jpg",
+                    "./Fotos/gestein/eisen_miller.JPG",
                     "Ferdinand von Miller - Eisen",
                     markers.layer3,
                     "miller",
@@ -672,7 +672,7 @@ createCustomMarker(48.130066, 11.565872,
                 
                 createMaterialMarker(
                     48.12505213857038, 11.5629501735568,
-                    "./Fotos/gestein/schwarz_basalt_robl.jpg",
+                    "./Fotos/gestein/schwarz_basalt_robl.JPG",
                     "Stein - Schwarz-Schwedisch Basalt",
                     markers.layer3,
                     "robl",
@@ -681,7 +681,7 @@ createCustomMarker(48.130066, 11.565872,
 
                 createMaterialMarker(
                     48.12505213857038, 11.5629501735568,
-                    "./Fotos/gestein/kreuz_basalt_robl.jpg",
+                    "./Fotos/gestein/kreuz_basalt_robl.JPG",
                     "Kreuz - Schwarz-Schwedisch Basalt",
                     markers.layer3,
                     "robl",
@@ -760,7 +760,7 @@ createCustomMarker(48.130066, 11.565872,
                 
                 createMaterialMarker(
                     48.128084132951955, 11.564608529999322,
-                    "./Fotos/gestein/molasse_sandstein_scherer_new.jpg",
+                    "./Fotos/gestein/molasse_sandstein_scherer_new.JPG",
                     "Stein - Molassesandstein",
                     markers.layer3,
                     "scherer",
