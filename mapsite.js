@@ -681,7 +681,7 @@ createCustomMarker(48.130066, 11.565872,
 
                 createMaterialMarker(
                     48.12505213857038, 11.5629501735568,
-                    "./Fotos/gestein/kreuz_basalt_robl.JPG",
+                    "./Fotos/gestein/kreuz_basalt_robl.JP",
                     "Kreuz - Schwarz-Schwedisch Basalt",
                     markers.layer3,
                     "robl",
@@ -988,7 +988,7 @@ createCustomMarker(48.130066, 11.565872,
 
                 createMaterialMarker(
                     48.12634445037332, 11.56402371512982,
-                    "./Fotos/gestein/Gärtner_Statue_new.jpg",
+                    "./Fotos/gestein/Gärtner_Statue_new.JPG",
                     "Figur - Carrara Marmor",
                     markers.layer3,
                     "gärtner",
@@ -997,7 +997,7 @@ createCustomMarker(48.130066, 11.565872,
 
                 createMaterialMarker(
                     48.12634445037332, 11.56402371512982,
-                    "./Fotos/gestein/Gärtner_Medailllion_new.jpg",
+                    "./Fotos/gestein/Gärtner_Medailllion_new.JPG",
                     "Medaillon - Carrara Marmor",
                     markers.layer3,
                     "gärtner",
