@@ -2108,7 +2108,7 @@ else if (popupText.includes("Arnold Zenetti")) {
                 <button class="show-person-btn" onclick="navigateToPersonEntry('alois-senefelder')">
             Zum Personeneintrag
         </button>
-                <button class="ar-btn" onclick="launchAR(48.14305870840174, 11.568869453580053, 0, 20, 'fraunhofer');">AR starten</button>
+                <button class="ar-btn" onclick="launchAR(48.14287893857046, 11.568856472267985, 0, 20, 'fraunhofer');">AR starten</button>
                 <button class="show-street-btn" onclick="showRouteForPerson('Alois Senefelder', 'street')">
 
                     Straße anzeigen
