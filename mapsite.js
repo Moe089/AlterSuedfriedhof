@@ -29,7 +29,7 @@ function initializeMap() {
 
     // Marker-Layer definieren
     const baseLayers = {
-        "Berühmtheiten-Ansicht": markers.layer1,
+        "Persönlichkeiten-Ansicht": markers.layer1,
         "Grabstein-Ansicht": markers.layer2,
         "Gesteins-Ansicht": markers.layer3
     };
