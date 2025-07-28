@@ -681,7 +681,7 @@ createCustomMarker(48.130066, 11.565872,
 
                 createMaterialMarker(
                     48.12505213857038, 11.5629501735568,
-                    "./Fotos/gestein/kreuz_basalt_robl.JP",
+                    "./Fotos/gestein/kreuz_basalt_robl.JPG",
                     "Kreuz - Schwarz-Schwedisch Basalt",
                     markers.layer3,
                     "robl",
@@ -1168,6 +1168,44 @@ createCustomMarker(48.130066, 11.565872,
                     "ett",
                     "eisen"
                 );
+
+
+                
+
+                createMasterMarker(
+                    48.1283620948113, 11.564841357860816,
+                    "patzenhofer",
+                    markers.layer3
+                );
+                
+                createMaterialMarker(
+                    48.1283620948113, 11.564841357860816,
+                    "./Fotos/gestein/litho_kalk.JPG",
+                    "Stein - Lithothamnienkalk",
+                    markers.layer3,
+                    "patzenhofer",
+                    "lithothamnienkalk"
+                );
+
+                createMaterialMarker(
+                    48.1283620948113, 11.564841357860816,
+                    "./Fotos/gestein/jurastein_grau.JPG",
+                    "Steinplatte - Jurakalk grau",
+                    markers.layer3,
+                    "patzenhofer",
+                    "jurakalk-grau"
+                );
+
+                createMaterialMarker(
+                    48.1283620948113, 11.564841357860816,
+                    "./Fotos/gestein/hohenschwangauer_kalk.JPG",
+                    "Stein - Hohenschwangauer Kalk",
+                    markers.layer3,
+                    "patzenhofer",
+                    "hohenschwangauer-kalk"
+                );
+
+
 
 
                 
@@ -1717,10 +1755,17 @@ const graveMaterials = {
         materials: {
             "Stein": "Molassesandstein" 
         }
+    },
+
+    "patzenhofer": {
+        name: "Patzenhofer",
+        imageUrl: "",
+        materials: {
+            "Stein": "Lithothamnienkalk",
+            "Stein": "Hohenschwangauerkalk",
+            "Platte": "Jurakalk-Grau"
+        }
     }
-
-
-
 
 
     
