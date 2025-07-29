@@ -614,7 +614,6 @@ document.addEventListener('DOMContentLoaded', function() {
     showSection('Homepage');
 });
 
-// Rest des Codes bleibt gleich...
 document.getElementById('gesteinDropdown').addEventListener('change', function () {
   const steinId = this.value;
   if (steinId) {

@@ -764,7 +764,7 @@ createCustomMarker(48.130066, 11.565872,
                     "Stein - Molassesandstein",
                     markers.layer3,
                     "scherer",
-                    "molassesandstein"
+                    "lechbrucker-molassesandstein"
                 );
 
 
@@ -1265,7 +1265,7 @@ function showMaterialGroup(personId, materialKey) {
     markers.layer3.eachLayer(function(marker) {
         if (marker.options.personId === personId) {
             const isActive = marker.getPopup().getContent().includes(materialKey);
-            marker.setOpacity(isActive ? 1 : 0.3);
+            marker.setOpacity(isActive ? 1 : 0.9);
             marker.setZIndexOffset(isActive ? 500 : 0);
             
             if (isActive) marker.openPopup();
@@ -1312,21 +1312,24 @@ function navigateToRockEntry(rockId) {
     map.closePopup();
     showSection('gestein', rockId);
     
+    // Direktes Setzen der aktiven Klasse statt click() zu simulieren
     const rockItem = document.querySelector(`#gesteinListe li[data-stein="${rockId}"]`);
     if (rockItem) {
-        rockItem.click();
+        document.querySelectorAll('#gesteinListe li').forEach(i => i.classList.remove('active'));
+        rockItem.classList.add('active');
         rockItem.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         
-        // Highlight alle Marker mit diesem Gestein
+        // Details direkt anzeigen statt über click()
+        showGesteinDetail(rockId);
+        
         highlightRockMarkers(rockId);
     }
 }
-
 function highlightRockMarkers(rockId) {
     // Setze alle Marker zurück
     markers.layer3.eachLayer(marker => {
         if (marker.options.materialKey) {
-            marker.setOpacity(0.3);
+            marker.setOpacity(0.9);
             marker.setZIndexOffset(0);
         }
     });
@@ -1347,7 +1350,11 @@ function highlightRockMarkers(rockId) {
     if (firstMarker) {
         map.setView(firstMarker.getLatLng(), 19);
     }
-}
+}let currentHighlights = {
+    markers: [],
+    clusters: []
+};
+
 function highlightAllRockMarkers(rockId) {
     // Zur Karte wechseln und Layer 3 aktivieren
     showSection('karte');
@@ -1355,22 +1362,8 @@ function highlightAllRockMarkers(rockId) {
         markers.layer3.addTo(map);
     }
 
-    // Alle Marker und Cluster zurücksetzen
-    markers.layer3.eachLayer(layer => {
-        // Für einzelne Marker
-        if (layer.options && layer.options.materialKey) {
-            layer.setOpacity(0.9);
-            layer.setZIndexOffset(0);
-            if (layer._originalIcon) {
-                layer.setIcon(layer._originalIcon);
-            }
-        }
-        // Für Cluster
-        else if (layer.getChildCount) {
-            layer.setIcon(layer._originalClusterIcon || layer.options.icon);
-            layer.setOpacity(1);
-        }
-    });
+    // Zuerst alle bestehenden Hervorhebungen zurücksetzen
+    resetAllHighlights();
 
     // Marker mit diesem Gestein finden und zugehörige Cluster identifizieren
     const rockMarkers = [];
@@ -1391,7 +1384,7 @@ function highlightAllRockMarkers(rockId) {
 
     // Wenn Marker gefunden wurden
     if (rockMarkers.length > 0) {
-        // Zuerst Cluster hervorheben
+        // Cluster hervorheben
         Array.from(parentClusters).forEach((cluster, index) => {
             // Original-Icon speichern
             if (!cluster._originalClusterIcon) {
@@ -1405,68 +1398,73 @@ function highlightAllRockMarkers(rockId) {
                 iconSize: L.point(40, 40)
             });
 
-            setTimeout(() => {
-                cluster.setIcon(highlightClusterIcon);
-                cluster.setZIndexOffset(2000);
-                
-                // Zum ersten Cluster zoomen
-                if (index === 0) {
-                    const bounds = cluster.getBounds();
-                    if (bounds.isValid()) {
-                        map.fitBounds(bounds, { padding: [50, 50], maxZoom: 17 });
-                    }
+            cluster.setIcon(highlightClusterIcon);
+            cluster.setZIndexOffset(2000);
+            
+            // Zum ersten Cluster zoomen
+            if (index === 0) {
+                const bounds = cluster.getBounds();
+                if (bounds.isValid()) {
+                    map.fitBounds(bounds, { padding: [50, 50], maxZoom: 17 });
                 }
-            }, 100 * index);
+            }
+            
+            // Zur Liste der aktuellen Hervorhebungen hinzufügen
+            currentHighlights.clusters.push(cluster);
         });
 
-        // Dann einzelne Marker hervorheben
+        // Einzelne Marker hervorheben
         rockMarkers.forEach((marker, index) => {
-            setTimeout(() => {
-                const originalIcon = marker.getIcon();
-                if (!marker._originalIcon) {
-                    marker._originalIcon = originalIcon;
-                }
+            const originalIcon = marker.getIcon();
+            if (!marker._originalIcon) {
+                marker._originalIcon = originalIcon;
+            }
 
-                const highlightIcon = L.divIcon({
-                    ...originalIcon.options,
-                    className: originalIcon.options.className + ' rock-marker-highlight',
-                    iconSize: [originalIcon.options.iconSize[0] * 1.5, 
-                              originalIcon.options.iconSize[1] * 1.5]
-                });
+            const highlightIcon = L.divIcon({
+                ...originalIcon.options,
+                className: originalIcon.options.className + ' rock-marker-highlight',
+                iconSize: [originalIcon.options.iconSize[0] * 1.5, 
+                          originalIcon.options.iconSize[1] * 1.5]
+            });
 
-                marker.setIcon(highlightIcon);
-                marker.setOpacity(1);
-                marker.setZIndexOffset(1000 - index * 10);
+            marker.setIcon(highlightIcon);
+            marker.setOpacity(1);
+            marker.setZIndexOffset(1000 - index * 10);
 
-                // Für den ersten Marker: Popup öffnen
-                if (index === 0) {
-                    setTimeout(() => {
-                        marker.openPopup();
-                        map.setView(marker.getLatLng(), 19);
-                    }, 100 * parentClusters.size + 500);
-                }
-            }, 100 * parentClusters.size + 100 * index);
+            // Für den ersten Marker: Popup öffnen
+            if (index === 0) {
+                marker.openPopup();
+                map.setView(marker.getLatLng(), 19);
+            }
+            
+            // Zur Liste der aktuellen Hervorhebungen hinzufügen
+            currentHighlights.markers.push(marker);
         });
-
-        // Nach 20 Sekunden zurücksetzen
-        setTimeout(() => {
-            rockMarkers.forEach(marker => {
-                if (marker._originalIcon) {
-                    marker.setIcon(marker._originalIcon);
-                }
-                marker.setOpacity(0.9);
-                marker.setZIndexOffset(0);
-            });
-
-            Array.from(parentClusters).forEach(cluster => {
-                if (cluster._originalClusterIcon) {
-                    cluster.setIcon(cluster._originalClusterIcon);
-                }
-                cluster.setZIndexOffset(0);
-            });
-        }, 20000);
     }
+}
 
+// Funktion zum Zurücksetzen aller Hervorhebungen
+function resetAllHighlights() {
+    // Marker zurücksetzen
+    currentHighlights.markers.forEach(marker => {
+        if (marker._originalIcon) {
+            marker.setIcon(marker._originalIcon);
+        }
+        marker.setOpacity(0.9);
+        marker.setZIndexOffset(0);
+    });
+
+    // Cluster zurücksetzen
+    currentHighlights.clusters.forEach(cluster => {
+        if (cluster._originalClusterIcon) {
+            cluster.setIcon(cluster._originalClusterIcon);
+        }
+        cluster.setZIndexOffset(0);
+    });
+
+    // Aktuelle Hervorhebungen leeren
+    currentHighlights.markers = [];
+    currentHighlights.clusters = [];
 }
 document.querySelectorAll('.nav__link').forEach(link => {
     link.addEventListener('click', function(e) {

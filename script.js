@@ -1090,6 +1090,10 @@ document.getElementById('searchButton').addEventListener('click', () => {
 function showSection(sectionId, subId = null) {
 
         window.scrollTo(0, 0);
+
+           if (sectionId !== 'karte' || (subId && subId !== currentHighlights.rockId)) {
+        resetAllHighlights();
+    }
     // Verstecke alle Sektionen und setze Navigation zurück
     document.querySelectorAll('.content-section').forEach(section => {
         section.classList.remove('active-section');
@@ -1254,16 +1258,23 @@ function showGesteinDetail(steinId) {
         // Zeige vollständige Details (identisch zum Click-Handler)
         document.getElementById('gesteinDetails').innerHTML = `
               <div class="details-content">
-                    <h2>${stein.name}</h2>
+                    <h2>${stein.name}</h2> <br> <button class="show-rock-markers-btn" 
+                    
+                    onclick="highlightAllRockMarkers('${steinId}')">
+                    
+                <i class="fas fa-map-marker-alt"></i> Alle Benutzungsorte (in braun) anzeigen
+            </button>
+                 
                     <div class="gestein-info-grid">
                         <div class="gestein-info-item">
                             <span class="gestein-info-label">Fundort:</span>
-                            <span class="gestein-info-value">${stein.fundort || 'Nicht verfügbar'}
+                             <span class="gestein-info-value">${stein.fundort || 'Nicht verfügbar'}
                                 ${stein.koordinaten ? `
                                 <button class="show-on-map-btn" 
                                         onclick="window.showOnMapWithId('${steinId}')">
                                     Auf Karte zeigen
                                 </button>` : ''}
+                                
                             </span>
                         </div>
                             <div class="gestein-info-item">
