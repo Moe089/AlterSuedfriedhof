@@ -144,6 +144,23 @@ const gesteineDaten = {
   hinweis: "<p style='text-align: justify;'>Trotz des Namens handelt es sich petrographisch nicht um Muscheln allein, sondern um einen komplexen marinen Kalkstein mit vielfältiger Fossilführung. Die Bezeichnung bezieht sich auf die geologische Formation der Mittleren Trias.</p>"
 },
 
+"grauer-granit": {
+  name: "Grauer Granit (Bayerischer Wald)",
+  fundort: "Bayerischer Wald (Hauzenberger Massiv, Saldenburger Massiv, Prackenbach, Patersdorf, Prünst, Zwiesel, Viechtach u.a.)",
+  fundland: "Deutschland (Bayern)",
+  bezeichnung: "Granit/Granodiorit",
+  alter: "Spätpaläozoikum",
+  gesteinsgruppe: "Magmatisches Tiefengestein",
+  struktur: "Mittel- bis grobkörnig",
+  koordinaten: [
+    [48.65, 13.6333],  
+    [48.7833, 13.3167]
+  ],
+  bild: "./Fotos/gestein/Sockel_Nußbaum.JPG",
+  beschreibung: "<br><p style='text-align: justify;'><strong>Geologische Verbreitung</strong><br>Im Bayerischen Wald intrudierten Granitmassive in die Gneise, darunter das 57 km² große Hauzenberger und das 204 km² große Saldenburger Massiv (Fürstenstein). Weitere Vorkommen finden sich bei Prackenbach, Patersdorf, Prünst, Zwiesel und Viechtach. Entlang der Pfahlzone wurden die Granite zu Flasergraniten umgeformt.</p><br><p style='text-align: justify;'><strong>Nutzung als Grabsteinmaterial</strong><br>Der graue Granit zählt mit etwa 30% Anteil zu den wichtigsten Materialien für Sockel, Podeste und Säulen von Grabdenkmälern auf dem alten südlichen Friedhof, besonders in Kombination mit anderen Gesteinsarten. Seine Beliebtheit verdankt er der Wetterbeständigkeit und strukturellen Stabilität.</p>",
+  hinweis: "<p style='text-align: justify;'>Petrographisch handelt es sich teils um echte Granite, teils um Granodiorite oder Quarzdiorite. Die Bezeichnung folgt hier der traditionellen Handelsklassifikation.</p>"
+},
+
 /*    {
         name: "Kösseine-Granit",
         fundort: "Kösseine-Massiv, Fichtelgebirge (Oberfranken, Bayern)",

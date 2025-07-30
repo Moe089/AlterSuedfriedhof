@@ -752,19 +752,36 @@ createCustomMarker(48.130066, 11.565872,
                 );
 
 
-                                createMasterMarker(
-                    48.128084132951955, 11.564608529999322,
+                createMasterMarker(
+                    48.128212, 11.564677,
                     "scherer",
                     markers.layer3
                 );
                 
                 createMaterialMarker(
-                    48.128084132951955, 11.564608529999322,
+                    48.128212, 11.564677,
                     "./Fotos/gestein/molasse_sandstein_scherer_new.JPG",
                     "Stein - Molassesandstein",
                     markers.layer3,
                     "scherer",
                     "lechbrucker-molassesandstein"
+                );
+
+
+
+                createMasterMarker(
+                    48.127423, 11.564414,
+                    "sperr",
+                    markers.layer3
+                );
+                
+                createMaterialMarker(
+                    48.127423, 11.564414,
+                    "./Fotos/gestein/diorit.JPG",
+                    "Stein - Diorit",
+                    markers.layer3,
+                    "sperr",
+                    "diorit"
                 );
 
 
@@ -1173,13 +1190,13 @@ createCustomMarker(48.130066, 11.565872,
                 
 
                 createMasterMarker(
-                    48.1283620948113, 11.564841357860816,
+                    48.127814, 11.564375,
                     "patzenhofer",
                     markers.layer3
                 );
                 
                 createMaterialMarker(
-                    48.1283620948113, 11.564841357860816,
+                    48.127814, 11.564375,
                     "./Fotos/gestein/litho_kalk.JPG",
                     "Stein - Lithothamnienkalk",
                     markers.layer3,
@@ -1188,7 +1205,7 @@ createCustomMarker(48.130066, 11.565872,
                 );
 
                 createMaterialMarker(
-                    48.1283620948113, 11.564841357860816,
+                    48.127814, 11.564375,
                     "./Fotos/gestein/jurastein_grau.JPG",
                     "Steinplatte - Jurakalk grau",
                     markers.layer3,
@@ -1197,7 +1214,7 @@ createCustomMarker(48.130066, 11.565872,
                 );
 
                 createMaterialMarker(
-                    48.1283620948113, 11.564841357860816,
+                    48.127814, 11.564375,
                     "./Fotos/gestein/hohenschwangauer_kalk.JPG",
                     "Stein - Hohenschwangauer Kalk",
                     markers.layer3,
@@ -1526,7 +1543,15 @@ const graveMaterials = {
             "Sockel": "grauer Granit (bayerischer Wald)",
             
         },
+    },
       
+        "sperr": {
+            name: "Familie Sperr",
+            imageUrl: "./Fotos/grabstein/Sperr.png",
+            materials: {
+                "Stein": "Diorit"
+            
+        }
     },
 
     "reichenbach": {
@@ -1757,7 +1782,7 @@ const graveMaterials = {
 
     "patzenhofer": {
         name: "Patzenhofer",
-        imageUrl: "",
+        imageUrl: "./Fotos/grabstein/Patzenhofer.png",
         materials: {
             "Stein": "Lithothamnienkalk",
             "Stein": "Hohenschwangauerkalk",
