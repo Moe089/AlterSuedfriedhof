@@ -1980,6 +1980,16 @@ function showRouteForPerson(personName, option = 'street') {
             ];
         }
 
+                else if (personName === "Robl") {
+            streetCoordinates = [
+                [48.190758606702204, 11.54985772803003], 
+                [48.19166267771679, 11.552725991839962]
+               
+             
+                
+            ];
+        }
+
         else if (personName === "Liebig") {
             streetCoordinates = [
                 [48.14148647015191, 11.586364650323691], 
@@ -2564,6 +2574,9 @@ else if (popupText.includes("Jolly") || popupText.includes("jolly")) {
                 <button class="show-person-btn" onclick="navigateToPersonEntry('thaddus-robl')">
             Zum Personeneintrag
         </button>
+                  <button class="show-street-btn" onclick="showRouteForPerson('Robl', 'street')">
+                    Straße anzeigen
+                </button>
             
             </div>
         `);
